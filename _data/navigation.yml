@@ -1,0 +1,9 @@
+main:
+  - title: "Get Started"
+    url: /docs
+  - title: "User Guide"
+    url: /docs
+  - title: "Developer Guide"
+  - title: "Docs"
+  - title: "GitHub"
+    url: https://github.com/KiddoZhu/GraphVite
