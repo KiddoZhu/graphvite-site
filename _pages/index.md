@@ -65,13 +65,13 @@ Application Overview
     </tr>
     <tr>
         <td><a href="/node_embedding" title="Node Embedding">
-            <img src="/assets/images/graph.png" url="node embedding" />
+            <img src="{{ site.baseurl }}/assets/images/graph.png" url="node embedding" />
         </a></td>
         <td><a href="/knowledge_graph_embedding" title="Knowledge Graph Embedding">
-            <img src="/assets/images/knowledge_graph.png" />
+            <img src="{{ site.baseurl }}/assets/images/knowledge_graph.png" />
         </a></td>
         <td><a href="/visualization" title="Graph / High-dimensional Visualization">
-            <img src="/assets/images/visualization.png" />
+            <img src="{{ site.baseurl }}/assets/images/visualization.png" />
         </a></td>
     </tr>
 </table>
