@@ -5,7 +5,7 @@ permalink: /
 header:
   #overlay_color: "#018dc6"
   overlay_filter: rgba(28, 150, 207, 0.9)
-  overlay_image: /assets/images/overlay.jpg
+  overlay_image: "/assets/images/overlay.jpg"
   actions:
     - label: "Get Started"
       url: docs/quick-start-guide/
@@ -34,13 +34,13 @@ benchmark:
       A large collection of models and benchmarks are provided to facilitate fast
       reproducibility. Choose your favourite model and plug it into your research or 
       development. Everything is there and no further effort is needed.
-    image_path: /assets/images/benchmark.png
+    image_path: "/assets/images/benchmark.png"
     url: "benchmarks"
     btn_class: "btn--primary"
     btn_label: "Learn more"
 interface:
   - title: "Flexible Interface"
-    image_path: /assets/images/interface.png
+    image_path: "/assets/images/interface.png"
     excerpt: >
       Tailored to different needs, flexible interface brings you great user experience,
       while minimizes the issues you do not care. It is always easy and efficient to
