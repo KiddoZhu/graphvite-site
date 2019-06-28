@@ -1,0 +1,279 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Command Line &mdash; GraphVite 0.1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Configuration Files" href="configuration.html" />
+    <link rel="prev" title="Benchmarks" href="../benchmark.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> GraphVite
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Get Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Install GraphVite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Application Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmark.html">Benchmarks</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Command Line</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#reproduce-baseline-benchmarks">Reproduce baseline benchmarks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#run-configuration-files">Run configuration files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#visualize-high-dimensional-vectors">Visualize high-dimensional vectors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python.html">Python Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="auto.html">Magic of Auto</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../developer/framework.html">Understand the Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/model.html">Customize Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/solver.html">Customize Solvers</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Package Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/application.html">Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/graph.html">Graph</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/solver.html">Solver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/optimizer.html">Optimizer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/dataset.html">Dataset</a></li>
+</ul>
+<p class="caption"><span class="caption-text">FAQ</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">GraphVite</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Command Line</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/user/command_line.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="command-line">
+<h1>Command Line<a class="headerlink" href="#command-line" title="Permalink to this headline">¶</a></h1>
+<p>As you see in <a class="reference internal" href="../quick_start.html"><span class="doc">Quick Start</span></a>, GraphVite can be simply invoked from a command
+line. Here are some other useful commands you may use.</p>
+<div class="section" id="reproduce-baseline-benchmarks">
+<h2>Reproduce baseline benchmarks<a class="headerlink" href="#reproduce-baseline-benchmarks" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>graphvite baseline <span class="o">[</span>tag ...<span class="o">]</span> <span class="o">[</span>--no-eval<span class="o">]</span> <span class="o">[</span>--gpu n<span class="o">]</span> <span class="o">[</span>--cpu m<span class="o">]</span>
+</pre></div>
+</div>
+<p>GraphVite provides a large number of baselines on standard datasets. To reproduce
+a baseline benchmark, you only need to specify the keywords of the experiment, and
+the library will do all for you.</p>
+<p>By default, baselines are configured to use all CPUs and GPUs. You may override this
+behavior by specifying the number of GPUs and the number of CPU per GPU.</p>
+<p>For example, the following command line reproduces RotatE model on FB15k dataset,
+using 4 GPU and 12 CPU.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>graphvite baseline rotate fb15k --gpu <span class="m">4</span> --cpu <span class="m">3</span>
+</pre></div>
+</div>
+<p>Use <code class="docutils literal notranslate"><span class="pre">graphvite</span> <span class="pre">list</span></code> to get a list of available baselines.</p>
+</div>
+<div class="section" id="run-configuration-files">
+<h2>Run configuration files<a class="headerlink" href="#run-configuration-files" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>graphvite run <span class="o">[</span>config<span class="o">]</span> <span class="o">[</span>--no-eval<span class="o">]</span> <span class="o">[</span>--gpu n<span class="o">]</span> <span class="o">[</span>--cpu m<span class="o">]</span>
+</pre></div>
+</div>
+<p>Experiments can be easily conducted in GraphVite by specifying a yaml configuration.
+For how to write an experiment configuration, see <a class="reference internal" href="configuration.html"><span class="doc">Configuration Files</span></a>.</p>
+</div>
+<div class="section" id="visualize-high-dimensional-vectors">
+<h2>Visualize high-dimensional vectors<a class="headerlink" href="#visualize-high-dimensional-vectors" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>graphvite visualize <span class="o">[</span>file<span class="o">]</span> <span class="o">[</span>--label label_file<span class="o">]</span> <span class="o">[</span>--save save_file<span class="o">]</span> <span class="o">[</span>--perplexity n<span class="o">]</span> <span class="o">[</span>--3d<span class="o">]</span>
+</pre></div>
+</div>
+<p>You can visualize your high-dimensional vectors with a simple command line in
+GraphVite.</p>
+<p>The file can be either in numpy dump or text format. You can also provide
+a label file to see if labels have any structure in the vector space. For the save
+file, we recommend to use a <code class="docutils literal notranslate"><span class="pre">png</span></code> format, while <code class="docutils literal notranslate"><span class="pre">pdf</span></code> is also supported.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="configuration.html" class="btn btn-neutral float-right" title="Configuration Files" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../benchmark.html" class="btn btn-neutral float-left" title="Benchmarks" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, MilaGraph
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

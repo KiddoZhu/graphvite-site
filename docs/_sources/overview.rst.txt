@@ -1,0 +1,60 @@
+Application Overview
+====================
+
+In GraphVite, the pipelines are packaged into classes, which we call applications.
+
+There are 3 main applications, node embedding, knowledge graph embedding, and
+graph / high-dimensional visualization. Each application loads an input graph,
+trains embeddings, and finally evaluate the embeddngs on some downstream tasks.
+
+.. _node embedding:
+
+Node Embedding
+--------------
+
+Node embedding is a family of algorithms that learn a representation for each node
+in a graph. It is common to use node embedding for solving problems on graph structures.
+
+Node embedding can be used for analyzing social networks, citation networks,
+or protein-protein interaction networks. It would also be helpful to other unsupervised
+learning problems if they can be formalized as graphs.
+
+To qualify the learned embeddings, we evaluate them on node classification or link
+prediction tasks.
+
+.. seealso::
+    :class:`GraphApplication <graphvite.application.GraphApplication>`
+
+.. _knowledge graph embedding:
+
+Knowledge Graph Embedding
+-------------------------
+
+Knowledge graph (aka. knowledge base) is a family of graphs where each edge has a type.
+Typically, nodes are called entities, and edges are called relations in a knowledge graph.
+The knowledge graph embedding algorithms learn a representation for each entity and relation.
+
+With knowledge graph embeddings, it is easy to compare entities or relations in a
+uniform space. One may also leverage embeddings for knowledge-enhanced predictions in
+various tasks.
+
+The learned embeddings are evaluated by link prediction in GraphVite.
+
+.. seealso::
+    :class:`KnowledgeGraphApplication <graphvite.application.KnowledgeGraphApplication>`
+
+.. _visualization:
+
+Graph / High-dimensional Visualization
+--------------------------------------
+
+Visualization is a critical step in exploring and analyzing graphs and
+high-dimensional data. It is essential to have good, yet fast projection algorithms
+to visualize large-scale data collections.
+
+As many of these methods work on a similarity graph, GraphVite also provides
+acceleration for this application. Taking a graph or a group of high-dimensional
+vectors, GraphVite can produce either 2D or 3D projections in a very short time.
+
+.. seealso::
+    :class:`VisualizationApplication <graphvite.application.VisualizationApplication>`
