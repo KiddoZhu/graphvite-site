@@ -23,6 +23,7 @@ To qualify the learned embeddings, we evaluate them on node classification or li
 prediction tasks.
 
 .. seealso::
+    Package Reference:
     :class:`GraphApplication <graphvite.application.GraphApplication>`
 
 .. _knowledge graph embedding:
@@ -41,6 +42,7 @@ various tasks.
 The learned embeddings are evaluated by link prediction in GraphVite.
 
 .. seealso::
+    Package Reference:
     :class:`KnowledgeGraphApplication <graphvite.application.KnowledgeGraphApplication>`
 
 .. _visualization:
@@ -57,4 +59,5 @@ acceleration for this application. Taking a graph or a group of high-dimensional
 vectors, GraphVite can produce either 2D or 3D projections in a very short time.
 
 .. seealso::
+    Package Reference:
     :class:`VisualizationApplication <graphvite.application.VisualizationApplication>`

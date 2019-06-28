@@ -187,11 +187,11 @@ focus on the most important part, GraphVite provides an auto deduction for many
 hyperparameters. Generally, auto deduction will maximize the speed of the system,
 while keep the performance loss as small as possible.</p>
 <p>To invoke auto deduction, you can simply leave hyperparameters to their default
-values. An explicit way is to use <code class="docutils literal notranslate"><span class="pre">auto</span></code> in configuration files, or value <code class="docutils literal notranslate"><span class="pre">gv.auto</span></code>
-in Python.</p>
+values. An explicit way is to use <code class="docutils literal notranslate"><span class="pre">auto</span></code> in configuration files, or value
+<code class="docutils literal notranslate"><span class="pre">gv.auto</span></code> in Python.</p>
 <p>Here lists hyperparameters that support auto deduction.</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">resource</span><span class="p">:</span>
-    <span class="nt">gpus</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">auto</span>
+    <span class="nt">gpus</span><span class="p">:</span> <span class="p p-Indicator">[]</span>
     <span class="nt">gpu_memory_limit</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">auto</span>
     <span class="nt">cpu_per_gpu</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">auto</span>
 
@@ -203,9 +203,7 @@ in Python.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Due to the type cast between Python and C++, explicitly specify <code class="docutils literal notranslate"><span class="pre">auto</span></code> for
-<code class="docutils literal notranslate"><span class="pre">gpus</span></code> or <code class="docutils literal notranslate"><span class="pre">optimizer</span></code> will cause a type error. A work around is to use
-<code class="docutils literal notranslate"><span class="pre">[]</span></code> for <code class="docutils literal notranslate"><span class="pre">gpus</span></code>, and leave <code class="docutils literal notranslate"><span class="pre">optimizers</span></code> as implicit.</p>
+<p>The auto value for <code class="docutils literal notranslate"><span class="pre">gpus</span></code> is an empty list.</p>
 </div>
 </div>
 
