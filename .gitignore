@@ -6,4 +6,4 @@ _site/
 .sass-cache/
 
 # Sphinx
-!docs/
+!docs
