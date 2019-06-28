@@ -1,0 +1,127 @@
+GraphVite - graph embedding at speed and scale
+==============================================
+
+.. include:: link.rst
+
+GraphVite is a graph embedding engine, dedicated to high speed and large scale.
+GraphVite cooperates CPUs and GPUs for learning on million-scale or even billion-scale
+graphs. With its Python interface, you can easily practice graph learning algorithms,
+and get results in incredibly short time.
+
+Try GraphVite if you have any of the following concerns.
+
+- You want to reproduce graph learning algorithms on a uniform platform.
+- You need fast visualization for graphs or high-dimensional data.
+- You are tired of waiting a long time for prototyping or tuning models.
+- You need to learn representations of large graphs or knowledge graphs.
+
+Generally, GraphVite provides complete pipelines for 3 applications:
+**node embedding**, **knowledge graph embedding** and
+**graph / high-dimensional visualization**. Besides, it also includes 7 popular
+models, along with their benchmarks on a bunch of standard datasets.
+
+.. figure:: ../../asset/graph.png
+    :align: left
+    :height: 150px
+    :target: user/overview.html#node-embedding
+    :figclass: align-center
+
+    Node Embedding
+
+.. figure:: ../../asset/knowledge_graph.png
+    :align: left
+    :height: 150px
+    :target: user/overview.html#knowledge-graph-embedding
+    :figclass: align-center
+
+    Knowledge Graph |br| Embedding
+
+.. figure:: ../../asset/visualization.png
+    :align: left
+    :height: 150px
+    :target: user/overview.html#graph-high-dimensional-visualization
+    :figclass: align-center
+
+    Graph / |br| High-dimensional |br| Visualization
+
+.. |br| raw:: html
+
+    <br>
+
+.. raw:: html
+
+    <div style="clear: both" />
+
+How fast is GraphVite?
+----------------------
+
+To give a brief idea of the speed of the library, we summarize the training time
+of GraphVite and best open-source implementations. All the time is reported based
+on a server with 24 CPU threads and 4 V100 GPU.
+
+Node embedding
+
++-------------+----------------------------+-----------+-------------+
+| Model       | Existing Implementation    | GraphVite | Improvement |
++=============+============================+===========+=============+
+| `DeepWalk`_ | `1.64 hrs (CPU parallel)`_ | 1.22 mins | 80.8x       |
++-------------+----------------------------+-----------+-------------+
+| `LINE`_     | `1.39 hrs (CPU parallel)`_ | 1.21 mins | 70.1x       |
++-------------+----------------------------+-----------+-------------+
+
+.. _1.64 hrs (CPU parallel): https://github.com/phanein/deepwalk
+.. _1.39 hrs (CPU parallel): https://github.com/tangjianpku/LINE
+
+Knowledge graph embedding
+
++-----------+-------------------------+-----------+-------------+
+| Model     | Existing Implementation | GraphVite | Improvement |
++===========+=========================+===========+=============+
+| `TransE`_ | `1.31 hrs (1 GPU)`_     | 26.4 mins | 2.98x       |
++-----------+-------------------------+-----------+-------------+
+| `RotatE`_ | `3.69 hrs (1 GPU)`_     | 28.7 mins | 7.72x       |
++-----------+-------------------------+-----------+-------------+
+
+.. _1.31 hrs (1 GPU): https://github.com/DeepGraphLearning/KnowledgeGraphEmbedding
+.. _3.69 hrs (1 GPU): https://github.com/DeepGraphLearning/KnowledgeGraphEmbedding
+
+Graph / High-dimensional visualization
+
++-------------+-----------------------------+-----------+-------------+
+| Model       | Existing Implementation     | GraphVite | Improvement |
++=============+=============================+===========+=============+
+| `LargeVis`_ | `15.3 mins (CPU parallel)`_ | 15.1 s    | 60.8x       |
++-------------+-----------------------------+-----------+-------------+
+
+.. _15.3 mins (CPU parallel): https://github.com/lferry007/LargeVis
+
+Comparison to concurrent work
+-----------------------------
+
+A concurrent work to GraphVite is `PyTorch-BigGraph`_, which also accelerates training
+on large-scale knowledge graphs. Here is an apple-to-apple comparison of models
+implemented in both libraries, under the same training setting.
+
+.. _PyTorch-BigGraph: https://torchbiggraph.readthedocs.io
+
++-------------+------------------+-----------+-------------+
+| Model       | PyTorch-BigGraph | GraphVite | Improvement |
++=============+==================+===========+=============+
+| `TransE`_   | 1.21 hrs         | 17.9 mins | 4.06x       |
++-------------+------------------+-----------+-------------+
+| `DistMult`_ | 2.48 hrs         | 36.9 mins | 4.03x       |
++-------------+------------------+-----------+-------------+
+| `ComplEx`_  | 3.13 hrs         | 32.6 mins | 5.76x       |
++-------------+------------------+-----------+-------------+
+
+GraphVite surpass its counterpart by a signficant margin. Besides, the framework of
+GraphVite also supports two more applications, and provides many benchmarks for easy
+research and development.
+
+About the name
+--------------
+GraphVite(/ɡɹæfvit/) is a combination of English word "graph" and French word
+"vite", which means "rapid". GraphVite represents the traits of this library,
+as well as the bilingual environment of `Mila`_ where the library was developed.
+
+.. _Mila: https://mila.quebec

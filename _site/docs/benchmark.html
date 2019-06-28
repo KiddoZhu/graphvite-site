@@ -1,0 +1,891 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Benchmarks &mdash; GraphVite 0.1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Command Line" href="user/command_line.html" />
+    <link rel="prev" title="Application Overview" href="overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> GraphVite
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Get Started</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Install GraphVite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Application Overview</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Benchmarks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#node-embedding">Node Embedding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#knowledge-graph-embedding">Knowledge Graph Embedding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#graph-high-dimensional-visualization">Graph / High-dimensional Visualization</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="user/command_line.html">Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user/configuration.html">Configuration Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user/python.html">Python Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user/auto.html">Magic of Auto</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="developer/framework.html">Understand the Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer/model.html">Customize Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer/solver.html">Customize Solvers</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Package Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/application.html">Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/graph.html">Graph</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/solver.html">Solver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/optimizer.html">Optimizer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/dataset.html">Dataset</a></li>
+</ul>
+<p class="caption"><span class="caption-text">FAQ</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">GraphVite</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Benchmarks</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/benchmark.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="benchmarks">
+<h1>Benchmarks<a class="headerlink" href="#benchmarks" title="Permalink to this headline">¶</a></h1>
+<p>This page contains benchmarks of all models implemented in GraphVite, including their
+time and performance. All experiments are conducted on a server with 24 CPU threads
+and 4 V100 GPUs.</p>
+<div class="section" id="node-embedding">
+<h2>Node Embedding<a class="headerlink" href="#node-embedding" title="Permalink to this headline">¶</a></h2>
+<p>We experiment node embedding models on 3 datasets, ranging from million-scale to half
+billion-scale. The following table shows the size of each dataset, as well as the
+time and resource required by <a class="reference external" href="https://arxiv.org/pdf/1503.03578.pdf">LINE</a> model.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 31%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 22%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dataset</p></th>
+<th class="head"><p>|V|</p></th>
+<th class="head"><p>|E|</p></th>
+<th class="head"><p>Training Time</p></th>
+<th class="head"><p>GPU memory cost</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="http://conferences.sigcomm.org/imc/2007/papers/imc170.pdf">Youtube</a></p></td>
+<td><p>1.1M</p></td>
+<td><p>4.9M</p></td>
+<td><p>1.19 mins</p></td>
+<td><p>4 * 801 MiB</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="http://conferences.sigcomm.org/imc/2007/papers/imc170.pdf">Flickr</a></p></td>
+<td><p>1.7M</p></td>
+<td><p>23M</p></td>
+<td><p>3.54 mins</p></td>
+<td><p>4 * 943 MiB</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://arxiv.org/pdf/1903.00757.pdf">Friendster-small</a></p></td>
+<td><p>7.9M</p></td>
+<td><p>447M</p></td>
+<td><p>1.84 hrs</p></td>
+<td><p>4 * 2.42 GiB</p></td>
+</tr>
+</tbody>
+</table>
+<p>The learned node embeddings are evaluated on the standard task of multi-label node
+classifcation. We report micro-F1 and macro-F1 of each model, with regard to
+different percentages of training data.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 15%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><a class="reference external" href="http://conferences.sigcomm.org/imc/2007/papers/imc170.pdf">Youtube</a></p></th>
+<th class="head"><p>%Labeled Data</p></th>
+<th class="head"><p>1%</p></th>
+<th class="head"><p>2%</p></th>
+<th class="head"><p>3%</p></th>
+<th class="head"><p>4%</p></th>
+<th class="head"><p>5%</p></th>
+<th class="head"><p>6%</p></th>
+<th class="head"><p>7%</p></th>
+<th class="head"><p>8%</p></th>
+<th class="head"><p>9%</p></th>
+<th class="head"><p>10%</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td rowspan="2"><p>Micro-F1</p></td>
+<td><p><a class="reference external" href="https://arxiv.org/pdf/1403.6652.pdf">DeepWalk</a></p></td>
+<td><p>37.41</p></td>
+<td><p>40.48</p></td>
+<td><p>42.12</p></td>
+<td><p>43.63</p></td>
+<td><p>44.47</p></td>
+<td><p>44.83</p></td>
+<td><p>45.41</p></td>
+<td><p>45.77</p></td>
+<td><p>46.11</p></td>
+<td><p>46.39</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://arxiv.org/pdf/1503.03578.pdf">LINE</a></p></td>
+<td><p>38.36</p></td>
+<td><p>40.61</p></td>
+<td><p>42.17</p></td>
+<td><p>43.70</p></td>
+<td><p>44.44</p></td>
+<td><p>44.97</p></td>
+<td><p>45.47</p></td>
+<td><p>45.73</p></td>
+<td><p>46.12</p></td>
+<td><p>46.25</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>Macro-F1</p></td>
+<td><p><a class="reference external" href="https://arxiv.org/pdf/1403.6652.pdf">DeepWalk</a></p></td>
+<td><p>30.77</p></td>
+<td><p>33.67</p></td>
+<td><p>34.91</p></td>
+<td><p>36.44</p></td>
+<td><p>37.02</p></td>
+<td><p>37.27</p></td>
+<td><p>37.74</p></td>
+<td><p>38.17</p></td>
+<td><p>38.35</p></td>
+<td><p>38.51</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://arxiv.org/pdf/1503.03578.pdf">LINE</a></p></td>
+<td><p>30.90</p></td>
+<td><p>33.69</p></td>
+<td><p>34.88</p></td>
+<td><p>36.40</p></td>
+<td><p>36.75</p></td>
+<td><p>37.44</p></td>
+<td><p>37.89</p></td>
+<td><p>38.07</p></td>
+<td><p>38.30</p></td>
+<td><p>38.40</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>Configuration files:
+<a class="reference download internal" download="" href="_downloads/36165b522bd0477e3183fcf67c873cfb/deepwalk_youtube.yaml"><code class="xref download docutils literal notranslate"><span class="pre">deepwalk_youtube.yaml</span></code></a>
+<a class="reference download internal" download="" href="_downloads/2e9b321ac9a691a1fba6593793da2c9c/line_youtube.yaml"><code class="xref download docutils literal notranslate"><span class="pre">line_youtube.yaml</span></code></a></p>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 17%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><a class="reference external" href="http://conferences.sigcomm.org/imc/2007/papers/imc170.pdf">Flickr</a></p></th>
+<th class="head"><p>%Labeled Data</p></th>
+<th class="head"><p>10%</p></th>
+<th class="head"><p>20%</p></th>
+<th class="head"><p>30%</p></th>
+<th class="head"><p>40%</p></th>
+<th class="head"><p>50%</p></th>
+<th class="head"><p>60%</p></th>
+<th class="head"><p>70%</p></th>
+<th class="head"><p>80%</p></th>
+<th class="head"><p>90%</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td rowspan="2"><p>Micro-F1</p></td>
+<td><p><a class="reference external" href="https://arxiv.org/pdf/1403.6652.pdf">DeepWalk</a></p></td>
+<td><p>62.98</p></td>
+<td><p>63.44</p></td>
+<td><p>63.72</p></td>
+<td><p>63.71</p></td>
+<td><p>63.79</p></td>
+<td><p>63.69</p></td>
+<td><p>63.80</p></td>
+<td><p>63.93</p></td>
+<td><p>63.92</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://arxiv.org/pdf/1503.03578.pdf">LINE</a></p></td>
+<td><p>63.05</p></td>
+<td><p>63.45</p></td>
+<td><p>63.69</p></td>
+<td><p>63.73</p></td>
+<td><p>63.79</p></td>
+<td><p>63.82</p></td>
+<td><p>64.00</p></td>
+<td><p>63.69</p></td>
+<td><p>63.79</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>Macro-F1</p></td>
+<td><p><a class="reference external" href="https://arxiv.org/pdf/1403.6652.pdf">DeepWalk</a></p></td>
+<td><p>61.72</p></td>
+<td><p>62.12</p></td>
+<td><p>62.36</p></td>
+<td><p>62.38</p></td>
+<td><p>62.42</p></td>
+<td><p>62.36</p></td>
+<td><p>62.44</p></td>
+<td><p>62.58</p></td>
+<td><p>62.55</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://arxiv.org/pdf/1503.03578.pdf">LINE</a></p></td>
+<td><p>61.77</p></td>
+<td><p>62.14</p></td>
+<td><p>62.35</p></td>
+<td><p>62.39</p></td>
+<td><p>62.46</p></td>
+<td><p>62.45</p></td>
+<td><p>62.64</p></td>
+<td><p>62.28</p></td>
+<td><p>62.45</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>Configuration files:
+<a class="reference download internal" download="" href="_downloads/c08750a4123b90006773aa6af4f8b2c7/deepwalk_flickr.yaml"><code class="xref download docutils literal notranslate"><span class="pre">deepwalk_flickr.yaml</span></code></a>
+<a class="reference download internal" download="" href="_downloads/89c2e146a8c3509fc442cd14c31d5f03/line_flickr.yaml"><code class="xref download docutils literal notranslate"><span class="pre">line_flickr.yaml</span></code></a></p>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 14%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><a class="reference external" href="https://arxiv.org/pdf/1903.00757.pdf">Friendster-small</a></p></th>
+<th class="head"><p>%Labeled Data</p></th>
+<th class="head"><p>1%</p></th>
+<th class="head"><p>2%</p></th>
+<th class="head"><p>3%</p></th>
+<th class="head"><p>4%</p></th>
+<th class="head"><p>5%</p></th>
+<th class="head"><p>6%</p></th>
+<th class="head"><p>7%</p></th>
+<th class="head"><p>8%</p></th>
+<th class="head"><p>9 %</p></th>
+<th class="head"><p>10%</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td rowspan="2"><p>Micro-F1</p></td>
+<td><p><a class="reference external" href="https://arxiv.org/pdf/1403.6652.pdf">DeepWalk</a></p></td>
+<td><p>76.93</p></td>
+<td><p>83.96</p></td>
+<td><p>86.41</p></td>
+<td><p>86.91</p></td>
+<td><p>87.94</p></td>
+<td><p>88.49</p></td>
+<td><p>88.84</p></td>
+<td><p>88.96</p></td>
+<td><p>88.90</p></td>
+<td><p>89.18</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://arxiv.org/pdf/1503.03578.pdf">LINE</a></p></td>
+<td><p>76.53</p></td>
+<td><p>83.50</p></td>
+<td><p>85.70</p></td>
+<td><p>87.29</p></td>
+<td><p>87.97</p></td>
+<td><p>88.17</p></td>
+<td><p>88.69</p></td>
+<td><p>88.87</p></td>
+<td><p>88.76</p></td>
+<td><p>89.20</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>Macro-F1</p></td>
+<td><p><a class="reference external" href="https://arxiv.org/pdf/1403.6652.pdf">DeepWalk</a></p></td>
+<td><p>71.54</p></td>
+<td><p>81.34</p></td>
+<td><p>84.57</p></td>
+<td><p>85.75</p></td>
+<td><p>86.77</p></td>
+<td><p>87.48</p></td>
+<td><p>87.93</p></td>
+<td><p>88.02</p></td>
+<td><p>88.25</p></td>
+<td><p>88.42</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://arxiv.org/pdf/1503.03578.pdf">LINE</a></p></td>
+<td><p>70.46</p></td>
+<td><p>80.88</p></td>
+<td><p>84.07</p></td>
+<td><p>85.99</p></td>
+<td><p>86.76</p></td>
+<td><p>87.39</p></td>
+<td><p>87.86</p></td>
+<td><p>87.91</p></td>
+<td><p>87.72</p></td>
+<td><p>88.56</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>Configuration files:
+<a class="reference download internal" download="" href="_downloads/f1dcbf3f31f2501c6f26c00a2a041ddf/deepwalk_friendster-small.yaml"><code class="xref download docutils literal notranslate"><span class="pre">deepwalk_friendster-small.yaml</span></code></a>
+<a class="reference download internal" download="" href="_downloads/f441162cf80d7c1e3d5343bd093de235/line_friendster-small.yaml"><code class="xref download docutils literal notranslate"><span class="pre">line_friendster-small.yaml</span></code></a></p>
+</div>
+</div>
+<div class="section" id="knowledge-graph-embedding">
+<h2>Knowledge Graph Embedding<a class="headerlink" href="#knowledge-graph-embedding" title="Permalink to this headline">¶</a></h2>
+<p>For knowledge graph embedding, we benchmark <a class="reference external" href="http://papers.nips.cc/paper/5071-translating-embeddings-for-modeling-multi-relational-data.pdf">TransE</a>, <a class="reference external" href="https://arxiv.org/pdf/1412.6575.pdf">DistMult</a>, <a class="reference external" href="http://proceedings.mlr.press/v48/trouillon16.pdf">ComplEx</a> and
+<a class="reference external" href="https://arxiv.org/pdf/1902.10197.pdf">RotatE</a> on 4 standard datasets. The training time and resource of <a class="reference external" href="https://arxiv.org/pdf/1902.10197.pdf">RotatE</a> on
+these datasets is given in the following table.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 20%" />
+<col style="width: 23%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dataset</p></th>
+<th class="head"><p>|V|</p></th>
+<th class="head"><p>|E|</p></th>
+<th class="head"><p>|R|</p></th>
+<th class="head"><p>Training Time</p></th>
+<th class="head"><p>GPU memory cost</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="http://papers.nips.cc/paper/5071-translating-embeddings-for-modeling-multi-relational-data.pdf">FB15k</a></p></td>
+<td><p>15K</p></td>
+<td><p>483K</p></td>
+<td><p>1.3K</p></td>
+<td><p>27.0 mins</p></td>
+<td><p>4 * 785 MiB</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.aclweb.org/anthology/W15-4007">FB15k-237</a></p></td>
+<td><p>15K</p></td>
+<td><p>272K</p></td>
+<td><p>237</p></td>
+<td><p>14.3 mins</p></td>
+<td><p>4 * 745 MiB</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="http://papers.nips.cc/paper/5071-translating-embeddings-for-modeling-multi-relational-data.pdf">WN18</a></p></td>
+<td><p>41K</p></td>
+<td><p>141K</p></td>
+<td><p>18</p></td>
+<td><p>15.3 mins</p></td>
+<td><p>4 * 761 MiB</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.aaai.org/ocs/index.php/AAAI/AAAI18/paper/download/17366/15884">WN18RR</a></p></td>
+<td><p>41K</p></td>
+<td><p>87K</p></td>
+<td><p>11</p></td>
+<td><p>13.8 mins</p></td>
+<td><p>4 * 761 MiB</p></td>
+</tr>
+</tbody>
+</table>
+<p>To evaluate the knowledge graph embeddings, we test them on the link prediction
+task. We report the results for each model on the test set, where ranking metrics
+are computed based on filtered results.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 9%" />
+<col style="width: 13%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 19%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><a class="reference external" href="http://papers.nips.cc/paper/5071-translating-embeddings-for-modeling-multi-relational-data.pdf">FB15k</a></p></th>
+<th class="head"><p>MR</p></th>
+<th class="head"><p>MRR</p></th>
+<th class="head"><p>HITS&#64;1</p></th>
+<th class="head"><p>HITS&#64;3</p></th>
+<th class="head"><p>HITS&#64;10</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="http://papers.nips.cc/paper/5071-translating-embeddings-for-modeling-multi-relational-data.pdf">TransE</a></p></td>
+<td><p>90</p></td>
+<td><p>0.631</p></td>
+<td><p>0.512</p></td>
+<td><p>0.719</p></td>
+<td><p>0.823</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://arxiv.org/pdf/1412.6575.pdf">DistMult</a></p></td>
+<td><p>136</p></td>
+<td><p>0.750</p></td>
+<td><p>0.687</p></td>
+<td><p>0.795</p></td>
+<td><p>0.854</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="http://proceedings.mlr.press/v48/trouillon16.pdf">ComplEx</a></p></td>
+<td><p>60</p></td>
+<td><p>0.663</p></td>
+<td><p>0.554</p></td>
+<td><p>0.740</p></td>
+<td><p>0.844</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://arxiv.org/pdf/1902.10197.pdf">RotatE</a></p></td>
+<td><p>38</p></td>
+<td><p>0.753</p></td>
+<td><p>0.670</p></td>
+<td><p>0.815</p></td>
+<td><p>0.882</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>Configuration files:
+<a class="reference download internal" download="" href="_downloads/3d74d9cb16289bdf0f61dc209db1f371/transe_fb15k.yaml"><code class="xref download docutils literal notranslate"><span class="pre">transe_fb15k.yaml</span></code></a>
+<a class="reference download internal" download="" href="_downloads/9c409bd8324ab2b709a4d53f42560ab8/distmult_fb15k.yaml"><code class="xref download docutils literal notranslate"><span class="pre">distmult_fb15k.yaml</span></code></a>
+<a class="reference download internal" download="" href="_downloads/8e0a43bdd960d1f951358ccf62de070a/complex_fb15k.yaml"><code class="xref download docutils literal notranslate"><span class="pre">complex_fb15k.yaml</span></code></a>
+<a class="reference download internal" download="" href="_downloads/81be60fba5801207e36d4e477baf39b1/rotate_fb15k.yaml"><code class="xref download docutils literal notranslate"><span class="pre">rotate_fb15k.yaml</span></code></a></p>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 26%" />
+<col style="width: 9%" />
+<col style="width: 13%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 19%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><a class="reference external" href="https://www.aclweb.org/anthology/W15-4007">FB15k-237</a></p></th>
+<th class="head"><p>MR</p></th>
+<th class="head"><p>MRR</p></th>
+<th class="head"><p>HITS&#64;1</p></th>
+<th class="head"><p>HITS&#64;3</p></th>
+<th class="head"><p>HITS&#64;10</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="http://papers.nips.cc/paper/5071-translating-embeddings-for-modeling-multi-relational-data.pdf">TransE</a></p></td>
+<td><p>158</p></td>
+<td><p>0.294</p></td>
+<td><p>0.194</p></td>
+<td><p>0.328</p></td>
+<td><p>0.503</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://arxiv.org/pdf/1412.6575.pdf">DistMult</a></p></td>
+<td><p>303</p></td>
+<td><p>0.281</p></td>
+<td><p>0.180</p></td>
+<td><p>0.313</p></td>
+<td><p>0.493</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="http://proceedings.mlr.press/v48/trouillon16.pdf">ComplEx</a></p></td>
+<td><p>234</p></td>
+<td><p>0.305</p></td>
+<td><p>0.207</p></td>
+<td><p>0.340</p></td>
+<td><p>0.504</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://arxiv.org/pdf/1902.10197.pdf">RotatE</a></p></td>
+<td><p>166</p></td>
+<td><p>0.311</p></td>
+<td><p>0.213</p></td>
+<td><p>0.345</p></td>
+<td><p>0.514</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>Configuration files:
+<a class="reference download internal" download="" href="_downloads/35f72d4cc4296ab00bb1a48794ee2b8c/transe_fb15k-237.yaml"><code class="xref download docutils literal notranslate"><span class="pre">transe_fb15k-237.yaml</span></code></a>
+<a class="reference download internal" download="" href="_downloads/1a97e05ecd75e77fcac8eba7d6717cdb/distmult_fb15k-237.yaml"><code class="xref download docutils literal notranslate"><span class="pre">distmult_fb15k-237.yaml</span></code></a>
+<a class="reference download internal" download="" href="_downloads/2a398a77a4248cb7a40589d78faa67cc/complex_fb15k-237.yaml"><code class="xref download docutils literal notranslate"><span class="pre">complex_fb15k-237.yaml</span></code></a>
+<a class="reference download internal" download="" href="_downloads/b4eef22e8dcd4072135f44b9f4f83cef/rotate_fb15k-237.yaml"><code class="xref download docutils literal notranslate"><span class="pre">rotate_fb15k-237.yaml</span></code></a></p>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 24%" />
+<col style="width: 11%" />
+<col style="width: 13%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 19%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><a class="reference external" href="http://papers.nips.cc/paper/5071-translating-embeddings-for-modeling-multi-relational-data.pdf">WN18</a></p></th>
+<th class="head"><p>MR</p></th>
+<th class="head"><p>MRR</p></th>
+<th class="head"><p>HITS&#64;1</p></th>
+<th class="head"><p>HITS&#64;3</p></th>
+<th class="head"><p>HITS&#64;10</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="http://papers.nips.cc/paper/5071-translating-embeddings-for-modeling-multi-relational-data.pdf">TransE</a></p></td>
+<td><p>319</p></td>
+<td><p>0.495</p></td>
+<td><p>0.149</p></td>
+<td><p>0.839</p></td>
+<td><p>0.924</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://arxiv.org/pdf/1412.6575.pdf">DistMult</a></p></td>
+<td><p>523</p></td>
+<td><p>0.801</p></td>
+<td><p>0.685</p></td>
+<td><p>0.914</p></td>
+<td><p>0.944</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="http://proceedings.mlr.press/v48/trouillon16.pdf">ComplEx</a></p></td>
+<td><p>1042</p></td>
+<td><p>0.912</p></td>
+<td><p>0.901</p></td>
+<td><p>0.920</p></td>
+<td><p>0.929</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://arxiv.org/pdf/1902.10197.pdf">RotatE</a></p></td>
+<td><p>407</p></td>
+<td><p>0.929</p></td>
+<td><p>0.912</p></td>
+<td><p>0.942</p></td>
+<td><p>0.951</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>Configuration files:
+<a class="reference download internal" download="" href="_downloads/a9c577e58e132a71d00211d506a6f1d7/transe_wn18.yaml"><code class="xref download docutils literal notranslate"><span class="pre">transe_wn18.yaml</span></code></a>
+<a class="reference download internal" download="" href="_downloads/f4058fdf504caf7f7ee9e7f734682459/distmult_wn18.yaml"><code class="xref download docutils literal notranslate"><span class="pre">distmult_wn18.yaml</span></code></a>
+<a class="reference download internal" download="" href="_downloads/7410b578d72c5f05cdd995bc62ce54a9/complex_wn18.yaml"><code class="xref download docutils literal notranslate"><span class="pre">complex_wn18.yaml</span></code></a>
+<a class="reference download internal" download="" href="_downloads/c11ef1e9b392991727deeae7e18fdb95/rotate_wn18.yaml"><code class="xref download docutils literal notranslate"><span class="pre">rotate_wn18.yaml</span></code></a></p>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 24%" />
+<col style="width: 11%" />
+<col style="width: 13%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 19%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><a class="reference external" href="https://www.aaai.org/ocs/index.php/AAAI/AAAI18/paper/download/17366/15884">WN18RR</a></p></th>
+<th class="head"><p>MR</p></th>
+<th class="head"><p>MRR</p></th>
+<th class="head"><p>HITS&#64;1</p></th>
+<th class="head"><p>HITS&#64;3</p></th>
+<th class="head"><p>HITS&#64;10</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="http://papers.nips.cc/paper/5071-translating-embeddings-for-modeling-multi-relational-data.pdf">TransE</a></p></td>
+<td><p>2361</p></td>
+<td><p>0.227</p></td>
+<td><p>0.027</p></td>
+<td><p>0.390</p></td>
+<td><p>0.535</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://arxiv.org/pdf/1412.6575.pdf">DistMult</a></p></td>
+<td><p>4225</p></td>
+<td><p>0.450</p></td>
+<td><p>0.411</p></td>
+<td><p>0.463</p></td>
+<td><p>0.528</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="http://proceedings.mlr.press/v48/trouillon16.pdf">ComplEx</a></p></td>
+<td><p>6668</p></td>
+<td><p>0.429</p></td>
+<td><p>0.399</p></td>
+<td><p>0.444</p></td>
+<td><p>0.482</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://arxiv.org/pdf/1902.10197.pdf">RotatE</a></p></td>
+<td><p>2211</p></td>
+<td><p>0.489</p></td>
+<td><p>0.441</p></td>
+<td><p>0.505</p></td>
+<td><p>0.588</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>Configuration files:
+<a class="reference download internal" download="" href="_downloads/68988f47a5ee74d4c41b43f06e4a25be/transe_wn18rr.yaml"><code class="xref download docutils literal notranslate"><span class="pre">transe_wn18rr.yaml</span></code></a>
+<a class="reference download internal" download="" href="_downloads/204ceef6a6309229d16ebdcf7ffb4ee5/distmult_wn18rr.yaml"><code class="xref download docutils literal notranslate"><span class="pre">distmult_wn18rr.yaml</span></code></a>
+<a class="reference download internal" download="" href="_downloads/fa679b533e53550c0eb579d4702a0c34/complex_wn18rr.yaml"><code class="xref download docutils literal notranslate"><span class="pre">complex_wn18rr.yaml</span></code></a>
+<a class="reference download internal" download="" href="_downloads/6ae863ce38d25d862f1bcc7d71c5647d/rotate_wn18rr.yaml"><code class="xref download docutils literal notranslate"><span class="pre">rotate_wn18rr.yaml</span></code></a></p>
+</div>
+</div>
+<div class="section" id="graph-high-dimensional-visualization">
+<h2>Graph / High-dimensional Visualization<a class="headerlink" href="#graph-high-dimensional-visualization" title="Permalink to this headline">¶</a></h2>
+<p>The high-dimensional visualization is evaluated on two popular image datasets.
+The training time and resource needed by <a class="reference external" href="https://arxiv.org/pdf/1602.00370.pdf">LargeVis</a> is given in the following table.
+Note that more than 95% GPU memory cost comes from the construction of KNN Graph, and
+can be traded off with speed if necessary.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 24%" />
+<col style="width: 9%" />
+<col style="width: 8%" />
+<col style="width: 20%" />
+<col style="width: 22%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dataset</p></th>
+<th class="head"><p>Vector</p></th>
+<th class="head"><p>N</p></th>
+<th class="head"><p>dim</p></th>
+<th class="head"><p>Training Time</p></th>
+<th class="head"><p>GPU memory cost</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="http://yann.lecun.com/exdb/publis/pdf/lecun-01a.pdf">MNIST</a></p></td>
+<td><p>Raw pixels</p></td>
+<td><p>70K</p></td>
+<td><p>784</p></td>
+<td><p>15.1 s</p></td>
+<td><p>2.86 GiB</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://arxiv.org/pdf/1409.0575.pdf">ImageNet</a></p></td>
+<td><p>ResNet50 feature</p></td>
+<td><p>1.33M</p></td>
+<td><p>2048</p></td>
+<td><p>16.6 mins</p></td>
+<td><p>15.1 GiB</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>Configuration files:
+<a class="reference download internal" download="" href="_downloads/1316b2a43d6f849d14cd43f6968f97b4/largevis_mnist_2d.yaml"><code class="xref download docutils literal notranslate"><span class="pre">largevis_mnist_2d.yaml</span></code></a>
+<a class="reference download internal" download="" href="_downloads/a463df39990affb5eca9dfcfc4cbf45a/largevis_imagenet.yaml"><code class="xref download docutils literal notranslate"><span class="pre">largevis_imagenet.yaml</span></code></a></p>
+</div>
+<p>Here is a 3D visualization result of MNIST.</p>
+<img alt="_images/mnist_3d.gif" src="_images/mnist_3d.gif" />
+<p>For ImageNet, since it contains 1000 classes, we visualize classes according to
+their hierarchy in wordnet. The following animation shows how the class of
+<code class="docutils literal notranslate"><span class="pre">english</span> <span class="pre">setter</span></code> (a kind of dog) is traversed in the hierarchy.</p>
+<img alt="_images/imagenet_hierarchy.gif" src="_images/imagenet_hierarchy.gif" />
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="user/command_line.html" class="btn btn-neutral float-right" title="Command Line" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="overview.html" class="btn btn-neutral float-left" title="Application Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, MilaGraph
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

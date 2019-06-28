@@ -1,0 +1,29 @@
+Python Interface
+================
+
+GraphVite provides Python interface for convenient integration with other software.
+To use GraphVite in Python
+
+    >>> import graphvite as gv
+    >>> import graphvite.application as gap
+
+The GraphVite package itself provides interface to graphs, solvers, optimizers and
+datasets. The application module provides the same interface to
+:doc:`configuration`.
+
+The following code gives an example of how to invoke training in Python
+
+    >>> graph = gv.graph.Graph()
+    >>> graph.load(gv.dataset.blogcatalog.train)
+    >>> solver = gv.solver.GraphSolver(dim=128)
+    >>> solver.build(graph)
+    >>> solver.train()
+
+To obtain the learned embeddings
+
+    >>> embeddings = solver.vertex_embeddings
+    >>> print(embeddings)
+
+.. seealso::
+    Package reference: :doc:`Graph <../api/graph>`, :doc:`Solver <../api/solver>`,
+    :doc:`Optimizer <../api/optimizer>`

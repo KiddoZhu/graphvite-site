@@ -2,8 +2,8 @@
 Gemfile.lock
 
 # Jekyll
-_site/
+_site/*
 .sass-cache/
 
 # Sphinx
-!docs
+!_site/docs/

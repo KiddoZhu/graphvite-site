@@ -1,0 +1,504 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>graphvite.dataset &mdash; GraphVite 0.1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Frequently Asked Questions" href="../faq.html" />
+    <link rel="prev" title="graphvite.optimizer" href="optimizer.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> GraphVite
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Get Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Install GraphVite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Application Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmark.html">Benchmarks</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user/command_line.html">Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/configuration.html">Configuration Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/python.html">Python Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/auto.html">Magic of Auto</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../developer/framework.html">Understand the Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/model.html">Customize Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/solver.html">Customize Solvers</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Package Reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="application.html">Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="graph.html">Graph</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solver.html">Solver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="optimizer.html">Optimizer</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Dataset</a></li>
+</ul>
+<p class="caption"><span class="caption-text">FAQ</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">GraphVite</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>graphvite.dataset</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/dataset.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-graphvite.dataset">
+<span id="graphvite-dataset"></span><h1>graphvite.dataset<a class="headerlink" href="#module-graphvite.dataset" title="Permalink to this headline">¶</a></h1>
+<p>Dataset module of GraphVite</p>
+<dl class="class">
+<dt id="graphvite.dataset.Dataset">
+<em class="property">class </em><code class="sig-prename descclassname">graphvite.dataset.</code><code class="sig-name descname">Dataset</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">urls=None</em>, <em class="sig-param">members=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphvite/dataset.html#Dataset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#graphvite.dataset.Dataset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Graph dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – name of dataset</p></li>
+<li><p><strong>urls</strong> (<em>dict</em><em>, </em><em>optional</em>) – url(s) for each split,
+can be either str or list of str</p></li>
+<li><p><strong>members</strong> (<em>dict</em><em>, </em><em>optional</em>) – zip member(s) for each split,
+leave empty for default</p></li>
+</ul>
+</dd>
+</dl>
+<p>Datasets contain several splits, such as train, valid and test.
+For each split, there are one or more URLs, specifying the file to download.
+You may also specify the zip member to extract.
+When a split is accessed, it will be automatically downloaded and decompressed
+if it is not present.</p>
+<p>You can assign a preprocess for each split, by defining a function with name [split]_preprocess:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyDataset</span><span class="p">(</span><span class="n">Dataset</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">MyDataset</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="s2">&quot;my_dataset&quot;</span><span class="p">,</span>
+            <span class="n">train</span><span class="o">=</span><span class="s2">&quot;url/to/train/split&quot;</span><span class="p">,</span>
+            <span class="n">test</span><span class="o">=</span><span class="s2">&quot;url/to/test/split&quot;</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">train_preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_file</span><span class="p">,</span> <span class="n">output_file</span><span class="p">):</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">input_file</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fin</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span><span class="n">output_file</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fout</span><span class="p">:</span>
+            <span class="n">fout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">fin</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">MyDataset</span><span class="p">()</span><span class="o">.</span><span class="n">train</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If the preprocess returns a non-trivial value, then it is assigned to the split,
+otherwise the file name is assigned.
+By convention, only splits ending with <code class="docutils literal notranslate"><span class="pre">_data</span></code> have non-trivial return value.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>Pre-defined preprocess functions
+<a class="reference internal" href="#graphvite.dataset.Dataset.csv2txt" title="graphvite.dataset.Dataset.csv2txt"><code class="xref py py-func docutils literal notranslate"><span class="pre">csv2txt()</span></code></a>
+<a class="reference internal" href="#graphvite.dataset.Dataset.top_k_label" title="graphvite.dataset.Dataset.top_k_label"><code class="xref py py-func docutils literal notranslate"><span class="pre">top_k_label()</span></code></a>,
+<a class="reference internal" href="#graphvite.dataset.Dataset.induced_graph" title="graphvite.dataset.Dataset.induced_graph"><code class="xref py py-func docutils literal notranslate"><span class="pre">induced_graph()</span></code></a>
+<a class="reference internal" href="#graphvite.dataset.Dataset.link_prediction_split" title="graphvite.dataset.Dataset.link_prediction_split"><code class="xref py py-func docutils literal notranslate"><span class="pre">link_prediction_split()</span></code></a>
+<a class="reference internal" href="#graphvite.dataset.Dataset.image_feature_data" title="graphvite.dataset.Dataset.image_feature_data"><code class="xref py py-func docutils literal notranslate"><span class="pre">image_feature_data()</span></code></a></p>
+</div>
+<dl class="method">
+<dt id="graphvite.dataset.Dataset.csv2txt">
+<code class="sig-name descname">csv2txt</code><span class="sig-paren">(</span><em class="sig-param">csv_file</em>, <em class="sig-param">txt_file</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphvite/dataset.html#Dataset.csv2txt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#graphvite.dataset.Dataset.csv2txt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert <code class="docutils literal notranslate"><span class="pre">csv</span></code> to <code class="docutils literal notranslate"><span class="pre">txt</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>csv_file</strong> – csv file</p></li>
+<li><p><strong>txt_file</strong> – txt file</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="graphvite.dataset.Dataset.image_feature_data">
+<code class="sig-name descname">image_feature_data</code><span class="sig-paren">(</span><em class="sig-param">dataset</em>, <em class="sig-param">model='resnet50'</em>, <em class="sig-param">batch_size=128</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphvite/dataset.html#Dataset.image_feature_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#graphvite.dataset.Dataset.image_feature_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Infer feature vectors on a dataset using a neural network.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataset</strong> (<em>torch.utils.data.Dataset</em>) – dataset</p></li>
+<li><p><strong>model</strong> (<em>str</em><em> or </em><em>torch.nn.Module</em><em>, </em><em>optional</em>) – pretrained model.
+If it is a str, use the last hidden layer of that model.</p></li>
+<li><p><strong>batch_size</strong> (<em>int</em><em>, </em><em>optional</em>) – batch size</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="graphvite.dataset.Dataset.induced_graph">
+<code class="sig-name descname">induced_graph</code><span class="sig-paren">(</span><em class="sig-param">graph_file</em>, <em class="sig-param">label_file</em>, <em class="sig-param">save_file</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphvite/dataset.html#Dataset.induced_graph"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#graphvite.dataset.Dataset.induced_graph" title="Permalink to this definition">¶</a></dt>
+<dd><p>Induce a subgraph from labeled nodes. All edges in the induced graph have at least one labeled node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>graph_file</strong> (<em>str</em>) – graph file</p></li>
+<li><p><strong>label_file</strong> (<em>str</em>) – label file</p></li>
+<li><p><strong>save_file</strong> (<em>str</em>) – save file</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="graphvite.dataset.Dataset.link_prediction_split">
+<code class="sig-name descname">link_prediction_split</code><span class="sig-paren">(</span><em class="sig-param">graph_file</em>, <em class="sig-param">train_file</em>, <em class="sig-param">test_file</em>, <em class="sig-param">portion</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphvite/dataset.html#Dataset.link_prediction_split"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#graphvite.dataset.Dataset.link_prediction_split" title="Permalink to this definition">¶</a></dt>
+<dd><p>Split a graph for link prediction use. The test split will contain half true and half false edges.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>graph_file</strong> (<em>str</em>) – graph file</p></li>
+<li><p><strong>train_file</strong> (<em>str</em>) – train file</p></li>
+<li><p><strong>test_file</strong> (<em>str</em>) – test file</p></li>
+<li><p><strong>portion</strong> (<em>str</em>) – portion of test edges</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="graphvite.dataset.Dataset.top_k_label">
+<code class="sig-name descname">top_k_label</code><span class="sig-paren">(</span><em class="sig-param">label_file</em>, <em class="sig-param">save_file</em>, <em class="sig-param">k</em>, <em class="sig-param">format='node-label'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphvite/dataset.html#Dataset.top_k_label"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#graphvite.dataset.Dataset.top_k_label" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract top-k labels.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>label_file</strong> (<em>str</em>) – label file</p></li>
+<li><p><strong>save_file</strong> (<em>str</em>) – save file</p></li>
+<li><p><strong>k</strong> (<em>int</em>) – top-k labels will be extracted</p></li>
+<li><p><strong>format</strong> (<em>str</em><em>, </em><em>optional</em>) – <p>format of label file,
+can be ‘node-label’ or ‘(label)-nodes’:</p>
+<blockquote>
+<div><ul>
+<li><p><strong>node-label</strong>: each line is [node] [label]</p></li>
+<li><p><strong>(label)-nodes</strong>: each line is [node]…, no explicit label</p></li>
+</ul>
+</div></blockquote>
+</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="graphvite.dataset.BlogCatalog">
+<em class="property">class </em><code class="sig-prename descclassname">graphvite.dataset.</code><code class="sig-name descname">BlogCatalog</code><a class="reference internal" href="../_modules/graphvite/dataset.html#BlogCatalog"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#graphvite.dataset.BlogCatalog" title="Permalink to this definition">¶</a></dt>
+<dd><p>BlogCatalog social network dataset.</p>
+<dl class="simple">
+<dt>Splits:</dt><dd><p>train, label</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="graphvite.dataset.Youtube">
+<em class="property">class </em><code class="sig-prename descclassname">graphvite.dataset.</code><code class="sig-name descname">Youtube</code><a class="reference internal" href="../_modules/graphvite/dataset.html#Youtube"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#graphvite.dataset.Youtube" title="Permalink to this definition">¶</a></dt>
+<dd><p>Youtube social network dataset.</p>
+<dl class="simple">
+<dt>Splits:</dt><dd><p>train, label</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="graphvite.dataset.Flickr">
+<em class="property">class </em><code class="sig-prename descclassname">graphvite.dataset.</code><code class="sig-name descname">Flickr</code><a class="reference internal" href="../_modules/graphvite/dataset.html#Flickr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#graphvite.dataset.Flickr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flickr social network dataset.</p>
+<dl class="simple">
+<dt>Splits:</dt><dd><p>train, label</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="graphvite.dataset.Hyperlink2012">
+<em class="property">class </em><code class="sig-prename descclassname">graphvite.dataset.</code><code class="sig-name descname">Hyperlink2012</code><a class="reference internal" href="../_modules/graphvite/dataset.html#Hyperlink2012"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#graphvite.dataset.Hyperlink2012" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hyperlink 2012 graph.</p>
+<dl class="simple">
+<dt>Splits:</dt><dd><p>pld_train, pld_test</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="graphvite.dataset.Friendster">
+<em class="property">class </em><code class="sig-prename descclassname">graphvite.dataset.</code><code class="sig-name descname">Friendster</code><a class="reference internal" href="../_modules/graphvite/dataset.html#Friendster"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#graphvite.dataset.Friendster" title="Permalink to this definition">¶</a></dt>
+<dd><p>Friendster social network.</p>
+<dl class="simple">
+<dt>Splits:</dt><dd><p>train, small_train, label</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="graphvite.dataset.FB15k">
+<em class="property">class </em><code class="sig-prename descclassname">graphvite.dataset.</code><code class="sig-name descname">FB15k</code><a class="reference internal" href="../_modules/graphvite/dataset.html#FB15k"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#graphvite.dataset.FB15k" title="Permalink to this definition">¶</a></dt>
+<dd><p>FB15k knowledge graph dataset.</p>
+<dl class="simple">
+<dt>Splits:</dt><dd><p>train, valid, test</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="graphvite.dataset.FB15k237">
+<em class="property">class </em><code class="sig-prename descclassname">graphvite.dataset.</code><code class="sig-name descname">FB15k237</code><a class="reference internal" href="../_modules/graphvite/dataset.html#FB15k237"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#graphvite.dataset.FB15k237" title="Permalink to this definition">¶</a></dt>
+<dd><p>FB15k-237 knowledge graph dataset.</p>
+<dl class="simple">
+<dt>Splits:</dt><dd><p>train, valid, test</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="graphvite.dataset.WN18">
+<em class="property">class </em><code class="sig-prename descclassname">graphvite.dataset.</code><code class="sig-name descname">WN18</code><a class="reference internal" href="../_modules/graphvite/dataset.html#WN18"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#graphvite.dataset.WN18" title="Permalink to this definition">¶</a></dt>
+<dd><p>WN18 knowledge graph dataset.</p>
+<dl class="simple">
+<dt>Splits:</dt><dd><p>train, valid, test</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="graphvite.dataset.WN18RR">
+<em class="property">class </em><code class="sig-prename descclassname">graphvite.dataset.</code><code class="sig-name descname">WN18RR</code><a class="reference internal" href="../_modules/graphvite/dataset.html#WN18RR"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#graphvite.dataset.WN18RR" title="Permalink to this definition">¶</a></dt>
+<dd><p>WN18RR knowledge graph dataset.</p>
+<dl class="simple">
+<dt>Splits:</dt><dd><p>train, valid, test</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="graphvite.dataset.Freebase">
+<em class="property">class </em><code class="sig-prename descclassname">graphvite.dataset.</code><code class="sig-name descname">Freebase</code><a class="reference internal" href="../_modules/graphvite/dataset.html#Freebase"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#graphvite.dataset.Freebase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Freebase knowledge graph dataset.</p>
+<dl class="simple">
+<dt>Splits:</dt><dd><p>train</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="graphvite.dataset.MNIST">
+<em class="property">class </em><code class="sig-prename descclassname">graphvite.dataset.</code><code class="sig-name descname">MNIST</code><a class="reference internal" href="../_modules/graphvite/dataset.html#MNIST"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#graphvite.dataset.MNIST" title="Permalink to this definition">¶</a></dt>
+<dd><p>MNIST dataset for visualization.</p>
+<dl class="simple">
+<dt>Splits:</dt><dd><p>train_image_data, train_label_data, test_image_data, test_label_data, image_data, label_data</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="graphvite.dataset.CIFAR10">
+<em class="property">class </em><code class="sig-prename descclassname">graphvite.dataset.</code><code class="sig-name descname">CIFAR10</code><a class="reference internal" href="../_modules/graphvite/dataset.html#CIFAR10"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#graphvite.dataset.CIFAR10" title="Permalink to this definition">¶</a></dt>
+<dd><p>CIFAR10 dataset for visualization</p>
+<dl class="simple">
+<dt>Splits:</dt><dd><p>train_image_data, train_label_data, test_image_data, test_label_data, image_data, label_data</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="graphvite.dataset.ImageNet">
+<em class="property">class </em><code class="sig-prename descclassname">graphvite.dataset.</code><code class="sig-name descname">ImageNet</code><a class="reference internal" href="../_modules/graphvite/dataset.html#ImageNet"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#graphvite.dataset.ImageNet" title="Permalink to this definition">¶</a></dt>
+<dd><p>ImageNet dataset for visualization</p>
+<dl class="simple">
+<dt>Splits:</dt><dd><p>train_image, train_feature_data, train_label, train_hierarchical_label,
+valid_image, valid_feature_data, valid_label, valid_hierarchical_label,
+cached_feature_data, label, hierarchical_label</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../faq.html" class="btn btn-neutral float-right" title="Frequently Asked Questions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="optimizer.html" class="btn btn-neutral float-left" title="graphvite.optimizer" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, MilaGraph
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
