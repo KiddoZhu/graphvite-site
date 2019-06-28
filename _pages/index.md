@@ -8,7 +8,7 @@ header:
   overlay_image: "/assets/images/overlay.jpg"
   actions:
     - label: "Get Started"
-      url: docs/quick-start-guide/
+      url: "/docs/install"
 excerpt: >
   Graph embedding engine<br>
   Dedicated to high speed and large scale
@@ -33,9 +33,9 @@ benchmark:
     excerpt: >
       A large collection of models and benchmarks are provided to facilitate fast
       reproducibility. Choose your favourite model and plug it into your research or 
-      development. Everything is there and no further effort is needed.
+      development. Everything is here and no further effort is needed.
     image_path: "/assets/images/benchmark.png"
-    url: "benchmarks"
+    url: "/docs/benchmark"
     btn_class: "btn--primary"
     btn_label: "Learn more"
 interface:
@@ -45,33 +45,24 @@ interface:
       Tailored to different needs, flexible interface brings you great user experience,
       while minimizes the issues you do not care. It is always easy and efficient to
       integrate GraphVite into your environment, no matter you are using Python or C/C++.
-    url: "interface"
+    url: "/docs/user/command_line"
     btn_class: "btn--primary"
     btn_label: "Learn more"
 ---
 
 {% include feature_row id="features" %}
+
+| [Node Embedding][1]    | [Knowledge Graph Embedding][2]    | [Graph / High-dimensional Visualization][3]    |
+|------------------------|-----------------------------------|------------------------------------------------|
+| [![Node Embedding]][1] | [![Knowledge Graph Embedding]][2] | [![Graph / High-dimensional Visualization]][3] |
+{: .page}
+
+[1]: /docs/overview#node-embedding
+[2]: /docs/overview#knowledge-graph-embedding
+[3]: /docs/overview#graph-high-dimensional-visualization
+[Node Embedding]: {{ site.baseurl }}/assets/images/graph.png
+[Knowledge Graph Embedding]: {{ site.baseurl }}/assets/images/knowledge_graph.png
+[Graph / High-dimensional Visualization]: {{ site.baseurl }}/assets/images/visualization.png
+
 {% include feature_row id="benchmark" type="left" %}
 {% include feature_row id="interface" type="right" %}
-
-Application Overview
-====================
-{: .text-center}
-<table style="padding-left:18%; padding-right:18%; text-align:center">
-    <tr>
-        <td><b>Node Embedding</b></td>
-        <td><b>Knowledge Graph Embedding</b></td>
-        <td><b>Graph / High-dimensional Visualization</b></td>
-    </tr>
-    <tr>
-        <td><a href="/node_embedding" title="Node Embedding">
-            <img src="{{ site.baseurl }}/assets/images/graph.png" url="node embedding" />
-        </a></td>
-        <td><a href="/knowledge_graph_embedding" title="Knowledge Graph Embedding">
-            <img src="{{ site.baseurl }}/assets/images/knowledge_graph.png" />
-        </a></td>
-        <td><a href="/visualization" title="Graph / High-dimensional Visualization">
-            <img src="{{ site.baseurl }}/assets/images/visualization.png" />
-        </a></td>
-    </tr>
-</table>
