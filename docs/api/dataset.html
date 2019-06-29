@@ -183,6 +183,28 @@
   <div class="section" id="module-graphvite.dataset">
 <span id="graphvite-dataset"></span><h1>graphvite.dataset<a class="headerlink" href="#module-graphvite.dataset" title="Permalink to this headline">¶</a></h1>
 <p>Dataset module of GraphVite</p>
+<p>Graph</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#graphvite.dataset.BlogCatalog" title="graphvite.dataset.BlogCatalog"><code class="xref py py-class docutils literal notranslate"><span class="pre">BlogCatalog</span></code></a></p></li>
+<li><p><a class="reference internal" href="#graphvite.dataset.Youtube" title="graphvite.dataset.Youtube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Youtube</span></code></a></p></li>
+<li><p><a class="reference internal" href="#graphvite.dataset.Flickr" title="graphvite.dataset.Flickr"><code class="xref py py-class docutils literal notranslate"><span class="pre">Flickr</span></code></a></p></li>
+<li><p><a class="reference internal" href="#graphvite.dataset.Hyperlink2012" title="graphvite.dataset.Hyperlink2012"><code class="xref py py-class docutils literal notranslate"><span class="pre">Hyperlink2012</span></code></a></p></li>
+<li><p><a class="reference internal" href="#graphvite.dataset.Friendster" title="graphvite.dataset.Friendster"><code class="xref py py-class docutils literal notranslate"><span class="pre">Friendster</span></code></a></p></li>
+</ul>
+<p>Knowledge Graph</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#graphvite.dataset.FB15k" title="graphvite.dataset.FB15k"><code class="xref py py-class docutils literal notranslate"><span class="pre">FB15k</span></code></a></p></li>
+<li><p><a class="reference internal" href="#graphvite.dataset.FB15k237" title="graphvite.dataset.FB15k237"><code class="xref py py-class docutils literal notranslate"><span class="pre">FB15k237</span></code></a></p></li>
+<li><p><a class="reference internal" href="#graphvite.dataset.WN18" title="graphvite.dataset.WN18"><code class="xref py py-class docutils literal notranslate"><span class="pre">WN18</span></code></a></p></li>
+<li><p><a class="reference internal" href="#graphvite.dataset.WN18RR" title="graphvite.dataset.WN18RR"><code class="xref py py-class docutils literal notranslate"><span class="pre">WN18RR</span></code></a></p></li>
+<li><p><a class="reference internal" href="#graphvite.dataset.Freebase" title="graphvite.dataset.Freebase"><code class="xref py py-class docutils literal notranslate"><span class="pre">Freebase</span></code></a></p></li>
+</ul>
+<p>Visualization</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#graphvite.dataset.MNIST" title="graphvite.dataset.MNIST"><code class="xref py py-class docutils literal notranslate"><span class="pre">MNIST</span></code></a></p></li>
+<li><p><a class="reference internal" href="#graphvite.dataset.CIFAR10" title="graphvite.dataset.CIFAR10"><code class="xref py py-class docutils literal notranslate"><span class="pre">CIFAR10</span></code></a></p></li>
+<li><p><a class="reference internal" href="#graphvite.dataset.ImageNet" title="graphvite.dataset.ImageNet"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImageNet</span></code></a></p></li>
+</ul>
 <dl class="class">
 <dt id="graphvite.dataset.Dataset">
 <em class="property">class </em><code class="sig-prename descclassname">graphvite.dataset.</code><code class="sig-name descname">Dataset</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">urls=None</em>, <em class="sig-param">members=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphvite/dataset.html#Dataset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#graphvite.dataset.Dataset" title="Permalink to this definition">¶</a></dt>
@@ -302,14 +324,11 @@ If it is a str, use the last hidden layer of that model.</p></li>
 <li><p><strong>label_file</strong> (<em>str</em>) – label file</p></li>
 <li><p><strong>save_file</strong> (<em>str</em>) – save file</p></li>
 <li><p><strong>k</strong> (<em>int</em>) – top-k labels will be extracted</p></li>
-<li><p><strong>format</strong> (<em>str</em><em>, </em><em>optional</em>) – <p>format of label file,
-can be ‘node-label’ or ‘(label)-nodes’:</p>
-<blockquote>
-<div><ul>
+<li><p><strong>format</strong> (<em>str</em><em>, </em><em>optional</em>) – format of label file,</p></li>
+<li><p><strong>be 'node-label'</strong><strong> or </strong><strong>'</strong> (<em>can</em>) – <ul>
 <li><p><strong>node-label</strong>: each line is [node] [label]</p></li>
 <li><p><strong>(label)-nodes</strong>: each line is [node]…, no explicit label</p></li>
 </ul>
-</div></blockquote>
 </p></li>
 </ul>
 </dd>
@@ -351,7 +370,7 @@ can be ‘node-label’ or ‘(label)-nodes’:</p>
 <dl class="class">
 <dt id="graphvite.dataset.Hyperlink2012">
 <em class="property">class </em><code class="sig-prename descclassname">graphvite.dataset.</code><code class="sig-name descname">Hyperlink2012</code><a class="reference internal" href="../_modules/graphvite/dataset.html#Hyperlink2012"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#graphvite.dataset.Hyperlink2012" title="Permalink to this definition">¶</a></dt>
-<dd><p>Hyperlink 2012 graph.</p>
+<dd><p>Hyperlink 2012 graph dataset.</p>
 <dl class="simple">
 <dt>Splits:</dt><dd><p>pld_train, pld_test</p>
 </dd>
@@ -361,7 +380,7 @@ can be ‘node-label’ or ‘(label)-nodes’:</p>
 <dl class="class">
 <dt id="graphvite.dataset.Friendster">
 <em class="property">class </em><code class="sig-prename descclassname">graphvite.dataset.</code><code class="sig-name descname">Friendster</code><a class="reference internal" href="../_modules/graphvite/dataset.html#Friendster"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#graphvite.dataset.Friendster" title="Permalink to this definition">¶</a></dt>
-<dd><p>Friendster social network.</p>
+<dd><p>Friendster social network dataset.</p>
 <dl class="simple">
 <dt>Splits:</dt><dd><p>train, small_train, label</p>
 </dd>
@@ -431,7 +450,7 @@ can be ‘node-label’ or ‘(label)-nodes’:</p>
 <dl class="class">
 <dt id="graphvite.dataset.CIFAR10">
 <em class="property">class </em><code class="sig-prename descclassname">graphvite.dataset.</code><code class="sig-name descname">CIFAR10</code><a class="reference internal" href="../_modules/graphvite/dataset.html#CIFAR10"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#graphvite.dataset.CIFAR10" title="Permalink to this definition">¶</a></dt>
-<dd><p>CIFAR10 dataset for visualization</p>
+<dd><p>CIFAR10 dataset for visualization.</p>
 <dl class="simple">
 <dt>Splits:</dt><dd><p>train_image_data, train_label_data, test_image_data, test_label_data, image_data, label_data</p>
 </dd>
@@ -441,7 +460,7 @@ can be ‘node-label’ or ‘(label)-nodes’:</p>
 <dl class="class">
 <dt id="graphvite.dataset.ImageNet">
 <em class="property">class </em><code class="sig-prename descclassname">graphvite.dataset.</code><code class="sig-name descname">ImageNet</code><a class="reference internal" href="../_modules/graphvite/dataset.html#ImageNet"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#graphvite.dataset.ImageNet" title="Permalink to this definition">¶</a></dt>
-<dd><p>ImageNet dataset for visualization</p>
+<dd><p>ImageNet dataset for visualization.</p>
 <dl class="simple">
 <dt>Splits:</dt><dd><p>train_image, train_feature_data, train_label, train_hierarchical_label,
 valid_image, valid_feature_data, valid_label, valid_hierarchical_label,

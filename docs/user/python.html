@@ -97,8 +97,8 @@
 <li class="toctree-l1"><a class="reference internal" href="command_line.html">Command Line</a></li>
 <li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration Files</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Python Interface</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#invoke-from-applications">Invoke from applications</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#invoke-from-basic-classes">Invoke from basic classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#applications">Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#basic-classes">Basic classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#logging-settings">Logging settings</a></li>
 </ul>
 </li>
@@ -196,8 +196,8 @@ To use GraphVite in Python, import these two modules in your script.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">graphvite</span></code> module itself provides basic class interface, such as graphs,
 solvers, optimizers and datasets. The <code class="docutils literal notranslate"><span class="pre">application</span></code> module contains high-level
 wrappers of applications, along with their evaluation routines.</p>
-<div class="section" id="invoke-from-applications">
-<h2>Invoke from applications<a class="headerlink" href="#invoke-from-applications" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="applications">
+<h2>Applications<a class="headerlink" href="#applications" title="Permalink to this headline">¶</a></h2>
 <p>You can invoke a node embedding application with the following lines.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">app</span> <span class="o">=</span> <span class="n">gap</span><span class="o">.</span><span class="n">GraphApplication</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">128</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">app</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file_name</span><span class="o">=</span><span class="n">gv</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">blogcatalog</span><span class="o">.</span><span class="n">train</span><span class="p">)</span>
@@ -213,8 +213,8 @@ wrappers of applications, along with their evaluation routines.</p>
 <p>Package reference: <a class="reference internal" href="../api/application.html"><span class="doc">Application</span></a></p>
 </div>
 </div>
-<div class="section" id="invoke-from-basic-classes">
-<h2>Invoke from basic classes<a class="headerlink" href="#invoke-from-basic-classes" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="basic-classes">
+<h2>Basic classes<a class="headerlink" href="#basic-classes" title="Permalink to this headline">¶</a></h2>
 <p>The basic classes are very helpful if you need fine-grained manipulation of the
 pipeline. For example, you may train an ensemble of node embedding models on the
 same graph. First, create a graph and two node embedding solvers.</p>

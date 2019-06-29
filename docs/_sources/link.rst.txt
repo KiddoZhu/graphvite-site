@@ -11,6 +11,10 @@
 .. Visualization models
 .. _LargeVis: https://arxiv.org/pdf/1602.00370.pdf
 
+.. GraphVite
+.. _GraphVite: https://arxiv.org/pdf/1903.00757.pdf
+.. _Repo: http://github.com
+
 .. Graph datasets
 .. _Youtube: http://conferences.sigcomm.org/imc/2007/papers/imc170.pdf
 .. _Flickr: http://conferences.sigcomm.org/imc/2007/papers/imc170.pdf

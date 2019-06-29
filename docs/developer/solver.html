@@ -185,12 +185,10 @@
 <p>A more interesting thing to explore is extending GraphVite with new solvers.
 Generally, the core library is capable to perform any graph embedding variant that
 fits into the following paradigm.</p>
-<blockquote>
-<div><ul class="simple">
+<ul class="simple">
 <li><p>The training samples are edges.
 There may be additional attributes (e.g. labels) to edge samples.</p></li>
 </ul>
-</div></blockquote>
 <p>To support that, GraphVite provides a protocol interface and a series of abstract
 classes. You only need to declare the protocols for your parameters, and fill in the
 virtual member functions for the classes.</p>
@@ -237,7 +235,7 @@ functions may be required to complete the solver.</p>
 positive edges from the graph, with probability proportional to the weight of each
 edge. You only need to specify the additional edge attributes in <code class="docutils literal notranslate"><span class="pre">get_attributes()</span></code>.</p>
 <p>For the worker, it will build the negative sampler according to the its protocol.
-You need to specify the GPU implementation of models in <code class="docutils literal notranslate"><span class="pre">kernel_dispath()</span></code>. See
+You need to specify the GPU implementation of models in <code class="docutils literal notranslate"><span class="pre">kernel_dispatch()</span></code>. See
 <a class="reference internal" href="model.html"><span class="doc">Customize Models</span></a> for how to do that.</p>
 <p>Finally, to get your new solver appeared in Python, add a Python declaration for it in
 <code class="docutils literal notranslate"><span class="pre">include/bind.h</span></code>, and instantiate it in <code class="docutils literal notranslate"><span class="pre">src/graphvite.cu</span></code>.</p>

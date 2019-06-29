@@ -8,7 +8,7 @@ header:
   overlay_image: "/assets/images/overlay.jpg"
   actions:
     - label: "Get Started"
-      url: "/docs/install"
+      url: "/get_started"
 excerpt: >
   Graph embedding engine<br>
   Dedicated to high speed and large scale

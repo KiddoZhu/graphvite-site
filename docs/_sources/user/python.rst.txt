@@ -11,8 +11,8 @@ The ``graphvite`` module itself provides basic class interface, such as graphs,
 solvers, optimizers and datasets. The ``application`` module contains high-level
 wrappers of applications, along with their evaluation routines.
 
-Invoke from applications
-------------------------
+Applications
+------------
 
 You can invoke a node embedding application with the following lines.
 
@@ -28,8 +28,8 @@ where the arguments of each member function are identical to those in the
 .. seealso::
     Package reference: :doc:`Application <../api/application>`
 
-Invoke from basic classes
--------------------------
+Basic classes
+-------------
 
 The basic classes are very helpful if you need fine-grained manipulation of the
 pipeline. For example, you may train an ensemble of node embedding models on the

@@ -4,8 +4,9 @@ Customize Solvers
 A more interesting thing to explore is extending GraphVite with new solvers.
 Generally, the core library is capable to perform any graph embedding variant that
 fits into the following paradigm.
-    - The training samples are edges.
-      There may be additional attributes (e.g. labels) to edge samples.
+
+- The training samples are edges.
+  There may be additional attributes (e.g. labels) to edge samples.
 
 To support that, GraphVite provides a protocol interface and a series of abstract
 classes. You only need to declare the protocols for your parameters, and fill in the
@@ -65,7 +66,7 @@ positive edges from the graph, with probability proportional to the weight of ea
 edge. You only need to specify the additional edge attributes in ``get_attributes()``.
 
 For the worker, it will build the negative sampler according to the its protocol.
-You need to specify the GPU implementation of models in ``kernel_dispath()``. See
+You need to specify the GPU implementation of models in ``kernel_dispatch()``. See
 :doc:`model` for how to do that.
 
 Finally, to get your new solver appeared in Python, add a Python declaration for it in
