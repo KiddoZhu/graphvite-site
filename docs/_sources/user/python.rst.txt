@@ -37,8 +37,8 @@ same graph. First, create a graph and two node embedding solvers.
 
     >>> graph = gv.graph.Graph()
     >>> graph.load(gv.dataset.blogcatalog.train)
-    >>> solvers = [gv.solver.GraphSolver(dim=128, device_ids=[gpu],
-        num_sampler_per_worker=4) for gpu in range(2)]
+    >>> solvers = [gv.solver.GraphSolver(dim=128, device_ids=[gpu], num_sampler_per_worker=4)
+    ...            for gpu in range(2)]
 
 Then, build the solvers on that graph. This step determines all memory allocation.
 
