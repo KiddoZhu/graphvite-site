@@ -201,7 +201,7 @@
 </dl>
 <dl class="simple">
 <dt>Instantiations:</dt><dd><ul class="simple">
-<li><p><strong>dim</strong>: 64, 96, 128, 256, 512</p></li>
+<li><p><strong>dim</strong>: 32, 64, 96, 128, 256, 512</p></li>
 <li><p><strong>float_type</strong>: dtype.float32</p></li>
 <li><p><strong>index_type</strong>: dtype.uint32</p></li>
 </ul>
@@ -234,7 +234,7 @@
 <dl class="method">
 <dt id="graphvite.solver.GraphSolver.train">
 <code class="sig-name descname">train</code><span class="sig-paren">(</span><em class="sig-param">model='LINE'</em>, <em class="sig-param">num_epoch=2000</em>, <em class="sig-param">augmentation_step=5</em>, <em class="sig-param">random_walk_length=40</em>, <em class="sig-param">random_walk_batch_size=100</em>, <em class="sig-param">shuffle_base=auto</em>, <em class="sig-param">positive_reuse=1</em>, <em class="sig-param">negative_sample_exponent=0.75</em>, <em class="sig-param">negative_weight=5</em>, <em class="sig-param">log_frequency=1000</em><span class="sig-paren">)</span><a class="headerlink" href="#graphvite.solver.GraphSolver.train" title="Permalink to this definition">¶</a></dt>
-<dd><p>Train graph embeddings.</p>
+<dd><p>Train node embeddings.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -285,7 +285,7 @@
 </dl>
 <dl class="simple">
 <dt>Instantiations:</dt><dd><ul class="simple">
-<li><p><strong>dim</strong>: 64, 96, 128, 256, 512, 1024, 2048</p></li>
+<li><p><strong>dim</strong>: 32, 64, 96, 128, 256, 512, 1024, 2048</p></li>
 <li><p><strong>float_type</strong>: dtype.float32</p></li>
 <li><p><strong>index_type</strong>: dtype.uint32</p></li>
 </ul>

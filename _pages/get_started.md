@@ -46,7 +46,7 @@ Quick Start
 Once installed, you can run the following quick start example of the node embedding application.
 
 ```bash
-graphvite baseline quick_start
+graphvite baseline quick start
 ```
 
 The example will automatically download a social network dataset called BlogCatalog, where nodes

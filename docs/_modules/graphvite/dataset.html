@@ -187,6 +187,7 @@
 <span class="sd">- :class:`Flickr`</span>
 <span class="sd">- :class:`Hyperlink2012`</span>
 <span class="sd">- :class:`Friendster`</span>
+<span class="sd">- :class:`Wikipedia`</span>
 
 <span class="sd">Knowledge Graph</span>
 
@@ -307,7 +308,7 @@
         <span class="k">if</span> <span class="n">save_file</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">local_files</span><span class="p">():</span>
             <span class="k">return</span> <span class="n">save_file</span>
 
-        <span class="k">if</span> <span class="n">extension</span> <span class="o">==</span> <span class="s2">&quot;gz&quot;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">extension</span> <span class="o">==</span> <span class="s2">&quot;.gz&quot;</span><span class="p">:</span>
             <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;extracting </span><span class="si">%s</span><span class="s2"> to </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">relpath</span><span class="p">(</span><span class="n">zip_file</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">relpath</span><span class="p">(</span><span class="n">save_file</span><span class="p">)))</span>
             <span class="k">with</span> <span class="n">gzip</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">zip_file</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fin</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span><span class="n">save_file</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fout</span><span class="p">:</span>
                 <span class="n">shutil</span><span class="o">.</span><span class="n">copyfileobj</span><span class="p">(</span><span class="n">fin</span><span class="p">,</span> <span class="n">fout</span><span class="p">)</span>
@@ -640,6 +641,22 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">top_k_label</span><span class="p">(</span><span class="n">label_file</span><span class="p">,</span> <span class="n">save_file</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;(label)-nodes&quot;</span><span class="p">)</span></div>
 
 
+<div class="viewcode-block" id="Wikipedia"><a class="viewcode-back" href="../../api/dataset.html#graphvite.dataset.Wikipedia">[docs]</a><span class="k">class</span> <span class="nc">Wikipedia</span><span class="p">(</span><span class="n">Dataset</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Wikipedia dump for word embedding.</span>
+
+<span class="sd">    Splits:</span>
+<span class="sd">        train</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Wikipedia</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="s2">&quot;wikipedia&quot;</span><span class="p">,</span>
+            <span class="n">urls</span><span class="o">=</span><span class="p">{</span>
+                <span class="s2">&quot;train&quot;</span><span class="p">:</span> <span class="s2">&quot;https://www.dropbox.com/s/mwt4uu1qu9fflfk/enwiki-latest-pages-articles-sentences.txt.gz&quot;</span>
+            <span class="p">}</span>
+        <span class="p">)</span></div>
+
+
 <div class="viewcode-block" id="FB15k"><a class="viewcode-back" href="../../api/dataset.html#graphvite.dataset.FB15k">[docs]</a><span class="k">class</span> <span class="nc">FB15k</span><span class="p">(</span><span class="n">Dataset</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    FB15k knowledge graph dataset.</span>
@@ -723,7 +740,7 @@
         <span class="nb">super</span><span class="p">(</span><span class="n">Freebase</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
             <span class="s2">&quot;freebase&quot;</span><span class="p">,</span>
             <span class="n">urls</span><span class="o">=</span><span class="p">{</span>
-                <span class="s2">&quot;train&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+                <span class="s2">&quot;train&quot;</span><span class="p">:</span> <span class="s2">&quot;http://commondatastorage.googleapis.com/freebase-public/rdf/freebase-rdf-latest.gz&quot;</span>
             <span class="p">}</span>
         <span class="p">)</span></div>
 
@@ -1043,6 +1060,7 @@
 <span class="n">flickr</span> <span class="o">=</span> <span class="n">Flickr</span><span class="p">()</span>
 <span class="n">hyperlink2012</span> <span class="o">=</span> <span class="n">Hyperlink2012</span><span class="p">()</span>
 <span class="n">friendster</span> <span class="o">=</span> <span class="n">Friendster</span><span class="p">()</span>
+<span class="n">wikipedia</span> <span class="o">=</span> <span class="n">Wikipedia</span><span class="p">()</span>
 
 <span class="n">fb15k</span> <span class="o">=</span> <span class="n">FB15k</span><span class="p">()</span>
 <span class="n">fb15k237</span> <span class="o">=</span> <span class="n">FB15k237</span><span class="p">()</span>
@@ -1056,7 +1074,7 @@
 
 <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
     <span class="s2">&quot;Dataset&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;BlogCatalog&quot;</span><span class="p">,</span> <span class="s2">&quot;Youtube&quot;</span><span class="p">,</span> <span class="s2">&quot;Flickr&quot;</span><span class="p">,</span> <span class="s2">&quot;Hyperlink2012&quot;</span><span class="p">,</span> <span class="s2">&quot;Friendster&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;BlogCatalog&quot;</span><span class="p">,</span> <span class="s2">&quot;Youtube&quot;</span><span class="p">,</span> <span class="s2">&quot;Flickr&quot;</span><span class="p">,</span> <span class="s2">&quot;Hyperlink2012&quot;</span><span class="p">,</span> <span class="s2">&quot;Friendster&quot;</span><span class="p">,</span> <span class="s2">&quot;Wikipedia&quot;</span><span class="p">,</span>
     <span class="s2">&quot;FB15k&quot;</span><span class="p">,</span> <span class="s2">&quot;FB15k237&quot;</span><span class="p">,</span> <span class="s2">&quot;WN18&quot;</span><span class="p">,</span> <span class="s2">&quot;WN18RR&quot;</span><span class="p">,</span> <span class="s2">&quot;Freebase&quot;</span><span class="p">,</span>
     <span class="s2">&quot;MNIST&quot;</span><span class="p">,</span> <span class="s2">&quot;CIFAR10&quot;</span><span class="p">,</span> <span class="s2">&quot;ImageNet&quot;</span>
 <span class="p">]</span>

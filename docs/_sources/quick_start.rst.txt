@@ -6,7 +6,7 @@ If you don't have ``pytorch`` installed, add ``--no-eval`` to skip the evaluatio
 
 .. code-block:: bash
 
-    graphvite baseline quick_start
+    graphvite baseline quick start
 
 The example will automatically download a social network dataset called BlogCatalog,
 where nodes correspond to blog users. For each node, we learn an embedding vector,
