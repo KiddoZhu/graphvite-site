@@ -43,7 +43,7 @@ cd python && python setup.py install && cd -
 Quick Start
 ===========
 
-Once installed, you can run the following quick start example of the node embedding application.
+Once installed, you can run the following quick-start example of the node embedding application.
 
 ```bash
 graphvite baseline quick start
