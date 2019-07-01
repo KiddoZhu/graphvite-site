@@ -29,7 +29,7 @@ conda install graphvite-mini
 From Source
 -----------
 
-To install GraphVite from source, you need to have ``cmake`` at least 3.12, and ``pubind11`` installed.
+To install GraphVite from source, you need to have ``cmake`` at least 3.12, and ``pybind11`` installed.
 
 ```bash
 git clone https://github.com/KiddoZhu/graphvite
