@@ -20,7 +20,7 @@ conda install graphvite
 ```
 
 By default, this will install all the dependencies.
-If you only need embedding training and no evaluation, you can use the following alternative.
+If you only need embedding training without evaluation, you can use the following alternative.
 
 ```bash
 conda install graphvite-mini

@@ -1,8 +1,8 @@
 Quick Start
 ===========
 
-Here is a quick start example that may give you some ideas of the pipeline in GraphVite.
-If you don't have ``pytorch`` installed, add ``--no-eval`` to skip the evaluation stage.
+Here is a quick-start example that illustrate the pipeline in GraphVite. If you don't
+have ``pytorch`` installed, simply add ``--no-eval`` to skip the evaluation stage.
 
 .. code-block:: bash
 
@@ -10,7 +10,8 @@ If you don't have ``pytorch`` installed, add ``--no-eval`` to skip the evaluatio
 
 The example will automatically download a social network dataset called BlogCatalog,
 where nodes correspond to blog users. For each node, we learn an embedding vector,
-and evaluate the embeddings by using them for multi-label node classifcation.
+and evaluate the embeddings by using them as features for multi-label node
+classifcation.
 
 Typically, the example takes no more than 1 minute. You will obtain some output like
 
@@ -34,8 +35,8 @@ You can load them for further use
     >>> embeddings = blogcatalog["vertex_embeddings"]
     >>> print(names[1024], embddings[1024])
 
-As embeddings are necessary for representing graphs and plugging them into other
-learning recipes, it would be helpful if they can be obtained in the easiest way.
+As the embeddings might be further used in other downstream tasks, it would be
+helpful if they can be obtained in the easiest way.
 
 For a more in-depth tutorial about GraphVite, take a look at
     - :doc:`user/command_line`

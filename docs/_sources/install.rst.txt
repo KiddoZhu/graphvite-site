@@ -13,7 +13,7 @@ You can install GraphVite from ``conda`` with only one line.
     conda install graphvite
 
 By default, this will install all dependencies, including ``PyTorch`` and
-``matplotlib``. If you only need embedding training and no evaluation, you can take
+``matplotlib``. If you only need embedding training without evaluation, you can take
 the following alternative with minimum dependencies.
 
 .. code-block:: bash

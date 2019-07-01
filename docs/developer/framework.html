@@ -185,7 +185,7 @@
 <p>The framework of GraphVite is composed of two parts, a core library and a Python wrapper.
 The Python wrapper can be found in <code class="docutils literal notranslate"><span class="pre">python/graphvite/</span></code>. It provides an auto wrapper for
 classes in the core library, as well as implementation for applications and datasets.</p>
-<p>The core library is implemented in C++11 and CUDA, and binded to Python using
+<p>The core library is implemented with C++11 and CUDA, and binded to Python using
 <a class="reference external" href="https://pybind11.readthedocs.io">pybind11</a>. It covers implementation of all computation-related classes in GraphVite,
 such as graphs, solvers and optimizers. All these ingredients are packaged as classes,
 similar to the Python interface. The source code can be found in <code class="docutils literal notranslate"><span class="pre">include/</span></code> and
@@ -194,7 +194,7 @@ similar to the Python interface. The source code can be found in <code class="do
 solvers are templaterized by the underlying data types, and the length of embedding
 vectors. This design enables dynamic data type in Python interface, as well as maximal
 compile-time optimization.</p>
-<p>The C++ interface are highly abstracted to faciliate further development on GraphVite.
+<p>The C++ interface is highly abstracted to faciliate further development on GraphVite.
 Generally, by inheriting from the core interface, you can implement your graph deep
 learning routine without caring about scheduling details.</p>
 <p>The source code is organized as follows.</p>

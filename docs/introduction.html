@@ -187,19 +187,20 @@
             
   <div class="section" id="graphvite-graph-embedding-at-speed-and-scale">
 <h1>GraphVite - graph embedding at speed and scale<a class="headerlink" href="#graphvite-graph-embedding-at-speed-and-scale" title="Permalink to this headline">¶</a></h1>
-<p>GraphVite is a graph embedding engine, dedicated to high speed and large scale.
-GraphVite cooperates CPUs and GPUs for learning on million-scale or even billion-scale
-graphs. With its Python interface, you can easily practice graph learning algorithms,
-and get results in incredibly short time.</p>
-<p>Try GraphVite if you have any of the following concerns.</p>
+<p>GraphVite is a graph embedding engine, dedicated to high-speed and large-scale
+embedding learning in various applications. By cooperating CPUs and GPUs for learning,
+it scales to million-scale or even billion-scale graphs. With its Python interface,
+you can easily practice advanced graph embedding algorithms, and get results in
+incredibly short time.</p>
+<p>Try GraphVite if you have any of the following demands.</p>
 <ul class="simple">
 <li><p>You want to reproduce graph learning algorithms on a uniform platform.</p></li>
 <li><p>You need fast visualization for graphs or high-dimensional data.</p></li>
 <li><p>You are tired of waiting a long time for prototyping or tuning models.</p></li>
 <li><p>You need to learn representations of large graphs or knowledge graphs.</p></li>
 </ul>
-<p>Generally, GraphVite provides complete pipelines for 3 applications:
-<strong>node embedding</strong>, <strong>knowledge graph embedding</strong> and
+<p>Generally, GraphVite provides complete training and evaluation pipelines for 3
+applications: <strong>node embedding</strong>, <strong>knowledge graph embedding</strong> and
 <strong>graph / high-dimensional visualization</strong>. Besides, it also includes 7 popular
 models, along with their benchmarks on a bunch of standard datasets.</p>
 <div class="align-center figure align-left" id="id3">
@@ -216,22 +217,22 @@ models, along with their benchmarks on a bunch of standard datasets.</p>
 </div>
 <div style="clear: both" /><div class="section" id="how-fast-is-graphvite">
 <h2>How fast is GraphVite?<a class="headerlink" href="#how-fast-is-graphvite" title="Permalink to this headline">¶</a></h2>
-<p>To give a brief idea of the speed of the library, we summarize the training time
-of GraphVite and best open-source implementations. All the time is reported based
-on a server with 24 CPU threads and 4 V100 GPU.</p>
+<p>To give a brief idea of GraphVite’s speed, we summarize the training time of
+GraphVite along with the best open-source implementations. All the time is reported
+based on a server with 24 CPU threads and 4 V100 GPUs.</p>
 <p>Node embedding</p>
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 20%" />
-<col style="width: 43%" />
-<col style="width: 17%" />
-<col style="width: 20%" />
+<col style="width: 21%" />
+<col style="width: 46%" />
+<col style="width: 18%" />
+<col style="width: 15%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Model</p></th>
 <th class="head"><p>Existing Implementation</p></th>
 <th class="head"><p>GraphVite</p></th>
-<th class="head"><p>Improvement</p></th>
+<th class="head"><p>Speedup</p></th>
 </tr>
 </thead>
 <tbody>
@@ -242,7 +243,7 @@ on a server with 24 CPU threads and 4 V100 GPU.</p>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="https://arxiv.org/pdf/1503.03578.pdf">LINE</a></p></td>
 <td><p><a class="reference external" href="https://github.com/tangjianpku/LINE">1.39 hrs (CPU parallel)</a></p></td>
-<td><p>1.21 mins</p></td>
+<td><p>1.19 mins</p></td>
 <td><p>70.1x</p></td>
 </tr>
 </tbody>
@@ -250,44 +251,44 @@ on a server with 24 CPU threads and 4 V100 GPU.</p>
 <p>Knowledge graph embedding</p>
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 18%" />
-<col style="width: 42%" />
-<col style="width: 18%" />
-<col style="width: 22%" />
+<col style="width: 20%" />
+<col style="width: 45%" />
+<col style="width: 20%" />
+<col style="width: 16%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Model</p></th>
 <th class="head"><p>Existing Implementation</p></th>
 <th class="head"><p>GraphVite</p></th>
-<th class="head"><p>Improvement</p></th>
+<th class="head"><p>Speedup</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p><a class="reference external" href="http://papers.nips.cc/paper/5071-translating-embeddings-for-modeling-multi-relational-data.pdf">TransE</a></p></td>
 <td><p><a class="reference external" href="https://github.com/DeepGraphLearning/KnowledgeGraphEmbedding">1.31 hrs (1 GPU)</a></p></td>
-<td><p>26.4 mins</p></td>
-<td><p>2.98x</p></td>
+<td><p>23.6 mins</p></td>
+<td><p>3.33x</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="https://arxiv.org/pdf/1902.10197.pdf">RotatE</a></p></td>
 <td><p><a class="reference external" href="https://github.com/DeepGraphLearning/KnowledgeGraphEmbedding">3.69 hrs (1 GPU)</a></p></td>
-<td><p>28.7 mins</p></td>
-<td><p>7.72x</p></td>
+<td><p>27.0 mins</p></td>
+<td><p>8.22x</p></td>
 </tr>
 </tbody>
 </table>
 <p>Graph / High-dimensional visualization</p>
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 20%" />
-<col style="width: 44%" />
-<col style="width: 17%" />
-<col style="width: 20%" />
+<col style="width: 21%" />
+<col style="width: 47%" />
+<col style="width: 18%" />
+<col style="width: 15%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Model</p></th>
 <th class="head"><p>Existing Implementation</p></th>
 <th class="head"><p>GraphVite</p></th>
-<th class="head"><p>Improvement</p></th>
+<th class="head"><p>Speedup</p></th>
 </tr>
 </thead>
 <tbody>
@@ -301,21 +302,21 @@ on a server with 24 CPU threads and 4 V100 GPU.</p>
 </div>
 <div class="section" id="comparison-to-concurrent-work">
 <h2>Comparison to concurrent work<a class="headerlink" href="#comparison-to-concurrent-work" title="Permalink to this headline">¶</a></h2>
-<p>A concurrent work to GraphVite is <a class="reference external" href="https://torchbiggraph.readthedocs.io">PyTorch-BigGraph</a>, which also accelerates training
-on large-scale knowledge graphs. Here is an apple-to-apple comparison of models
-implemented in both libraries, under the same training setting.</p>
+<p>A work concurrent to GraphVite is <a class="reference external" href="https://torchbiggraph.readthedocs.io">PyTorch-BigGraph</a>, which aims at accelerating
+knowledge graph embedding on large-scale data. Here is an apple-to-apple comparison
+of models implemented in both libraries, under the same training setting.</p>
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 24%" />
-<col style="width: 33%" />
-<col style="width: 20%" />
-<col style="width: 24%" />
+<col style="width: 25%" />
+<col style="width: 35%" />
+<col style="width: 22%" />
+<col style="width: 18%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Model</p></th>
 <th class="head"><p>PyTorch-BigGraph</p></th>
 <th class="head"><p>GraphVite</p></th>
-<th class="head"><p>Improvement</p></th>
+<th class="head"><p>Speedup</p></th>
 </tr>
 </thead>
 <tbody>
@@ -336,7 +337,7 @@ implemented in both libraries, under the same training setting.</p>
 </tr>
 </tbody>
 </table>
-<p>GraphVite surpass its counterpart by a signficant margin. Besides, the framework of
+<p>GraphVite surpasses its counterpart by a signficant margin. Besides, the framework of
 GraphVite also supports two more applications, and provides many benchmarks for easy
 research and development.</p>
 </div>

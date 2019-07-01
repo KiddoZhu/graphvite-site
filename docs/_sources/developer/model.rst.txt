@@ -26,8 +26,8 @@ You will find 3 implementations of the loss function in the namespace.
     __global__ void train_2_moment(...);
     }
 
-The three implementations are corresponding to 3 categories of optimizers. We are going
-to modify one, and then do some copy-and-paste work to the others.
+The three implementations correspond to 3 categories of optimizers. We are going to
+modify one, and then do some copy-and-paste work to the others.
 
 Let's start from ``train_2_moment()``. Find the following two loops.
 You can locate them by searching ``i = lane_id``.

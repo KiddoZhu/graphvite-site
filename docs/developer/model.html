@@ -199,8 +199,8 @@ computation in some dimensions, according to the modulus of the dimension.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>The three implementations are corresponding to 3 categories of optimizers. We are going
-to modify one, and then do some copy-and-paste work to the others.</p>
+<p>The three implementations correspond to 3 categories of optimizers. We are going to
+modify one, and then do some copy-and-paste work to the others.</p>
 <p>Let’s start from <code class="docutils literal notranslate"><span class="pre">train_2_moment()</span></code>. Find the following two loops.
 You can locate them by searching <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">=</span> <span class="pre">lane_id</span></code>.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">lane_id</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">dim</span><span class="p">;</span> <span class="n">i</span> <span class="o">+=</span> <span class="n">kWarpSize</span><span class="p">)</span> <span class="p">{</span>

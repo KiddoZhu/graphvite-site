@@ -196,11 +196,11 @@ line. Here are some other useful commands you may use.</p>
 </div>
 <p>GraphVite provides a large number of baselines on standard datasets. To reproduce
 a baseline benchmark, you only need to specify the keywords of the experiment, and
-the library will do all for you.</p>
+the library will do all the rest.</p>
 <p>By default, baselines are configured to use all CPUs and GPUs. You may override this
-behavior by specifying the number of GPUs and the number of CPU per GPU.</p>
+behavior by specifying the number of GPUs and the number of CPUs per GPU.</p>
 <p>For example, the following command line reproduces RotatE model on FB15k dataset,
-using 4 GPU and 12 CPU.</p>
+using 4 GPUs and 12 CPUs.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>graphvite baseline rotate fb15k --gpu <span class="m">4</span> --cpu <span class="m">3</span>
 </pre></div>
 </div>
@@ -221,9 +221,9 @@ For how to write an experiment configuration, see <a class="reference internal" 
 </div>
 <p>You can visualize your high-dimensional vectors with a simple command line in
 GraphVite.</p>
-<p>The file can be either in numpy dump or text format. You can also provide
-a label file to see if labels have any structure in the vector space. For the save
-file, we recommend to use a <code class="docutils literal notranslate"><span class="pre">png</span></code> format, while <code class="docutils literal notranslate"><span class="pre">pdf</span></code> is also supported.</p>
+<p>The file can be either in numpy dump or text format. You can also provide a label
+file indicating the category of each data point. For the save file, we recommend to
+use a <code class="docutils literal notranslate"><span class="pre">png</span></code> format, while <code class="docutils literal notranslate"><span class="pre">pdf</span></code> is also supported.</p>
 </div>
 </div>
 

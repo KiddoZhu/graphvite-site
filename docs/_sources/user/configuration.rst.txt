@@ -86,7 +86,7 @@ Evaluation is optional.
 
 Saving embeddings is optional.
 
-For more detailed settings, we recommend you to see the baseline configurations
+For more detailed settings, we recommend you to read the baseline configurations
 for concrete examples. They can be found under ``config/`` in the Python package,
 or in the `GitHub repository <Repo>`_.
 
