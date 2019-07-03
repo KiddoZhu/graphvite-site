@@ -20,6 +20,16 @@ If you find GraphVite helps your research, please cite it in your publications.
         organization={ACM}
     }
 
+Why is there a ``PackagesNotFoundError`` in conda installation?
+---------------------------------------------------------------
+
+Some dependencies of the library aren't present in the default channels of conda.
+Config your conda with the following command, and try installation again.
+
+.. code-block:: bash
+
+    conda config --add channels conda-forge
+
 Why is there a compilation error for template deduction?
 --------------------------------------------------------
 
