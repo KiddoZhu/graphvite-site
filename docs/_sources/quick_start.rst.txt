@@ -39,7 +39,8 @@ As the embeddings might be further used in other downstream tasks, it would be
 helpful if they can be obtained in the easiest way.
 
 For a more in-depth tutorial about GraphVite, take a look at
-    - :doc:`user/command_line`
-    - :doc:`user/configuration`
-    - :doc:`user/python`
-    - :doc:`user/auto`
+
+- :doc:`user/command_line`
+- :doc:`user/configuration`
+- :doc:`user/python`
+- :doc:`user/auto`
