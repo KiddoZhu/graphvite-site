@@ -26,14 +26,16 @@ features:
   - title: "Application Pipelines"
     excerpt: >
       Complete pipelines of node embedding, knowledge graph embedding, and graph
-      / high-dimensional visualization are supported. It is a ready playground for
+      & high-dimensional visualization are supported. It is a ready playground for
       models and evaluation tasks.
 benchmark:
   - title: "Models and Benchmarks"
     excerpt: >
       A large collection of models and benchmarks are provided to facilitate fast
       reproducibility. Choose your favourite model and plug it into your research or 
-      development. Everything is here and no further effort is needed.
+      development.<br><br>
+      **Supported models:** DeepWalk, LINE, TransE, DistMult, ComplEx, RotatE, LargeVis
+    # Everything is here and no further effort is needed.
     image_path: "/assets/images/benchmark.png"
     url: "/docs/benchmark"
     btn_class: "btn--primary"
@@ -52,9 +54,9 @@ interface:
 
 {% include feature_row id="features" %}
 
-| [Node Embedding][1]    | [Knowledge Graph Embedding][2]    | [Graph / High-dimensional Visualization][3]    |
+| [Node Embedding][1]    | [Knowledge Graph Embedding][2]    | [Graph & High-dimensional Visualization][3]    |
 |------------------------|-----------------------------------|------------------------------------------------|
-| [![Node Embedding]][1] | [![Knowledge Graph Embedding]][2] | [![Graph / High-dimensional Visualization]][3] |
+| [![Node Embedding]][1] | [![Knowledge Graph Embedding]][2] | [![Graph & High-dimensional Visualization]][3] |
 {: .page}
 
 [1]: /docs/overview#node-embedding
@@ -62,7 +64,7 @@ interface:
 [3]: /docs/overview#graph-high-dimensional-visualization
 [Node Embedding]: {{ site.baseurl }}/assets/images/graph.png
 [Knowledge Graph Embedding]: {{ site.baseurl }}/assets/images/knowledge_graph.png
-[Graph / High-dimensional Visualization]: {{ site.baseurl }}/assets/images/visualization.png
+[Graph & High-dimensional Visualization]: {{ site.baseurl }}/assets/images/visualization.png
 
 {% include feature_row id="benchmark" type="left" %}
 {% include feature_row id="interface" type="right" %}

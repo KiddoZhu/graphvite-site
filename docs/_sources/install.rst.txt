@@ -1,5 +1,5 @@
-Install GraphVite
-=================
+Install
+=======
 
 There are 2 ways to install GraphVite.
 
@@ -26,7 +26,7 @@ Install from source
 Before installation, make sure your ``cmake`` is at least 3.12, and ``pybind11``
 is installed.
 
-First, clone GraphVite from github
+First, clone GraphVite from GitHub.
 
 .. code-block:: bash
 

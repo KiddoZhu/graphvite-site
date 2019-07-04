@@ -178,7 +178,7 @@ are computed based on filtered results.
     :download:`complex_wn18rr.yaml<../../config/knowledge_graph/complex_wn18rr.yaml>`
     :download:`rotate_wn18rr.yaml<../../config/knowledge_graph/rotate_wn18rr.yaml>`
 
-Graph / High-dimensional Visualization
+Graph & High-dimensional Visualization
 --------------------------------------
 
 The high-dimensional visualization is evaluated on two popular image datasets.

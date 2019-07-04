@@ -18,7 +18,7 @@ Try GraphVite if you have any of the following demands.
 
 Generally, GraphVite provides complete training and evaluation pipelines for 3
 applications: **node embedding**, **knowledge graph embedding** and
-**graph / high-dimensional visualization**. Besides, it also includes 7 popular
+**graph & high-dimensional visualization**. Besides, it also includes 7 popular
 models, along with their benchmarks on a bunch of standard datasets.
 
 .. figure:: ../../asset/graph.png
@@ -43,7 +43,7 @@ models, along with their benchmarks on a bunch of standard datasets.
     :target: overview.html#graph-high-dimensional-visualization
     :figclass: align-center
 
-    Graph / |br| High-dimensional |br| Visualization
+    Graph & |br| High-dimensional |br| Visualization
 
 .. |br| raw:: html
 
@@ -86,7 +86,7 @@ Knowledge graph embedding
 .. _1.31 hrs (1 GPU): https://github.com/DeepGraphLearning/KnowledgeGraphEmbedding
 .. _3.69 hrs (1 GPU): https://github.com/DeepGraphLearning/KnowledgeGraphEmbedding
 
-Graph / High-dimensional visualization
+Graph & High-dimensional visualization
 
 +-------------+-----------------------------+-----------+---------+
 | Model       | Existing Implementation     | GraphVite | Speedup |
