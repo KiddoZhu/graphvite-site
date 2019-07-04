@@ -10,8 +10,12 @@ header:
     - label: "Get Started"
       url: "/get_started"
 excerpt: >
-  Graph embedding engine<br>
-  Dedicated to high speed and large scale
+  A general and high-performance graph embedding system that supports various
+  applications, including node embeddings, knowledge graph embeddings, and graph
+  & high-dimensional data visualization.<br>
+  Designed for CPU-GPU hybrid architecture.
+# Graph embedding engine<br>
+# Dedicated to high speed and large scale
 features:
   - title: "Fast Training"
     excerpt: >
