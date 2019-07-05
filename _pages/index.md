@@ -10,10 +10,8 @@ header:
     - label: "Get Started"
       url: "/get_started"
 excerpt: >
-  A general and high-performance graph embedding system that supports various
-  applications, including node embeddings, knowledge graph embeddings, and graph
-  & high-dimensional data visualization.<br>
-  Designed for CPU-GPU hybrid architecture.
+  A general and high-performance graph embedding system for various applications<br>
+  Designed for CPU-GPU hybrid architecture
 # Graph embedding engine<br>
 # Dedicated to high speed and large scale
 features:
@@ -38,7 +36,7 @@ benchmark:
       A large collection of models and benchmarks are provided to facilitate fast
       reproducibility. Choose your favourite model and plug it into your research or 
       development.<br><br>
-      **Supported models:** DeepWalk, LINE, TransE, DistMult, ComplEx, RotatE, LargeVis
+      **Supported models:** DeepWalk, LINE, TransE, DistMult, ComplEx, RotatE, LargeVis, ...
     # Everything is here and no further effort is needed.
     image_path: "/assets/images/benchmark.png"
     url: "/docs/benchmark"
