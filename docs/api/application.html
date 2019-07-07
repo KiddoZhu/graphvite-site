@@ -184,6 +184,18 @@
 <span id="graphvite-application"></span><h1>graphvite.application<a class="headerlink" href="#module-graphvite.application" title="Permalink to this headline">¶</a></h1>
 <p>Application module of GraphVite</p>
 <dl class="class">
+<dt id="graphvite.application.Application">
+<em class="property">class </em><code class="sig-prename descclassname">graphvite.application.</code><code class="sig-name descname">Application</code><span class="sig-paren">(</span><em class="sig-param">type</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphvite/application/application.html#Application"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#graphvite.application.Application" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create an application instance of any type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>type</strong> (<em>str</em>) – application type,
+can be ‘graph’, ‘word_graph’, ‘knowledge_graph’ or ‘visualization’</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
 <dt id="graphvite.application.GraphApplication">
 <em class="property">class </em><code class="sig-prename descclassname">graphvite.application.</code><code class="sig-name descname">GraphApplication</code><span class="sig-paren">(</span><em class="sig-param">dim</em>, <em class="sig-param">gpus=[]</em>, <em class="sig-param">cpu_per_gpu=0</em>, <em class="sig-param">float_type=dtype.float32</em>, <em class="sig-param">index_type=dtype.uint32</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphvite/application/application.html#GraphApplication"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#graphvite.application.GraphApplication" title="Permalink to this definition">¶</a></dt>
 <dd><p>Node embedding application.</p>
@@ -195,6 +207,7 @@ The similarity between node embeddings can be measured by cosine distance.</p>
 <dt>Supported Models:</dt><dd><ul class="simple">
 <li><p>DeepWalk (<a class="reference external" href="https://arxiv.org/pdf/1403.6652.pdf">DeepWalk: Online Learning of Social Representations</a>)</p></li>
 <li><p>LINE (<a class="reference external" href="https://arxiv.org/pdf/1503.03578.pdf">LINE: Large-scale Information Network Embedding</a>)</p></li>
+<li><p>node2vec (<a class="reference external" href="https://www.kdd.org/kdd2016/papers/files/rfp0218-groverA.pdf">node2vec: Scalable Feature Learning for Networks</a>)</p></li>
 </ul>
 </dd>
 </dl>
@@ -627,21 +640,6 @@ if not provided, show the figure in window</p></li>
 </dl>
 </dd></dl>
 
-</dd></dl>
-
-<dl class="function">
-<dt id="graphvite.application.Application">
-<code class="sig-prename descclassname">graphvite.application.</code><code class="sig-name descname">Application</code><span class="sig-paren">(</span><em class="sig-param">type</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphvite/application/application.html#Application"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#graphvite.application.Application" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create an application instance of any type.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>type</strong> (<em>str</em>) – application type,
-can be ‘graph’, ‘word_graph’, ‘knowledge_graph’ or ‘visualization’</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>an application instance</p>
-</dd>
-</dl>
 </dd></dl>
 
 </div>

@@ -312,11 +312,14 @@
 <span class="sd">    Supported Models:</span>
 <span class="sd">        - DeepWalk (`DeepWalk: Online Learning of Social Representations`_)</span>
 <span class="sd">        - LINE (`LINE: Large-scale Information Network Embedding`_)</span>
+<span class="sd">        - node2vec (`node2vec: Scalable Feature Learning for Networks`_)</span>
 
 <span class="sd">    .. _DeepWalk\: Online Learning of Social Representations:</span>
 <span class="sd">        https://arxiv.org/pdf/1403.6652.pdf</span>
 <span class="sd">    .. _LINE\: Large-scale Information Network Embedding:</span>
 <span class="sd">        https://arxiv.org/pdf/1503.03578.pdf</span>
+<span class="sd">    .. _node2vec\: Scalable Feature Learning for Networks:</span>
+<span class="sd">        https://www.kdd.org/kdd2016/papers/files/rfp0218-groverA.pdf</span>
 
 <span class="sd">    Parameters:</span>
 <span class="sd">        dim (int): dimension of embeddings</span>
@@ -1064,28 +1067,33 @@
     <span class="k">return</span> <span class="n">frame</span>
 
 
-<span class="n">application</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;graph&quot;</span><span class="p">:</span> <span class="n">GraphApplication</span><span class="p">,</span>
-    <span class="s2">&quot;word_graph&quot;</span><span class="p">:</span> <span class="n">WordGraphApplication</span><span class="p">,</span>
-    <span class="s2">&quot;knowledge_graph&quot;</span><span class="p">:</span> <span class="n">KnowledgeGraphApplication</span><span class="p">,</span>
-    <span class="s2">&quot;visualization&quot;</span><span class="p">:</span> <span class="n">VisualizationApplication</span>
-<span class="p">}</span>
-
-<div class="viewcode-block" id="Application"><a class="viewcode-back" href="../../../api/application.html#graphvite.application.Application">[docs]</a><span class="k">def</span> <span class="nf">Application</span><span class="p">(</span><span class="nb">type</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="Application"><a class="viewcode-back" href="../../../api/application.html#graphvite.application.Application">[docs]</a><span class="k">class</span> <span class="nc">Application</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Application(type, *args, **kwargs)</span>
 <span class="sd">    Create an application instance of any type.</span>
 
 <span class="sd">    Parameters:</span>
 <span class="sd">        type (str): application type,</span>
 <span class="sd">            can be &#39;graph&#39;, &#39;word_graph&#39;, &#39;knowledge_graph&#39; or &#39;visualization&#39;</span>
-
-<span class="sd">    Returns:</span>
-<span class="sd">        an application instance</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="nb">type</span> <span class="ow">in</span> <span class="n">application</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">application</span><span class="p">[</span><span class="nb">type</span><span class="p">](</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Unknown application `</span><span class="si">%s</span><span class="s2">`&quot;</span> <span class="o">%</span> <span class="nb">type</span><span class="p">)</span></div>
+
+    <span class="n">application</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;graph&quot;</span><span class="p">:</span> <span class="n">GraphApplication</span><span class="p">,</span>
+        <span class="s2">&quot;word_graph&quot;</span><span class="p">:</span> <span class="n">WordGraphApplication</span><span class="p">,</span>
+        <span class="s2">&quot;knowledge_graph&quot;</span><span class="p">:</span> <span class="n">KnowledgeGraphApplication</span><span class="p">,</span>
+        <span class="s2">&quot;visualization&quot;</span><span class="p">:</span> <span class="n">VisualizationApplication</span>
+    <span class="p">}</span>
+
+    <span class="k">def</span> <span class="nf">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">type</span> <span class="ow">in</span> <span class="bp">cls</span><span class="o">.</span><span class="n">application</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">application</span><span class="p">[</span><span class="nb">type</span><span class="p">](</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Unknown application `</span><span class="si">%s</span><span class="s2">`&quot;</span> <span class="o">%</span> <span class="nb">type</span><span class="p">)</span></div>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;Application&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;GraphApplication&quot;</span><span class="p">,</span> <span class="s2">&quot;WordGraphApplication&quot;</span><span class="p">,</span> <span class="s2">&quot;KnowledgeGraphApplication&quot;</span><span class="p">,</span> <span class="s2">&quot;VisualizationApplication&quot;</span>
+<span class="p">]</span>
 </pre></div>
 
            </div>

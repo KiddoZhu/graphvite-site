@@ -187,22 +187,22 @@
 
 <span class="n">module</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">[</span><span class="vm">__name__</span><span class="p">]</span>
 
-<div class="viewcode-block" id="Optimizer"><a class="viewcode-back" href="../../api/optimizer.html#graphvite.optimizer.Optimizer">[docs]</a><span class="k">def</span> <span class="nf">Optimizer</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="n">auto</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="Optimizer"><a class="viewcode-back" href="../../api/optimizer.html#graphvite.optimizer.Optimizer">[docs]</a><span class="k">class</span> <span class="nc">Optimizer</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Optimizer(type=auto, *args, **kwargs)</span>
 <span class="sd">    Create an optimizer instance of any type.</span>
 
 <span class="sd">    Parameters:</span>
-<span class="sd">        type (str or auto): optimizer type</span>
-
-<span class="sd">    Returns:</span>
-<span class="sd">        Optimizer: an optimizer instance</span>
+<span class="sd">        type (str or auto): optimizer type,</span>
+<span class="sd">            can be &#39;SGD&#39;, &#39;Momentum&#39;, &#39;AdaGrad&#39;, &#39;RMSprop&#39; or &#39;Adam&#39;</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="nb">type</span> <span class="o">==</span> <span class="n">auto</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">lib</span><span class="o">.</span><span class="n">optimizer</span><span class="o">.</span><span class="n">Optimizer</span><span class="p">(</span><span class="n">auto</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">lib</span><span class="o">.</span><span class="n">optimizer</span><span class="p">,</span> <span class="nb">type</span><span class="p">):</span>
-        <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">lib</span><span class="o">.</span><span class="n">optimizer</span><span class="p">,</span> <span class="nb">type</span><span class="p">)(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Unknown optimizer `</span><span class="si">%s</span><span class="s2">`&quot;</span> <span class="o">%</span> <span class="nb">type</span><span class="p">)</span></div>
+    <span class="k">def</span> <span class="nf">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">auto</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">type</span> <span class="o">==</span> <span class="n">auto</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">lib</span><span class="o">.</span><span class="n">optimizer</span><span class="o">.</span><span class="n">Optimizer</span><span class="p">(</span><span class="n">auto</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">lib</span><span class="o">.</span><span class="n">optimizer</span><span class="p">,</span> <span class="nb">type</span><span class="p">):</span>
+            <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">lib</span><span class="o">.</span><span class="n">optimizer</span><span class="p">,</span> <span class="nb">type</span><span class="p">)(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Unknown optimizer `</span><span class="si">%s</span><span class="s2">`&quot;</span> <span class="o">%</span> <span class="nb">type</span><span class="p">)</span></div>
 
 
 <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">find_all_names</span><span class="p">(</span><span class="n">lib</span><span class="o">.</span><span class="n">optimizer</span><span class="p">):</span>

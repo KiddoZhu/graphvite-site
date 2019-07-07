@@ -9,7 +9,7 @@ Reproduce baseline benchmarks
 
 .. code-block:: bash
 
-    graphvite baseline [tag ...] [--no-eval] [--gpu n] [--cpu m]
+    graphvite baseline [keyword ...] [--no-eval] [--gpu n] [--cpu m]
 
 GraphVite provides a large number of baselines on standard datasets. To reproduce
 a baseline benchmark, you only need to specify the keywords of the experiment, and

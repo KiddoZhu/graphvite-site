@@ -10,9 +10,9 @@ and 4 V100 GPUs.
 Node Embedding
 --------------
 
-We experiment node embedding models on 3 datasets, ranging from million-scale to half
-billion-scale. The following table shows the size of each dataset, as well as the
-time and resource required by `LINE`_ model.
+We experiment node embedding models on 3 datasets, ranging from million-scale to
+half billion-scale. The following table shows the size of each dataset, as well as
+the time and resource required by `LINE`_ model.
 
 +---------------------+-------+-------+---------------+-----------------+
 | Dataset             | \|V\| | \|E\| | Training Time | GPU memory cost |
@@ -215,12 +215,12 @@ can be traded off with speed if necessary.
     :download:`largevis_mnist_2d.yaml<../../config/visualization/largevis_mnist_2d.yaml>`
     :download:`largevis_imagenet.yaml<../../config/visualization/largevis_imagenet.yaml>`
 
-Here is a 3D visualization result of MNIST.
+Here is a 3D visualization result of `MNIST`_.
 
-.. image:: ../../asset/demo/mnist_3d.gif
+.. image:: ../../asset/visualization/mnist_3d.gif
 
-For ImageNet, since it contains 1000 classes, we visualize classes according to
-their hierarchy in wordnet. The following animation shows how the class of
+For `ImageNet`_, since it contains 1000 classes, we visualize classes according to
+their hierarchy in `WordNet`_. The following animation shows how the class of
 ``english setter`` (a kind of dog) is traversed in the hierarchy.
 
-.. image:: ../../asset/demo/imagenet_hierarchy.gif
+.. image:: ../../asset/visualization/imagenet_hierarchy.gif

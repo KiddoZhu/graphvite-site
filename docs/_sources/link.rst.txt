@@ -14,7 +14,7 @@
 
 .. GraphVite
 .. _GraphVite: https://arxiv.org/pdf/1903.00757.pdf
-.. _Repo: http://github.com
+.. _Repo: https://github.com/KiddoZhu/graphvite
 
 .. Graph datasets
 .. _Youtube: http://conferences.sigcomm.org/imc/2007/papers/imc170.pdf
@@ -30,3 +30,6 @@
 .. Image datasets
 .. _MNIST: http://yann.lecun.com/exdb/publis/pdf/lecun-01a.pdf
 .. _ImageNet: https://arxiv.org/pdf/1409.0575.pdf
+
+.. Misc
+.. _WordNet: http://www.cs.columbia.edu/~vh/courses/LexicalSemantics/Ontologies/miller-wordnet95.pdf

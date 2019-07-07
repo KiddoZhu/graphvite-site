@@ -60,7 +60,7 @@ The number of partitions determines how to deal with multi-GPU or large graph ca
 The more partitions, the less GPU memory consumption and speed. The episode size
 controls the synchronization frequency across partitions.
 
-See section 3.2 in `GraphVite paper <GraphVite>`_  for a detailed illustration.
+See section 3.2 in `GraphVite paper <GraphVite_>`_  for a detailed illustration.
 
 .. code-block:: yaml
 
@@ -88,7 +88,7 @@ Saving embeddings is optional.
 
 For more detailed settings, we recommend you to read the baseline configurations
 for concrete examples. They can be found under ``config/`` in the Python package,
-or in the `GitHub repository <Repo>`_.
+or in the `GitHub repository <Repo_>`_.
 
 Global configuration
 --------------------

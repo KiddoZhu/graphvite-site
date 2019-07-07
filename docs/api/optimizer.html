@@ -184,6 +184,18 @@
 <span id="graphvite-optimizer"></span><h1>graphvite.optimizer<a class="headerlink" href="#module-graphvite.optimizer" title="Permalink to this headline">¶</a></h1>
 <p>Optimizer module of GraphVite</p>
 <dl class="class">
+<dt id="graphvite.optimizer.Optimizer">
+<em class="property">class </em><code class="sig-prename descclassname">graphvite.optimizer.</code><code class="sig-name descname">Optimizer</code><span class="sig-paren">(</span><em class="sig-param">type=auto</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphvite/optimizer.html#Optimizer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#graphvite.optimizer.Optimizer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create an optimizer instance of any type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>type</strong> (<em>str</em><em> or </em><em>auto</em>) – optimizer type,
+can be ‘SGD’, ‘Momentum’, ‘AdaGrad’, ‘RMSprop’ or ‘Adam’</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
 <dt id="graphvite.optimizer.SGD">
 <em class="property">class </em><code class="sig-prename descclassname">graphvite.optimizer.</code><code class="sig-name descname">SGD</code><span class="sig-paren">(</span><em class="sig-param">lr=1e-4</em>, <em class="sig-param">weight_decay=0</em><span class="sig-paren">)</span><a class="headerlink" href="#graphvite.optimizer.SGD" title="Permalink to this definition">¶</a></dt>
 <dd><p>Stochastic gradient descent optimizer.</p>
@@ -256,23 +268,6 @@
 <li><p><strong>beta2</strong> (<em>float</em><em>, </em><em>optional</em>) – coefficient for moving average of squared gradient</p></li>
 <li><p><strong>epsilon</strong> (<em>float</em><em>, </em><em>optional</em>) – smooth term for numerical stability</p></li>
 </ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="graphvite.optimizer.Optimizer">
-<code class="sig-prename descclassname">graphvite.optimizer.</code><code class="sig-name descname">Optimizer</code><span class="sig-paren">(</span><em class="sig-param">type=0</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphvite/optimizer.html#Optimizer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#graphvite.optimizer.Optimizer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create an optimizer instance of any type.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>type</strong> (<em>str</em><em> or </em><em>auto</em>) – optimizer type</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>an optimizer instance</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>Optimizer</p>
 </dd>
 </dl>
 </dd></dl>

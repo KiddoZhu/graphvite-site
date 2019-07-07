@@ -233,7 +233,7 @@ This would make the configuration file independent of the path.</p>
 <p>The number of partitions determines how to deal with multi-GPU or large graph cases.
 The more partitions, the less GPU memory consumption and speed. The episode size
 controls the synchronization frequency across partitions.</p>
-<p>See section 3.2 in <a class="reference external" href="GraphVite">GraphVite paper</a>  for a detailed illustration.</p>
+<p>See section 3.2 in <a class="reference external" href="https://arxiv.org/pdf/1903.00757.pdf">GraphVite paper</a>  for a detailed illustration.</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">train</span><span class="p">:</span>
     <span class="nt">model</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">model</span><span class="p p-Indicator">]</span>
     <span class="nt">num_epoch</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">number of epochs</span><span class="p p-Indicator">]</span>
@@ -255,7 +255,7 @@ controls the synchronization frequency across partitions.</p>
 <p>Saving embeddings is optional.</p>
 <p>For more detailed settings, we recommend you to read the baseline configurations
 for concrete examples. They can be found under <code class="docutils literal notranslate"><span class="pre">config/</span></code> in the Python package,
-or in the <a class="reference external" href="Repo">GitHub repository</a>.</p>
+or in the <a class="reference external" href="https://github.com/KiddoZhu/graphvite">GitHub repository</a>.</p>
 </div>
 <div class="section" id="global-configuration">
 <h2>Global configuration<a class="headerlink" href="#global-configuration" title="Permalink to this headline">¶</a></h2>

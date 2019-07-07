@@ -201,7 +201,7 @@
 </dl>
 <dl class="simple">
 <dt>Instantiations:</dt><dd><ul class="simple">
-<li><p><strong>dim</strong>: 128</p></li>
+<li><p><strong>dim</strong>: 32, 64, 96, 128, 256, 512</p></li>
 <li><p><strong>float_type</strong>: dtype.float32</p></li>
 <li><p><strong>index_type</strong>: dtype.uint32</p></li>
 </ul>
@@ -215,7 +215,7 @@
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>graph</strong> (<a class="reference internal" href="graph.html#graphvite.graph.Graph" title="graphvite.graph.Graph"><em>Graph</em></a>) – graph</p></li>
-<li><p><strong>optimizer</strong> (<em>Optimizer</em><em> or </em><em>float</em><em>, </em><em>optional</em>) – optimizer or learning rate</p></li>
+<li><p><strong>optimizer</strong> (<a class="reference internal" href="optimizer.html#graphvite.optimizer.Optimizer" title="graphvite.optimizer.Optimizer"><em>Optimizer</em></a><em> or </em><em>float</em><em>, </em><em>optional</em>) – optimizer or learning rate</p></li>
 <li><p><strong>num_partition</strong> (<em>int</em><em>, </em><em>optional</em>) – number of partitions</p></li>
 <li><p><strong>num_negative</strong> (<em>int</em><em>, </em><em>optional</em>) – number of negative samples per positive sample</p></li>
 <li><p><strong>batch_size</strong> (<em>int</em><em>, </em><em>optional</em>) – batch size of samples in CPU-GPU transfer</p></li>
@@ -228,7 +228,7 @@
 <dl class="method">
 <dt id="graphvite.solver.GraphSolver.clear">
 <code class="sig-name descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#graphvite.solver.GraphSolver.clear" title="Permalink to this definition">¶</a></dt>
-<dd><p>Free CPU and GPU memory.</p>
+<dd><p>Free CPU and GPU memory, except the embeddings on CPU.</p>
 </dd></dl>
 
 <dl class="method">
@@ -238,7 +238,7 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>model</strong> (<em>str</em><em>, </em><em>optional</em>) – ‘DeepWalk’ or ‘LINE’</p></li>
+<li><p><strong>model</strong> (<em>str</em><em>, </em><em>optional</em>) – ‘DeepWalk’, ‘LINE’ or ‘node2vec’</p></li>
 <li><p><strong>num_epoch</strong> (<em>int</em><em>, </em><em>optional</em>) – number of epochs, i.e. #positive edges / |E|</p></li>
 <li><p><strong>augmentation_step</strong> (<em>int</em><em>, </em><em>optional</em>) – node pairs with distance &lt;= augmentation_step are considered as positive samples</p></li>
 <li><p><strong>random_walk_length</strong> (<em>int</em><em>, </em><em>optional</em>) – length of each random walk</p></li>
@@ -287,7 +287,7 @@
 </dl>
 <dl class="simple">
 <dt>Instantiations:</dt><dd><ul class="simple">
-<li><p><strong>dim</strong>: 512, 1024, 2048</p></li>
+<li><p><strong>dim</strong>: 32, 64, 96, 128, 256, 512, 1024, 2048</p></li>
 <li><p><strong>float_type</strong>: dtype.float32</p></li>
 <li><p><strong>index_type</strong>: dtype.uint32</p></li>
 </ul>
@@ -301,7 +301,7 @@
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>graph</strong> (<a class="reference internal" href="graph.html#graphvite.graph.KnowledgeGraph" title="graphvite.graph.KnowledgeGraph"><em>KnowledgeGraph</em></a>) – knowledge graph</p></li>
-<li><p><strong>optimizer</strong> (<em>Optimizer</em><em> or </em><em>float</em><em>, </em><em>optional</em>) – optimizer or learning rate</p></li>
+<li><p><strong>optimizer</strong> (<a class="reference internal" href="optimizer.html#graphvite.optimizer.Optimizer" title="graphvite.optimizer.Optimizer"><em>Optimizer</em></a><em> or </em><em>float</em><em>, </em><em>optional</em>) – optimizer or learning rate</p></li>
 <li><p><strong>num_partition</strong> (<em>int</em><em>, </em><em>optional</em>) – number of partitions</p></li>
 <li><p><strong>num_negative</strong> (<em>int</em><em>, </em><em>optional</em>) – number of negative samples per positive sample</p></li>
 <li><p><strong>batch_size</strong> (<em>int</em><em>, </em><em>optional</em>) – batch size of samples in CPU-GPU transfer</p></li>
@@ -314,7 +314,7 @@
 <dl class="method">
 <dt id="graphvite.solver.KnowledgeGraphSolver.clear">
 <code class="sig-name descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#graphvite.solver.KnowledgeGraphSolver.clear" title="Permalink to this definition">¶</a></dt>
-<dd><p>Free CPU and GPU memory.</p>
+<dd><p>Free CPU and GPU memory, except the embeddings on CPU.</p>
 </dd></dl>
 
 <dl class="method">
@@ -370,7 +370,7 @@ disabled when set to non-positive value</p></li>
 </dl>
 <dl class="simple">
 <dt>Instantiations:</dt><dd><ul class="simple">
-<li><p><strong>dim</strong>: 2</p></li>
+<li><p><strong>dim</strong>: 2, 3</p></li>
 <li><p><strong>float_type</strong>: dtype.float32</p></li>
 <li><p><strong>index_type</strong>: dtype.uint32</p></li>
 </ul>
@@ -384,7 +384,7 @@ disabled when set to non-positive value</p></li>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>graph</strong> (<a class="reference internal" href="graph.html#graphvite.graph.KNNGraph" title="graphvite.graph.KNNGraph"><em>KNNGraph</em></a>) – KNNGraph</p></li>
-<li><p><strong>optimizer</strong> (<em>Optimizer</em><em> or </em><em>float</em><em>, </em><em>optional</em>) – optimizer or learning rate</p></li>
+<li><p><strong>optimizer</strong> (<a class="reference internal" href="optimizer.html#graphvite.optimizer.Optimizer" title="graphvite.optimizer.Optimizer"><em>Optimizer</em></a><em> or </em><em>float</em><em>, </em><em>optional</em>) – optimizer or learning rate</p></li>
 <li><p><strong>num_partition</strong> (<em>int</em><em>, </em><em>optional</em>) – number of partitions</p></li>
 <li><p><strong>num_negative</strong> (<em>int</em><em>, </em><em>optional</em>) – number of negative samples per positive sample</p></li>
 <li><p><strong>batch_size</strong> (<em>int</em><em>, </em><em>optional</em>) – batch size of samples in CPU-GPU transfer</p></li>
@@ -397,7 +397,7 @@ disabled when set to non-positive value</p></li>
 <dl class="method">
 <dt id="graphvite.solver.VisualizationSolver.clear">
 <code class="sig-name descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#graphvite.solver.VisualizationSolver.clear" title="Permalink to this definition">¶</a></dt>
-<dd><p>Free CPU and GPU memory.</p>
+<dd><p>Free CPU and GPU memory, except the embeddings on CPU.</p>
 </dd></dl>
 
 <dl class="method">
