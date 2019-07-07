@@ -18,7 +18,7 @@ Try GraphVite if you have any of the following demands.
 
 Generally, GraphVite provides complete training and evaluation pipelines for 3
 applications: **node embedding**, **knowledge graph embedding** and
-**graph & high-dimensional visualization**. Besides, it also includes 7 popular
+**graph & high-dimensional visualization**. Besides, it also includes 8 popular
 models, along with their benchmarks on a bunch of standard datasets.
 
 .. figure:: ../../asset/graph.png
@@ -65,13 +65,16 @@ Node embedding
 +-------------+----------------------------+-----------+---------+
 | Model       | Existing Implementation    | GraphVite | Speedup |
 +=============+============================+===========+=========+
-| `DeepWalk`_ | `1.64 hrs (CPU parallel)`_ | 1.22 mins | 80.8x   |
+| `DeepWalk`_ | `1.64 hrs (CPU parallel)`_ | 1.19 mins | 82.9x   |
 +-------------+----------------------------+-----------+---------+
-| `LINE`_     | `1.39 hrs (CPU parallel)`_ | 1.19 mins | 70.1x   |
+| `LINE`_     | `1.39 hrs (CPU parallel)`_ | 1.17 mins | 71.4x   |
++-------------+----------------------------+-----------+---------+
+| `node2vec`_ | `24.4 hrs (CPU parallel)`_ | 4.39 mins | 334x    |
 +-------------+----------------------------+-----------+---------+
 
 .. _1.64 hrs (CPU parallel): https://github.com/phanein/deepwalk
 .. _1.39 hrs (CPU parallel): https://github.com/tangjianpku/LINE
+.. _24.4 hrs (CPU parallel): https://github.com/aditya-grover/node2vec
 
 Knowledge graph embedding
 

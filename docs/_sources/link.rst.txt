@@ -1,6 +1,7 @@
 .. Node embedding models
 .. _DeepWalk: https://arxiv.org/pdf/1403.6652.pdf
 .. _LINE: https://arxiv.org/pdf/1503.03578.pdf
+.. _node2vec: https://www.kdd.org/kdd2016/papers/files/rfp0218-groverA.pdf
 
 .. Knowledge graph embedding models
 .. _TransE: http://papers.nips.cc/paper/5071-translating-embeddings-for-modeling-multi-relational-data.pdf

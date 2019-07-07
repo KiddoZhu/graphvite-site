@@ -201,19 +201,19 @@ incredibly short time.</p>
 </ul>
 <p>Generally, GraphVite provides complete training and evaluation pipelines for 3
 applications: <strong>node embedding</strong>, <strong>knowledge graph embedding</strong> and
-<strong>graph &amp; high-dimensional visualization</strong>. Besides, it also includes 7 popular
+<strong>graph &amp; high-dimensional visualization</strong>. Besides, it also includes 8 popular
 models, along with their benchmarks on a bunch of standard datasets.</p>
-<div class="align-center figure align-left" id="id3">
-<a class="reference external image-reference" href="overview.html#node-embedding"><img alt="_images/graph.png" src="_images/graph.png" style="height: 150px;" /></a>
-<p class="caption"><span class="caption-text">Node Embedding</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
-</div>
 <div class="align-center figure align-left" id="id4">
-<a class="reference external image-reference" href="overview.html#knowledge-graph-embedding"><img alt="_images/knowledge_graph.png" src="_images/knowledge_graph.png" style="height: 150px;" /></a>
-<p class="caption"><span class="caption-text">Knowledge Graph <br> Embedding</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+<a class="reference external image-reference" href="overview.html#node-embedding"><img alt="_images/graph.png" src="_images/graph.png" style="height: 150px;" /></a>
+<p class="caption"><span class="caption-text">Node Embedding</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
 </div>
 <div class="align-center figure align-left" id="id5">
+<a class="reference external image-reference" href="overview.html#knowledge-graph-embedding"><img alt="_images/knowledge_graph.png" src="_images/knowledge_graph.png" style="height: 150px;" /></a>
+<p class="caption"><span class="caption-text">Knowledge Graph <br> Embedding</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
+<div class="align-center figure align-left" id="id6">
 <a class="reference external image-reference" href="overview.html#graph-high-dimensional-visualization"><img alt="_images/visualization.png" src="_images/visualization.png" style="height: 150px;" /></a>
-<p class="caption"><span class="caption-text">Graph &amp; <br> High-dimensional <br> Visualization</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Graph &amp; <br> High-dimensional <br> Visualization</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
 </div>
 <div style="clear: both" /><div class="section" id="how-fast-is-graphvite">
 <h2>How fast is GraphVite?<a class="headerlink" href="#how-fast-is-graphvite" title="Permalink to this headline">¶</a></h2>
@@ -238,13 +238,18 @@ based on a server with 24 CPU threads and 4 V100 GPUs.</p>
 <tbody>
 <tr class="row-even"><td><p><a class="reference external" href="https://arxiv.org/pdf/1403.6652.pdf">DeepWalk</a></p></td>
 <td><p><a class="reference external" href="https://github.com/phanein/deepwalk">1.64 hrs (CPU parallel)</a></p></td>
-<td><p>1.22 mins</p></td>
-<td><p>80.8x</p></td>
+<td><p>1.19 mins</p></td>
+<td><p>82.9x</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="https://arxiv.org/pdf/1503.03578.pdf">LINE</a></p></td>
 <td><p><a class="reference external" href="https://github.com/tangjianpku/LINE">1.39 hrs (CPU parallel)</a></p></td>
-<td><p>1.19 mins</p></td>
-<td><p>70.1x</p></td>
+<td><p>1.17 mins</p></td>
+<td><p>71.4x</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.kdd.org/kdd2016/papers/files/rfp0218-groverA.pdf">node2vec</a></p></td>
+<td><p><a class="reference external" href="https://github.com/aditya-grover/node2vec">24.4 hrs (CPU parallel)</a></p></td>
+<td><p>4.39 mins</p></td>
+<td><p>334x</p></td>
 </tr>
 </tbody>
 </table>
