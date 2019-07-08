@@ -230,7 +230,7 @@ same graph. First, create a graph and two node embedding solvers.</p>
 </pre></div>
 </div>
 <p>Now you can train the solver. The training stage of solvers can be fully paralleled
-with multi-threads, since GraphVite never holds Python GIL inside basic classes.</p>
+with multiple threads, since GraphVite never holds Python GIL inside basic classes.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">multiprocessing.pool</span> <span class="k">import</span> <span class="n">ThreadPool</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">pool</span> <span class="o">=</span> <span class="n">ThreadPool</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">models</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;DeepWalk&quot;</span><span class="p">,</span> <span class="s2">&quot;LINE&quot;</span><span class="p">]</span>
@@ -241,6 +241,12 @@ with multi-threads, since GraphVite never holds Python GIL inside basic classes.
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">vertex_embeddings</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">s</span><span class="o">.</span><span class="n">vertex_embeddings</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">solvers</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">context_embeddings</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">s</span><span class="o">.</span><span class="n">context_embeddings</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">solvers</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Note the embeddings are stored in an internal order. To get an index of a specific
+node, use the <code class="docutils literal notranslate"><span class="pre">name2id</span></code> property of the graph. For example, the following line
+prints the vertex embedding of node “1024”.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">vertex_embeddings</span><span class="p">[</span><span class="n">graph</span><span class="o">.</span><span class="n">name2id</span><span class="p">[</span><span class="s2">&quot;1024&quot;</span><span class="p">]])</span>
 </pre></div>
 </div>
 <div class="admonition seealso">

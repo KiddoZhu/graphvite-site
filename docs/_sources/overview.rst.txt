@@ -4,8 +4,8 @@ Application Overview
 In GraphVite, the pipelines are packaged into classes, which we call applications.
 
 There are 3 main applications, node embedding, knowledge graph embedding, and
-graph & high-dimensional visualization. For each application, GraphVite loads an
-input graph, perfoms embedding training, and finally evaluates the embeddngs on
+graph & high-dimensional data visualization. For each application, GraphVite loads
+an input graph, perfoms embedding training, and finally evaluates the embeddngs on
 downstream tasks.
 
 .. _node embedding:
@@ -48,8 +48,8 @@ The learned embeddings are evaluated under the link prediction task in GraphVite
 
 .. _visualization:
 
-Graph & High-dimensional Visualization
---------------------------------------
+Graph & High-dimensional Data Visualization
+-------------------------------------------
 
 Visualization is a critical step in exploring and analyzing graphs and
 high-dimensional data. Typically, visualization methods project each data points into

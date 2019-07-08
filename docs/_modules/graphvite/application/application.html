@@ -799,11 +799,12 @@
 
 <div class="viewcode-block" id="VisualizationApplication"><a class="viewcode-back" href="../../../api/application.html#graphvite.application.VisualizationApplication">[docs]</a><span class="k">class</span> <span class="nc">VisualizationApplication</span><span class="p">(</span><span class="n">ApplicationMixin</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    High-dimensional visualization.</span>
+<span class="sd">    Graph &amp; high-dimensional data visualization.</span>
 <span class="sd">    </span>
-<span class="sd">    Given high-dimensional vectors, it maps each vector to 2D or 3D coordinates to faciliate visualization.</span>
-<span class="sd">    The learned coordinates preserve most local similarity information of the original vectors,</span>
-<span class="sd">    and may shed some light on the structure of the high-dimensional space.</span>
+<span class="sd">    Given a graph or high-dimensional vectors, it maps each node to 2D or 3D coordinates to</span>
+<span class="sd">    faciliate visualization. The learned coordinates preserve most local similarity information</span>
+<span class="sd">    of the original input, and may shed some light on the structure of the graph or the</span>
+<span class="sd">    high-dimensional space.</span>
 
 <span class="sd">    Supported Models:</span>
 <span class="sd">        - LargeVis (`Visualizing Large-scale and High-dimensional Data`_)</span>
@@ -818,6 +819,7 @@
 <span class="sd">        index_type (dtype, optional): type of graph indexes</span>
 
 <span class="sd">    See also:</span>
+<span class="sd">        :class:`Graph &lt;graphvite.graph.Graph&gt;`,</span>
 <span class="sd">        :class:`KNNGraph &lt;graphvite.graph.KNNGraph&gt;`,</span>
 <span class="sd">        :class:`VisualizationSolver &lt;graphvite.solver.VisualizationSolver&gt;`</span>
 <span class="sd">    &quot;&quot;&quot;</span>

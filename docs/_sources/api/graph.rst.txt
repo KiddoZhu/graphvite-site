@@ -3,4 +3,3 @@ graphvite.graph
 
 .. automodule:: graphvite.graph
     :members:
-    :inherited-members:

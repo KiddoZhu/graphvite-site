@@ -514,10 +514,11 @@ Arguments depend on the underlying solver type.</p>
 <dl class="class">
 <dt id="graphvite.application.VisualizationApplication">
 <em class="property">class </em><code class="sig-prename descclassname">graphvite.application.</code><code class="sig-name descname">VisualizationApplication</code><span class="sig-paren">(</span><em class="sig-param">dim</em>, <em class="sig-param">gpus=[]</em>, <em class="sig-param">cpu_per_gpu=0</em>, <em class="sig-param">float_type=dtype.float32</em>, <em class="sig-param">index_type=dtype.uint32</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphvite/application/application.html#VisualizationApplication"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#graphvite.application.VisualizationApplication" title="Permalink to this definition">¶</a></dt>
-<dd><p>High-dimensional visualization.</p>
-<p>Given high-dimensional vectors, it maps each vector to 2D or 3D coordinates to faciliate visualization.
-The learned coordinates preserve most local similarity information of the original vectors,
-and may shed some light on the structure of the high-dimensional space.</p>
+<dd><p>Graph &amp; high-dimensional data visualization.</p>
+<p>Given a graph or high-dimensional vectors, it maps each node to 2D or 3D coordinates to
+faciliate visualization. The learned coordinates preserve most local similarity information
+of the original input, and may shed some light on the structure of the graph or the
+high-dimensional space.</p>
 <dl class="simple">
 <dt>Supported Models:</dt><dd><ul class="simple">
 <li><p>LargeVis (<a class="reference external" href="https://arxiv.org/pdf/1602.00370.pdf">Visualizing Large-scale and High-dimensional Data</a>)</p></li>
@@ -537,7 +538,8 @@ and may shed some light on the structure of the high-dimensional space.</p>
 </dl>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><a class="reference internal" href="graph.html#graphvite.graph.KNNGraph" title="graphvite.graph.KNNGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">KNNGraph</span></code></a>,
+<p><a class="reference internal" href="graph.html#graphvite.graph.Graph" title="graphvite.graph.Graph"><code class="xref py py-class docutils literal notranslate"><span class="pre">Graph</span></code></a>,
+<a class="reference internal" href="graph.html#graphvite.graph.KNNGraph" title="graphvite.graph.KNNGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">KNNGraph</span></code></a>,
 <a class="reference internal" href="solver.html#graphvite.solver.VisualizationSolver" title="graphvite.solver.VisualizationSolver"><code class="xref py py-class docutils literal notranslate"><span class="pre">VisualizationSolver</span></code></a></p>
 </div>
 <dl class="method">

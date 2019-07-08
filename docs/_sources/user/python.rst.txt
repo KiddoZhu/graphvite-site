@@ -46,7 +46,7 @@ Then, build the solvers on that graph. This step determines all memory allocatio
     >>>     solver.build(graph)
 
 Now you can train the solver. The training stage of solvers can be fully paralleled
-with multi-threads, since GraphVite never holds Python GIL inside basic classes.
+with multiple threads, since GraphVite never holds Python GIL inside basic classes.
 
     >>> from multiprocessing.pool import ThreadPool
     >>> pool = ThreadPool(2)
@@ -58,6 +58,12 @@ Finally, obtain the ensembled embeddings.
     >>> import numpy as np
     >>> vertex_embeddings = np.hstack([s.vertex_embeddings for s in solvers])
     >>> context_embeddings = np.hstack([s.context_embeddings for s in solvers])
+
+Note the embeddings are stored in an internal order. To get an index of a specific
+node, use the ``name2id`` property of the graph. For example, the following line
+prints the vertex embedding of node "1024".
+
+    >>> print(vertex_embeddings[graph.name2id["1024"]])
 
 .. seealso::
     Package reference: :doc:`Graph <../api/graph>`, :doc:`Solver <../api/solver>`,

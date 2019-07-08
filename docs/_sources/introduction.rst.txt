@@ -18,12 +18,12 @@ Try GraphVite if you have any of the following demands.
 
 Generally, GraphVite provides complete training and evaluation pipelines for 3
 applications: **node embedding**, **knowledge graph embedding** and
-**graph & high-dimensional visualization**. Besides, it also includes 8 popular
+**graph & high-dimensional data visualization**. Besides, it also includes 8 popular
 models, along with their benchmarks on a bunch of standard datasets.
 
 .. figure:: ../../asset/graph.png
     :align: left
-    :height: 150px
+    :height: 180px
     :target: overview.html#node-embedding
     :figclass: align-center
 
@@ -31,7 +31,7 @@ models, along with their benchmarks on a bunch of standard datasets.
 
 .. figure:: ../../asset/knowledge_graph.png
     :align: left
-    :height: 150px
+    :height: 180px
     :target: overview.html#knowledge-graph-embedding
     :figclass: align-center
 
@@ -39,11 +39,11 @@ models, along with their benchmarks on a bunch of standard datasets.
 
 .. figure:: ../../asset/visualization.png
     :align: left
-    :height: 150px
-    :target: overview.html#graph-high-dimensional-visualization
+    :height: 180px
+    :target: overview.html#graph-high-dimensional-data-visualization
     :figclass: align-center
 
-    Graph & |br| High-dimensional |br| Visualization
+    Graph & |br| High-dimensional |br| Data Visualization
 
 .. |br| raw:: html
 
@@ -60,7 +60,7 @@ To give a brief idea of GraphVite's speed, we summarize the training time of
 GraphVite along with the best open-source implementations. All the time is reported
 based on a server with 24 CPU threads and 4 V100 GPUs.
 
-Node embedding
+**Node Embedding**
 
 +-------------+----------------------------+-----------+---------+
 | Model       | Existing Implementation    | GraphVite | Speedup |
@@ -76,7 +76,7 @@ Node embedding
 .. _1.39 hrs (CPU parallel): https://github.com/tangjianpku/LINE
 .. _24.4 hrs (CPU parallel): https://github.com/aditya-grover/node2vec
 
-Knowledge graph embedding
+**Knowledge Graph Embedding**
 
 +-----------+-------------------------+-----------+---------+
 | Model     | Existing Implementation | GraphVite | Speedup |
@@ -89,7 +89,7 @@ Knowledge graph embedding
 .. _1.31 hrs (1 GPU): https://github.com/DeepGraphLearning/KnowledgeGraphEmbedding
 .. _3.69 hrs (1 GPU): https://github.com/DeepGraphLearning/KnowledgeGraphEmbedding
 
-Graph & High-dimensional visualization
+**Graph & High-dimensional Data Visualization**
 
 +-------------+-----------------------------+-----------+---------+
 | Model       | Existing Implementation     | GraphVite | Speedup |

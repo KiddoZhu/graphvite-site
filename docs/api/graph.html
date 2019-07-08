@@ -186,7 +186,7 @@
 <dl class="class">
 <dt id="graphvite.graph.Graph">
 <em class="property">class </em><code class="sig-prename descclassname">graphvite.graph.</code><code class="sig-name descname">Graph</code><span class="sig-paren">(</span><em class="sig-param">index_type=dtype.uint32</em><span class="sig-paren">)</span><a class="headerlink" href="#graphvite.graph.Graph" title="Permalink to this definition">¶</a></dt>
-<dd><p>Normal graphs with no attributes.</p>
+<dd><p>Normal graphs without attributes.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>index_type</strong> (<em>dtype</em>) – type of node indexes</p>
@@ -243,12 +243,6 @@
 </dd></dl>
 
 <dl class="method">
-<dt id="graphvite.graph.Graph.as_undirected">
-<em class="property">property </em><code class="sig-name descname">as_undirected</code><a class="headerlink" href="#graphvite.graph.Graph.as_undirected" title="Permalink to this definition">¶</a></dt>
-<dd><p>Symmetrize the graph or not.</p>
-</dd></dl>
-
-<dl class="method">
 <dt id="graphvite.graph.Graph.id2name">
 <em class="property">property </em><code class="sig-name descname">id2name</code><a class="headerlink" href="#graphvite.graph.Graph.id2name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Map of node index to name.</p>
@@ -258,24 +252,6 @@
 <dt id="graphvite.graph.Graph.name2id">
 <em class="property">property </em><code class="sig-name descname">name2id</code><a class="headerlink" href="#graphvite.graph.Graph.name2id" title="Permalink to this definition">¶</a></dt>
 <dd><p>Map of node name to index.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="graphvite.graph.Graph.normalization">
-<em class="property">property </em><code class="sig-name descname">normalization</code><a class="headerlink" href="#graphvite.graph.Graph.normalization" title="Permalink to this definition">¶</a></dt>
-<dd><p>Normalize the adajcency matrix or not</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="graphvite.graph.Graph.num_edge">
-<em class="property">property </em><code class="sig-name descname">num_edge</code><a class="headerlink" href="#graphvite.graph.Graph.num_edge" title="Permalink to this definition">¶</a></dt>
-<dd><p>Number of edges.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="graphvite.graph.Graph.num_vertex">
-<em class="property">property </em><code class="sig-name descname">num_vertex</code><a class="headerlink" href="#graphvite.graph.Graph.num_vertex" title="Permalink to this definition">¶</a></dt>
-<dd><p>Number of nodes.</p>
 </dd></dl>
 
 </dd></dl>
@@ -391,30 +367,6 @@
 </dd></dl>
 
 <dl class="method">
-<dt id="graphvite.graph.KnowledgeGraph.normalization">
-<em class="property">property </em><code class="sig-name descname">normalization</code><a class="headerlink" href="#graphvite.graph.KnowledgeGraph.normalization" title="Permalink to this definition">¶</a></dt>
-<dd><p>Normalize the adjacency matrix or not.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="graphvite.graph.KnowledgeGraph.num_edge">
-<em class="property">property </em><code class="sig-name descname">num_edge</code><a class="headerlink" href="#graphvite.graph.KnowledgeGraph.num_edge" title="Permalink to this definition">¶</a></dt>
-<dd><p>Number of triplets.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="graphvite.graph.KnowledgeGraph.num_relation">
-<em class="property">property </em><code class="sig-name descname">num_relation</code><a class="headerlink" href="#graphvite.graph.KnowledgeGraph.num_relation" title="Permalink to this definition">¶</a></dt>
-<dd><p>Number of relations.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="graphvite.graph.KnowledgeGraph.num_vertex">
-<em class="property">property </em><code class="sig-name descname">num_vertex</code><a class="headerlink" href="#graphvite.graph.KnowledgeGraph.num_vertex" title="Permalink to this definition">¶</a></dt>
-<dd><p>Number of entities.</p>
-</dd></dl>
-
-<dl class="method">
 <dt id="graphvite.graph.KnowledgeGraph.relation2id">
 <em class="property">property </em><code class="sig-name descname">relation2id</code><a class="headerlink" href="#graphvite.graph.KnowledgeGraph.relation2id" title="Permalink to this definition">¶</a></dt>
 <dd><p>Map of relation name to index.</p>
@@ -469,36 +421,6 @@
 </ul>
 </dd>
 </dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="graphvite.graph.KNNGraph.num_neighbor">
-<em class="property">property </em><code class="sig-name descname">num_neighbor</code><a class="headerlink" href="#graphvite.graph.KNNGraph.num_neighbor" title="Permalink to this definition">¶</a></dt>
-<dd><p>Number of neighbors for each node.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="graphvite.graph.KNNGraph.num_thread">
-<em class="property">property </em><code class="sig-name descname">num_thread</code><a class="headerlink" href="#graphvite.graph.KNNGraph.num_thread" title="Permalink to this definition">¶</a></dt>
-<dd><p>Number of CPU threads.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="graphvite.graph.KNNGraph.num_worker">
-<em class="property">property </em><code class="sig-name descname">num_worker</code><a class="headerlink" href="#graphvite.graph.KNNGraph.num_worker" title="Permalink to this definition">¶</a></dt>
-<dd><p>Number of GPU workers.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="graphvite.graph.KNNGraph.perplexity">
-<em class="property">property </em><code class="sig-name descname">perplexity</code><a class="headerlink" href="#graphvite.graph.KNNGraph.perplexity" title="Permalink to this definition">¶</a></dt>
-<dd><p>Perplexity for the neighborhood of each node.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="graphvite.graph.KNNGraph.vector_normalization">
-<em class="property">property </em><code class="sig-name descname">vector_normalization</code><a class="headerlink" href="#graphvite.graph.KNNGraph.vector_normalization" title="Permalink to this definition">¶</a></dt>
-<dd><p>Normalize the input vectors or not.</p>
 </dd></dl>
 
 </dd></dl>
