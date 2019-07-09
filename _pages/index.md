@@ -63,7 +63,7 @@ interface:
 
 [1]: /docs/overview#node-embedding
 [2]: /docs/overview#knowledge-graph-embedding
-[3]: /docs/overview#graph-high-dimensional-visualization
+[3]: /docs/overview#graph-high-dimensional-data-visualization
 [Node Embedding]: {{ site.baseurl }}/assets/images/graph.png
 [Knowledge Graph Embedding]: {{ site.baseurl }}/assets/images/knowledge_graph.png
 [Graph & High-dimensional Data Visualization]: {{ site.baseurl }}/assets/images/visualization.png
