@@ -7,11 +7,19 @@ header:
   overlay_image: "/assets/images/overlay.jpg"
 ---
 
-GraphVite is an open-source graph embedding system, designed for high-speed and large-scale training. The goal of this system is to provide a general and high-performance framework for a broad family of embedding methods, which facilitates research and deployment of graph learning algorithms.
+GraphVite is an open-source graph embedding system, designed for high-speed and
+large-scale training. The goal of this system is to provide a general and high-performance
+framework for a broad family of embedding methods, which facilitates research and
+deployment of graph learning algorithms.
 
-Through the development of GraphVite, it is always targeted to solve extremely large graphs on CPU-GPU hybrid architectures. Tailored to the nature of graph embeddings, GraphVite is distinguished from other libraries by fast training and linear scalability. It is even able to work with limited GPU memory.
+Through the development of GraphVite, it is always targeted to solve extremely large
+graphs on CPU-GPU hybrid architectures. Tailored to the nature of graph embeddings,
+GraphVite is distinguished from other libraries by fast training and linear scalability.
+It is even able to work with limited GPU memory.
 
-With GraphVite, it is easy to reproduce cutting-edge models of many applications, depoly them on large real-world datasets, or develop new models for graph representation learning.
+With GraphVite, it is easy to reproduce cutting-edge models of many applications,
+deploy them on large real-world datasets, and develop new models for graph representation
+learning.
 
 Development Team
 ----------------
