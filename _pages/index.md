@@ -56,17 +56,17 @@ interface:
 
 {% include feature_row id="features" %}
 
-| [Node Embedding][1]    | [Knowledge Graph Embedding][2]    | [Graph & High-dimensional Visualization][3]    |
-|------------------------|-----------------------------------|------------------------------------------------|
-| [![Node Embedding]][1] | [![Knowledge Graph Embedding]][2] | [![Graph & High-dimensional Visualization]][3] |
+| [Node Embedding][1]    | [Knowledge Graph Embedding][2]    | [Graph & High-dimensional Data Visualization][3]    |
+|------------------------|-----------------------------------|-----------------------------------------------------|
+| [![Node Embedding]][1] | [![Knowledge Graph Embedding]][2] | [![Graph & High-dimensional Data Visualization]][3] |
 {: .page}
 
 [1]: /docs/overview#node-embedding
 [2]: /docs/overview#knowledge-graph-embedding
-[3]: /docs/overview#graph-high-dimensional-visualization
+[3]: /docs/overview#graph-high-dimensional-data-visualization
 [Node Embedding]: {{ site.baseurl }}/assets/images/graph.png
 [Knowledge Graph Embedding]: {{ site.baseurl }}/assets/images/knowledge_graph.png
-[Graph & High-dimensional Visualization]: {{ site.baseurl }}/assets/images/visualization.png
+[Graph & High-dimensional Data Visualization]: {{ site.baseurl }}/assets/images/visualization.png
 
 {% include feature_row id="benchmark" type="left" %}
 {% include feature_row id="interface" type="right" %}
