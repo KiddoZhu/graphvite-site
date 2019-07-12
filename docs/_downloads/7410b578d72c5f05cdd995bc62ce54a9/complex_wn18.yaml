@@ -12,11 +12,11 @@ graph:
 build:
   optimizer:
     type: Adam
-    lr: 1.0e-5
+    lr: 5.0e-5
     weight_decay: 0
   num_partition: auto
   num_negative: 64
-  batch_size: 10000
+  batch_size: 100000
   episode_size: 1
 
 train:

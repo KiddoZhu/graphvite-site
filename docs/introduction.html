@@ -8,10 +8,12 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>GraphVite - graph embedding at speed and scale &mdash; GraphVite 0.1.0 documentation</title>
+  <title>GraphVite - graph embedding at high speed and large scale &mdash; GraphVite 0.1.0 documentation</title>
   
 
   
+  
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
   
   
   
@@ -36,7 +38,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Install" href="install.html" />
-    <link rel="prev" title="GraphVite - graph embedding at speed and scale" href="index.html" /> 
+    <link rel="prev" title="GraphVite - graph embedding at high speed and large scale" href="index.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -166,7 +168,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>GraphVite - graph embedding at speed and scale</li>
+      <li>GraphVite - graph embedding at high speed and large scale</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -185,8 +187,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="graphvite-graph-embedding-at-speed-and-scale">
-<h1>GraphVite - graph embedding at speed and scale<a class="headerlink" href="#graphvite-graph-embedding-at-speed-and-scale" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="graphvite-graph-embedding-at-high-speed-and-large-scale">
+<h1>GraphVite - graph embedding at high speed and large scale<a class="headerlink" href="#graphvite-graph-embedding-at-high-speed-and-large-scale" title="Permalink to this headline">¶</a></h1>
 <p>GraphVite is a general graph embedding engine, dedicated to high-speed and
 large-scale embedding learning in various applications. By cooperating CPUs and GPUs
 for learning, it scales to million-scale or even billion-scale graphs. With its
@@ -220,7 +222,7 @@ models, along with their benchmarks on a bunch of standard datasets.</p>
 <p>To give a brief idea of GraphVite’s speed, we summarize the training time of
 GraphVite along with the best open-source implementations. All the time is reported
 based on a server with 24 CPU threads and 4 V100 GPUs.</p>
-<p><strong>Node Embedding</strong></p>
+<p>Node embedding on <a class="reference external" href="http://conferences.sigcomm.org/imc/2007/papers/imc170.pdf">Youtube</a> dataset.</p>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 21%" />
@@ -253,7 +255,7 @@ based on a server with 24 CPU threads and 4 V100 GPUs.</p>
 </tr>
 </tbody>
 </table>
-<p><strong>Knowledge Graph Embedding</strong></p>
+<p>Knowledge graph embedding on <a class="reference external" href="http://papers.nips.cc/paper/5071-translating-embeddings-for-modeling-multi-relational-data.pdf">FB15k</a> dataset.</p>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 20%" />
@@ -271,8 +273,8 @@ based on a server with 24 CPU threads and 4 V100 GPUs.</p>
 <tbody>
 <tr class="row-even"><td><p><a class="reference external" href="http://papers.nips.cc/paper/5071-translating-embeddings-for-modeling-multi-relational-data.pdf">TransE</a></p></td>
 <td><p><a class="reference external" href="https://github.com/DeepGraphLearning/KnowledgeGraphEmbedding">1.31 hrs (1 GPU)</a></p></td>
-<td><p>23.6 mins</p></td>
-<td><p>3.33x</p></td>
+<td><p>14.8 mins</p></td>
+<td><p>5.30x</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="https://arxiv.org/pdf/1902.10197.pdf">RotatE</a></p></td>
 <td><p><a class="reference external" href="https://github.com/DeepGraphLearning/KnowledgeGraphEmbedding">3.69 hrs (1 GPU)</a></p></td>
@@ -281,7 +283,7 @@ based on a server with 24 CPU threads and 4 V100 GPUs.</p>
 </tr>
 </tbody>
 </table>
-<p><strong>Graph &amp; High-dimensional Data Visualization</strong></p>
+<p>High-dimensional data visualization on <a class="reference external" href="http://yann.lecun.com/exdb/publis/pdf/lecun-01a.pdf">MNIST</a> dataset.</p>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 21%" />
@@ -309,7 +311,8 @@ based on a server with 24 CPU threads and 4 V100 GPUs.</p>
 <h2>Comparison to concurrent work<a class="headerlink" href="#comparison-to-concurrent-work" title="Permalink to this headline">¶</a></h2>
 <p>A work concurrent to GraphVite is <a class="reference external" href="https://torchbiggraph.readthedocs.io">PyTorch-BigGraph</a>, which aims at accelerating
 knowledge graph embedding on large-scale data. Here is an apple-to-apple comparison
-of models implemented in both libraries, under the same training setting.</p>
+of models implemented in both libraries on <a class="reference external" href="http://papers.nips.cc/paper/5071-translating-embeddings-for-modeling-multi-relational-data.pdf">FB15k</a>, under the same hyperparameter
+setting.</p>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25%" />
@@ -327,18 +330,18 @@ of models implemented in both libraries, under the same training setting.</p>
 <tbody>
 <tr class="row-even"><td><p><a class="reference external" href="http://papers.nips.cc/paper/5071-translating-embeddings-for-modeling-multi-relational-data.pdf">TransE</a></p></td>
 <td><p>1.21 hrs</p></td>
-<td><p>17.9 mins</p></td>
-<td><p>4.06x</p></td>
+<td><p>11.1 mins</p></td>
+<td><p>6.57x</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="https://arxiv.org/pdf/1412.6575.pdf">DistMult</a></p></td>
 <td><p>2.48 hrs</p></td>
-<td><p>36.9 mins</p></td>
-<td><p>4.03x</p></td>
+<td><p>25.0 mins</p></td>
+<td><p>5.93x</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="http://proceedings.mlr.press/v48/trouillon16.pdf">ComplEx</a></p></td>
 <td><p>3.13 hrs</p></td>
-<td><p>32.6 mins</p></td>
-<td><p>5.76x</p></td>
+<td><p>20.6 mins</p></td>
+<td><p>9.13x</p></td>
 </tr>
 </tbody>
 </table>
@@ -365,7 +368,7 @@ as well as the bilingual environment of <a class="reference external" href="http
         <a href="install.html" class="btn btn-neutral float-right" title="Install" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral float-left" title="GraphVite - graph embedding at speed and scale" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral float-left" title="GraphVite - graph embedding at high speed and large scale" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

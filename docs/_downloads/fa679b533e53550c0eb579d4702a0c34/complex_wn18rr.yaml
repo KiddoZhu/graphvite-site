@@ -2,7 +2,7 @@ application:
   knowledge_graph
 
 resource:
-  gpus: [0]
+  gpus: []
   cpu_per_gpu: auto
   dim: 1024
 
@@ -12,7 +12,7 @@ graph:
 build:
   optimizer:
     type: Adam
-    lr: 1.0e-5
+    lr: 2.0e-5
     weight_decay: 0
   num_partition: auto
   num_negative: 64

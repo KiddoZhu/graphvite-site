@@ -12,11 +12,11 @@ graph:
 build:
   optimizer:
     type: Adam
-    lr: 2.0e-4
+    lr: 1.0e-4
     weight_decay: 0
   num_partition: auto
   num_negative: 64
-  batch_size: 10000
+  batch_size: 100000
   episode_size: 1
 
 train:
@@ -25,7 +25,7 @@ train:
   l3_regularization: 2.0e-3
   sample_batch_size: 2000
   adversarial_temperature: 2
-  log_frequency: 1000
+  log_frequency: 100
 
 evaluate:
   task: link prediction
