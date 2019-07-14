@@ -32,7 +32,7 @@ From Source
 To install GraphVite from source, you need to have ``cmake`` at least 3.12, and ``pybind11`` installed.
 
 ```bash
-git clone https://github.com/KiddoZhu/graphvite
+git clone {{ site.graphvite.repo }}
 cd graphvite
 mkdir build
 cd build && cmake .. && make && cd -

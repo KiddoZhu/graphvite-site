@@ -24,17 +24,30 @@ learning.
 Development Team
 ----------------
 
-GraphVite is developed [MilaGraph], led by Prof. Jian Tang.
+GraphVite is developed [MilaGraph], led by Prof. [Jian Tang].
 
-Authors of this project are Zhaocheng Zhu, Shizhen Xu, Meng Qu and Jian Tang.
+Authors of this project are Zhaocheng Zhu, Shizhen Xu, [Meng Qu] and [Jian Tang].
 
 Contributors include Kunpeng Wang and Zhijian Duan.
 
 [MilaGraph]: https://github.com/DeepGraphLearning
+[Meng Qu]: https://mnqu.github.io
+[Jian Tang]: https://jian-tang.com
 
 License
 -------
 
 GraphVite is released under the [BSD 3-Clause License].
 
-[BSD 3-Clause License]: https://github.com/KiddoZhu/graphvite/blob/master/LICENSE
+[BSD 3-Clause License]: {{ site.graphvite.repo }}/blob/master/LICENSE
+
+Contact
+-------
+
+If you have any question about the library, please open an [issue] in the GitHub repo.
+
+You may contact the authors through [Zhaocheng Zhu][Zhaocheng Zhu's Mail], [Jian Tang][Jian Tang's Mail].
+
+[issue]: {{ site.graphvite.repo }}/issues/new
+[Zhaocheng Zhu's Mail]: mailto:zhaocheng.zhu@umontreal.ca
+[Jian Tang's Mail]: mailto:jian.tang@hec.ca
