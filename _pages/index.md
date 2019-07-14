@@ -17,17 +17,17 @@ excerpt: >
 features:
   - title: "Fast Training"
     excerpt: >
-     # Training on graphs has never been so fast. Taking no more than 15 minutes on
-     # standard datasets, it enables rapid iteration of algorithms, and brings
-     # opportunities to new ideas.
+     %# Training on graphs has never been so fast. Taking no more than 15 minutes on
+     %# standard datasets, it enables rapid iteration of algorithms, and brings
+     %# opportunities to new ideas.
      GraphVite runs on the hybrid CPU-GPU architectures and is super efficient, which scales linearly to the number of GPUs. 
      For a graph with one million nodes, it take only around one minute to learn the node embeddings 
      with 4 GPUs. 
   - title: "Billion Scale"
     excerpt: >
-      # Designed to be scalable, it is capable of dealing with large-scale graphs,
-      # even with limited GPU memory. With only 4 GPUs, you can get embeddings of 
-      # a billion-scale graph with 20 hours.
+      %# Designed to be scalable, it is capable of dealing with large-scale graphs,
+      %# even with limited GPU memory. With only 4 GPUs, you can get embeddings of 
+      %# a billion-scale graph with 20 hours.
       GraphVite is able to scale up to very large graphs even with limited GPU memory.
       With only 4 GPUs, GraphVite is able to train node embeddings of a billion-scale graph within one day. 
   - title: "Application Pipelines"
