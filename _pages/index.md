@@ -36,7 +36,7 @@ benchmark:
       A large collection of models and benchmarks are provided to facilitate fast
       reproducibility. Choose your favourite model and plug it into your research or 
       development.<br><br>
-      **Supported models:** DeepWalk, LINE, node2vec, TransE, DistMult, ComplEx, RotatE, LargeVis, ...
+      **Supported models:** DeepWalk, LINE, node2vec, TransE, DistMult, ComplEx, SimplE, RotatE, LargeVis, ...
     # Everything is here and no further effort is needed.
     image_path: "/assets/images/benchmark.png"
     url: "/docs/benchmark"

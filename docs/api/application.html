@@ -414,6 +414,7 @@ The likelihood of edges can be inferred by the score function over embeddings of
 <li><p>TransE (<a class="reference external" href="http://papers.nips.cc/paper/5071-translating-embeddings-for-modeling-multi-relational-data.pdf">Translating Embeddings for Modeling Multi-relational Data</a>)</p></li>
 <li><p>DistMult (<a class="reference external" href="https://arxiv.org/pdf/1412.6575.pdf">Embedding Entities and Relations for Learnig and Inference in Knowledge Bases</a>)</p></li>
 <li><p>ComplEx (<a class="reference external" href="http://proceedings.mlr.press/v48/trouillon16.pdf">Complex Embeddings for Simple Link Prediction</a>)</p></li>
+<li><p>SimplE (<a class="reference external" href="https://papers.nips.cc/paper/7682-simple-embedding-for-link-prediction-in-knowledge-graphs.pdf">SimplE Embedding for Link Prediction in Knowledge Graphs</a>)</p></li>
 <li><p>RotatE (<a class="reference external" href="https://arxiv.org/pdf/1902.10197.pdf">RotatE: Knowledge Graph Embedding by Relational Rotation in Complex Space</a>)</p></li>
 </ul>
 </dd>
@@ -431,8 +432,8 @@ The likelihood of edges can be inferred by the score function over embeddings of
 </dl>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The implementation of TransE, DistMult and ComplEx are slightly different from their original papers.
-The edge sampling and regularization processes generally follow <a class="reference external" href="https://github.com/DeepGraphLearning/KnowledgeGraphEmbedding">this repo</a>.
+<p>The implementation of TransE, DistMult and ComplEx, SimplE are slightly different from their original papers.
+The loss function and the regularization term generally follow <a class="reference external" href="https://github.com/DeepGraphLearning/KnowledgeGraphEmbedding">this repo</a>.
 Adversarial negative sampling is also adopted in these models like RotatE.</p>
 </div>
 <div class="admonition seealso">

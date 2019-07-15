@@ -179,7 +179,10 @@
            <div itemprop="articleBody">
             
   <h1>Source code for graphvite.application.application</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;Implementation of applications&quot;&quot;&quot;</span>
+<span></span><span class="c1"># Copyright (c) 2019 by MilaGraph</span>
+<span class="c1"># Author: Zhaocheng Zhu</span>
+
+<span class="sd">&quot;&quot;&quot;Implementation of applications&quot;&quot;&quot;</span>
 <span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">print_function</span><span class="p">,</span> <span class="n">absolute_import</span><span class="p">,</span> <span class="n">unicode_literals</span><span class="p">,</span> <span class="n">division</span>
 
 <span class="kn">import</span> <span class="nn">sys</span>
@@ -632,6 +635,7 @@
 <span class="sd">        - TransE (`Translating Embeddings for Modeling Multi-relational Data`_)</span>
 <span class="sd">        - DistMult (`Embedding Entities and Relations for Learnig and Inference in Knowledge Bases`_)</span>
 <span class="sd">        - ComplEx (`Complex Embeddings for Simple Link Prediction`_)</span>
+<span class="sd">        - SimplE (`SimplE Embedding for Link Prediction in Knowledge Graphs`_)</span>
 <span class="sd">        - RotatE (`RotatE: Knowledge Graph Embedding by Relational Rotation in Complex Space`_)</span>
 
 <span class="sd">    .. _Translating Embeddings for Modeling Multi-relational Data:</span>
@@ -640,6 +644,8 @@
 <span class="sd">        https://arxiv.org/pdf/1412.6575.pdf</span>
 <span class="sd">    .. _Complex Embeddings for Simple Link Prediction:</span>
 <span class="sd">        http://proceedings.mlr.press/v48/trouillon16.pdf</span>
+<span class="sd">    .. _SimplE Embedding for Link Prediction in Knowledge Graphs:</span>
+<span class="sd">        https://papers.nips.cc/paper/7682-simple-embedding-for-link-prediction-in-knowledge-graphs.pdf</span>
 <span class="sd">    .. _RotatE\: Knowledge Graph Embedding by Relational Rotation in Complex Space:</span>
 <span class="sd">        https://arxiv.org/pdf/1902.10197.pdf</span>
 
@@ -651,8 +657,8 @@
 <span class="sd">        index_type (dtype, optional): type of graph indexes</span>
 
 <span class="sd">    Note:</span>
-<span class="sd">        The implementation of TransE, DistMult and ComplEx are slightly different from their original papers.</span>
-<span class="sd">        The edge sampling and regularization processes generally follow `this repo`_.</span>
+<span class="sd">        The implementation of TransE, DistMult and ComplEx, SimplE are slightly different from their original papers.</span>
+<span class="sd">        The loss function and the regularization term generally follow `this repo`_.</span>
 <span class="sd">        Adversarial negative sampling is also adopted in these models like RotatE.</span>
 
 <span class="sd">    .. _this repo: https://github.com/DeepGraphLearning/KnowledgeGraphEmbedding</span>
