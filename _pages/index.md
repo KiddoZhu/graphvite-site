@@ -12,8 +12,6 @@ header:
 excerpt: >
   A general and high-performance graph embedding system for various applications<br>
   Designed for CPU-GPU hybrid architecture
-# Graph embedding engine<br>
-# Dedicated to high speed and large scale
 features:
   - title: "Fast Training"
     excerpt: >

@@ -10,4 +10,4 @@ main:
   - title: "About"
     url: "/about"
   - title: "GitHub"
-    url: {{ site.graphvite.repo }}
+    url: "https://github.com/DeepGraphLearning/graphvite"

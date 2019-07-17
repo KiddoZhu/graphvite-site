@@ -26,8 +26,7 @@ Development Team
 
 GraphVite is developed by [MilaGraph], led by Prof. [Jian Tang].
 
-Authors of this project are [Zhaocheng Zhu], [Shizhen Xu], [Meng Qu] and [Jian Tang].
-
+Authors of this project are [Zhaocheng Zhu], [Shizhen Xu], [Meng Qu] and [Jian Tang].<br>
 Contributors include [Kunpeng Wang] and [Zhijian Duan].
 
 [MilaGraph]: https://github.com/DeepGraphLearning
