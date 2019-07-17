@@ -298,4 +298,4 @@ defaults:
 
 # GraphVite
 graphvite:
-  repo: https://github.com/KiddoZhu/graphvite
+  repo: https://github.com/DeepGraphLearning/graphvite

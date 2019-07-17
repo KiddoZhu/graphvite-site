@@ -16,14 +16,14 @@ From Conda
 GraphVite can be installed through conda with only one line.
 
 ```bash
-conda install graphvite
+conda install -c milagraph graphvite
 ```
 
 By default, this will install all the dependencies.
 If you only need embedding training without evaluation, you can use the following alternative.
 
 ```bash
-conda install graphvite-mini
+conda install -c milagraph graphvite-mini
 ```
 
 From Source
