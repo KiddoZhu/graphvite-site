@@ -36,4 +36,4 @@ evaluate:
   times: 1
 
 save:
-  file_name: line_blogcatalog.npz
+  file_name: line_blogcatalog.pkl

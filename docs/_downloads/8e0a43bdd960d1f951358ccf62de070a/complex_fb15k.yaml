@@ -37,4 +37,4 @@ evaluate:
   # fast_mode: 3000
 
 save:
-  file_name: complex_fb15k.npz
+  file_name: complex_fb15k.pkl

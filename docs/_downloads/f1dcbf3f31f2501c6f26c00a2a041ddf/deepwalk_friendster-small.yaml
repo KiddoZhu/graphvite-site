@@ -38,4 +38,4 @@ evaluate:
   times: 5
 
 save:
-  file_name: deepwalk_friendster-small.npz
+  file_name: deepwalk_friendster-small.pkl

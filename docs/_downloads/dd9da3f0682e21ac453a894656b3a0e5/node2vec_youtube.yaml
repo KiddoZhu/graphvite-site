@@ -38,4 +38,4 @@ evaluate:
   times: 5
 
 save:
-  file_name: node2vec_youtube.npz
+  file_name: node2vec_youtube.pkl

@@ -15,7 +15,7 @@
 
 .. GraphVite
 .. _GraphVite: https://arxiv.org/pdf/1903.00757.pdf
-.. _Repo: https://github.com/KiddoZhu/graphvite
+.. _Repo: https://github.com/DeepGraphLearning/graphvite
 
 .. Graph datasets
 .. _Youtube: http://conferences.sigcomm.org/imc/2007/papers/imc170.pdf

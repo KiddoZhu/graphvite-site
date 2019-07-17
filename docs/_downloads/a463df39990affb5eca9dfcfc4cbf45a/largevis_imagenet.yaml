@@ -34,4 +34,4 @@ evaluate:
   save_file: imagenet_hierarchy.gif
 
 save:
-  file_name: largevis_imagenet_2d.npz
+  file_name: largevis_imagenet_2d.pkl

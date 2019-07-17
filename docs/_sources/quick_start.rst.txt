@@ -29,10 +29,11 @@ as only one random split is evaluated for quick demonstration here.
 The learned embeddings are saved into a compressed numpy dump.
 You can load them for further use
 
-    >>> import numpy as np
-    >>> blogcatalog = np.load("line_blogcatalog.npz")
-    >>> names = blogcatalog["id2name"]
-    >>> embeddings = blogcatalog["vertex_embeddings"]
+    >>> import pickle
+    >>> with open("line_blogcatalog.pkl", "rb") as fin:
+    >>>     blogcatalog = pickle.load(fin)
+    >>> names = blogcatalog.id2name
+    >>> embeddings = blogcatalog.vertex_embeddings
     >>> print(names[1024], embddings[1024])
 
 As the embeddings might be further used in other downstream tasks, it would be

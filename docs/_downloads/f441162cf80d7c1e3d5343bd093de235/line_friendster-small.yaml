@@ -36,4 +36,4 @@ evaluate:
   times: 5
 
 save:
-  file_name: line_friendster-small.npz
+  file_name: line_friendster-small.pkl

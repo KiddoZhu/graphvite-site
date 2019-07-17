@@ -33,4 +33,4 @@ evaluate:
   save_file: mnist_2d.png
 
 save:
-  file_name: largevis_mnist_2d.npz
+  file_name: largevis_mnist_2d.pkl

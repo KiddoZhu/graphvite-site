@@ -192,13 +192,13 @@
 <div class="section" id="install-from-conda">
 <h2>Install from conda<a class="headerlink" href="#install-from-conda" title="Permalink to this headline">¶</a></h2>
 <p>You can install GraphVite from <code class="docutils literal notranslate"><span class="pre">conda</span></code> with only one line.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda install graphvite
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda install -c milagraph graphvite
 </pre></div>
 </div>
 <p>By default, this will install all dependencies, including <code class="docutils literal notranslate"><span class="pre">PyTorch</span></code> and
 <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>. If you only need embedding training without evaluation, you can take
 the following alternative with minimum dependencies.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda install graphvite-mini
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda install -c milagraph graphvite-mini
 </pre></div>
 </div>
 </div>
@@ -207,7 +207,7 @@ the following alternative with minimum dependencies.</p>
 <p>Before installation, make sure your <code class="docutils literal notranslate"><span class="pre">cmake</span></code> is at least 3.12, and <code class="docutils literal notranslate"><span class="pre">pybind11</span></code>
 is installed.</p>
 <p>First, clone GraphVite from GitHub.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/KiddoZhu/GraphVite
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/DeepGraphLearning/graphvite
 </pre></div>
 </div>
 <p>Then, use the following directives to compile the code. If you have installed <code class="docutils literal notranslate"><span class="pre">faiss</span></code>
