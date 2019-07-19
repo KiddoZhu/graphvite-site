@@ -29,7 +29,7 @@ conda install -c milagraph graphvite-mini
 From Source
 -----------
 
-To install GraphVite from source, you need to have ``conda`` installed.
+To install GraphVite from source, you need to have `conda` installed.
 
 ```bash
 git clone {{ site.graphvite.repo }}
