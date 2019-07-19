@@ -29,11 +29,12 @@ conda install -c milagraph graphvite-mini
 From Source
 -----------
 
-To install GraphVite from source, you need to have ``cmake`` at least 3.12, and ``pybind11`` installed.
+To install GraphVite from source, you need to have ``conda`` installed.
 
 ```bash
 git clone {{ site.graphvite.repo }}
 cd graphvite
+conda install -y --file conda/requirements.txt
 mkdir build
 cd build && cmake .. && make && cd -
 cd python && python setup.py install && cd -
