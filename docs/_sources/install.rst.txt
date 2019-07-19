@@ -23,21 +23,24 @@ the following alternative with minimum dependencies.
 Install from source
 -------------------
 
-Before installation, make sure your ``cmake`` is at least 3.12, and ``pybind11``
-is installed.
-
 First, clone GraphVite from GitHub.
 
 .. code-block:: bash
 
     git clone https://github.com/DeepGraphLearning/graphvite
+    cd graphvite
 
-Then, use the following directives to compile the code. If you have installed ``faiss``
+Install compilation and runtime dependencies via ``conda``.
+
+.. code-block:: bash
+
+    conda install -y --file conda/requirements.txt
+
+Compile the code using the following directives. If you have ``faiss`` installed
 from source, you can pass ``-DFAISS_PATH=/path/to/faiss`` to ``cmake``.
 
 .. code-block:: bash
 
-    cd GraphVite
     mkdir build
     cd build && cmake .. && make && cd -
 

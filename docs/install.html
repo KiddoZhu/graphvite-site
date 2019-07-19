@@ -204,16 +204,18 @@ the following alternative with minimum dependencies.</p>
 </div>
 <div class="section" id="install-from-source">
 <h2>Install from source<a class="headerlink" href="#install-from-source" title="Permalink to this headline">¶</a></h2>
-<p>Before installation, make sure your <code class="docutils literal notranslate"><span class="pre">cmake</span></code> is at least 3.12, and <code class="docutils literal notranslate"><span class="pre">pybind11</span></code>
-is installed.</p>
 <p>First, clone GraphVite from GitHub.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/DeepGraphLearning/graphvite
+<span class="nb">cd</span> graphvite
 </pre></div>
 </div>
-<p>Then, use the following directives to compile the code. If you have installed <code class="docutils literal notranslate"><span class="pre">faiss</span></code>
+<p>Install compilation and runtime dependencies via <code class="docutils literal notranslate"><span class="pre">conda</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda install -y --file conda/requirements.txt
+</pre></div>
+</div>
+<p>Compile the code using the following directives. If you have <code class="docutils literal notranslate"><span class="pre">faiss</span></code> installed
 from source, you can pass <code class="docutils literal notranslate"><span class="pre">-DFAISS_PATH=/path/to/faiss</span></code> to <code class="docutils literal notranslate"><span class="pre">cmake</span></code>.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> GraphVite
-mkdir build
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir build
 <span class="nb">cd</span> build <span class="o">&amp;&amp;</span> cmake .. <span class="o">&amp;&amp;</span> make <span class="o">&amp;&amp;</span> <span class="nb">cd</span> -
 </pre></div>
 </div>
