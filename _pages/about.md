@@ -30,7 +30,7 @@ Authors of this project are [Zhaocheng Zhu], [Shizhen Xu], [Meng Qu] and [Jian T
 Contributors include [Kunpeng Wang] and [Zhijian Duan].
 
 [MilaGraph]: https://github.com/DeepGraphLearning
-[Zhaocheng Zhu]: https://github.com/KiddoZhu
+[Zhaocheng Zhu]: https://kiddozhu.github.io
 [Shizhen Xu]: https://github.com/xsz
 [Meng Qu]: https://mnqu.github.io
 [Jian Tang]: https://jian-tang.com

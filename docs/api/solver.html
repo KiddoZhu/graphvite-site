@@ -235,13 +235,14 @@
 
 <dl class="method">
 <dt id="graphvite.solver.GraphSolver.train">
-<code class="sig-name descname">train</code><span class="sig-paren">(</span><em class="sig-param">model='LINE'</em>, <em class="sig-param">num_epoch=2000</em>, <em class="sig-param">augmentation_step=5</em>, <em class="sig-param">random_walk_length=40</em>, <em class="sig-param">random_walk_batch_size=100</em>, <em class="sig-param">shuffle_base=auto</em>, <em class="sig-param">p=1</em>, <em class="sig-param">q=1</em>, <em class="sig-param">positive_reuse=1</em>, <em class="sig-param">negative_sample_exponent=0.75</em>, <em class="sig-param">negative_weight=5</em>, <em class="sig-param">log_frequency=1000</em><span class="sig-paren">)</span><a class="headerlink" href="#graphvite.solver.GraphSolver.train" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">train</code><span class="sig-paren">(</span><em class="sig-param">model='LINE'</em>, <em class="sig-param">num_epoch=2000</em>, <em class="sig-param">resume=False</em>, <em class="sig-param">augmentation_step=5</em>, <em class="sig-param">random_walk_length=40</em>, <em class="sig-param">random_walk_batch_size=100</em>, <em class="sig-param">shuffle_base=auto</em>, <em class="sig-param">p=1</em>, <em class="sig-param">q=1</em>, <em class="sig-param">positive_reuse=1</em>, <em class="sig-param">negative_sample_exponent=0.75</em>, <em class="sig-param">negative_weight=5</em>, <em class="sig-param">log_frequency=1000</em><span class="sig-paren">)</span><a class="headerlink" href="#graphvite.solver.GraphSolver.train" title="Permalink to this definition">¶</a></dt>
 <dd><p>Train node embeddings.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>model</strong> (<em>str</em><em>, </em><em>optional</em>) – ‘DeepWalk’, ‘LINE’ or ‘node2vec’</p></li>
 <li><p><strong>num_epoch</strong> (<em>int</em><em>, </em><em>optional</em>) – number of epochs, i.e. #positive edges / |E|</p></li>
+<li><p><strong>resume</strong> (<em>bool</em><em>, </em><em>optional</em>) – resume training from learned embeddings or not</p></li>
 <li><p><strong>augmentation_step</strong> (<em>int</em><em>, </em><em>optional</em>) – node pairs with distance &lt;= augmentation_step are considered as positive samples</p></li>
 <li><p><strong>random_walk_length</strong> (<em>int</em><em>, </em><em>optional</em>) – length of each random walk</p></li>
 <li><p><strong>random_walk_batch_size</strong> (<em>int</em><em>, </em><em>optional</em>) – batch size of random walks in samplers</p></li>
@@ -321,13 +322,14 @@
 
 <dl class="method">
 <dt id="graphvite.solver.KnowledgeGraphSolver.train">
-<code class="sig-name descname">train</code><span class="sig-paren">(</span><em class="sig-param">model='RotatE'</em>, <em class="sig-param">num_epoch=2000</em>, <em class="sig-param">margin=24</em>, <em class="sig-param">l3_regulariation=2e-3</em>, <em class="sig-param">sample_batch_size=2000</em>, <em class="sig-param">positive_reuse=1</em>, <em class="sig-param">adversarial_temperature=2</em>, <em class="sig-param">log_frequency=100</em><span class="sig-paren">)</span><a class="headerlink" href="#graphvite.solver.KnowledgeGraphSolver.train" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">train</code><span class="sig-paren">(</span><em class="sig-param">model='RotatE'</em>, <em class="sig-param">num_epoch=2000</em>, <em class="sig-param">resume=False</em>, <em class="sig-param">margin=24</em>, <em class="sig-param">l3_regularization=2e-3</em>, <em class="sig-param">sample_batch_size=2000</em>, <em class="sig-param">positive_reuse=1</em>, <em class="sig-param">adversarial_temperature=2</em>, <em class="sig-param">log_frequency=100</em><span class="sig-paren">)</span><a class="headerlink" href="#graphvite.solver.KnowledgeGraphSolver.train" title="Permalink to this definition">¶</a></dt>
 <dd><p>Train knowledge graph embeddings.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>model</strong> (<em>str</em><em>, </em><em>optional</em>) – ‘TransE’, ‘DistMult’, ‘ComplEx’, ‘SimplE’ or ‘RotatE’</p></li>
 <li><p><strong>num_epoch</strong> (<em>int</em><em>, </em><em>optional</em>) – number of epochs, i.e. #positive edges / |E|</p></li>
+<li><p><strong>resume</strong> (<em>bool</em><em>, </em><em>optional</em>) – resume training from learned embeddings or not</p></li>
 <li><p><strong>margin</strong> (<em>float</em><em>, </em><em>optional</em>) – logit margin (for TransE &amp; RotatE)</p></li>
 <li><p><strong>l3_regularization</strong> (<em>float</em><em>, </em><em>optional</em>) – L3 regularization (for DistMult, ComplEx &amp; SimplE)</p></li>
 <li><p><strong>sample_batch_size</strong> (<em>int</em><em>, </em><em>optional</em>) – batch size of samples in samplers</p></li>
@@ -404,13 +406,14 @@ disabled when set to non-positive value</p></li>
 
 <dl class="method">
 <dt id="graphvite.solver.VisualizationSolver.train">
-<code class="sig-name descname">train</code><span class="sig-paren">(</span><em class="sig-param">model='LargeVis'</em>, <em class="sig-param">num_epoch=100</em>, <em class="sig-param">sample_batch_size=2000</em>, <em class="sig-param">positive_reuse=1</em>, <em class="sig-param">negative_sample_exponent=0.75</em>, <em class="sig-param">negative_weight=3</em>, <em class="sig-param">log_frequency=1000</em><span class="sig-paren">)</span><a class="headerlink" href="#graphvite.solver.VisualizationSolver.train" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">train</code><span class="sig-paren">(</span><em class="sig-param">model='LargeVis'</em>, <em class="sig-param">num_epoch=100</em>, <em class="sig-param">resume=False</em>, <em class="sig-param">sample_batch_size=2000</em>, <em class="sig-param">positive_reuse=1</em>, <em class="sig-param">negative_sample_exponent=0.75</em>, <em class="sig-param">negative_weight=3</em>, <em class="sig-param">log_frequency=1000</em><span class="sig-paren">)</span><a class="headerlink" href="#graphvite.solver.VisualizationSolver.train" title="Permalink to this definition">¶</a></dt>
 <dd><p>Train visualization.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>model</strong> (<em>str</em><em>, </em><em>optional</em>) – ‘LargeVis’</p></li>
 <li><p><strong>num_epoch</strong> (<em>int</em><em>, </em><em>optional</em>) – number of epochs, i.e. #positive edges / |E|</p></li>
+<li><p><strong>resume</strong> (<em>bool</em><em>, </em><em>optional</em>) – resume training from learned embeddings or not</p></li>
 <li><p><strong>sample_batch_size</strong> (<em>int</em><em>, </em><em>optional</em>) – batch size of samples in samplers</p></li>
 <li><p><strong>positive_reuse</strong> (<em>int</em><em>, </em><em>optional</em>) – times of reusing positive samples</p></li>
 <li><p><strong>negative_sample_epoxnent</strong> (<em>float</em><em>, </em><em>optional</em>) – exponent of degrees in negative sampling</p></li>

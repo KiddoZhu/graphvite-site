@@ -16,14 +16,16 @@ From Conda
 GraphVite can be installed through conda with only one line.
 
 ```bash
-conda install -c milagraph graphvite
+conda install -c milagraph graphvite cudatoolkit=x.x
 ```
+
+where `x.x` is your CUDA version, e.g. 9.2 or 10.0.
 
 By default, this will install all the dependencies.
 If you only need embedding training without evaluation, you can use the following alternative.
 
 ```bash
-conda install -c milagraph graphvite-mini
+conda install -c milagraph graphvite-mini cudatoolkit=x.x
 ```
 
 From Source
