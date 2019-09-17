@@ -322,7 +322,7 @@
 
 <dl class="method">
 <dt id="graphvite.solver.KnowledgeGraphSolver.train">
-<code class="sig-name descname">train</code><span class="sig-paren">(</span><em class="sig-param">model='RotatE'</em>, <em class="sig-param">num_epoch=2000</em>, <em class="sig-param">resume=False</em>, <em class="sig-param">margin=24</em>, <em class="sig-param">l3_regularization=2e-3</em>, <em class="sig-param">sample_batch_size=2000</em>, <em class="sig-param">positive_reuse=1</em>, <em class="sig-param">adversarial_temperature=2</em>, <em class="sig-param">log_frequency=100</em><span class="sig-paren">)</span><a class="headerlink" href="#graphvite.solver.KnowledgeGraphSolver.train" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">train</code><span class="sig-paren">(</span><em class="sig-param">model='RotatE'</em>, <em class="sig-param">num_epoch=2000</em>, <em class="sig-param">resume=False</em>, <em class="sig-param">margin=12</em>, <em class="sig-param">l3_regularization=2e-3</em>, <em class="sig-param">sample_batch_size=2000</em>, <em class="sig-param">positive_reuse=1</em>, <em class="sig-param">adversarial_temperature=2</em>, <em class="sig-param">log_frequency=100</em><span class="sig-paren">)</span><a class="headerlink" href="#graphvite.solver.KnowledgeGraphSolver.train" title="Permalink to this definition">¶</a></dt>
 <dd><p>Train knowledge graph embeddings.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -416,7 +416,7 @@ disabled when set to non-positive value</p></li>
 <li><p><strong>resume</strong> (<em>bool</em><em>, </em><em>optional</em>) – resume training from learned embeddings or not</p></li>
 <li><p><strong>sample_batch_size</strong> (<em>int</em><em>, </em><em>optional</em>) – batch size of samples in samplers</p></li>
 <li><p><strong>positive_reuse</strong> (<em>int</em><em>, </em><em>optional</em>) – times of reusing positive samples</p></li>
-<li><p><strong>negative_sample_epoxnent</strong> (<em>float</em><em>, </em><em>optional</em>) – exponent of degrees in negative sampling</p></li>
+<li><p><strong>negative_sample_exponent</strong> (<em>float</em><em>, </em><em>optional</em>) – exponent of degrees in negative sampling</p></li>
 <li><p><strong>negative_weight</strong> (<em>float</em><em>, </em><em>optional</em>) – weight for each negative sample</p></li>
 <li><p><strong>log_frequency</strong> (<em>int</em><em>, </em><em>optional</em>) – log every log_frequency batches</p></li>
 </ul>

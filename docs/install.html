@@ -192,13 +192,14 @@
 <div class="section" id="install-from-conda">
 <h2>Install from conda<a class="headerlink" href="#install-from-conda" title="Permalink to this headline">¶</a></h2>
 <p>You can install GraphVite from <code class="docutils literal notranslate"><span class="pre">conda</span></code> with only one line.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda install -c milagraph graphvite
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda install -c milagraph graphvite <span class="nv">cudatoolkit</span><span class="o">=</span>x.x
 </pre></div>
 </div>
+<p>where <code class="docutils literal notranslate"><span class="pre">x.x</span></code> is your CUDA version, e.g. 9.2 or 10.0.</p>
 <p>By default, this will install all dependencies, including <code class="docutils literal notranslate"><span class="pre">PyTorch</span></code> and
 <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>. If you only need embedding training without evaluation, you can take
 the following alternative with minimum dependencies.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda install -c milagraph graphvite-mini
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda install -c milagraph graphvite-mini <span class="nv">cudatoolkit</span><span class="o">=</span>x.x
 </pre></div>
 </div>
 </div>
