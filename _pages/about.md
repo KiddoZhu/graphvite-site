@@ -15,7 +15,7 @@ deployment of graph learning algorithms.
 Through the development of GraphVite, it is always targeted to solve extremely large
 graphs on CPU-GPU hybrid architectures. Tailored to the nature of graph embeddings,
 GraphVite is distinguished from other libraries by fast training and linear scalability.
-It is even able to work with limited GPU memory.
+It is even able to work under very limited GPU memory, where other systems might fail.
 
 With GraphVite, it is easy to reproduce cutting-edge models of many applications,
 deploy them on large real-world datasets, and develop new models for graph representation

@@ -37,7 +37,7 @@ benchmark:
       **Supported models:** DeepWalk, LINE, node2vec, TransE, DistMult, ComplEx, SimplE, RotatE, LargeVis, ...
     # Everything is here and no further effort is needed.
     image_path: "/assets/images/benchmark.png"
-    url: "/docs/benchmark"
+    url: "/docs/latest/benchmark"
     btn_class: "btn--primary"
     btn_label: "Learn more"
 interface:
@@ -47,7 +47,7 @@ interface:
       Tailored to different needs, flexible interface brings you great user experience,
       while minimizes the issues you do not care. It is always easy and efficient to
       integrate GraphVite into your environment, no matter you are using Python or C/C++.
-    url: "/docs/user/command_line"
+    url: "/docs/latest/user/command_line"
     btn_class: "btn--primary"
     btn_label: "Learn more"
 ---
@@ -59,9 +59,9 @@ interface:
 | [![Node Embedding]][1] | [![Knowledge Graph Embedding]][2] | [![Graph & High-dimensional Data Visualization]][3] |
 {: .page}
 
-[1]: /docs/overview#node-embedding
-[2]: /docs/overview#knowledge-graph-embedding
-[3]: /docs/overview#graph-high-dimensional-data-visualization
+[1]: /docs/latest/overview#node-embedding
+[2]: /docs/latest/overview#knowledge-graph-embedding
+[3]: /docs/latest/overview#graph-high-dimensional-data-visualization
 [Node Embedding]: {{ site.baseurl }}/assets/images/graph.png
 [Knowledge Graph Embedding]: {{ site.baseurl }}/assets/images/knowledge_graph.png
 [Graph & High-dimensional Data Visualization]: {{ site.baseurl }}/assets/images/visualization.png

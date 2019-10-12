@@ -16,16 +16,14 @@ From Conda
 GraphVite can be installed through conda with only one line.
 
 ```bash
-conda install -c milagraph graphvite cudatoolkit=x.x
+conda install -c milagraph graphvite cudatoolkit=$(nvcc -V | grep -Po "(?<=V)\d+\.\d+")
 ```
-
-where `x.x` is your CUDA version, e.g. 9.2 or 10.0.
 
 By default, this will install all the dependencies.
 If you only need embedding training without evaluation, you can use the following alternative.
 
 ```bash
-conda install -c milagraph graphvite-mini cudatoolkit=x.x
+conda install -c milagraph graphvite-mini cudatoolkit=$(nvcc -V | grep -Po "(?<=V)\d+\.\d+")
 ```
 
 From Source
@@ -46,23 +44,34 @@ cd python && python setup.py install && cd -
 Quick Start
 ===========
 
-Once installed, you can run the following quick-start example of the node embedding application.
+Once installed, we can run the following quick-start example of the node embedding application.
 
 ```bash
 graphvite baseline quick start
 ```
 
 The example will automatically download a social network dataset called BlogCatalog, where nodes
-correspond to blog users. For each node, we learn an embedding vector, and evaluate the embeddings
-on multi-label node classifcation.
+correspond to blog users. For each node, we learn an embedding vector that preserves its
+neighborhood structure. The learned embeddings are evaluated on link prediction and node
+classification tasks.
 
-Typically, the example takes no more than 1 minute. You will obtain some output like
+Typically, the example takes no more than 1 minute. We will obtain some output like
 
 ```bash
 Batch id: 6000
-loss = 0.371641
+loss = 0.371041
 
-macro-F1@20%: 0.236794
-micro-F1@20%: 0.388110
+------------- link prediction --------------
+AUC: 0.899933
+
+----------- node classification ------------
+macro-F1@20%: 0.242114
+micro-F1@20%: 0.391342
 ```
 
+Another interesting example is a synthetic math dataset of arithmetic operations. Check
+out this knowledge graph example with
+
+```bash
+graphvite baseline math
+```
