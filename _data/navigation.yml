@@ -5,6 +5,8 @@ main:
     url: "/docs/latest/user/command_line"
   - title: "Developer Guide"
     url: "/docs/latest/developer/framework"
+  - title: "Tutorials"
+    url: "/tutorials"
   - title: "Docs"
     url: "/docs/version"
   - title: "About"

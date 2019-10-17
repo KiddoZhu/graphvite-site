@@ -490,10 +490,32 @@
 }
 
 /*
-   Wide Pages
+   Extended Pages
    ========================================================================== */
 
-.wide {
+.extend-left {
+  .page {
+    @include breakpoint($large) {
+      width: 100%;
+    }
+
+    @include breakpoint($x-large) {
+      width: 100%;
+    }
+  }
+
+  .page__related {
+    @include breakpoint($large) {
+      width: 100%;
+    }
+
+    @include breakpoint($x-large) {
+      width: 100%;
+    }
+  }
+}
+   
+.extend-right {
   .page {
     @include breakpoint($large) {
       padding-right: 0;
