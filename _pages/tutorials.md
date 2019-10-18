@@ -10,15 +10,15 @@ tutorials:
   - title: "Visualize large-scale and High-dimensional Data"
     image_path: assets/images/visualization.png
     alt: "Graph & High-dimensional Data Visualization"
-    url: https://colab.research.google.com/drive/1xRPPeCC0GxhCKpAUQblPST60_XNai2bv
+    url: https://colab.research.google.com/drive/1xRPPeCC0GxhCKpAUQblPST60_XNai2bv#forceEdit=true&sandboxMode=true
   - title: "Embed entities and relations in knowledge graphs"
     image_path: /assets/images/knowledge_graph.png
     alt: "Knowledge Graph Embedding"
-    url: https://colab.research.google.com/drive/1TIK-BiMGtlhPNuR2HbSzo_ZOdb40nZiz
+    url: https://colab.research.google.com/drive/1TIK-BiMGtlhPNuR2HbSzo_ZOdb40nZiz#forceEdit=true&sandboxMode=true
   - title: "Node representation learning on large graphs"
     image_path: /assets/images/graph.png
     alt: "Node Embedding"
-    url: https://colab.research.google.com/drive/1J5sXHlMejovbYD4sHfyKUmwiUI2a8YsD
+    url: https://colab.research.google.com/drive/1J5sXHlMejovbYD4sHfyKUmwiUI2a8YsD#forceEdit=true&sandboxMode=true
 ---
 
 To learn how to use GraphVite, take a look at our tutorials. Our tutorials start from the basics of each application,
