@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Benchmarks &mdash; GraphVite 0.2.0 documentation</title>
+  <title>Benchmarks &mdash; GraphVite 0.2.1 documentation</title>
   
 
   
@@ -349,9 +349,9 @@ different percentages of training data.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p>Configuration files:
-<a class="reference download internal" download="" href="_downloads/c1ddf37c2d6a92c7d728962b12453d40/deepwalk_youtube.yaml"><code class="xref download docutils literal notranslate"><span class="pre">deepwalk_youtube.yaml</span></code></a>
-<a class="reference download internal" download="" href="_downloads/f1e3b16e4673b32e60884dcaa5f814fe/line_youtube.yaml"><code class="xref download docutils literal notranslate"><span class="pre">line_youtube.yaml</span></code></a>
-<a class="reference download internal" download="" href="_downloads/c2096f1a36c3f3319a09baa55dc8a2c3/node2vec_youtube.yaml"><code class="xref download docutils literal notranslate"><span class="pre">node2vec_youtube.yaml</span></code></a></p>
+<a class="reference download internal" download="" href="_downloads/090b29d603ada9719a812e998e034076/deepwalk_youtube.yaml"><code class="xref download docutils literal notranslate"><span class="pre">deepwalk_youtube.yaml</span></code></a>
+<a class="reference download internal" download="" href="_downloads/08530d6a1ced27cf0a6deb285b390ded/line_youtube.yaml"><code class="xref download docutils literal notranslate"><span class="pre">line_youtube.yaml</span></code></a>
+<a class="reference download internal" download="" href="_downloads/5e72dab202294dec97e736c8ebf3a93b/node2vec_youtube.yaml"><code class="xref download docutils literal notranslate"><span class="pre">node2vec_youtube.yaml</span></code></a></p>
 </div>
 <p>For larger datasets, <a class="reference external" href="https://www.kdd.org/kdd2016/papers/files/rfp0218-groverA.pdf">node2vec</a> fails with out-of-memory error, as it requires more
 than 200 GiB memory to build alias tables for the 2nd order random walks.</p>
@@ -441,8 +441,8 @@ than 200 GiB memory to build alias tables for the 2nd order random walks.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p>Configuration files:
-<a class="reference download internal" download="" href="_downloads/4afb527e4b37ee8f8a89437416fd0752/deepwalk_flickr.yaml"><code class="xref download docutils literal notranslate"><span class="pre">deepwalk_flickr.yaml</span></code></a>
-<a class="reference download internal" download="" href="_downloads/b304bd343471f0de1d503d0a2cceda00/line_flickr.yaml"><code class="xref download docutils literal notranslate"><span class="pre">line_flickr.yaml</span></code></a></p>
+<a class="reference download internal" download="" href="_downloads/e2d31e031d7362ddda31ae9a9b811437/deepwalk_flickr.yaml"><code class="xref download docutils literal notranslate"><span class="pre">deepwalk_flickr.yaml</span></code></a>
+<a class="reference download internal" download="" href="_downloads/53d04de8f86bd0754b1c6c1244ea7c1c/line_flickr.yaml"><code class="xref download docutils literal notranslate"><span class="pre">line_flickr.yaml</span></code></a></p>
 </div>
 <table class="docutils align-default">
 <colgroup>
@@ -536,14 +536,14 @@ than 200 GiB memory to build alias tables for the 2nd order random walks.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p>Configuration files:
-<a class="reference download internal" download="" href="_downloads/9e7421088e32faa39e0a5418366cff29/deepwalk_friendster-small.yaml"><code class="xref download docutils literal notranslate"><span class="pre">deepwalk_friendster-small.yaml</span></code></a>
-<a class="reference download internal" download="" href="_downloads/cefea556491f99135084c5e85e49db5b/line_friendster-small.yaml"><code class="xref download docutils literal notranslate"><span class="pre">line_friendster-small.yaml</span></code></a></p>
+<a class="reference download internal" download="" href="_downloads/c0e78706f05afbcf7c64e256a9a99acc/deepwalk_friendster-small.yaml"><code class="xref download docutils literal notranslate"><span class="pre">deepwalk_friendster-small.yaml</span></code></a>
+<a class="reference download internal" download="" href="_downloads/22c9f2edb8cb59a64f49a1ec85880d28/line_friendster-small.yaml"><code class="xref download docutils literal notranslate"><span class="pre">line_friendster-small.yaml</span></code></a></p>
 </div>
 </div>
 <div class="section" id="knowledge-graph-embedding">
 <h2>Knowledge Graph Embedding<a class="headerlink" href="#knowledge-graph-embedding" title="Permalink to this headline">¶</a></h2>
 <p>For knowledge graph embedding, we benchmark <a class="reference external" href="http://papers.nips.cc/paper/5071-translating-embeddings-for-modeling-multi-relational-data.pdf">TransE</a>, <a class="reference external" href="https://arxiv.org/pdf/1412.6575.pdf">DistMult</a>, <a class="reference external" href="http://proceedings.mlr.press/v48/trouillon16.pdf">ComplEx</a> and
-<a class="reference external" href="https://arxiv.org/pdf/1902.10197.pdf">RotatE</a> on 4 standard datasets. The training time, evaluation time and resource of
+<a class="reference external" href="https://arxiv.org/pdf/1902.10197.pdf">RotatE</a> on 5 standard datasets. The training time, evaluation time and resource of
 <a class="reference external" href="https://arxiv.org/pdf/1902.10197.pdf">RotatE</a> on these datasets are given in the following table.</p>
 <table class="docutils align-default">
 <colgroup>
@@ -591,6 +591,13 @@ than 200 GiB memory to build alias tables for the 2nd order random walks.</p>
 <td><p>11</p></td>
 <td><p>14.8 mins / 8.98 s</p></td>
 <td><p>4 * 776 MiB</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.wikidata.org">Wikidata5m</a></p></td>
+<td><p>5.0M</p></td>
+<td><p>21M</p></td>
+<td><p>828</p></td>
+<td><p>2.10 hrs / 54.9 mins</p></td>
+<td><p>4 * 2.96 GiB</p></td>
 </tr>
 </tbody>
 </table>
@@ -656,11 +663,11 @@ are computed based on filtered results.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p>Configuration files:
-<a class="reference download internal" download="" href="_downloads/4dd8deba415e6b8288bf06c009a50a44/transe_fb15k.yaml"><code class="xref download docutils literal notranslate"><span class="pre">transe_fb15k.yaml</span></code></a>
-<a class="reference download internal" download="" href="_downloads/79ba71a07b1ebeced63a2f10fd18b31a/distmult_fb15k.yaml"><code class="xref download docutils literal notranslate"><span class="pre">distmult_fb15k.yaml</span></code></a>
-<a class="reference download internal" download="" href="_downloads/c73566c18fc659b922b5a417a819c18a/complex_fb15k.yaml"><code class="xref download docutils literal notranslate"><span class="pre">complex_fb15k.yaml</span></code></a>
-<a class="reference download internal" download="" href="_downloads/c25ad5990649d21c9a57d2bbf3e15486/simple_fb15k.yaml"><code class="xref download docutils literal notranslate"><span class="pre">simple_fb15k.yaml</span></code></a>
-<a class="reference download internal" download="" href="_downloads/9746d088a264b596c90616298806e879/rotate_fb15k.yaml"><code class="xref download docutils literal notranslate"><span class="pre">rotate_fb15k.yaml</span></code></a></p>
+<a class="reference download internal" download="" href="_downloads/4942361e8ea2fd1472e4f533ef4b615d/transe_fb15k.yaml"><code class="xref download docutils literal notranslate"><span class="pre">transe_fb15k.yaml</span></code></a>
+<a class="reference download internal" download="" href="_downloads/1bbc965d7c29b8ac65ea58997c405f54/distmult_fb15k.yaml"><code class="xref download docutils literal notranslate"><span class="pre">distmult_fb15k.yaml</span></code></a>
+<a class="reference download internal" download="" href="_downloads/19101424b01de7fd9ff611e4b9a8386d/complex_fb15k.yaml"><code class="xref download docutils literal notranslate"><span class="pre">complex_fb15k.yaml</span></code></a>
+<a class="reference download internal" download="" href="_downloads/b27e7832593e78b992776b22f8cb6e5a/simple_fb15k.yaml"><code class="xref download docutils literal notranslate"><span class="pre">simple_fb15k.yaml</span></code></a>
+<a class="reference download internal" download="" href="_downloads/d6ff5274e75a6cf8d1ba5e5e59a42361/rotate_fb15k.yaml"><code class="xref download docutils literal notranslate"><span class="pre">rotate_fb15k.yaml</span></code></a></p>
 </div>
 <table class="docutils align-default">
 <colgroup>
@@ -721,11 +728,11 @@ are computed based on filtered results.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p>Configuration files:
-<a class="reference download internal" download="" href="_downloads/74161c8850e020d88fb87eb300e1344e/transe_fb15k-237.yaml"><code class="xref download docutils literal notranslate"><span class="pre">transe_fb15k-237.yaml</span></code></a>
-<a class="reference download internal" download="" href="_downloads/a8b60f86403275700d61b713c7d25285/distmult_fb15k-237.yaml"><code class="xref download docutils literal notranslate"><span class="pre">distmult_fb15k-237.yaml</span></code></a>
-<a class="reference download internal" download="" href="_downloads/a83deafda5af0ed5b574d3801150b7b0/complex_fb15k-237.yaml"><code class="xref download docutils literal notranslate"><span class="pre">complex_fb15k-237.yaml</span></code></a>
-<a class="reference download internal" download="" href="_downloads/b7ae14ac5d8d15c4290589a5b54a8a0e/simple_fb15k-237.yaml"><code class="xref download docutils literal notranslate"><span class="pre">simple_fb15k-237.yaml</span></code></a>
-<a class="reference download internal" download="" href="_downloads/d5b38acd6f9d2bf27a2756ac4842ca55/rotate_fb15k-237.yaml"><code class="xref download docutils literal notranslate"><span class="pre">rotate_fb15k-237.yaml</span></code></a></p>
+<a class="reference download internal" download="" href="_downloads/dde783869102c2fa52fae2603dc9ad7f/transe_fb15k-237.yaml"><code class="xref download docutils literal notranslate"><span class="pre">transe_fb15k-237.yaml</span></code></a>
+<a class="reference download internal" download="" href="_downloads/e50b462872ea277140e71bb50ca7d532/distmult_fb15k-237.yaml"><code class="xref download docutils literal notranslate"><span class="pre">distmult_fb15k-237.yaml</span></code></a>
+<a class="reference download internal" download="" href="_downloads/d5532fb9eb9f777c6365591e9be5671e/complex_fb15k-237.yaml"><code class="xref download docutils literal notranslate"><span class="pre">complex_fb15k-237.yaml</span></code></a>
+<a class="reference download internal" download="" href="_downloads/538659f75fab6a24630fa25982b7774d/simple_fb15k-237.yaml"><code class="xref download docutils literal notranslate"><span class="pre">simple_fb15k-237.yaml</span></code></a>
+<a class="reference download internal" download="" href="_downloads/f803ce5a1d49232bb2683d4f07549d6b/rotate_fb15k-237.yaml"><code class="xref download docutils literal notranslate"><span class="pre">rotate_fb15k-237.yaml</span></code></a></p>
 </div>
 <table class="docutils align-default">
 <colgroup>
@@ -786,11 +793,11 @@ are computed based on filtered results.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p>Configuration files:
-<a class="reference download internal" download="" href="_downloads/9a7d94b0d25ecf7ca04f901a8834a5d2/transe_wn18.yaml"><code class="xref download docutils literal notranslate"><span class="pre">transe_wn18.yaml</span></code></a>
-<a class="reference download internal" download="" href="_downloads/cb7143beea71577380cee836d05a6727/distmult_wn18.yaml"><code class="xref download docutils literal notranslate"><span class="pre">distmult_wn18.yaml</span></code></a>
-<a class="reference download internal" download="" href="_downloads/46e2e34886b7d2fb3d63b061f05651b4/complex_wn18.yaml"><code class="xref download docutils literal notranslate"><span class="pre">complex_wn18.yaml</span></code></a>
-<a class="reference download internal" download="" href="_downloads/6fc860d0060fbf331c065ff50128ff8b/simple_wn18.yaml"><code class="xref download docutils literal notranslate"><span class="pre">simple_wn18.yaml</span></code></a>
-<a class="reference download internal" download="" href="_downloads/456f0d8166b5f01a7a96817dc97852a8/rotate_wn18.yaml"><code class="xref download docutils literal notranslate"><span class="pre">rotate_wn18.yaml</span></code></a></p>
+<a class="reference download internal" download="" href="_downloads/ce98b992daba2711631288dc67c4fecf/transe_wn18.yaml"><code class="xref download docutils literal notranslate"><span class="pre">transe_wn18.yaml</span></code></a>
+<a class="reference download internal" download="" href="_downloads/411df68d2fa58818c24f1a59cec5524c/distmult_wn18.yaml"><code class="xref download docutils literal notranslate"><span class="pre">distmult_wn18.yaml</span></code></a>
+<a class="reference download internal" download="" href="_downloads/24cb1b9ce99bfa21b5a77bcf1642dabd/complex_wn18.yaml"><code class="xref download docutils literal notranslate"><span class="pre">complex_wn18.yaml</span></code></a>
+<a class="reference download internal" download="" href="_downloads/417aceecd4ecae54da22bb8893fe8794/simple_wn18.yaml"><code class="xref download docutils literal notranslate"><span class="pre">simple_wn18.yaml</span></code></a>
+<a class="reference download internal" download="" href="_downloads/27ee477f879537e56bc1f89b3ddb930d/rotate_wn18.yaml"><code class="xref download docutils literal notranslate"><span class="pre">rotate_wn18.yaml</span></code></a></p>
 </div>
 <table class="docutils align-default">
 <colgroup>
@@ -851,11 +858,76 @@ are computed based on filtered results.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p>Configuration files:
-<a class="reference download internal" download="" href="_downloads/1df8ce48d09ddf18d215f02cee6a3cf8/transe_wn18rr.yaml"><code class="xref download docutils literal notranslate"><span class="pre">transe_wn18rr.yaml</span></code></a>
-<a class="reference download internal" download="" href="_downloads/900e4891972806edd5efd660c3207927/distmult_wn18rr.yaml"><code class="xref download docutils literal notranslate"><span class="pre">distmult_wn18rr.yaml</span></code></a>
-<a class="reference download internal" download="" href="_downloads/3b181feafe3ddff173e4c403d79b26bb/complex_wn18rr.yaml"><code class="xref download docutils literal notranslate"><span class="pre">complex_wn18rr.yaml</span></code></a>
-<a class="reference download internal" download="" href="_downloads/5f7284410ba314a83566ba6f9c6baf3d/simple_wn18rr.yaml"><code class="xref download docutils literal notranslate"><span class="pre">simple_wn18rr.yaml</span></code></a>
-<a class="reference download internal" download="" href="_downloads/71c18ec17707e3185e8a9c1e5ee6230e/rotate_wn18rr.yaml"><code class="xref download docutils literal notranslate"><span class="pre">rotate_wn18rr.yaml</span></code></a></p>
+<a class="reference download internal" download="" href="_downloads/19f1bacd25b9252672c3654a8a12a18b/transe_wn18rr.yaml"><code class="xref download docutils literal notranslate"><span class="pre">transe_wn18rr.yaml</span></code></a>
+<a class="reference download internal" download="" href="_downloads/b401a11409e13cf9958497c44f61fc48/distmult_wn18rr.yaml"><code class="xref download docutils literal notranslate"><span class="pre">distmult_wn18rr.yaml</span></code></a>
+<a class="reference download internal" download="" href="_downloads/1559b4d6625549a3f9e520ed6dee13bc/complex_wn18rr.yaml"><code class="xref download docutils literal notranslate"><span class="pre">complex_wn18rr.yaml</span></code></a>
+<a class="reference download internal" download="" href="_downloads/a8ad4edf1d9e0b872e5e56540f9651cb/simple_wn18rr.yaml"><code class="xref download docutils literal notranslate"><span class="pre">simple_wn18rr.yaml</span></code></a>
+<a class="reference download internal" download="" href="_downloads/f28fdbd3b1535d1fb0f73f75d0804682/rotate_wn18rr.yaml"><code class="xref download docutils literal notranslate"><span class="pre">rotate_wn18rr.yaml</span></code></a></p>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 26%" />
+<col style="width: 14%" />
+<col style="width: 12%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><a class="reference external" href="https://www.wikidata.org">Wikidata5m</a></p></th>
+<th class="head"><p>MR</p></th>
+<th class="head"><p>MRR</p></th>
+<th class="head"><p>HITS&#64;1</p></th>
+<th class="head"><p>HITS&#64;3</p></th>
+<th class="head"><p>HITS&#64;10</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="http://papers.nips.cc/paper/5071-translating-embeddings-for-modeling-multi-relational-data.pdf">TransE</a></p></td>
+<td><p>109370</p></td>
+<td><p>0.253</p></td>
+<td><p>0.170</p></td>
+<td><p>0.311</p></td>
+<td><p>0.392</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://arxiv.org/pdf/1412.6575.pdf">DistMult</a></p></td>
+<td><p>211030</p></td>
+<td><p>0.253</p></td>
+<td><p>0.209</p></td>
+<td><p>0.278</p></td>
+<td><p>0.334</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="http://proceedings.mlr.press/v48/trouillon16.pdf">ComplEx</a></p></td>
+<td><p>244540</p></td>
+<td><p>0.281</p></td>
+<td><p>0.228</p></td>
+<td><p>0.310</p></td>
+<td><p>0.373</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://papers.nips.cc/paper/7682-simple-embedding-for-link-prediction-in-knowledge-graphs.pdf">SimplE</a></p></td>
+<td><p>112754</p></td>
+<td><p>0.296</p></td>
+<td><p>0.252</p></td>
+<td><p>0.317</p></td>
+<td><p>0.377</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://arxiv.org/pdf/1902.10197.pdf">RotatE</a></p></td>
+<td><p>89459</p></td>
+<td><p>0.290</p></td>
+<td><p>0.234</p></td>
+<td><p>0.322</p></td>
+<td><p>0.390</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>Configuration files:
+<a class="reference download internal" download="" href="_downloads/fefaaee209b8343ba90890f6cfc23772/transe_wikidata5m.yaml"><code class="xref download docutils literal notranslate"><span class="pre">transe_wikidata5m.yaml</span></code></a>
+<a class="reference download internal" download="" href="_downloads/779903977329dd311beac6e18bf06936/distmult_wikidata5m.yaml"><code class="xref download docutils literal notranslate"><span class="pre">distmult_wikidata5m.yaml</span></code></a>
+<a class="reference download internal" download="" href="_downloads/e657065b3649fb27fb444b5c0950faaa/complex_wikidata5m.yaml"><code class="xref download docutils literal notranslate"><span class="pre">complex_wikidata5m.yaml</span></code></a>
+<a class="reference download internal" download="" href="_downloads/5f9847ccf88f07f7c45e274e095ed0a0/simple_wikidata5m.yaml"><code class="xref download docutils literal notranslate"><span class="pre">simple_wikidata5m.yaml</span></code></a>
+<a class="reference download internal" download="" href="_downloads/f0429afeca13bb2cee14a4ca65f27dc4/rotate_wikidata5m.yaml"><code class="xref download docutils literal notranslate"><span class="pre">rotate_wikidata5m.yaml</span></code></a></p>
 </div>
 </div>
 <div class="section" id="graph-high-dimensional-data-visualization">
@@ -902,8 +974,8 @@ can be traded off with speed if necessary.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p>Configuration files:
-<a class="reference download internal" download="" href="_downloads/b547231f1236f2906cfc5099707c34f1/largevis_mnist_2d.yaml"><code class="xref download docutils literal notranslate"><span class="pre">largevis_mnist_2d.yaml</span></code></a>
-<a class="reference download internal" download="" href="_downloads/56138b387df0c79b86ed1dc09ec751cd/largevis_imagenet.yaml"><code class="xref download docutils literal notranslate"><span class="pre">largevis_imagenet.yaml</span></code></a></p>
+<a class="reference download internal" download="" href="_downloads/d8f9bdd34c7bb0672a8366ccef8c138e/largevis_mnist_2d.yaml"><code class="xref download docutils literal notranslate"><span class="pre">largevis_mnist_2d.yaml</span></code></a>
+<a class="reference download internal" download="" href="_downloads/59f408358e35ec0d0aa24f17e8f0e918/largevis_imagenet.yaml"><code class="xref download docutils literal notranslate"><span class="pre">largevis_imagenet.yaml</span></code></a></p>
 </div>
 <p>Here is a 3D visualization result of <a class="reference external" href="http://yann.lecun.com/exdb/publis/pdf/lecun-01a.pdf">MNIST</a>.</p>
 <img alt="_images/mnist_3d.gif" src="_images/mnist_3d.gif" />

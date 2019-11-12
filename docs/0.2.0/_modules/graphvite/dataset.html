@@ -1,0 +1,1234 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>graphvite.dataset &mdash; GraphVite 0.2.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> GraphVite
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Get Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quick_start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html">Application Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../benchmark.html">Benchmarks</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../user/command_line.html">Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user/configuration.html">Configuration Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user/format.html">Data Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user/python.html">Python Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user/auto.html">Magic of Auto</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../developer/framework.html">Understand the Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer/model.html">Customize Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer/routine.html">Customize Routine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer/solver.html">Customize Solvers</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Package Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/application.html">Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/graph.html">Graph</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/solver.html">Solver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/optimizer.html">Optimizer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/dataset.html">Dataset</a></li>
+</ul>
+<p class="caption"><span class="caption-text">FAQ</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">GraphVite</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>graphvite.dataset</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for graphvite.dataset</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright 2019 MilaGraph. All Rights Reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#     http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+<span class="c1">#</span>
+<span class="c1"># Author: Zhaocheng Zhu</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Dataset module of GraphVite</span>
+
+<span class="sd">Graph</span>
+
+<span class="sd">- :class:`BlogCatalog`</span>
+<span class="sd">- :class:`Youtube`</span>
+<span class="sd">- :class:`Flickr`</span>
+<span class="sd">- :class:`Hyperlink2012`</span>
+<span class="sd">- :class:`Friendster`</span>
+<span class="sd">- :class:`Wikipedia`</span>
+
+<span class="sd">Knowledge Graph</span>
+
+<span class="sd">- :class:`Math`</span>
+<span class="sd">- :class:`FB15k`</span>
+<span class="sd">- :class:`FB15k237`</span>
+<span class="sd">- :class:`WN18`</span>
+<span class="sd">- :class:`WN18RR`</span>
+<span class="sd">- :class:`Freebase`</span>
+
+<span class="sd">Visualization</span>
+
+<span class="sd">- :class:`MNIST`</span>
+<span class="sd">- :class:`CIFAR10`</span>
+<span class="sd">- :class:`ImageNet`</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+<span class="kn">import</span> <span class="nn">shutil</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">gzip</span><span class="o">,</span> <span class="nn">zipfile</span><span class="o">,</span> <span class="nn">tarfile</span>
+<span class="kn">import</span> <span class="nn">multiprocessing</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="k">import</span> <span class="n">defaultdict</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">.</span> <span class="k">import</span> <span class="n">cfg</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="Dataset"><a class="viewcode-back" href="../../api/dataset.html#graphvite.dataset.Dataset">[docs]</a><span class="k">class</span> <span class="nc">Dataset</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Graph dataset.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        name (str): name of dataset</span>
+<span class="sd">        urls (dict, optional): url(s) for each split,</span>
+<span class="sd">            can be either str or list of str</span>
+<span class="sd">        members (dict, optional): zip member(s) for each split,</span>
+<span class="sd">            leave empty for default</span>
+
+<span class="sd">    Datasets contain several splits, such as train, valid and test.</span>
+<span class="sd">    For each split, there are one or more URLs, specifying the file to download.</span>
+<span class="sd">    You may also specify the zip member to extract.</span>
+<span class="sd">    When a split is accessed, it will be automatically downloaded and decompressed</span>
+<span class="sd">    if it is not present.</span>
+
+<span class="sd">    You can assign a preprocess for each split, by defining a function with name [split]_preprocess::</span>
+
+<span class="sd">        class MyDataset(Dataset):</span>
+<span class="sd">            def __init__(self):</span>
+<span class="sd">                super(MyDataset, self).__init__(</span>
+<span class="sd">                    &quot;my_dataset&quot;,</span>
+<span class="sd">                    train=&quot;url/to/train/split&quot;,</span>
+<span class="sd">                    test=&quot;url/to/test/split&quot;</span>
+<span class="sd">                )</span>
+
+<span class="sd">            def train_preprocess(self, input_file, output_file):</span>
+<span class="sd">                with open(input_file, &quot;r&quot;) as fin, open(output_file, &quot;w&quot;) as fout:</span>
+<span class="sd">                    fout.write(fin.read())</span>
+
+<span class="sd">        f = open(MyDataset().train)</span>
+
+<span class="sd">    If the preprocess returns a non-trivial value, then it is assigned to the split,</span>
+<span class="sd">    otherwise the file name is assigned.</span>
+<span class="sd">    By convention, only splits ending with ``_data`` have non-trivial return value.</span>
+
+<span class="sd">    See also:</span>
+<span class="sd">        Pre-defined preprocess functions</span>
+<span class="sd">        :func:`csv2txt`,</span>
+<span class="sd">        :func:`top_k_label`,</span>
+<span class="sd">        :func:`induced_graph`,</span>
+<span class="sd">        :func:`link_prediction_split`,</span>
+<span class="sd">        :func:`image_feature_data`</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">urls</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">members</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">urls</span> <span class="o">=</span> <span class="n">urls</span> <span class="ow">or</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">members</span> <span class="o">=</span> <span class="n">members</span> <span class="ow">or</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">urls</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">urls</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="nb">str</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">urls</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">urls</span><span class="p">[</span><span class="n">key</span><span class="p">]]</span>
+            <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">members</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">members</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">urls</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">members</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="nb">str</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">members</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">members</span><span class="p">[</span><span class="n">key</span><span class="p">]]</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">urls</span><span class="p">[</span><span class="n">key</span><span class="p">])</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">members</span><span class="p">[</span><span class="n">key</span><span class="p">]):</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Number of members is inconsistent with number of urls in `</span><span class="si">%s</span><span class="s2">`&quot;</span> <span class="o">%</span> <span class="n">key</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cfg</span><span class="o">.</span><span class="n">dataset_path</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">relpath</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">relpath</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">download</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">):</span>
+        <span class="kn">from</span> <span class="nn">six.moves.urllib.request</span> <span class="k">import</span> <span class="n">urlretrieve</span>
+
+        <span class="n">save_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">url</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">save_file</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">local_files</span><span class="p">():</span>
+            <span class="k">return</span> <span class="n">save_file</span>
+
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;downloading </span><span class="si">%s</span><span class="s2"> to </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">relpath</span><span class="p">(</span><span class="n">save_file</span><span class="p">)))</span>
+        <span class="n">urlretrieve</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">save_file</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">save_file</span>
+
+    <span class="k">def</span> <span class="nf">extract</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">zip_file</span><span class="p">,</span> <span class="n">member</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="n">zip_name</span><span class="p">,</span> <span class="n">extension</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">zip_file</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">zip_name</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.tar&quot;</span><span class="p">):</span>
+            <span class="n">extension</span> <span class="o">=</span> <span class="s2">&quot;.tar&quot;</span> <span class="o">+</span> <span class="n">extension</span>
+            <span class="n">zip_name</span> <span class="o">=</span> <span class="n">zip_name</span><span class="p">[:</span><span class="o">-</span><span class="mi">4</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">extension</span> <span class="o">==</span> <span class="s2">&quot;.txt&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">zip_file</span>
+        <span class="k">elif</span> <span class="n">member</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">save_file</span> <span class="o">=</span> <span class="n">zip_name</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">save_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">zip_name</span><span class="p">),</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">member</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">save_file</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">local_files</span><span class="p">():</span>
+            <span class="k">return</span> <span class="n">save_file</span>
+
+        <span class="k">if</span> <span class="n">extension</span> <span class="o">==</span> <span class="s2">&quot;.gz&quot;</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;extracting </span><span class="si">%s</span><span class="s2"> to </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">relpath</span><span class="p">(</span><span class="n">zip_file</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">relpath</span><span class="p">(</span><span class="n">save_file</span><span class="p">)))</span>
+            <span class="k">with</span> <span class="n">gzip</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">zip_file</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fin</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span><span class="n">save_file</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fout</span><span class="p">:</span>
+                <span class="n">shutil</span><span class="o">.</span><span class="n">copyfileobj</span><span class="p">(</span><span class="n">fin</span><span class="p">,</span> <span class="n">fout</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">extension</span> <span class="o">==</span> <span class="s2">&quot;.tar.gz&quot;</span> <span class="ow">or</span> <span class="n">extension</span> <span class="o">==</span> <span class="s2">&quot;.tar&quot;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">member</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;extracting </span><span class="si">%s</span><span class="s2"> to </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">relpath</span><span class="p">(</span><span class="n">zip_file</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">relpath</span><span class="p">(</span><span class="n">save_file</span><span class="p">)))</span>
+                <span class="k">with</span> <span class="n">tarfile</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">zip_file</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fin</span><span class="p">:</span>
+                    <span class="n">fin</span><span class="o">.</span><span class="n">extractall</span><span class="p">(</span><span class="n">save_file</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;extracting </span><span class="si">%s</span><span class="s2"> from </span><span class="si">%s</span><span class="s2"> to </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">member</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">relpath</span><span class="p">(</span><span class="n">zip_file</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">relpath</span><span class="p">(</span><span class="n">save_file</span><span class="p">)))</span>
+                <span class="k">with</span> <span class="n">tarfile</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">zip_file</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">extractfile</span><span class="p">(</span><span class="n">member</span><span class="p">)</span> <span class="k">as</span> <span class="n">fin</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span><span class="n">save_file</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fout</span><span class="p">:</span>
+                    <span class="n">shutil</span><span class="o">.</span><span class="n">copyfileobj</span><span class="p">(</span><span class="n">fin</span><span class="p">,</span> <span class="n">fout</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">extension</span> <span class="o">==</span> <span class="s2">&quot;.zip&quot;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">member</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;extracting </span><span class="si">%s</span><span class="s2"> to </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">relpath</span><span class="p">(</span><span class="n">zip_file</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">relpath</span><span class="p">(</span><span class="n">save_file</span><span class="p">)))</span>
+                <span class="k">with</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span><span class="n">zip_file</span><span class="p">)</span> <span class="k">as</span> <span class="n">fin</span><span class="p">:</span>
+                    <span class="n">fin</span><span class="o">.</span><span class="n">extractall</span><span class="p">(</span><span class="n">save_file</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;extracting </span><span class="si">%s</span><span class="s2"> from </span><span class="si">%s</span><span class="s2"> to </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">member</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">relpath</span><span class="p">(</span><span class="n">zip_file</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">relpath</span><span class="p">(</span><span class="n">save_file</span><span class="p">)))</span>
+                <span class="k">with</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span><span class="n">zip_file</span><span class="p">)</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">member</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fin</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span><span class="n">save_file</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fout</span><span class="p">:</span>
+                    <span class="n">shutil</span><span class="o">.</span><span class="n">copyfileobj</span><span class="p">(</span><span class="n">fin</span><span class="p">,</span> <span class="n">fout</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Unknown file extension `</span><span class="si">%s</span><span class="s2">`&quot;</span> <span class="o">%</span> <span class="n">extension</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">save_file</span>
+
+    <span class="k">def</span> <span class="nf">get_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+        <span class="n">file_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">_</span><span class="si">%s</span><span class="s2">.txt&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">key</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">file_name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">local_files</span><span class="p">():</span>
+            <span class="k">return</span> <span class="n">file_name</span>
+
+        <span class="n">urls</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">urls</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+        <span class="n">members</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">members</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+        <span class="n">preprocess_name</span> <span class="o">=</span> <span class="n">key</span> <span class="o">+</span> <span class="s2">&quot;_preprocess&quot;</span>
+        <span class="n">preprocess</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preprocess_name</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">urls</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">preprocess</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span>
+                <span class="s2">&quot;There are non-trivial number of files,but function `</span><span class="si">%s</span><span class="s2">` is not found&quot;</span> <span class="o">%</span> <span class="n">preprocess_name</span><span class="p">)</span>
+
+        <span class="n">extract_files</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">url</span><span class="p">,</span> <span class="n">member</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">urls</span><span class="p">,</span> <span class="n">members</span><span class="p">):</span>
+            <span class="n">download_file</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+            <span class="n">extract_file</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="n">download_file</span><span class="p">,</span> <span class="n">member</span><span class="p">)</span>
+            <span class="n">extract_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">extract_file</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">preprocess</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">preprocess</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="n">extract_files</span> <span class="o">+</span> <span class="p">[</span><span class="n">file_name</span><span class="p">]))</span>
+            <span class="k">if</span> <span class="n">result</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">result</span>
+        <span class="k">elif</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">extract_files</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;renaming </span><span class="si">%s</span><span class="s2"> to </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">relpath</span><span class="p">(</span><span class="n">extract_files</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="bp">self</span><span class="o">.</span><span class="n">relpath</span><span class="p">(</span><span class="n">file_name</span><span class="p">)))</span>
+            <span class="n">shutil</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="n">extract_files</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">file_name</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span>
+                <span class="s2">&quot;There are non-trivial number of files, but function `</span><span class="si">%s</span><span class="s2">` is not found&quot;</span> <span class="o">%</span> <span class="n">preprocess_name</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">file_name</span>
+
+    <span class="k">def</span> <span class="nf">local_files</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">):</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">set</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;*&quot;</span><span class="p">)))</span>
+
+    <span class="k">def</span> <span class="nf">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">urls</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_file</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="s2">&quot;Can&#39;t resolve split `</span><span class="si">%s</span><span class="s2">`&quot;</span> <span class="o">%</span> <span class="n">key</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Dataset.csv2txt"><a class="viewcode-back" href="../../api/dataset.html#graphvite.dataset.Dataset.csv2txt">[docs]</a>    <span class="k">def</span> <span class="nf">csv2txt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">csv_file</span><span class="p">,</span> <span class="n">txt_file</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Convert ``csv`` to ``txt``.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">            csv_file: csv file</span>
+<span class="sd">            txt_file: txt file</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;converting </span><span class="si">%s</span><span class="s2"> to </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">relpath</span><span class="p">(</span><span class="n">csv_file</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">relpath</span><span class="p">(</span><span class="n">txt_file</span><span class="p">)))</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">csv_file</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fin</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span><span class="n">txt_file</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fout</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">fin</span><span class="p">:</span>
+                <span class="n">fout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="Dataset.top_k_label"><a class="viewcode-back" href="../../api/dataset.html#graphvite.dataset.Dataset.top_k_label">[docs]</a>    <span class="k">def</span> <span class="nf">top_k_label</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">label_file</span><span class="p">,</span> <span class="n">save_file</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;node-label&quot;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Extract top-k labels.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">            label_file (str): label file</span>
+<span class="sd">            save_file (str): save file</span>
+<span class="sd">            k (int): top-k labels will be extracted</span>
+<span class="sd">            format (str, optional): format of label file,</span>
+<span class="sd">            can be &#39;node-label&#39; or &#39;(label)-nodes&#39;:</span>
+<span class="sd">                - **node-label**: each line is [node] [label]</span>
+<span class="sd">                - **(label)-nodes**: each line is [node]..., no explicit label</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;extracting top-</span><span class="si">%d</span><span class="s2"> labels of </span><span class="si">%s</span><span class="s2"> to </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">relpath</span><span class="p">(</span><span class="n">label_file</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">relpath</span><span class="p">(</span><span class="n">save_file</span><span class="p">)))</span>
+        <span class="k">if</span> <span class="nb">format</span> <span class="o">==</span> <span class="s2">&quot;node-label&quot;</span><span class="p">:</span>
+            <span class="n">label2nodes</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">label_file</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fin</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">fin</span><span class="p">:</span>
+                    <span class="n">node</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+                    <span class="n">label2nodes</span><span class="p">[</span><span class="n">label</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">format</span> <span class="o">==</span> <span class="s2">&quot;(label)-nodes&quot;</span><span class="p">:</span>
+            <span class="n">label2nodes</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">label_file</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fin</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">fin</span><span class="p">):</span>
+                    <span class="n">label2nodes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Unknown file format `</span><span class="si">%s</span><span class="s2">`&quot;</span> <span class="o">%</span> <span class="nb">format</span><span class="p">)</span>
+
+        <span class="n">labels</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">label2nodes</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">label2nodes</span><span class="p">[</span><span class="n">x</span><span class="p">]),</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)[:</span><span class="n">k</span><span class="p">]</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">save_file</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fout</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">labels</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">label2nodes</span><span class="p">[</span><span class="n">label</span><span class="p">]):</span>
+                    <span class="n">fout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="se">\t</span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">label</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="Dataset.induced_graph"><a class="viewcode-back" href="../../api/dataset.html#graphvite.dataset.Dataset.induced_graph">[docs]</a>    <span class="k">def</span> <span class="nf">induced_graph</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">graph_file</span><span class="p">,</span> <span class="n">label_file</span><span class="p">,</span> <span class="n">save_file</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Induce a subgraph from labeled nodes. All edges in the induced graph have at least one labeled node.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">            graph_file (str): graph file</span>
+<span class="sd">            label_file (str): label file</span>
+<span class="sd">            save_file (str): save file</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;extracting subgraph of </span><span class="si">%s</span><span class="s2"> induced by </span><span class="si">%s</span><span class="s2"> to </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span>
+              <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">relpath</span><span class="p">(</span><span class="n">graph_file</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">relpath</span><span class="p">(</span><span class="n">label_file</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">relpath</span><span class="p">(</span><span class="n">save_file</span><span class="p">)))</span>
+        <span class="n">nodes</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">label_file</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fin</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">fin</span><span class="p">:</span>
+                <span class="n">nodes</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">graph_file</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fin</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span><span class="n">save_file</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fout</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">fin</span><span class="p">:</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;#&quot;</span><span class="p">):</span>
+                    <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+                    <span class="k">if</span> <span class="n">u</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">nodes</span> <span class="ow">or</span> <span class="n">v</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">nodes</span><span class="p">:</span>
+                        <span class="k">continue</span>
+                    <span class="n">fout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="se">\t</span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="Dataset.link_prediction_split"><a class="viewcode-back" href="../../api/dataset.html#graphvite.dataset.Dataset.link_prediction_split">[docs]</a>    <span class="k">def</span> <span class="nf">link_prediction_split</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">graph_file</span><span class="p">,</span> <span class="n">files</span><span class="p">,</span> <span class="n">portions</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Divide a normal graph into a train split and several test splits for link prediction use.</span>
+<span class="sd">        Each test split contains half true and half false edges.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">            graph_file (str): graph file</span>
+<span class="sd">            files (list of str): file names,</span>
+<span class="sd">                the first file is treated as train file</span>
+<span class="sd">            portions (list of float): split portions</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">files</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">portions</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;splitting graph </span><span class="si">%s</span><span class="s2"> into </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span>
+                    <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">relpath</span><span class="p">(</span><span class="n">graph_file</span><span class="p">),</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">relpath</span><span class="p">(</span><span class="n">file</span><span class="p">)</span> <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">])))</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1024</span><span class="p">)</span>
+
+        <span class="n">nodes</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="n">edges</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="n">portions</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">portions</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">portions</span><span class="p">)</span>
+        <span class="n">files</span> <span class="o">=</span> <span class="p">[</span><span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">]</span>
+        <span class="n">num_edges</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">files</span><span class="p">)</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">graph_file</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fin</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">fin</span><span class="p">:</span>
+                <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+                <span class="n">nodes</span><span class="o">.</span><span class="n">update</span><span class="p">([</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">])</span>
+                <span class="n">edges</span><span class="o">.</span><span class="n">add</span><span class="p">((</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">))</span>
+                <span class="n">i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">searchsorted</span><span class="p">(</span><span class="n">portions</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">())</span>
+                <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">files</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="se">\t</span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">))</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">files</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="se">\t</span><span class="si">%s</span><span class="se">\t</span><span class="s2">1</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">))</span>
+                <span class="n">num_edges</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="n">nodes</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">nodes</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">file</span><span class="p">,</span> <span class="n">num_edge</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">files</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">num_edges</span><span class="p">[</span><span class="mi">1</span><span class="p">:]):</span>
+            <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_edge</span><span class="p">):</span>
+                <span class="n">valid</span> <span class="o">=</span> <span class="kc">False</span>
+                <span class="k">while</span> <span class="ow">not</span> <span class="n">valid</span><span class="p">:</span>
+                    <span class="n">u</span> <span class="o">=</span> <span class="n">nodes</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">()</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">nodes</span><span class="p">))]</span>
+                    <span class="n">v</span> <span class="o">=</span> <span class="n">nodes</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">()</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">nodes</span><span class="p">))]</span>
+                    <span class="n">valid</span> <span class="o">=</span> <span class="n">u</span> <span class="o">!=</span> <span class="n">v</span> <span class="ow">and</span> <span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">edges</span> <span class="ow">and</span> <span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">u</span><span class="p">)</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">edges</span>
+                <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="se">\t</span><span class="si">%s</span><span class="se">\t</span><span class="s2">0</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+            <span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="Dataset.image_feature_data"><a class="viewcode-back" href="../../api/dataset.html#graphvite.dataset.Dataset.image_feature_data">[docs]</a>    <span class="k">def</span> <span class="nf">image_feature_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataset</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">&quot;resnet50&quot;</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">128</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Compute feature vectors for an image dataset using a neural network.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">            dataset (torch.utils.data.Dataset): dataset</span>
+<span class="sd">            model (str or torch.nn.Module, optional): pretrained model.</span>
+<span class="sd">                If it is a str, use the last hidden model of that model.</span>
+<span class="sd">            batch_size (int, optional): batch size</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="kn">import</span> <span class="nn">torch</span>
+        <span class="kn">import</span> <span class="nn">torchvision</span>
+        <span class="kn">from</span> <span class="nn">torch</span> <span class="k">import</span> <span class="n">nn</span>
+
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;computing </span><span class="si">%s</span><span class="s2"> feature&quot;</span> <span class="o">%</span> <span class="n">model</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="n">full_model</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">torchvision</span><span class="o">.</span><span class="n">models</span><span class="p">,</span> <span class="n">model</span><span class="p">)(</span><span class="n">pretrained</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">model</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span><span class="o">*</span><span class="nb">list</span><span class="p">(</span><span class="n">full_model</span><span class="o">.</span><span class="n">children</span><span class="p">())[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">num_worker</span> <span class="o">=</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">cpu_count</span><span class="p">()</span>
+        <span class="n">data_loader</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span>
+                                                  <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">num_workers</span><span class="o">=</span><span class="n">num_worker</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">cuda</span><span class="p">()</span>
+        <span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+
+        <span class="n">features</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">batch_images</span><span class="p">,</span> <span class="n">batch_labels</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">data_loader</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%g%%</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="mf">100.0</span> <span class="o">*</span> <span class="n">i</span> <span class="o">*</span> <span class="n">batch_size</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">dataset</span><span class="p">)))</span>
+                <span class="n">batch_images</span> <span class="o">=</span> <span class="n">batch_images</span><span class="o">.</span><span class="n">cuda</span><span class="p">()</span>
+                <span class="n">batch_features</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">batch_images</span><span class="p">)</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">batch_images</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+                <span class="n">features</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">batch_features</span><span class="p">)</span>
+        <span class="n">features</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">features</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">features</span></div></div>
+
+
+<div class="viewcode-block" id="BlogCatalog"><a class="viewcode-back" href="../../api/dataset.html#graphvite.dataset.BlogCatalog">[docs]</a><span class="k">class</span> <span class="nc">BlogCatalog</span><span class="p">(</span><span class="n">Dataset</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    BlogCatalog social network dataset.</span>
+
+<span class="sd">    Splits:</span>
+<span class="sd">        graph, label, train, test</span>
+
+<span class="sd">    Train and test splits are used for link prediction purpose.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">BlogCatalog</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="s2">&quot;blogcatalog&quot;</span><span class="p">,</span>
+            <span class="n">urls</span><span class="o">=</span><span class="p">{</span>
+                <span class="s2">&quot;graph&quot;</span><span class="p">:</span> <span class="s2">&quot;http://socialcomputing.asu.edu/uploads/1283153973/BlogCatalog-dataset.zip&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;http://socialcomputing.asu.edu/uploads/1283153973/BlogCatalog-dataset.zip&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;train&quot;</span><span class="p">:</span> <span class="p">[],</span> <span class="c1"># depends on `graph`</span>
+                <span class="s2">&quot;valid&quot;</span><span class="p">:</span> <span class="p">[],</span> <span class="c1"># depends on `graph`</span>
+                <span class="s2">&quot;test&quot;</span><span class="p">:</span> <span class="p">[]</span> <span class="c1"># depends on `graph`</span>
+            <span class="p">},</span>
+            <span class="n">members</span><span class="o">=</span><span class="p">{</span>
+                <span class="s2">&quot;graph&quot;</span><span class="p">:</span> <span class="s2">&quot;BlogCatalog-dataset/data/edges.csv&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;BlogCatalog-dataset/data/group-edges.csv&quot;</span>
+            <span class="p">}</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">graph_preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">raw_file</span><span class="p">,</span> <span class="n">save_file</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">csv2txt</span><span class="p">(</span><span class="n">raw_file</span><span class="p">,</span> <span class="n">save_file</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">label_preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">raw_file</span><span class="p">,</span> <span class="n">save_file</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">csv2txt</span><span class="p">(</span><span class="n">raw_file</span><span class="p">,</span> <span class="n">save_file</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">train_preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">train_file</span><span class="p">):</span>
+        <span class="n">valid_file</span> <span class="o">=</span> <span class="n">train_file</span><span class="p">[:</span><span class="n">train_file</span><span class="o">.</span><span class="n">rfind</span><span class="p">(</span><span class="s2">&quot;train.txt&quot;</span><span class="p">)]</span> <span class="o">+</span> <span class="s2">&quot;valid.txt&quot;</span>
+        <span class="n">test_file</span> <span class="o">=</span> <span class="n">train_file</span><span class="p">[:</span><span class="n">train_file</span><span class="o">.</span><span class="n">rfind</span><span class="p">(</span><span class="s2">&quot;train.txt&quot;</span><span class="p">)]</span> <span class="o">+</span> <span class="s2">&quot;test.txt&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">link_prediction_split</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">graph</span><span class="p">,</span> <span class="p">[</span><span class="n">train_file</span><span class="p">,</span> <span class="n">valid_file</span><span class="p">,</span> <span class="n">test_file</span><span class="p">],</span> <span class="n">portions</span><span class="o">=</span><span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+
+    <span class="k">def</span> <span class="nf">valid_preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">valid_file</span><span class="p">):</span>
+        <span class="n">train_file</span> <span class="o">=</span> <span class="n">valid_file</span><span class="p">[:</span><span class="n">valid_file</span><span class="o">.</span><span class="n">rfind</span><span class="p">(</span><span class="s2">&quot;valid.txt&quot;</span><span class="p">)]</span> <span class="o">+</span> <span class="s2">&quot;train.txt&quot;</span>
+        <span class="n">test_file</span> <span class="o">=</span> <span class="n">valid_file</span><span class="p">[:</span><span class="n">valid_file</span><span class="o">.</span><span class="n">rfind</span><span class="p">(</span><span class="s2">&quot;valid.txt&quot;</span><span class="p">)]</span> <span class="o">+</span> <span class="s2">&quot;test.txt&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">link_prediction_split</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">graph</span><span class="p">,</span> <span class="p">[</span><span class="n">train_file</span><span class="p">,</span> <span class="n">valid_file</span><span class="p">,</span> <span class="n">test_file</span><span class="p">],</span> <span class="n">portions</span><span class="o">=</span><span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+
+    <span class="k">def</span> <span class="nf">test_preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">test_file</span><span class="p">):</span>
+        <span class="n">train_file</span> <span class="o">=</span> <span class="n">test_file</span><span class="p">[:</span><span class="n">test_file</span><span class="o">.</span><span class="n">rfind</span><span class="p">(</span><span class="s2">&quot;test.txt&quot;</span><span class="p">)]</span> <span class="o">+</span> <span class="s2">&quot;train.txt&quot;</span>
+        <span class="n">valid_file</span> <span class="o">=</span> <span class="n">test_file</span><span class="p">[:</span><span class="n">test_file</span><span class="o">.</span><span class="n">rfind</span><span class="p">(</span><span class="s2">&quot;test.txt&quot;</span><span class="p">)]</span> <span class="o">+</span> <span class="s2">&quot;valid.txt&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">link_prediction_split</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">graph</span><span class="p">,</span> <span class="p">[</span><span class="n">train_file</span><span class="p">,</span> <span class="n">valid_file</span><span class="p">,</span> <span class="n">test_file</span><span class="p">],</span> <span class="n">portions</span><span class="o">=</span><span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span></div>
+
+
+<div class="viewcode-block" id="Youtube"><a class="viewcode-back" href="../../api/dataset.html#graphvite.dataset.Youtube">[docs]</a><span class="k">class</span> <span class="nc">Youtube</span><span class="p">(</span><span class="n">Dataset</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Youtube social network dataset.</span>
+
+<span class="sd">    Splits:</span>
+<span class="sd">        graph, label</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Youtube</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="s2">&quot;youtube&quot;</span><span class="p">,</span>
+            <span class="n">urls</span><span class="o">=</span><span class="p">{</span>
+                <span class="s2">&quot;graph&quot;</span><span class="p">:</span> <span class="s2">&quot;http://socialnetworks.mpi-sws.mpg.de/data/youtube-links.txt.gz&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;http://socialnetworks.mpi-sws.mpg.de/data/youtube-groupmemberships.txt.gz&quot;</span>
+            <span class="p">}</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">label_preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">raw_file</span><span class="p">,</span> <span class="n">save_file</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">top_k_label</span><span class="p">(</span><span class="n">raw_file</span><span class="p">,</span> <span class="n">save_file</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">47</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Flickr"><a class="viewcode-back" href="../../api/dataset.html#graphvite.dataset.Flickr">[docs]</a><span class="k">class</span> <span class="nc">Flickr</span><span class="p">(</span><span class="n">Dataset</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Flickr social network dataset.</span>
+
+<span class="sd">    Splits:</span>
+<span class="sd">        graph, label</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Flickr</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="s2">&quot;flickr&quot;</span><span class="p">,</span>
+            <span class="n">urls</span><span class="o">=</span><span class="p">{</span>
+                <span class="s2">&quot;graph&quot;</span><span class="p">:</span> <span class="s2">&quot;http://socialnetworks.mpi-sws.mpg.de/data/flickr-links.txt.gz&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;http://socialnetworks.mpi-sws.mpg.de/data/flickr-groupmemberships.txt.gz&quot;</span>
+            <span class="p">}</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">label_preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">label_file</span><span class="p">,</span> <span class="n">save_file</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">top_k_label</span><span class="p">(</span><span class="n">label_file</span><span class="p">,</span> <span class="n">save_file</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Hyperlink2012"><a class="viewcode-back" href="../../api/dataset.html#graphvite.dataset.Hyperlink2012">[docs]</a><span class="k">class</span> <span class="nc">Hyperlink2012</span><span class="p">(</span><span class="n">Dataset</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Hyperlink 2012 graph dataset.</span>
+
+<span class="sd">    Splits:</span>
+<span class="sd">        pld_train, pld_test</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Hyperlink2012</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="s2">&quot;hyperlink2012&quot;</span><span class="p">,</span>
+            <span class="n">urls</span><span class="o">=</span><span class="p">{</span>
+                <span class="s2">&quot;pld_train&quot;</span><span class="p">:</span> <span class="s2">&quot;http://data.dws.informatik.uni-mannheim.de/hyperlinkgraph/2012-08/pld-arc.gz&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;pld_valid&quot;</span><span class="p">:</span> <span class="s2">&quot;http://data.dws.informatik.uni-mannheim.de/hyperlinkgraph/2012-08/pld-arc.gz&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;pld_test&quot;</span><span class="p">:</span> <span class="s2">&quot;http://data.dws.informatik.uni-mannheim.de/hyperlinkgraph/2012-08/pld-arc.gz&quot;</span>
+            <span class="p">}</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">pld_train_preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">graph_file</span><span class="p">,</span> <span class="n">train_file</span><span class="p">):</span>
+        <span class="n">valid_file</span> <span class="o">=</span> <span class="n">train_file</span><span class="p">[:</span><span class="n">train_file</span><span class="o">.</span><span class="n">rfind</span><span class="p">(</span><span class="s2">&quot;pld_train.txt&quot;</span><span class="p">)]</span> <span class="o">+</span> <span class="s2">&quot;pld_valid.txt&quot;</span>
+        <span class="n">test_file</span> <span class="o">=</span> <span class="n">train_file</span><span class="p">[:</span><span class="n">train_file</span><span class="o">.</span><span class="n">rfind</span><span class="p">(</span><span class="s2">&quot;pld_train.txt&quot;</span><span class="p">)]</span> <span class="o">+</span> <span class="s2">&quot;pld_test.txt&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">link_prediction_split</span><span class="p">(</span><span class="n">graph_file</span><span class="p">,</span> <span class="p">[</span><span class="n">train_file</span><span class="p">,</span> <span class="n">valid_file</span><span class="p">,</span> <span class="n">test_file</span><span class="p">],</span> <span class="n">portions</span><span class="o">=</span><span class="p">[</span><span class="mi">10000</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+
+    <span class="k">def</span> <span class="nf">pld_valid_preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">graph_file</span><span class="p">,</span> <span class="n">valid_file</span><span class="p">):</span>
+        <span class="n">train_file</span> <span class="o">=</span> <span class="n">valid_file</span><span class="p">[:</span><span class="n">valid_file</span><span class="o">.</span><span class="n">rfind</span><span class="p">(</span><span class="s2">&quot;pld_valid.txt&quot;</span><span class="p">)]</span> <span class="o">+</span> <span class="s2">&quot;pld_train.txt&quot;</span>
+        <span class="n">test_file</span> <span class="o">=</span> <span class="n">valid_file</span><span class="p">[:</span><span class="n">valid_file</span><span class="o">.</span><span class="n">rfind</span><span class="p">(</span><span class="s2">&quot;pld_valid.txt&quot;</span><span class="p">)]</span> <span class="o">+</span> <span class="s2">&quot;pld_test.txt&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">link_prediction_split</span><span class="p">(</span><span class="n">graph_file</span><span class="p">,</span> <span class="p">[</span><span class="n">train_file</span><span class="p">,</span> <span class="n">valid_file</span><span class="p">,</span> <span class="n">test_file</span><span class="p">],</span> <span class="n">portions</span><span class="o">=</span><span class="p">[</span><span class="mi">10000</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+
+    <span class="k">def</span> <span class="nf">pld_test_preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">graph_file</span><span class="p">,</span> <span class="n">test_file</span><span class="p">):</span>
+        <span class="n">train_file</span> <span class="o">=</span> <span class="n">test_file</span><span class="p">[:</span><span class="n">test_file</span><span class="o">.</span><span class="n">rfind</span><span class="p">(</span><span class="s2">&quot;pld_test.txt&quot;</span><span class="p">)]</span> <span class="o">+</span> <span class="s2">&quot;pld_train.txt&quot;</span>
+        <span class="n">valid_file</span> <span class="o">=</span> <span class="n">test_file</span><span class="p">[:</span><span class="n">test_file</span><span class="o">.</span><span class="n">rfind</span><span class="p">(</span><span class="s2">&quot;pld_test.txt&quot;</span><span class="p">)]</span> <span class="o">+</span> <span class="s2">&quot;pld_valid.txt&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">link_prediction_split</span><span class="p">(</span><span class="n">graph_file</span><span class="p">,</span> <span class="p">[</span><span class="n">train_file</span><span class="p">,</span> <span class="n">valid_file</span><span class="p">,</span> <span class="n">test_file</span><span class="p">],</span> <span class="n">portions</span><span class="o">=</span><span class="p">[</span><span class="mi">10000</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span></div>
+
+
+<div class="viewcode-block" id="Friendster"><a class="viewcode-back" href="../../api/dataset.html#graphvite.dataset.Friendster">[docs]</a><span class="k">class</span> <span class="nc">Friendster</span><span class="p">(</span><span class="n">Dataset</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Friendster social network dataset.</span>
+
+<span class="sd">    Splits:</span>
+<span class="sd">        graph, small_graph, label</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Friendster</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="s2">&quot;friendster&quot;</span><span class="p">,</span>
+            <span class="n">urls</span><span class="o">=</span><span class="p">{</span>
+                <span class="s2">&quot;graph&quot;</span><span class="p">:</span> <span class="s2">&quot;https://snap.stanford.edu/data/bigdata/communities/com-friendster.ungraph.txt.gz&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;small_graph&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;https://snap.stanford.edu/data/bigdata/communities/com-friendster.ungraph.txt.gz&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;https://snap.stanford.edu/data/bigdata/communities/com-friendster.all.cmty.txt.gz&quot;</span><span class="p">],</span>
+                <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;https://snap.stanford.edu/data/bigdata/communities/com-friendster.top5000.cmty.txt.gz&quot;</span>
+            <span class="p">}</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">small_graph_preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">graph_file</span><span class="p">,</span> <span class="n">label_file</span><span class="p">,</span> <span class="n">save_file</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">induced_graph</span><span class="p">(</span><span class="n">graph_file</span><span class="p">,</span> <span class="n">label_file</span><span class="p">,</span> <span class="n">save_file</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">label_preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">label_file</span><span class="p">,</span> <span class="n">save_file</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">top_k_label</span><span class="p">(</span><span class="n">label_file</span><span class="p">,</span> <span class="n">save_file</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;(label)-nodes&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Wikipedia"><a class="viewcode-back" href="../../api/dataset.html#graphvite.dataset.Wikipedia">[docs]</a><span class="k">class</span> <span class="nc">Wikipedia</span><span class="p">(</span><span class="n">Dataset</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Wikipedia dump for word embedding.</span>
+
+<span class="sd">    Splits:</span>
+<span class="sd">        graph</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Wikipedia</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="s2">&quot;wikipedia&quot;</span><span class="p">,</span>
+            <span class="n">urls</span><span class="o">=</span><span class="p">{</span>
+                <span class="s2">&quot;graph&quot;</span><span class="p">:</span> <span class="s2">&quot;https://www.dropbox.com/s/mwt4uu1qu9fflfk/enwiki-latest-pages-articles-sentences.txt.gz&quot;</span>
+            <span class="p">}</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Math"><a class="viewcode-back" href="../../api/dataset.html#graphvite.dataset.Math">[docs]</a><span class="k">class</span> <span class="nc">Math</span><span class="p">(</span><span class="n">Dataset</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Synthetic math knowledge graph dataset.</span>
+
+<span class="sd">    Splits:</span>
+<span class="sd">        train, valid, test</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">NUM_ENTITY</span> <span class="o">=</span> <span class="mi">1000</span>
+    <span class="n">NUM_RELATION</span> <span class="o">=</span> <span class="mi">30</span>
+    <span class="n">OPERATORS</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">(</span><span class="s2">&quot;+&quot;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span> <span class="o">%</span> <span class="n">Math</span><span class="o">.</span><span class="n">NUM_ENTITY</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span> <span class="o">%</span> <span class="n">Math</span><span class="o">.</span><span class="n">NUM_ENTITY</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;*&quot;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">y</span><span class="p">)</span> <span class="o">%</span> <span class="n">Math</span><span class="o">.</span><span class="n">NUM_ENTITY</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">//</span> <span class="n">y</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;%&quot;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">%</span> <span class="n">y</span><span class="p">)</span>
+    <span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Math</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="s2">&quot;math&quot;</span><span class="p">,</span>
+            <span class="n">urls</span><span class="o">=</span><span class="p">{</span>
+                <span class="s2">&quot;train&quot;</span><span class="p">:</span> <span class="p">[],</span>
+                <span class="s2">&quot;valid&quot;</span><span class="p">:</span> <span class="p">[],</span>
+                <span class="s2">&quot;test&quot;</span><span class="p">:</span> <span class="p">[]</span>
+            <span class="p">}</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">train_preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_file</span><span class="p">):</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1023</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">generate_math</span><span class="p">(</span><span class="n">save_file</span><span class="p">,</span> <span class="n">num_triplet</span><span class="o">=</span><span class="mi">20000</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">valid_preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_file</span><span class="p">):</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1024</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">generate_math</span><span class="p">(</span><span class="n">save_file</span><span class="p">,</span> <span class="n">num_triplet</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_file</span><span class="p">):</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1025</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">generate_math</span><span class="p">(</span><span class="n">save_file</span><span class="p">,</span> <span class="n">num_triplet</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">generate_math</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_file</span><span class="p">,</span> <span class="n">num_triplet</span><span class="p">):</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">save_file</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fout</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_triplet</span><span class="p">):</span>
+                <span class="n">i</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">()</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">OPERATORS</span><span class="p">))</span>
+                <span class="n">op</span><span class="p">,</span> <span class="n">f</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">OPERATORS</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">()</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">NUM_ENTITY</span><span class="p">)</span>
+                <span class="n">y</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">()</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">NUM_RELATION</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+                <span class="n">fout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%d</span><span class="se">\t</span><span class="si">%s%d</span><span class="se">\t</span><span class="si">%d</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">op</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)))</span></div>
+
+
+<div class="viewcode-block" id="FB15k"><a class="viewcode-back" href="../../api/dataset.html#graphvite.dataset.FB15k">[docs]</a><span class="k">class</span> <span class="nc">FB15k</span><span class="p">(</span><span class="n">Dataset</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    FB15k knowledge graph dataset.</span>
+
+<span class="sd">    Splits:</span>
+<span class="sd">        train, valid, test</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">FB15k</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="s2">&quot;fb15k&quot;</span><span class="p">,</span>
+            <span class="n">urls</span><span class="o">=</span><span class="p">{</span>
+                <span class="s2">&quot;train&quot;</span><span class="p">:</span> <span class="s2">&quot;https://github.com/DeepGraphLearning/KnowledgeGraphEmbedding/raw/master/data/FB15k/train.txt&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;valid&quot;</span><span class="p">:</span> <span class="s2">&quot;https://github.com/DeepGraphLearning/KnowledgeGraphEmbedding/raw/master/data/FB15k/valid.txt&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;test&quot;</span><span class="p">:</span> <span class="s2">&quot;https://github.com/DeepGraphLearning/KnowledgeGraphEmbedding/raw/master/data/FB15k/test.txt&quot;</span>
+            <span class="p">}</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="FB15k237"><a class="viewcode-back" href="../../api/dataset.html#graphvite.dataset.FB15k237">[docs]</a><span class="k">class</span> <span class="nc">FB15k237</span><span class="p">(</span><span class="n">Dataset</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    FB15k-237 knowledge graph dataset.</span>
+
+<span class="sd">    Splits:</span>
+<span class="sd">        train, valid, test</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">FB15k237</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="s2">&quot;fb15k-237&quot;</span><span class="p">,</span>
+            <span class="n">urls</span><span class="o">=</span><span class="p">{</span>
+                <span class="s2">&quot;train&quot;</span><span class="p">:</span> <span class="s2">&quot;https://github.com/DeepGraphLearning/KnowledgeGraphEmbedding/raw/master/data/FB15k-237/train.txt&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;valid&quot;</span><span class="p">:</span> <span class="s2">&quot;https://github.com/DeepGraphLearning/KnowledgeGraphEmbedding/raw/master/data/FB15k-237/valid.txt&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;test&quot;</span><span class="p">:</span> <span class="s2">&quot;https://github.com/DeepGraphLearning/KnowledgeGraphEmbedding/raw/master/data/FB15k-237/test.txt&quot;</span>
+            <span class="p">}</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="WN18"><a class="viewcode-back" href="../../api/dataset.html#graphvite.dataset.WN18">[docs]</a><span class="k">class</span> <span class="nc">WN18</span><span class="p">(</span><span class="n">Dataset</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    WN18 knowledge graph dataset.</span>
+
+<span class="sd">    Splits:</span>
+<span class="sd">        train, valid, test</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">WN18</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="s2">&quot;wn18&quot;</span><span class="p">,</span>
+            <span class="n">urls</span><span class="o">=</span><span class="p">{</span>
+                <span class="s2">&quot;train&quot;</span><span class="p">:</span> <span class="s2">&quot;https://github.com/DeepGraphLearning/KnowledgeGraphEmbedding/raw/master/data/wn18/train.txt&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;valid&quot;</span><span class="p">:</span> <span class="s2">&quot;https://github.com/DeepGraphLearning/KnowledgeGraphEmbedding/raw/master/data/wn18/valid.txt&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;test&quot;</span><span class="p">:</span> <span class="s2">&quot;https://github.com/DeepGraphLearning/KnowledgeGraphEmbedding/raw/master/data/wn18/test.txt&quot;</span>
+            <span class="p">}</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="WN18RR"><a class="viewcode-back" href="../../api/dataset.html#graphvite.dataset.WN18RR">[docs]</a><span class="k">class</span> <span class="nc">WN18RR</span><span class="p">(</span><span class="n">Dataset</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    WN18RR knowledge graph dataset.</span>
+
+<span class="sd">    Splits:</span>
+<span class="sd">        train, valid, test</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">WN18RR</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="s2">&quot;wn18rr&quot;</span><span class="p">,</span>
+            <span class="n">urls</span><span class="o">=</span><span class="p">{</span>
+                <span class="s2">&quot;train&quot;</span><span class="p">:</span> <span class="s2">&quot;https://github.com/DeepGraphLearning/KnowledgeGraphEmbedding/raw/master/data/wn18rr/train.txt&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;valid&quot;</span><span class="p">:</span> <span class="s2">&quot;https://github.com/DeepGraphLearning/KnowledgeGraphEmbedding/raw/master/data/wn18rr/valid.txt&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;test&quot;</span><span class="p">:</span> <span class="s2">&quot;https://github.com/DeepGraphLearning/KnowledgeGraphEmbedding/raw/master/data/wn18rr/test.txt&quot;</span>
+            <span class="p">}</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Freebase"><a class="viewcode-back" href="../../api/dataset.html#graphvite.dataset.Freebase">[docs]</a><span class="k">class</span> <span class="nc">Freebase</span><span class="p">(</span><span class="n">Dataset</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Freebase knowledge graph dataset.</span>
+
+<span class="sd">    Splits:</span>
+<span class="sd">        train</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Freebase</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="s2">&quot;freebase&quot;</span><span class="p">,</span>
+            <span class="n">urls</span><span class="o">=</span><span class="p">{</span>
+                <span class="s2">&quot;train&quot;</span><span class="p">:</span> <span class="s2">&quot;http://commondatastorage.googleapis.com/freebase-public/rdf/freebase-rdf-latest.gz&quot;</span>
+            <span class="p">}</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="MNIST"><a class="viewcode-back" href="../../api/dataset.html#graphvite.dataset.MNIST">[docs]</a><span class="k">class</span> <span class="nc">MNIST</span><span class="p">(</span><span class="n">Dataset</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    MNIST dataset for visualization.</span>
+
+<span class="sd">    Splits:</span>
+<span class="sd">        train_image_data, train_label_data, test_image_data, test_label_data, image_data, label_data</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">MNIST</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="s2">&quot;mnist&quot;</span><span class="p">,</span>
+            <span class="n">urls</span><span class="o">=</span><span class="p">{</span>
+                <span class="s2">&quot;train_image_data&quot;</span><span class="p">:</span> <span class="s2">&quot;http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;train_label_data&quot;</span><span class="p">:</span> <span class="s2">&quot;http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;test_image_data&quot;</span><span class="p">:</span> <span class="s2">&quot;http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;test_label_data&quot;</span><span class="p">:</span> <span class="s2">&quot;http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;image_data&quot;</span><span class="p">:</span> <span class="p">[],</span> <span class="c1"># depends on `train_image_data` &amp; `test_image_data`</span>
+                <span class="s2">&quot;label_data&quot;</span><span class="p">:</span> <span class="p">[]</span> <span class="c1"># depends on `train_label_data` &amp; `test_label_data`</span>
+            <span class="p">}</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">train_image_data_preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">raw_file</span><span class="p">,</span> <span class="n">save_file</span><span class="p">):</span>
+        <span class="n">images</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fromfile</span><span class="p">(</span><span class="n">raw_file</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">images</span><span class="p">[</span><span class="mi">16</span><span class="p">:]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">28</span><span class="o">*</span><span class="mi">28</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">train_label_data_preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">raw_file</span><span class="p">,</span> <span class="n">save_file</span><span class="p">):</span>
+        <span class="n">labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fromfile</span><span class="p">(</span><span class="n">raw_file</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">labels</span><span class="p">[</span><span class="mi">8</span><span class="p">:]</span>
+
+    <span class="n">test_image_data_preprocess</span> <span class="o">=</span> <span class="n">train_image_data_preprocess</span>
+    <span class="n">test_label_data_preprocess</span> <span class="o">=</span> <span class="n">train_label_data_preprocess</span>
+
+    <span class="k">def</span> <span class="nf">image_data_preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_file</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">train_image_data</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">test_image_data</span><span class="p">])</span>
+
+    <span class="k">def</span> <span class="nf">label_data_preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_file</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">train_label_data</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">test_label_data</span><span class="p">])</span></div>
+
+
+<div class="viewcode-block" id="CIFAR10"><a class="viewcode-back" href="../../api/dataset.html#graphvite.dataset.CIFAR10">[docs]</a><span class="k">class</span> <span class="nc">CIFAR10</span><span class="p">(</span><span class="n">Dataset</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    CIFAR10 dataset for visualization.</span>
+
+<span class="sd">    Splits:</span>
+<span class="sd">        train_image_data, train_label_data, test_image_data, test_label_data, image_data, label_data</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">CIFAR10</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="s2">&quot;cifar10&quot;</span><span class="p">,</span>
+            <span class="n">urls</span><span class="o">=</span><span class="p">{</span>
+                <span class="s2">&quot;train_image_data&quot;</span><span class="p">:</span> <span class="s2">&quot;https://www.cs.toronto.edu/~kriz/cifar-10-binary.tar.gz&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;train_label_data&quot;</span><span class="p">:</span> <span class="s2">&quot;https://www.cs.toronto.edu/~kriz/cifar-10-binary.tar.gz&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;test_image_data&quot;</span><span class="p">:</span> <span class="s2">&quot;https://www.cs.toronto.edu/~kriz/cifar-10-binary.tar.gz&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;test_label_data&quot;</span><span class="p">:</span> <span class="s2">&quot;https://www.cs.toronto.edu/~kriz/cifar-10-binary.tar.gz&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;image_data&quot;</span><span class="p">:</span> <span class="p">[],</span> <span class="c1"># depends on `train_image_data` &amp; `test_image_data`</span>
+                <span class="s2">&quot;label_data&quot;</span><span class="p">:</span> <span class="p">[]</span> <span class="c1"># depends on `train_label_data` &amp; `test_label_data`</span>
+            <span class="p">},</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">load_images</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">batch_files</span><span class="p">):</span>
+        <span class="n">images</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">batch_file</span> <span class="ow">in</span> <span class="n">batch_files</span><span class="p">:</span>
+            <span class="n">batch</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fromfile</span><span class="p">(</span><span class="n">batch_file</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+            <span class="n">batch</span> <span class="o">=</span> <span class="n">batch</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">32</span><span class="o">*</span><span class="mi">32</span><span class="o">*</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="n">images</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">batch</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:])</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">images</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">load_labels</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">meta_file</span><span class="p">,</span> <span class="o">*</span><span class="n">batch_files</span><span class="p">):</span>
+        <span class="n">classes</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">meta_file</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fin</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">fin</span><span class="p">:</span>
+                <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+                <span class="k">if</span> <span class="n">line</span><span class="p">:</span>
+                    <span class="n">classes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+        <span class="n">classes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">classes</span><span class="p">)</span>
+        <span class="n">labels</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">batch_file</span> <span class="ow">in</span> <span class="n">batch_files</span><span class="p">:</span>
+            <span class="n">batch</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fromfile</span><span class="p">(</span><span class="n">batch_file</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+            <span class="n">batch</span> <span class="o">=</span> <span class="n">batch</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">32</span><span class="o">*</span><span class="mi">32</span><span class="o">*</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="n">labels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">batch</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">classes</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">labels</span><span class="p">)]</span>
+
+    <span class="k">def</span> <span class="nf">train_image_data_preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">raw_path</span><span class="p">,</span> <span class="n">save_file</span><span class="p">):</span>
+        <span class="n">batch_files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">raw_path</span><span class="p">,</span> <span class="s2">&quot;cifar-10-batches-bin/data_batch_*.bin&quot;</span><span class="p">))</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">load_images</span><span class="p">(</span><span class="o">*</span><span class="n">batch_files</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">train_label_data_preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">raw_path</span><span class="p">,</span> <span class="n">save_file</span><span class="p">):</span>
+        <span class="n">meta_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">raw_path</span><span class="p">,</span> <span class="s2">&quot;cifar-10-batches-bin/batches.meta.txt&quot;</span><span class="p">)</span>
+        <span class="n">batch_files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">raw_path</span><span class="p">,</span> <span class="s2">&quot;cifar-10-batches-bin/data_batch_*.bin&quot;</span><span class="p">))</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">load_labels</span><span class="p">(</span><span class="n">meta_file</span><span class="p">,</span> <span class="o">*</span><span class="n">batch_files</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_image_data_preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">raw_path</span><span class="p">,</span> <span class="n">save_path</span><span class="p">):</span>
+        <span class="n">batch_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">raw_path</span><span class="p">,</span> <span class="s2">&quot;cifar-10-batches-bin/test_batch.bin&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">load_images</span><span class="p">(</span><span class="n">batch_file</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_label_data_preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">raw_path</span><span class="p">,</span> <span class="n">save_path</span><span class="p">):</span>
+        <span class="n">meta_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">raw_path</span><span class="p">,</span> <span class="s2">&quot;cifar-10-batches-bin/batches.meta.txt&quot;</span><span class="p">)</span>
+        <span class="n">batch_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">raw_path</span><span class="p">,</span> <span class="s2">&quot;cifar-10-batches-bin/test_batch.bin&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">load_labels</span><span class="p">(</span><span class="n">meta_file</span><span class="p">,</span> <span class="n">batch_file</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">image_data_preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_path</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">train_image_data</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">test_image_data</span><span class="p">])</span>
+
+    <span class="k">def</span> <span class="nf">label_data_preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_path</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">train_label_data</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">test_label_data</span><span class="p">])</span></div>
+
+
+<div class="viewcode-block" id="ImageNet"><a class="viewcode-back" href="../../api/dataset.html#graphvite.dataset.ImageNet">[docs]</a><span class="k">class</span> <span class="nc">ImageNet</span><span class="p">(</span><span class="n">Dataset</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    ImageNet dataset for visualization.</span>
+
+<span class="sd">    Splits:</span>
+<span class="sd">        train_image, train_feature_data, train_label, train_hierarchical_label,</span>
+<span class="sd">        valid_image, valid_feature_data, valid_label, valid_hierarchical_label</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">ImageNet</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="s2">&quot;imagenet&quot;</span><span class="p">,</span>
+            <span class="n">urls</span><span class="o">=</span><span class="p">{</span>
+                <span class="s2">&quot;train_image&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.image-net.org/challenges/LSVRC/2012/nnoupb/ILSVRC2012_img_train.tar&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;train_feature_data&quot;</span><span class="p">:</span> <span class="p">[],</span> <span class="c1"># depends on `train_image`</span>
+                <span class="s2">&quot;train_label&quot;</span><span class="p">:</span> <span class="p">[],</span> <span class="c1"># depends on `train_image`</span>
+                <span class="s2">&quot;train_hierarchical_label&quot;</span><span class="p">:</span> <span class="p">[],</span> <span class="c1"># depends on `train_image`</span>
+                <span class="s2">&quot;valid_image&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;http://www.image-net.org/challenges/LSVRC/2012/nnoupb/ILSVRC2012_img_val.tar&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;http://www.image-net.org/challenges/LSVRC/2012/nnoupb/ILSVRC2012_devkit_t12.tar.gz&quot;</span><span class="p">],</span>
+                <span class="s2">&quot;valid_feature_data&quot;</span><span class="p">:</span> <span class="p">[],</span> <span class="c1"># depends on `valid_image`</span>
+                <span class="s2">&quot;valid_label&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.image-net.org/challenges/LSVRC/2012/nnoupb/ILSVRC2012_devkit_t12.tar.gz&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;valid_hierarchical_label&quot;</span><span class="p">:</span>
+                    <span class="s2">&quot;http://www.image-net.org/challenges/LSVRC/2012/nnoupb/ILSVRC2012_devkit_t12.tar.gz&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;feature_data&quot;</span><span class="p">:</span> <span class="p">[],</span> <span class="c1"># depends on `train_feature_data` &amp; `valid_feature_data`</span>
+                <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="p">[],</span> <span class="c1"># depends on `train_label` &amp; `valid_label`</span>
+                <span class="s2">&quot;hierarchical_label&quot;</span><span class="p">:</span> <span class="p">[],</span> <span class="c1"># depends on `train_hierarchical_label` &amp; `valid_hierarchical_label`</span>
+            <span class="p">}</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">import_wordnet</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="kn">import</span> <span class="nn">nltk</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">nltk</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;corpora/wordnet&quot;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">LookupError</span><span class="p">:</span>
+            <span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s2">&quot;wordnet&quot;</span><span class="p">)</span>
+        <span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="k">import</span> <span class="n">wordnet</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">wordnet</span><span class="o">.</span><span class="n">synset_from_pos_and_offset</span>
+        <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+            <span class="n">wordnet</span><span class="o">.</span><span class="n">synset_from_pos_and_offset</span> <span class="o">=</span> <span class="n">wordnet</span><span class="o">.</span><span class="n">_synset_from_pos_and_offset</span>
+        <span class="k">return</span> <span class="n">wordnet</span>
+
+    <span class="k">def</span> <span class="nf">get_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">synset</span><span class="p">):</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">synset</span><span class="o">.</span><span class="n">name</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">name</span><span class="p">[:</span><span class="n">name</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)]</span>
+
+    <span class="k">def</span> <span class="nf">readable_label</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">save_file</span><span class="p">,</span> <span class="n">hierarchy</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="n">wordnet</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">import_wordnet</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">hierarchy</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;generating human-readable hierarchical labels&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;generating human-readable labels&quot;</span><span class="p">)</span>
+        <span class="n">synsets</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">labels</span><span class="p">:</span>
+            <span class="n">pos</span> <span class="o">=</span> <span class="n">label</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">offset</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">label</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+            <span class="n">synset</span> <span class="o">=</span> <span class="n">wordnet</span><span class="o">.</span><span class="n">synset_from_pos_and_offset</span><span class="p">(</span><span class="n">pos</span><span class="p">,</span> <span class="n">offset</span><span class="p">)</span>
+            <span class="n">synsets</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">synset</span><span class="p">)</span>
+        <span class="n">depth</span> <span class="o">=</span> <span class="nb">max</span><span class="p">([</span><span class="n">synset</span><span class="o">.</span><span class="n">max_depth</span><span class="p">()</span> <span class="k">for</span> <span class="n">synset</span> <span class="ow">in</span> <span class="n">synsets</span><span class="p">])</span>
+
+        <span class="n">num_sample</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">synsets</span><span class="p">)</span>
+        <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">get_name</span><span class="p">(</span><span class="n">synset</span><span class="p">)</span> <span class="k">for</span> <span class="n">synset</span> <span class="ow">in</span> <span class="n">synsets</span><span class="p">]</span>
+        <span class="n">num_class</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">labels</span><span class="p">))</span>
+        <span class="n">hierarchies</span> <span class="o">=</span> <span class="p">[</span><span class="n">labels</span><span class="p">]</span>
+        <span class="k">while</span> <span class="n">hierarchy</span> <span class="ow">and</span> <span class="n">num_class</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">depth</span> <span class="o">-=</span> <span class="mi">1</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_sample</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">synsets</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">max_depth</span><span class="p">()</span> <span class="o">&gt;</span> <span class="n">depth</span><span class="p">:</span>
+                    <span class="c1"># only takes the first recall</span>
+                    <span class="n">synsets</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">synsets</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">hypernyms</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">get_name</span><span class="p">(</span><span class="n">synset</span><span class="p">)</span> <span class="k">for</span> <span class="n">synset</span> <span class="ow">in</span> <span class="n">synsets</span><span class="p">]</span>
+            <span class="n">hierarchies</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>
+            <span class="n">num_class</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">labels</span><span class="p">))</span>
+        <span class="n">hierarchies</span> <span class="o">=</span> <span class="n">hierarchies</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">save_file</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fout</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">hierarchy</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">hierarchies</span><span class="p">):</span>
+                <span class="n">fout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">hierarchy</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">image_feature_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image_path</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;&quot;&quot;&quot;</span>
+        <span class="kn">import</span> <span class="nn">torchvision</span>
+        <span class="kn">from</span> <span class="nn">torchvision</span> <span class="k">import</span> <span class="n">transforms</span>
+
+        <span class="n">augmentation</span> <span class="o">=</span> <span class="n">transforms</span><span class="o">.</span><span class="n">Compose</span><span class="p">([</span>
+            <span class="n">transforms</span><span class="o">.</span><span class="n">Resize</span><span class="p">(</span><span class="mi">256</span><span class="p">),</span>
+            <span class="n">transforms</span><span class="o">.</span><span class="n">CenterCrop</span><span class="p">(</span><span class="mi">224</span><span class="p">),</span>
+            <span class="n">transforms</span><span class="o">.</span><span class="n">ToTensor</span><span class="p">(),</span>
+            <span class="n">transforms</span><span class="o">.</span><span class="n">Normalize</span><span class="p">(</span><span class="n">mean</span><span class="o">=</span><span class="p">[</span><span class="mf">0.485</span><span class="p">,</span> <span class="mf">0.456</span><span class="p">,</span> <span class="mf">0.406</span><span class="p">],</span> <span class="n">std</span><span class="o">=</span><span class="p">[</span><span class="mf">0.229</span><span class="p">,</span> <span class="mf">0.224</span><span class="p">,</span> <span class="mf">0.225</span><span class="p">])</span>
+        <span class="p">])</span>
+        <span class="n">dataset</span> <span class="o">=</span> <span class="n">torchvision</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">ImageFolder</span><span class="p">(</span><span class="n">image_path</span><span class="p">,</span> <span class="n">augmentation</span><span class="p">)</span>
+        <span class="n">features</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ImageNet</span><span class="p">)</span><span class="o">.</span><span class="n">image_feature_data</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">features</span>
+
+    <span class="k">def</span> <span class="nf">train_image_preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image_path</span><span class="p">,</span> <span class="n">save_file</span><span class="p">):</span>
+        <span class="n">tar_files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">image_path</span><span class="p">,</span> <span class="s2">&quot;*.tar&quot;</span><span class="p">))</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">tar_files</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">image_path</span>
+
+        <span class="k">for</span> <span class="n">tar_file</span> <span class="ow">in</span> <span class="n">tar_files</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="n">tar_file</span><span class="p">)</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">tar_file</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">image_path</span>
+
+    <span class="k">def</span> <span class="nf">train_feature_data_preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_file</span><span class="p">):</span>
+        <span class="n">numpy_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">save_file</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;.npy&quot;</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">numpy_file</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">numpy_file</span><span class="p">)</span>
+        <span class="n">features</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">image_feature_data</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">train_image</span><span class="p">)</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">numpy_file</span><span class="p">,</span> <span class="n">features</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">features</span>
+
+    <span class="k">def</span> <span class="nf">train_label_preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_file</span><span class="p">):</span>
+        <span class="n">image_files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">train_image</span><span class="p">,</span> <span class="s2">&quot;*/*.JPEG&quot;</span><span class="p">))</span>
+        <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">image_file</span><span class="p">))</span> <span class="k">for</span> <span class="n">image_file</span> <span class="ow">in</span> <span class="n">image_files</span><span class="p">]</span>
+        <span class="c1"># be consistent with the order in torch.utils.data.DataLoader</span>
+        <span class="n">labels</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">readable_label</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">save_file</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">train_hierarchical_label_preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_file</span><span class="p">):</span>
+        <span class="n">image_files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">train_image</span><span class="p">,</span> <span class="s2">&quot;*/*.JPEG&quot;</span><span class="p">))</span>
+        <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">image_file</span><span class="p">))</span> <span class="k">for</span> <span class="n">image_file</span> <span class="ow">in</span> <span class="n">image_files</span><span class="p">]</span>
+        <span class="c1"># be consistent with the order in torch.utils.data.DataLoader</span>
+        <span class="n">labels</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">readable_label</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">save_file</span><span class="p">,</span> <span class="n">hierarchy</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">valid_image_preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image_path</span><span class="p">,</span> <span class="n">meta_path</span><span class="p">,</span> <span class="n">save_file</span><span class="p">):</span>
+        <span class="kn">from</span> <span class="nn">scipy.io</span> <span class="k">import</span> <span class="n">loadmat</span>
+
+        <span class="n">image_files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">image_path</span><span class="p">,</span> <span class="s2">&quot;*.JPEG&quot;</span><span class="p">))</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">image_files</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">image_path</span>
+
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;re-arranging images into sub-folders&quot;</span><span class="p">)</span>
+
+        <span class="n">image_files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">image_files</span><span class="p">)</span>
+        <span class="n">meta_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">meta_path</span><span class="p">,</span> <span class="s2">&quot;ILSVRC2012_devkit_t12/data/meta.mat&quot;</span><span class="p">)</span>
+        <span class="n">id_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">meta_path</span><span class="p">,</span> <span class="s2">&quot;ILSVRC2012_devkit_t12/data/ILSVRC2012_validation_ground_truth.txt&quot;</span><span class="p">)</span>
+        <span class="n">metas</span> <span class="o">=</span> <span class="n">loadmat</span><span class="p">(</span><span class="n">meta_file</span><span class="p">,</span> <span class="n">squeeze_me</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="s2">&quot;synsets&quot;</span><span class="p">][:</span><span class="mi">1000</span><span class="p">]</span>
+        <span class="n">id2class</span> <span class="o">=</span> <span class="p">{</span><span class="n">meta</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span> <span class="n">meta</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">meta</span> <span class="ow">in</span> <span class="n">metas</span><span class="p">}</span>
+        <span class="n">ids</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">id_file</span><span class="p">)</span>
+        <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="n">id2class</span><span class="p">[</span><span class="nb">id</span><span class="p">]</span> <span class="k">for</span> <span class="nb">id</span> <span class="ow">in</span> <span class="n">ids</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">image_file</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">image_files</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
+            <span class="n">class_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">image_path</span><span class="p">,</span> <span class="n">label</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">class_path</span><span class="p">):</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">class_path</span><span class="p">)</span>
+            <span class="n">shutil</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="n">image_file</span><span class="p">,</span> <span class="n">class_path</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">image_path</span>
+
+    <span class="k">def</span> <span class="nf">valid_feature_data_preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_file</span><span class="p">):</span>
+        <span class="n">numpy_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">save_file</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;.npy&quot;</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">numpy_file</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">numpy_file</span><span class="p">)</span>
+        <span class="n">features</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">image_feature_data</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">valid_image</span><span class="p">)</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">numpy_file</span><span class="p">,</span> <span class="n">features</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">features</span>
+
+    <span class="k">def</span> <span class="nf">valid_label_preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">meta_path</span><span class="p">,</span> <span class="n">save_file</span><span class="p">):</span>
+        <span class="kn">from</span> <span class="nn">scipy.io</span> <span class="k">import</span> <span class="n">loadmat</span>
+
+        <span class="n">meta_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">meta_path</span><span class="p">,</span> <span class="s2">&quot;ILSVRC2012_devkit_t12/data/meta.mat&quot;</span><span class="p">)</span>
+        <span class="n">id_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">meta_path</span><span class="p">,</span> <span class="s2">&quot;ILSVRC2012_devkit_t12/data/ILSVRC2012_validation_ground_truth.txt&quot;</span><span class="p">)</span>
+
+        <span class="n">metas</span> <span class="o">=</span> <span class="n">loadmat</span><span class="p">(</span><span class="n">meta_file</span><span class="p">,</span> <span class="n">squeeze_me</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="s2">&quot;synsets&quot;</span><span class="p">][:</span><span class="mi">1000</span><span class="p">]</span>
+        <span class="n">id2class</span> <span class="o">=</span> <span class="p">{</span><span class="n">meta</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span> <span class="n">meta</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">meta</span> <span class="ow">in</span> <span class="n">metas</span><span class="p">}</span>
+        <span class="n">ids</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">id_file</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+        <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="n">id2class</span><span class="p">[</span><span class="nb">id</span><span class="p">]</span> <span class="k">for</span> <span class="nb">id</span> <span class="ow">in</span> <span class="n">ids</span><span class="p">]</span>
+        <span class="c1"># be consistent with the order in torch.utils.data.DataLoader</span>
+        <span class="n">labels</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">readable_label</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">save_file</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">valid_hierarchical_label_preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">meta_path</span><span class="p">,</span> <span class="n">save_file</span><span class="p">):</span>
+        <span class="kn">from</span> <span class="nn">scipy.io</span> <span class="k">import</span> <span class="n">loadmat</span>
+
+        <span class="n">meta_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">meta_path</span><span class="p">,</span> <span class="s2">&quot;ILSVRC2012_devkit_t12/data/meta.mat&quot;</span><span class="p">)</span>
+        <span class="n">id_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">meta_path</span><span class="p">,</span> <span class="s2">&quot;ILSVRC2012_devkit_t12/data/ILSVRC2012_validation_ground_truth.txt&quot;</span><span class="p">)</span>
+
+        <span class="n">metas</span> <span class="o">=</span> <span class="n">loadmat</span><span class="p">(</span><span class="n">meta_file</span><span class="p">,</span> <span class="n">squeeze_me</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="s2">&quot;synsets&quot;</span><span class="p">][:</span><span class="mi">1000</span><span class="p">]</span>
+        <span class="n">id2class</span> <span class="o">=</span> <span class="p">{</span><span class="n">meta</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span> <span class="n">meta</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">meta</span> <span class="ow">in</span> <span class="n">metas</span><span class="p">}</span>
+        <span class="n">ids</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">id_file</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+        <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="n">id2class</span><span class="p">[</span><span class="nb">id</span><span class="p">]</span> <span class="k">for</span> <span class="nb">id</span> <span class="ow">in</span> <span class="n">ids</span><span class="p">]</span>
+        <span class="c1"># be consistent with the order in torch.utils.data.DataLoader</span>
+        <span class="n">labels</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">readable_label</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">save_file</span><span class="p">,</span> <span class="n">hierarchy</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">feature_data_preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_file</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">train_feature_data</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">valid_feature_data</span><span class="p">])</span>
+
+    <span class="k">def</span> <span class="nf">label_preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_file</span><span class="p">):</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">save_file</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fout</span><span class="p">:</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">train_label</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fin</span><span class="p">:</span>
+                <span class="n">shutil</span><span class="o">.</span><span class="n">copyfileobj</span><span class="p">(</span><span class="n">fin</span><span class="p">,</span> <span class="n">fout</span><span class="p">)</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">save_file</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fout</span><span class="p">:</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">valid_label</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fin</span><span class="p">:</span>
+                <span class="n">shutil</span><span class="o">.</span><span class="n">copyfileobj</span><span class="p">(</span><span class="n">fin</span><span class="p">,</span> <span class="n">fout</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">hierarchical_label_preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_file</span><span class="p">):</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">save_file</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fout</span><span class="p">:</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">train_hierarchical_label</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fin</span><span class="p">:</span>
+                <span class="n">shutil</span><span class="o">.</span><span class="n">copyfileobj</span><span class="p">(</span><span class="n">fin</span><span class="p">,</span> <span class="n">fout</span><span class="p">)</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">valid_hierarchical_label</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fin</span><span class="p">:</span>
+                <span class="n">shutil</span><span class="o">.</span><span class="n">copyfileobj</span><span class="p">(</span><span class="n">fin</span><span class="p">,</span> <span class="n">fout</span><span class="p">)</span></div>
+
+
+<span class="n">blogcatalog</span> <span class="o">=</span> <span class="n">BlogCatalog</span><span class="p">()</span>
+<span class="n">youtube</span> <span class="o">=</span> <span class="n">Youtube</span><span class="p">()</span>
+<span class="n">flickr</span> <span class="o">=</span> <span class="n">Flickr</span><span class="p">()</span>
+<span class="n">hyperlink2012</span> <span class="o">=</span> <span class="n">Hyperlink2012</span><span class="p">()</span>
+<span class="n">friendster</span> <span class="o">=</span> <span class="n">Friendster</span><span class="p">()</span>
+<span class="n">wikipedia</span> <span class="o">=</span> <span class="n">Wikipedia</span><span class="p">()</span>
+
+<span class="n">math</span> <span class="o">=</span> <span class="n">Math</span><span class="p">()</span>
+<span class="n">fb15k</span> <span class="o">=</span> <span class="n">FB15k</span><span class="p">()</span>
+<span class="n">fb15k237</span> <span class="o">=</span> <span class="n">FB15k237</span><span class="p">()</span>
+<span class="n">wn18</span> <span class="o">=</span> <span class="n">WN18</span><span class="p">()</span>
+<span class="n">wn18rr</span> <span class="o">=</span> <span class="n">WN18RR</span><span class="p">()</span>
+<span class="n">freebase</span> <span class="o">=</span> <span class="n">Freebase</span><span class="p">()</span>
+
+<span class="n">mnist</span> <span class="o">=</span> <span class="n">MNIST</span><span class="p">()</span>
+<span class="n">cifar10</span> <span class="o">=</span> <span class="n">CIFAR10</span><span class="p">()</span>
+<span class="n">imagenet</span> <span class="o">=</span> <span class="n">ImageNet</span><span class="p">()</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;Dataset&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;BlogCatalog&quot;</span><span class="p">,</span> <span class="s2">&quot;Youtube&quot;</span><span class="p">,</span> <span class="s2">&quot;Flickr&quot;</span><span class="p">,</span> <span class="s2">&quot;Hyperlink2012&quot;</span><span class="p">,</span> <span class="s2">&quot;Friendster&quot;</span><span class="p">,</span> <span class="s2">&quot;Wikipedia&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Math&quot;</span><span class="p">,</span> <span class="s2">&quot;FB15k&quot;</span><span class="p">,</span> <span class="s2">&quot;FB15k237&quot;</span><span class="p">,</span> <span class="s2">&quot;WN18&quot;</span><span class="p">,</span> <span class="s2">&quot;WN18RR&quot;</span><span class="p">,</span> <span class="s2">&quot;Freebase&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;MNIST&quot;</span><span class="p">,</span> <span class="s2">&quot;CIFAR10&quot;</span><span class="p">,</span> <span class="s2">&quot;ImageNet&quot;</span>
+<span class="p">]</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, MilaGraph
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

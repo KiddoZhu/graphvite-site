@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Configuration Files &mdash; GraphVite 0.2.0 documentation</title>
+  <title>Configuration Files &mdash; GraphVite 0.2.1 documentation</title>
   
 
   
@@ -193,10 +193,10 @@
 <div class="section" id="experiment-configuration">
 <span id="id1"></span><h2>Experiment configuration<a class="headerlink" href="#experiment-configuration" title="Permalink to this headline">¶</a></h2>
 <p>An experiment configuration starts with an <code class="docutils literal notranslate"><span class="pre">application</span> <span class="pre">type</span></code>, and contains settings
-for <code class="docutils literal notranslate"><span class="pre">resource</span></code>, <code class="docutils literal notranslate"><span class="pre">format</span></code>, <code class="docutils literal notranslate"><span class="pre">graph</span></code>, <code class="docutils literal notranslate"><span class="pre">build</span></code>, <code class="docutils literal notranslate"><span class="pre">train</span></code>, <code class="docutils literal notranslate"><span class="pre">evaluate</span></code> and
-<code class="docutils literal notranslate"><span class="pre">save</span></code> stages.</p>
+for <code class="docutils literal notranslate"><span class="pre">resource</span></code>, <code class="docutils literal notranslate"><span class="pre">format</span></code>, <code class="docutils literal notranslate"><span class="pre">graph</span></code>, <code class="docutils literal notranslate"><span class="pre">build</span></code>, <code class="docutils literal notranslate"><span class="pre">load</span></code>, <code class="docutils literal notranslate"><span class="pre">train</span></code>, <code class="docutils literal notranslate"><span class="pre">evaluate</span></code>
+and <code class="docutils literal notranslate"><span class="pre">save</span></code> stages.</p>
 <p>Here is the configuration used in <a class="reference internal" href="../quick_start.html"><span class="doc">Quick Start</span></a>.
-<a class="reference download internal" download="" href="../_downloads/fc008521a2a22ba4ff0a4f25b6894a0d/quick_start.yaml"><code class="xref download docutils literal notranslate"><span class="pre">quick_start.yaml</span></code></a></p>
+<a class="reference download internal" download="" href="../_downloads/0e61583f365feb3096738cf00a859a16/quick_start.yaml"><code class="xref download docutils literal notranslate"><span class="pre">quick_start.yaml</span></code></a></p>
 <p>The stages are configured as follows.</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">application</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">type</span><span class="p p-Indicator">]</span>
 </pre></div>
@@ -246,13 +246,26 @@ This would make the configuration file independent of the path.</p>
 The more partitions, the less GPU memory consumption and speed. The episode size
 controls the synchronization frequency across partitions.</p>
 <p>See section 3.2 in <a class="reference external" href="https://arxiv.org/pdf/1903.00757.pdf">GraphVite paper</a>  for a detailed illustration.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">load</span><span class="p">:</span>
+  <span class="nt">file_name</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">file name</span><span class="p p-Indicator">]</span>
+</pre></div>
+</div>
+<p>Loading a model is optional.</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">train</span><span class="p">:</span>
   <span class="nt">model</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">model</span><span class="p p-Indicator">]</span>
   <span class="nt">num_epoch</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">number of epochs</span><span class="p p-Indicator">]</span>
-  <span class="nt">negative_weight</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">weight for negative sample</span><span class="p p-Indicator">]</span>
-  <span class="nt">log_frequency</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1000</span>
+  <span class="nt">resume</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">resume training or not</span><span class="p p-Indicator">]</span>
+  <span class="nt">log_frequency</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">log frequency in batches</span><span class="p p-Indicator">]</span>
   <span class="c1"># and other application-specific configuration</span>
 </pre></div>
+</div>
+<p>To resume training from a loaded model, set <code class="docutils literal notranslate"><span class="pre">resume</span></code> to true in <code class="docutils literal notranslate"><span class="pre">train</span></code>.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>Training interface:
+<a class="reference internal" href="../api/solver.html#graphvite.solver.GraphSolver.train" title="graphvite.solver.GraphSolver.train"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Graph</span></code></a>,
+<a class="reference internal" href="../api/solver.html#graphvite.solver.KnowledgeGraphSolver.train" title="graphvite.solver.KnowledgeGraphSolver.train"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Knowledge</span> <span class="pre">graph</span></code></a>,
+<a class="reference internal" href="../api/solver.html#graphvite.solver.VisualizationSolver.train" title="graphvite.solver.VisualizationSolver.train"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Visualization</span></code></a></p>
 </div>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">evaluate</span><span class="p">:</span>
   <span class="p p-Indicator">-</span> <span class="nt">task</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">task</span><span class="p p-Indicator">]</span>
@@ -262,11 +275,27 @@ controls the synchronization frequency across partitions.</p>
 </pre></div>
 </div>
 <p>Evaluation is optional. There may be multiple evaluation tasks.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>Evaluation tasks:</p>
+<ul class="simple">
+<li><p>Graph: <a class="reference internal" href="../api/application.html#graphvite.application.GraphApplication.link_prediction" title="graphvite.application.GraphApplication.link_prediction"><code class="xref py py-meth docutils literal notranslate"><span class="pre">link</span> <span class="pre">prediction</span></code></a>,
+<a class="reference internal" href="../api/application.html#graphvite.application.GraphApplication.node_classification" title="graphvite.application.GraphApplication.node_classification"><code class="xref py py-meth docutils literal notranslate"><span class="pre">node</span> <span class="pre">classification</span></code></a></p></li>
+<li><p>Knowledge graph:
+<a class="reference internal" href="../api/application.html#graphvite.application.KnowledgeGraphApplication.link_prediction" title="graphvite.application.KnowledgeGraphApplication.link_prediction"><code class="xref py py-meth docutils literal notranslate"><span class="pre">link</span> <span class="pre">prediction</span></code></a>,
+<a class="reference internal" href="../api/application.html#graphvite.application.KnowledgeGraphApplication.entity_prediction" title="graphvite.application.KnowledgeGraphApplication.entity_prediction"><code class="xref py py-meth docutils literal notranslate"><span class="pre">entity</span> <span class="pre">prediction</span></code></a></p></li>
+<li><p>Visualization:
+<a class="reference internal" href="../api/application.html#graphvite.application.VisualizationApplication.visualization" title="graphvite.application.VisualizationApplication.visualization"><code class="xref py py-meth docutils literal notranslate"><span class="pre">visualization</span></code></a>,
+<a class="reference internal" href="../api/application.html#graphvite.application.VisualizationApplication.animation" title="graphvite.application.VisualizationApplication.animation"><code class="xref py py-meth docutils literal notranslate"><span class="pre">animation</span></code></a>,
+<a class="reference internal" href="../api/application.html#graphvite.application.VisualizationApplication.hierarchy" title="graphvite.application.VisualizationApplication.hierarchy"><code class="xref py py-meth docutils literal notranslate"><span class="pre">hierarchy</span></code></a></p></li>
+</ul>
+</div>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">save</span><span class="p">:</span>
     <span class="nt">file_name</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">file name</span><span class="p p-Indicator">]</span>
+    <span class="nt">save_hyperparameter</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">save hyperparameters or not</span><span class="p p-Indicator">]</span>
 </pre></div>
 </div>
-<p>Saving embeddings is optional.</p>
+<p>Saving the model is optional.</p>
 <p>For more detailed settings, we recommend to read the baseline configurations
 for concrete examples. They can be found under <code class="docutils literal notranslate"><span class="pre">config/</span></code> in the Python package,
 or in the <a class="reference external" href="https://github.com/DeepGraphLearning/graphvite">GitHub repository</a>.</p>

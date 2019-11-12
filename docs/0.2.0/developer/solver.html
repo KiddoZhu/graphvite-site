@@ -1,0 +1,304 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Customize Solvers &mdash; GraphVite 0.2.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="graphvite.application" href="../api/application.html" />
+    <link rel="prev" title="Customize Routine" href="routine.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> GraphVite
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Get Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Application Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmark.html">Benchmarks</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user/command_line.html">Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/configuration.html">Configuration Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/format.html">Data Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/python.html">Python Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/auto.html">Magic of Auto</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="framework.html">Understand the Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">Customize Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="routine.html">Customize Routine</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Customize Solvers</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Package Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/application.html">Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/graph.html">Graph</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/solver.html">Solver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/optimizer.html">Optimizer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/dataset.html">Dataset</a></li>
+</ul>
+<p class="caption"><span class="caption-text">FAQ</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">GraphVite</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Customize Solvers</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/developer/solver.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="customize-solvers">
+<h1>Customize Solvers<a class="headerlink" href="#customize-solvers" title="Permalink to this headline">¶</a></h1>
+<p>A more interesting thing to explore is extending GraphVite with new solvers.
+Generally, the core library is capable to perform any graph embedding variant that
+fits into the following paradigm.</p>
+<ul class="simple">
+<li><p>The training samples are edges.
+There may be additional attributes (e.g. labels) to edge samples.</p></li>
+</ul>
+<p>To support that, GraphVite provides a protocol interface and a series of abstract
+classes. We only need to declare the protocols for our parameters, and fill in the
+virtual member functions for the classes.</p>
+<p>Let’s begin with the protocol interface. There are 3 main protocols for parameters.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">head</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tail</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">global</span></code></p></li>
+</ul>
+<p>For each parameter matrix, it should be assigned one of these protocols.
+<code class="docutils literal notranslate"><span class="pre">head</span></code> means that the parameter matrix is indexed by head nodes in directed edges,
+while <code class="docutils literal notranslate"><span class="pre">tail</span></code> corresponds to tail nodes. Any other parameter matrix should be assigned
+with <code class="docutils literal notranslate"><span class="pre">global</span></code>.</p>
+<p>There are also 2 optional protocols. One is <code class="docutils literal notranslate"><span class="pre">in</span> <span class="pre">place</span></code>, which implies that the
+parameter matrix takes in-place update and doesn’t need storage for gradients.
+The other is <code class="docutils literal notranslate"><span class="pre">shared</span></code>, which implies the matrix is shared with the previous one.
+This may be used for tied weight case.</p>
+<p>Each parameter matrix should also be specified with a shape. We can use <code class="docutils literal notranslate"><span class="pre">auto</span></code>
+if the shape can be inferred from the protocol and the graph structure.</p>
+<p>For example, knowledge graph embeddings take the following settings.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// head embeddings, tail embeddings, relation embeddings</span>
+<span class="n">protocols</span> <span class="o">=</span> <span class="p">{</span><span class="n">head</span> <span class="o">|</span> <span class="n">in</span> <span class="n">place</span><span class="p">,</span> <span class="n">tail</span> <span class="o">|</span> <span class="n">in</span> <span class="n">place</span> <span class="o">|</span> <span class="n">shared</span><span class="p">,</span> <span class="n">global</span><span class="p">};</span>
+<span class="n">shapes</span> <span class="o">=</span> <span class="p">{</span><span class="k">auto</span><span class="p">,</span> <span class="k">auto</span><span class="p">,</span> <span class="n">graph</span><span class="o">-&gt;</span><span class="n">num_relation</span><span class="p">};</span>
+</pre></div>
+</div>
+<p>If the learning routine also needs negative sampling, we should additionally
+specify a negative sampler protocol. For knowledge graph embedding, this is</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">negative_sampler_protocol</span> <span class="o">=</span> <span class="n">head</span> <span class="o">|</span> <span class="n">tail</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Given the protocols, GraphVite will automatically schedule the paramters and samples
+over multiple GPUs, using an algorithm called parallel negative sampling. For a more
+detailed explanation of the algorithm, see section 3.2 in <a class="reference external" href="https://arxiv.org/pdf/1903.00757.pdf">GraphVite paper</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Parallel negative sampling only takes place when at least one parameter matrix
+is <code class="docutils literal notranslate"><span class="pre">head</span></code> or <code class="docutils literal notranslate"><span class="pre">tail</span></code>. If all parameters are <code class="docutils literal notranslate"><span class="pre">global</span></code>, GraphVite will schedule
+them by standard data parallel.</p>
+</div>
+<p>To implement a new solver, we need to implement <code class="docutils literal notranslate"><span class="pre">get_protocols()</span></code>,
+<code class="docutils literal notranslate"><span class="pre">get_sampler_protocol()</span></code> and <code class="docutils literal notranslate"><span class="pre">get_shapes()</span></code> as above. Some additional helper
+functions may be required to complete the solver.</p>
+<p>A solver also contains a sampler and a worker class. By default, the sampler samples
+positive edges from the graph, with probability proportional to the weight of each
+edge. We only need to specify the additional edge attributes in <code class="docutils literal notranslate"><span class="pre">get_attributes()</span></code>.</p>
+<p>For the worker, it will build the negative sampler according to the its protocol.
+We need to specify the GPU implementation of models in <code class="docutils literal notranslate"><span class="pre">train_dispatch()</span></code>. See
+<a class="reference internal" href="model.html"><span class="doc">Customize Models</span></a> for how to do that.</p>
+<p>Finally, to get our new solver appeared in Python, add a Python declaration for it in
+<code class="docutils literal notranslate"><span class="pre">include/bind.h</span></code>, and instantiate it in <code class="docutils literal notranslate"><span class="pre">src/graphvite.cu</span></code>.</p>
+<p>See <code class="docutils literal notranslate"><span class="pre">include/instance/*</span></code> for all solver instances.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Functions in solver, sampler and worker can be overrided. For example,
+<a class="reference internal" href="../api/solver.html#graphvite.solver.GraphSolver" title="graphvite.solver.GraphSolver"><code class="xref py py-class docutils literal notranslate"><span class="pre">GraphSolver</span></code></a> overrides edge sampling with
+online augmentation.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../api/application.html" class="btn btn-neutral float-right" title="graphvite.application" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="routine.html" class="btn btn-neutral float-left" title="Customize Routine" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, MilaGraph
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

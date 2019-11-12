@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>graphvite.application &mdash; GraphVite 0.2.0 documentation</title>
+  <title>graphvite.application &mdash; GraphVite 0.2.1 documentation</title>
   
 
   
@@ -289,6 +289,17 @@ Arguments depend on the underlying graph type.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="graphvite.application.GraphApplication.load_model">
+<code class="sig-name descname">load_model</code><span class="sig-paren">(</span><em class="sig-param">file_name</em><span class="sig-paren">)</span><a class="headerlink" href="#graphvite.application.GraphApplication.load_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load model in pickle format.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>file_name</strong> (<em>str</em>) – file name:</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
 <dt id="graphvite.application.GraphApplication.node_classification">
 <code class="sig-name descname">node_classification</code><span class="sig-paren">(</span><em class="sig-param">X=None</em>, <em class="sig-param">Y=None</em>, <em class="sig-param">file_name=None</em>, <em class="sig-param">portions=(0.02</em>, <em class="sig-param">)</em>, <em class="sig-param">normalization=False</em>, <em class="sig-param">times=1</em>, <em class="sig-param">patience=100</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphvite/application/application.html#GraphApplication.node_classification"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#graphvite.application.GraphApplication.node_classification" title="Permalink to this definition">¶</a></dt>
 <dd><p>Evaluate node embeddings on node classification task.</p>
@@ -314,12 +325,15 @@ Arguments depend on the underlying graph type.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="graphvite.application.GraphApplication.save">
-<code class="sig-name descname">save</code><span class="sig-paren">(</span><em class="sig-param">file_name</em><span class="sig-paren">)</span><a class="headerlink" href="#graphvite.application.GraphApplication.save" title="Permalink to this definition">¶</a></dt>
-<dd><p>Save embeddings and name mappings in numpy format.</p>
+<dt id="graphvite.application.GraphApplication.save_model">
+<code class="sig-name descname">save_model</code><span class="sig-paren">(</span><em class="sig-param">file_name</em>, <em class="sig-param">save_hyperparameter=False</em><span class="sig-paren">)</span><a class="headerlink" href="#graphvite.application.GraphApplication.save_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save model in pickle format.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>file_name</strong> (<em>str</em>) – file name</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file_name</strong> (<em>str</em>) – file name</p></li>
+<li><p><strong>save_hyperparameter</strong> (<em>bool</em><em>, </em><em>optional</em>) – save hyperparameters or not, default is false</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -410,12 +424,26 @@ Arguments depend on the underlying graph type.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="graphvite.application.WordGraphApplication.save">
-<code class="sig-name descname">save</code><span class="sig-paren">(</span><em class="sig-param">file_name</em><span class="sig-paren">)</span><a class="headerlink" href="#graphvite.application.WordGraphApplication.save" title="Permalink to this definition">¶</a></dt>
-<dd><p>Save embeddings and name mappings in numpy format.</p>
+<dt id="graphvite.application.WordGraphApplication.load_model">
+<code class="sig-name descname">load_model</code><span class="sig-paren">(</span><em class="sig-param">file_name</em><span class="sig-paren">)</span><a class="headerlink" href="#graphvite.application.WordGraphApplication.load_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load model in pickle format.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>file_name</strong> (<em>str</em>) – file name</p>
+<dd class="field-odd"><p><strong>file_name</strong> (<em>str</em>) – file name:</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="graphvite.application.WordGraphApplication.save_model">
+<code class="sig-name descname">save_model</code><span class="sig-paren">(</span><em class="sig-param">file_name</em>, <em class="sig-param">save_hyperparameter=False</em><span class="sig-paren">)</span><a class="headerlink" href="#graphvite.application.WordGraphApplication.save_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save model in pickle format.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file_name</strong> (<em>str</em>) – file name</p></li>
+<li><p><strong>save_hyperparameter</strong> (<em>bool</em><em>, </em><em>optional</em>) – save hyperparameters or not, default is false</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -571,12 +599,26 @@ Arguments depend on the underlying graph type.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="graphvite.application.KnowledgeGraphApplication.save">
-<code class="sig-name descname">save</code><span class="sig-paren">(</span><em class="sig-param">file_name</em><span class="sig-paren">)</span><a class="headerlink" href="#graphvite.application.KnowledgeGraphApplication.save" title="Permalink to this definition">¶</a></dt>
-<dd><p>Save embeddings and name mappings in numpy format.</p>
+<dt id="graphvite.application.KnowledgeGraphApplication.load_model">
+<code class="sig-name descname">load_model</code><span class="sig-paren">(</span><em class="sig-param">file_name</em><span class="sig-paren">)</span><a class="headerlink" href="#graphvite.application.KnowledgeGraphApplication.load_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load model in pickle format.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>file_name</strong> (<em>str</em>) – file name</p>
+<dd class="field-odd"><p><strong>file_name</strong> (<em>str</em>) – file name:</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="graphvite.application.KnowledgeGraphApplication.save_model">
+<code class="sig-name descname">save_model</code><span class="sig-paren">(</span><em class="sig-param">file_name</em>, <em class="sig-param">save_hyperparameter=False</em><span class="sig-paren">)</span><a class="headerlink" href="#graphvite.application.KnowledgeGraphApplication.save_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save model in pickle format.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file_name</strong> (<em>str</em>) – file name</p></li>
+<li><p><strong>save_hyperparameter</strong> (<em>bool</em><em>, </em><em>optional</em>) – save hyperparameters or not, default is false</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -706,12 +748,26 @@ Arguments depend on the underlying graph type.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="graphvite.application.VisualizationApplication.save">
-<code class="sig-name descname">save</code><span class="sig-paren">(</span><em class="sig-param">file_name</em><span class="sig-paren">)</span><a class="headerlink" href="#graphvite.application.VisualizationApplication.save" title="Permalink to this definition">¶</a></dt>
-<dd><p>Save embeddings and name mappings in numpy format.</p>
+<dt id="graphvite.application.VisualizationApplication.load_model">
+<code class="sig-name descname">load_model</code><span class="sig-paren">(</span><em class="sig-param">file_name</em><span class="sig-paren">)</span><a class="headerlink" href="#graphvite.application.VisualizationApplication.load_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load model in pickle format.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>file_name</strong> (<em>str</em>) – file name</p>
+<dd class="field-odd"><p><strong>file_name</strong> (<em>str</em>) – file name:</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="graphvite.application.VisualizationApplication.save_model">
+<code class="sig-name descname">save_model</code><span class="sig-paren">(</span><em class="sig-param">file_name</em>, <em class="sig-param">save_hyperparameter=False</em><span class="sig-paren">)</span><a class="headerlink" href="#graphvite.application.VisualizationApplication.save_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save model in pickle format.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file_name</strong> (<em>str</em>) – file name</p></li>
+<li><p><strong>save_hyperparameter</strong> (<em>bool</em><em>, </em><em>optional</em>) – save hyperparameters or not, default is false</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>

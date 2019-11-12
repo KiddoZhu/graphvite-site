@@ -1,0 +1,361 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>graphvite.optimizer &mdash; GraphVite 0.2.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="graphvite.dataset" href="dataset.html" />
+    <link rel="prev" title="graphvite.solver" href="solver.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> GraphVite
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Get Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Application Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmark.html">Benchmarks</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user/command_line.html">Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/configuration.html">Configuration Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/format.html">Data Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/python.html">Python Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/auto.html">Magic of Auto</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../developer/framework.html">Understand the Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/model.html">Customize Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/routine.html">Customize Routine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/solver.html">Customize Solvers</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Package Reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="application.html">Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="graph.html">Graph</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solver.html">Solver</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Optimizer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dataset.html">Dataset</a></li>
+</ul>
+<p class="caption"><span class="caption-text">FAQ</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">GraphVite</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>graphvite.optimizer</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/optimizer.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-graphvite.optimizer">
+<span id="graphvite-optimizer"></span><h1>graphvite.optimizer<a class="headerlink" href="#module-graphvite.optimizer" title="Permalink to this headline">¶</a></h1>
+<p>Optimizer module of GraphVite</p>
+<dl class="class">
+<dt id="graphvite.optimizer.Optimizer">
+<em class="property">class </em><code class="sig-prename descclassname">graphvite.optimizer.</code><code class="sig-name descname">Optimizer</code><span class="sig-paren">(</span><em class="sig-param">type=auto</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphvite/optimizer.html#Optimizer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#graphvite.optimizer.Optimizer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create an optimizer instance of any type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>type</strong> (<em>str</em><em> or </em><em>auto</em>) – optimizer type,
+can be ‘SGD’, ‘Momentum’, ‘AdaGrad’, ‘RMSprop’ or ‘Adam’</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="graphvite.optimizer.LRSchedule">
+<em class="property">class </em><code class="sig-prename descclassname">graphvite.optimizer.</code><code class="sig-name descname">LRSchedule</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#graphvite.optimizer.LRSchedule" title="Permalink to this definition">¶</a></dt>
+<dd><p>Learning Rate Schedule.</p>
+<p>This class has 2 constructors</p>
+<dl class="function">
+<dt id="graphvite.optimizer.LRSchedule.LRSchedule">
+<code class="sig-name descname">LRSchedule</code><span class="sig-paren">(</span><em class="sig-param">schedule='constant'</em><span class="sig-paren">)</span><a class="headerlink" href="#graphvite.optimizer.LRSchedule.LRSchedule" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt>
+<code class="sig-name descname">LRSchedule</code><span class="sig-paren">(</span><em class="sig-param">schedule_function</em><span class="sig-paren">)</span></dt>
+<dd></dd></dl>
+
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>schedule</strong> (<em>str</em><em>, </em><em>optional</em>) – ‘constant’ or ‘linear’</p></li>
+<li><p><strong>schedule_function</strong> (<em>callable</em>) – function that returns a multiplicative factor,
+given batch id and total number of batches</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="graphvite.optimizer.SGD">
+<em class="property">class </em><code class="sig-prename descclassname">graphvite.optimizer.</code><code class="sig-name descname">SGD</code><span class="sig-paren">(</span><em class="sig-param">lr=1e-4</em>, <em class="sig-param">weight_decay=0</em>, <em class="sig-param">schedule='linear'</em><span class="sig-paren">)</span><a class="headerlink" href="#graphvite.optimizer.SGD" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stochastic gradient descent optimizer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lr</strong> (<em>float</em><em>, </em><em>optional</em>) – initial learning rate</p></li>
+<li><p><strong>weight_decay</strong> (<em>float</em><em>, </em><em>optional</em>) – weight decay (L2 regularization)</p></li>
+<li><p><strong>schedule</strong> (<em>str</em><em> or </em><em>callable</em><em>, </em><em>optional</em>) – learning rate schedule</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="graphvite.optimizer.Momentum">
+<em class="property">class </em><code class="sig-prename descclassname">graphvite.optimizer.</code><code class="sig-name descname">Momentum</code><span class="sig-paren">(</span><em class="sig-param">lr=1e-4</em>, <em class="sig-param">weight_decay=0</em>, <em class="sig-param">momentum=0.999</em>, <em class="sig-param">schedule='linear'</em><span class="sig-paren">)</span><a class="headerlink" href="#graphvite.optimizer.Momentum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Momentum optimizer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lr</strong> (<em>float</em><em>, </em><em>optional</em>) – initial learning rate</p></li>
+<li><p><strong>weight_decay</strong> (<em>float</em><em>, </em><em>optional</em>) – weight decay (L2 regularization)</p></li>
+<li><p><strong>momentum</strong> (<em>float</em><em>, </em><em>optional</em>) – momentum coefficient</p></li>
+<li><p><strong>schedule</strong> (<em>str</em><em> or </em><em>callable</em><em>, </em><em>optional</em>) – learning rate schedule</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="graphvite.optimizer.AdaGrad">
+<em class="property">class </em><code class="sig-prename descclassname">graphvite.optimizer.</code><code class="sig-name descname">AdaGrad</code><span class="sig-paren">(</span><em class="sig-param">lr=1e-4</em>, <em class="sig-param">weight_decay=0</em>, <em class="sig-param">epsilon=1e-10</em>, <em class="sig-param">schedule='linear'</em><span class="sig-paren">)</span><a class="headerlink" href="#graphvite.optimizer.AdaGrad" title="Permalink to this definition">¶</a></dt>
+<dd><p>AdaGrad optimizer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lr</strong> (<em>float</em><em>, </em><em>optional</em>) – initial learning rate</p></li>
+<li><p><strong>weight_decay</strong> (<em>float</em><em>, </em><em>optional</em>) – weight decay (L2 regularization)</p></li>
+<li><p><strong>epsilon</strong> (<em>float</em><em>, </em><em>optional</em>) – smooth term for numerical stability</p></li>
+<li><p><strong>schedule</strong> (<em>str</em><em> or </em><em>callable</em><em>, </em><em>optional</em>) – learning rate schedule</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="graphvite.optimizer.RMSprop">
+<em class="property">class </em><code class="sig-prename descclassname">graphvite.optimizer.</code><code class="sig-name descname">RMSprop</code><span class="sig-paren">(</span><em class="sig-param">lr=1e-4</em>, <em class="sig-param">weight_decay=0</em>, <em class="sig-param">alpha=0.999</em>, <em class="sig-param">epsilon=1e-8</em>, <em class="sig-param">schedule='linear'</em><span class="sig-paren">)</span><a class="headerlink" href="#graphvite.optimizer.RMSprop" title="Permalink to this definition">¶</a></dt>
+<dd><p>RMSprop optimizer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lr</strong> (<em>float</em><em>, </em><em>optional</em>) – initial learning rate</p></li>
+<li><p><strong>weight_decay</strong> (<em>float</em><em>, </em><em>optional</em>) – weight decay (L2 regularization)</p></li>
+<li><p><strong>alpha</strong> (<em>float</em><em>, </em><em>optional</em>) – coefficient for moving average of squared gradient</p></li>
+<li><p><strong>epsilon</strong> (<em>float</em><em>, </em><em>optional</em>) – smooth term for numerical stability</p></li>
+<li><p><strong>schedule</strong> (<em>str</em><em> or </em><em>callable</em><em>, </em><em>optional</em>) – learning rate schedule</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="graphvite.optimizer.Adam">
+<em class="property">class </em><code class="sig-prename descclassname">graphvite.optimizer.</code><code class="sig-name descname">Adam</code><span class="sig-paren">(</span><em class="sig-param">lr=1e-4</em>, <em class="sig-param">weight_decay=0</em>, <em class="sig-param">beta1=0.999</em>, <em class="sig-param">beta2=0.99999</em>, <em class="sig-param">epsilon=1e-8</em>, <em class="sig-param">schedule='linear'</em><span class="sig-paren">)</span><a class="headerlink" href="#graphvite.optimizer.Adam" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adam optimizer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lr</strong> (<em>float</em><em>, </em><em>optional</em>) – initial learning rate</p></li>
+<li><p><strong>weight_decay</strong> (<em>float</em><em>, </em><em>optional</em>) – weight decay (L2 regularization)</p></li>
+<li><p><strong>beta1</strong> (<em>float</em><em>, </em><em>optional</em>) – coefficient for moving average of gradient</p></li>
+<li><p><strong>beta2</strong> (<em>float</em><em>, </em><em>optional</em>) – coefficient for moving average of squared gradient</p></li>
+<li><p><strong>epsilon</strong> (<em>float</em><em>, </em><em>optional</em>) – smooth term for numerical stability</p></li>
+<li><p><strong>schedule</strong> (<em>str</em><em> or </em><em>callable</em><em>, </em><em>optional</em>) – learning rate schedule</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="dataset.html" class="btn btn-neutral float-right" title="graphvite.dataset" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="solver.html" class="btn btn-neutral float-left" title="graphvite.solver" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, MilaGraph
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

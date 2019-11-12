@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>graphvite.dataset &mdash; GraphVite 0.2.0 documentation</title>
+  <title>graphvite.dataset &mdash; GraphVite 0.2.1 documentation</title>
   
 
   
@@ -203,6 +203,7 @@
 <li><p><a class="reference internal" href="#graphvite.dataset.FB15k237" title="graphvite.dataset.FB15k237"><code class="xref py py-class docutils literal notranslate"><span class="pre">FB15k237</span></code></a></p></li>
 <li><p><a class="reference internal" href="#graphvite.dataset.WN18" title="graphvite.dataset.WN18"><code class="xref py py-class docutils literal notranslate"><span class="pre">WN18</span></code></a></p></li>
 <li><p><a class="reference internal" href="#graphvite.dataset.WN18RR" title="graphvite.dataset.WN18RR"><code class="xref py py-class docutils literal notranslate"><span class="pre">WN18RR</span></code></a></p></li>
+<li><p><a class="reference internal" href="#graphvite.dataset.Wikidata5m" title="graphvite.dataset.Wikidata5m"><code class="xref py py-class docutils literal notranslate"><span class="pre">Wikidata5m</span></code></a></p></li>
 <li><p><a class="reference internal" href="#graphvite.dataset.Freebase" title="graphvite.dataset.Freebase"><code class="xref py py-class docutils literal notranslate"><span class="pre">Freebase</span></code></a></p></li>
 </ul>
 <p>Visualization</p>
@@ -256,6 +257,7 @@ By convention, only splits ending with <code class="docutils literal notranslate
 <a class="reference internal" href="#graphvite.dataset.Dataset.csv2txt" title="graphvite.dataset.Dataset.csv2txt"><code class="xref py py-func docutils literal notranslate"><span class="pre">csv2txt()</span></code></a>,
 <a class="reference internal" href="#graphvite.dataset.Dataset.top_k_label" title="graphvite.dataset.Dataset.top_k_label"><code class="xref py py-func docutils literal notranslate"><span class="pre">top_k_label()</span></code></a>,
 <a class="reference internal" href="#graphvite.dataset.Dataset.induced_graph" title="graphvite.dataset.Dataset.induced_graph"><code class="xref py py-func docutils literal notranslate"><span class="pre">induced_graph()</span></code></a>,
+<a class="reference internal" href="#graphvite.dataset.Dataset.edge_split" title="graphvite.dataset.Dataset.edge_split"><code class="xref py py-func docutils literal notranslate"><span class="pre">edge_split()</span></code></a>,
 <a class="reference internal" href="#graphvite.dataset.Dataset.link_prediction_split" title="graphvite.dataset.Dataset.link_prediction_split"><code class="xref py py-func docutils literal notranslate"><span class="pre">link_prediction_split()</span></code></a>,
 <a class="reference internal" href="#graphvite.dataset.Dataset.image_feature_data" title="graphvite.dataset.Dataset.image_feature_data"><code class="xref py py-func docutils literal notranslate"><span class="pre">image_feature_data()</span></code></a></p>
 </div>
@@ -268,6 +270,21 @@ By convention, only splits ending with <code class="docutils literal notranslate
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>csv_file</strong> – csv file</p></li>
 <li><p><strong>txt_file</strong> – txt file</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="graphvite.dataset.Dataset.edge_split">
+<code class="sig-name descname">edge_split</code><span class="sig-paren">(</span><em class="sig-param">graph_file</em>, <em class="sig-param">files</em>, <em class="sig-param">portions</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphvite/dataset.html#Dataset.edge_split"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#graphvite.dataset.Dataset.edge_split" title="Permalink to this definition">¶</a></dt>
+<dd><p>Divide a knowledge graph into several splits.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>graph_file</strong> (<em>str</em>) – graph file</p></li>
+<li><p><strong>files</strong> (<em>list of str</em>) – file names</p></li>
+<li><p><strong>portions</strong> (<em>list of float</em>) – split portions</p></li>
 </ul>
 </dd>
 </dl>
@@ -449,6 +466,16 @@ the first file is treated as train file</p></li>
 <dt id="graphvite.dataset.WN18RR">
 <em class="property">class </em><code class="sig-prename descclassname">graphvite.dataset.</code><code class="sig-name descname">WN18RR</code><a class="reference internal" href="../_modules/graphvite/dataset.html#WN18RR"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#graphvite.dataset.WN18RR" title="Permalink to this definition">¶</a></dt>
 <dd><p>WN18RR knowledge graph dataset.</p>
+<dl class="simple">
+<dt>Splits:</dt><dd><p>train, valid, test</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="graphvite.dataset.Wikidata5m">
+<em class="property">class </em><code class="sig-prename descclassname">graphvite.dataset.</code><code class="sig-name descname">Wikidata5m</code><a class="reference internal" href="../_modules/graphvite/dataset.html#Wikidata5m"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#graphvite.dataset.Wikidata5m" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wikidata5m knowledge graph dataset.</p>
 <dl class="simple">
 <dt>Splits:</dt><dd><p>train, valid, test</p>
 </dd>

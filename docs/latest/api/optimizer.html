@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>graphvite.optimizer &mdash; GraphVite 0.2.0 documentation</title>
+  <title>graphvite.optimizer &mdash; GraphVite 0.2.1 documentation</title>
   
 
   
@@ -206,7 +206,7 @@ can be ‘SGD’, ‘Momentum’, ‘AdaGrad’, ‘RMSprop’ or ‘Adam’</p>
 <p>This class has 2 constructors</p>
 <dl class="function">
 <dt id="graphvite.optimizer.LRSchedule.LRSchedule">
-<code class="sig-name descname">LRSchedule</code><span class="sig-paren">(</span><em class="sig-param">schedule='constant'</em><span class="sig-paren">)</span><a class="headerlink" href="#graphvite.optimizer.LRSchedule.LRSchedule" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">LRSchedule</code><span class="sig-paren">(</span><em class="sig-param">type='constant'</em><span class="sig-paren">)</span><a class="headerlink" href="#graphvite.optimizer.LRSchedule.LRSchedule" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">
@@ -217,7 +217,7 @@ can be ‘SGD’, ‘Momentum’, ‘AdaGrad’, ‘RMSprop’ or ‘Adam’</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>schedule</strong> (<em>str</em><em>, </em><em>optional</em>) – ‘constant’ or ‘linear’</p></li>
+<li><p><strong>type</strong> (<em>str</em><em>, </em><em>optional</em>) – ‘constant’ or ‘linear’</p></li>
 <li><p><strong>schedule_function</strong> (<em>callable</em>) – function that returns a multiplicative factor,
 given batch id and total number of batches</p></li>
 </ul>

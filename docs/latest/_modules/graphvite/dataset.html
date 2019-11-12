@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>graphvite.dataset &mdash; GraphVite 0.2.0 documentation</title>
+  <title>graphvite.dataset &mdash; GraphVite 0.2.1 documentation</title>
   
 
   
@@ -216,6 +216,7 @@
 <span class="sd">- :class:`FB15k237`</span>
 <span class="sd">- :class:`WN18`</span>
 <span class="sd">- :class:`WN18RR`</span>
+<span class="sd">- :class:`Wikidata5m`</span>
 <span class="sd">- :class:`Freebase`</span>
 
 <span class="sd">Visualization</span>
@@ -283,6 +284,7 @@
 <span class="sd">        :func:`csv2txt`,</span>
 <span class="sd">        :func:`top_k_label`,</span>
 <span class="sd">        :func:`induced_graph`,</span>
+<span class="sd">        :func:`edge_split`,</span>
 <span class="sd">        :func:`link_prediction_split`,</span>
 <span class="sd">        :func:`image_feature_data`</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -307,7 +309,10 @@
     <span class="k">def</span> <span class="nf">download</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">):</span>
         <span class="kn">from</span> <span class="nn">six.moves.urllib.request</span> <span class="k">import</span> <span class="n">urlretrieve</span>
 
-        <span class="n">save_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">url</span><span class="p">))</span>
+        <span class="n">save_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s2">&quot;?&quot;</span> <span class="ow">in</span> <span class="n">save_file</span><span class="p">:</span>
+            <span class="n">save_file</span> <span class="o">=</span> <span class="n">save_file</span><span class="p">[:</span><span class="n">save_file</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;?&quot;</span><span class="p">)]</span>
+        <span class="n">save_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="n">save_file</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">save_file</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">local_files</span><span class="p">():</span>
             <span class="k">return</span> <span class="n">save_file</span>
 
@@ -469,6 +474,29 @@
                     <span class="k">if</span> <span class="n">u</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">nodes</span> <span class="ow">or</span> <span class="n">v</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">nodes</span><span class="p">:</span>
                         <span class="k">continue</span>
                     <span class="n">fout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="se">\t</span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="Dataset.edge_split"><a class="viewcode-back" href="../../api/dataset.html#graphvite.dataset.Dataset.edge_split">[docs]</a>    <span class="k">def</span> <span class="nf">edge_split</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">graph_file</span><span class="p">,</span> <span class="n">files</span><span class="p">,</span> <span class="n">portions</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Divide a knowledge graph into several splits.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">            graph_file (str): graph file</span>
+<span class="sd">            files (list of str): file names</span>
+<span class="sd">            portions (list of float): split portions</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">files</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">portions</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;splitting graph </span><span class="si">%s</span><span class="s2"> into </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span>
+                    <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">relpath</span><span class="p">(</span><span class="n">graph_file</span><span class="p">),</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">relpath</span><span class="p">(</span><span class="n">file</span><span class="p">)</span> <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">])))</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1024</span><span class="p">)</span>
+
+        <span class="n">portions</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">portions</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">portions</span><span class="p">)</span>
+        <span class="n">files</span> <span class="o">=</span> <span class="p">[</span><span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">]</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">graph_file</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fin</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">fin</span><span class="p">:</span>
+                <span class="n">i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">searchsorted</span><span class="p">(</span><span class="n">portions</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">())</span>
+                <span class="n">files</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+            <span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="Dataset.link_prediction_split"><a class="viewcode-back" href="../../api/dataset.html#graphvite.dataset.Dataset.link_prediction_split">[docs]</a>    <span class="k">def</span> <span class="nf">link_prediction_split</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">graph_file</span><span class="p">,</span> <span class="n">files</span><span class="p">,</span> <span class="n">portions</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -709,7 +737,7 @@
         <span class="nb">super</span><span class="p">(</span><span class="n">Wikipedia</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
             <span class="s2">&quot;wikipedia&quot;</span><span class="p">,</span>
             <span class="n">urls</span><span class="o">=</span><span class="p">{</span>
-                <span class="s2">&quot;graph&quot;</span><span class="p">:</span> <span class="s2">&quot;https://www.dropbox.com/s/mwt4uu1qu9fflfk/enwiki-latest-pages-articles-sentences.txt.gz&quot;</span>
+                <span class="s2">&quot;graph&quot;</span><span class="p">:</span> <span class="s2">&quot;https://www.dropbox.com/s/mwt4uu1qu9fflfk/enwiki-latest-pages-articles-sentences.txt.gz?dl=1&quot;</span>
             <span class="p">}</span>
         <span class="p">)</span></div>
 
@@ -834,6 +862,39 @@
                 <span class="s2">&quot;test&quot;</span><span class="p">:</span> <span class="s2">&quot;https://github.com/DeepGraphLearning/KnowledgeGraphEmbedding/raw/master/data/wn18rr/test.txt&quot;</span>
             <span class="p">}</span>
         <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Wikidata5m"><a class="viewcode-back" href="../../api/dataset.html#graphvite.dataset.Wikidata5m">[docs]</a><span class="k">class</span> <span class="nc">Wikidata5m</span><span class="p">(</span><span class="n">Dataset</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Wikidata5m knowledge graph dataset.</span>
+
+<span class="sd">    Splits:</span>
+<span class="sd">        train, valid, test</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Wikidata5m</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="s2">&quot;wikidata5m&quot;</span><span class="p">,</span>
+            <span class="n">urls</span><span class="o">=</span><span class="p">{</span>
+                <span class="s2">&quot;train&quot;</span><span class="p">:</span> <span class="s2">&quot;https://www.dropbox.com/s/dty6ufe1gg6keuc/wikidata5m.txt.gz?dl=1&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;valid&quot;</span><span class="p">:</span> <span class="s2">&quot;https://www.dropbox.com/s/dty6ufe1gg6keuc/wikidata5m.txt.gz?dl=1&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;test&quot;</span><span class="p">:</span> <span class="s2">&quot;https://www.dropbox.com/s/dty6ufe1gg6keuc/wikidata5m.txt.gz?dl=1&quot;</span>
+            <span class="p">}</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">train_preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">graph_file</span><span class="p">,</span> <span class="n">train_file</span><span class="p">):</span>
+        <span class="n">valid_file</span> <span class="o">=</span> <span class="n">train_file</span><span class="p">[:</span><span class="n">train_file</span><span class="o">.</span><span class="n">rfind</span><span class="p">(</span><span class="s2">&quot;train.txt&quot;</span><span class="p">)]</span> <span class="o">+</span> <span class="s2">&quot;valid.txt&quot;</span>
+        <span class="n">test_file</span> <span class="o">=</span> <span class="n">train_file</span><span class="p">[:</span><span class="n">train_file</span><span class="o">.</span><span class="n">rfind</span><span class="p">(</span><span class="s2">&quot;train.txt&quot;</span><span class="p">)]</span> <span class="o">+</span> <span class="s2">&quot;test.txt&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">edge_split</span><span class="p">(</span><span class="n">graph_file</span><span class="p">,</span> <span class="p">[</span><span class="n">train_file</span><span class="p">,</span> <span class="n">valid_file</span><span class="p">,</span> <span class="n">test_file</span><span class="p">],</span> <span class="n">portions</span><span class="o">=</span><span class="p">[</span><span class="mi">4000</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+
+    <span class="k">def</span> <span class="nf">valid_preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">graph_file</span><span class="p">,</span> <span class="n">valid_file</span><span class="p">):</span>
+        <span class="n">train_file</span> <span class="o">=</span> <span class="n">valid_file</span><span class="p">[:</span><span class="n">valid_file</span><span class="o">.</span><span class="n">rfind</span><span class="p">(</span><span class="s2">&quot;valid.txt&quot;</span><span class="p">)]</span> <span class="o">+</span> <span class="s2">&quot;train.txt&quot;</span>
+        <span class="n">test_file</span> <span class="o">=</span> <span class="n">valid_file</span><span class="p">[:</span><span class="n">valid_file</span><span class="o">.</span><span class="n">rfind</span><span class="p">(</span><span class="s2">&quot;valid.txt&quot;</span><span class="p">)]</span> <span class="o">+</span> <span class="s2">&quot;test.txt&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">edge_split</span><span class="p">(</span><span class="n">graph_file</span><span class="p">,</span> <span class="p">[</span><span class="n">train_file</span><span class="p">,</span> <span class="n">valid_file</span><span class="p">,</span> <span class="n">test_file</span><span class="p">],</span> <span class="n">portions</span><span class="o">=</span><span class="p">[</span><span class="mi">4000</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+
+    <span class="k">def</span> <span class="nf">test_preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">graph_file</span><span class="p">,</span> <span class="n">test_file</span><span class="p">):</span>
+        <span class="n">train_file</span> <span class="o">=</span> <span class="n">test_file</span><span class="p">[:</span><span class="n">test_file</span><span class="o">.</span><span class="n">rfind</span><span class="p">(</span><span class="s2">&quot;valid.txt&quot;</span><span class="p">)]</span> <span class="o">+</span> <span class="s2">&quot;train.txt&quot;</span>
+        <span class="n">valid_file</span> <span class="o">=</span> <span class="n">test_file</span><span class="p">[:</span><span class="n">test_file</span><span class="o">.</span><span class="n">rfind</span><span class="p">(</span><span class="s2">&quot;train.txt&quot;</span><span class="p">)]</span> <span class="o">+</span> <span class="s2">&quot;valid.txt&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">edge_split</span><span class="p">(</span><span class="n">graph_file</span><span class="p">,</span> <span class="p">[</span><span class="n">train_file</span><span class="p">,</span> <span class="n">valid_file</span><span class="p">,</span> <span class="n">test_file</span><span class="p">],</span> <span class="n">portions</span><span class="o">=</span><span class="p">[</span><span class="mi">4000</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span></div>
 
 
 <div class="viewcode-block" id="Freebase"><a class="viewcode-back" href="../../api/dataset.html#graphvite.dataset.Freebase">[docs]</a><span class="k">class</span> <span class="nc">Freebase</span><span class="p">(</span><span class="n">Dataset</span><span class="p">):</span>
@@ -1178,6 +1239,7 @@
 <span class="n">fb15k237</span> <span class="o">=</span> <span class="n">FB15k237</span><span class="p">()</span>
 <span class="n">wn18</span> <span class="o">=</span> <span class="n">WN18</span><span class="p">()</span>
 <span class="n">wn18rr</span> <span class="o">=</span> <span class="n">WN18RR</span><span class="p">()</span>
+<span class="n">wikidata5m</span> <span class="o">=</span> <span class="n">Wikidata5m</span><span class="p">()</span>
 <span class="n">freebase</span> <span class="o">=</span> <span class="n">Freebase</span><span class="p">()</span>
 
 <span class="n">mnist</span> <span class="o">=</span> <span class="n">MNIST</span><span class="p">()</span>
@@ -1187,7 +1249,7 @@
 <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
     <span class="s2">&quot;Dataset&quot;</span><span class="p">,</span>
     <span class="s2">&quot;BlogCatalog&quot;</span><span class="p">,</span> <span class="s2">&quot;Youtube&quot;</span><span class="p">,</span> <span class="s2">&quot;Flickr&quot;</span><span class="p">,</span> <span class="s2">&quot;Hyperlink2012&quot;</span><span class="p">,</span> <span class="s2">&quot;Friendster&quot;</span><span class="p">,</span> <span class="s2">&quot;Wikipedia&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Math&quot;</span><span class="p">,</span> <span class="s2">&quot;FB15k&quot;</span><span class="p">,</span> <span class="s2">&quot;FB15k237&quot;</span><span class="p">,</span> <span class="s2">&quot;WN18&quot;</span><span class="p">,</span> <span class="s2">&quot;WN18RR&quot;</span><span class="p">,</span> <span class="s2">&quot;Freebase&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Math&quot;</span><span class="p">,</span> <span class="s2">&quot;FB15k&quot;</span><span class="p">,</span> <span class="s2">&quot;FB15k237&quot;</span><span class="p">,</span> <span class="s2">&quot;WN18&quot;</span><span class="p">,</span> <span class="s2">&quot;WN18RR&quot;</span><span class="p">,</span> <span class="s2">&quot;Wikidata5m&quot;</span><span class="p">,</span> <span class="s2">&quot;Freebase&quot;</span><span class="p">,</span>
     <span class="s2">&quot;MNIST&quot;</span><span class="p">,</span> <span class="s2">&quot;CIFAR10&quot;</span><span class="p">,</span> <span class="s2">&quot;ImageNet&quot;</span>
 <span class="p">]</span>
 </pre></div>

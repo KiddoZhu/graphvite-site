@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>graphvite.solver &mdash; GraphVite 0.2.0 documentation</title>
+  <title>graphvite.solver &mdash; GraphVite 0.2.1 documentation</title>
   
 
   
@@ -346,7 +346,7 @@
 
 <dl class="method">
 <dt id="graphvite.solver.KnowledgeGraphSolver.train">
-<code class="sig-name descname">train</code><span class="sig-paren">(</span><em class="sig-param">model='RotatE'</em>, <em class="sig-param">num_epoch=2000</em>, <em class="sig-param">resume=False</em>, <em class="sig-param">margin=12</em>, <em class="sig-param">l3_regularization=2e-3</em>, <em class="sig-param">sample_batch_size=2000</em>, <em class="sig-param">positive_reuse=1</em>, <em class="sig-param">adversarial_temperature=2</em>, <em class="sig-param">log_frequency=100</em><span class="sig-paren">)</span><a class="headerlink" href="#graphvite.solver.KnowledgeGraphSolver.train" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">train</code><span class="sig-paren">(</span><em class="sig-param">model='RotatE'</em>, <em class="sig-param">num_epoch=2000</em>, <em class="sig-param">resume=False</em>, <em class="sig-param">relation_lr_multiplier=1</em>, <em class="sig-param">margin=12</em>, <em class="sig-param">l3_regularization=2e-3</em>, <em class="sig-param">sample_batch_size=2000</em>, <em class="sig-param">positive_reuse=1</em>, <em class="sig-param">adversarial_temperature=2</em>, <em class="sig-param">log_frequency=100</em><span class="sig-paren">)</span><a class="headerlink" href="#graphvite.solver.KnowledgeGraphSolver.train" title="Permalink to this definition">¶</a></dt>
 <dd><p>Train knowledge graph embeddings.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -354,6 +354,7 @@
 <li><p><strong>model</strong> (<em>str</em><em>, </em><em>optional</em>) – ‘TransE’, ‘DistMult’, ‘ComplEx’, ‘SimplE’ or ‘RotatE’</p></li>
 <li><p><strong>num_epoch</strong> (<em>int</em><em>, </em><em>optional</em>) – number of epochs, i.e. #positive edges / |E|</p></li>
 <li><p><strong>resume</strong> (<em>bool</em><em>, </em><em>optional</em>) – resume training from learned embeddings or not</p></li>
+<li><p><strong>relation_lr_multiplier</strong> (<em>float</em><em>, </em><em>optional</em>) – learning rate multiplier for relation embeddings</p></li>
 <li><p><strong>margin</strong> (<em>float</em><em>, </em><em>optional</em>) – logit margin (for TransE &amp; RotatE)</p></li>
 <li><p><strong>l3_regularization</strong> (<em>float</em><em>, </em><em>optional</em>) – L3 regularization (for DistMult, ComplEx &amp; SimplE)</p></li>
 <li><p><strong>sample_batch_size</strong> (<em>int</em><em>, </em><em>optional</em>) – batch size of samples in samplers</p></li>
