@@ -192,19 +192,29 @@
   <div class="section" id="data-format">
 <h1>Data Format<a class="headerlink" href="#data-format" title="Permalink to this headline">¶</a></h1>
 <p>GraphVite is designed to support a wide range of formats for graphs. Generally, it
-does not enforce any type restriction on input elements. We can either use integers
-or strings as our input. Each line in the file is parsed as</p>
+doesn’t enforce any type restriction on input elements. We can either use integers or
+strings as our input. Each line in the file is parsed as</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">token</span><span class="p">]</span> <span class="p">[</span><span class="n">delimiter</span><span class="p">]</span> <span class="p">[</span><span class="n">token</span><span class="p">]</span> <span class="p">[</span><span class="n">delimiter</span><span class="p">]</span><span class="o">...</span> <span class="p">[</span><span class="n">comment</span><span class="p">]</span><span class="o">...</span>
 </pre></div>
 </div>
 <p>By default, GraphVite treats any blank character as delimiter, and string after <code class="docutils literal notranslate"><span class="pre">#</span></code>
 as comment. You can change these settings in the
 <a class="reference internal" href="configuration.html#experiment-configuration"><span class="std std-ref">format section</span></a> of configuration files, or using
-<code class="docutils literal notranslate"><span class="pre">app.set_format()</span></code> in Python code.</p>
+<code class="docutils literal notranslate"><span class="pre">app.set_format(delimiters,</span> <span class="pre">comment)</span></code> in Python code.</p>
+<p>GraphVite can also construct graphs from Python objects, which is helpful if graphs
+are dynamically generated. It takes a nested list similar to the file format. Each
+token should be a string or a float.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">graph</span> <span class="o">=</span> <span class="p">[[</span><span class="n">token</span><span class="p">,</span> <span class="n">token</span><span class="p">],</span> <span class="p">[</span><span class="n">token</span><span class="p">,</span> <span class="n">token</span><span class="p">],</span> <span class="o">...</span><span class="p">]</span>
+</pre></div>
+</div>
 <div class="section" id="node-embedding">
 <h2>Node Embedding<a class="headerlink" href="#node-embedding" title="Permalink to this headline">¶</a></h2>
 <p>The input graph for node embedding follows the edge list format. Each line should be</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">head</span><span class="p">]</span> <span class="p">[</span><span class="n">tail</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>You may also specify a weight for each edge.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">head</span><span class="p">]</span> <span class="p">[</span><span class="n">tail</span><span class="p">]</span> <span class="p">[</span><span class="n">weight</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>For link prediction task, the evaluation file consists of edges and labels.</p>
@@ -223,6 +233,10 @@ than one label, it should take multiple lines.</p>
 <h2>Knowledge Graph Embedding<a class="headerlink" href="#knowledge-graph-embedding" title="Permalink to this headline">¶</a></h2>
 <p>Each line in a knowledge graph is a triplet.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">head</span><span class="p">]</span> <span class="p">[</span><span class="n">relation</span><span class="p">]</span> <span class="p">[</span><span class="n">tail</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>You may also specify a weight for each triplet.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">head</span><span class="p">]</span> <span class="p">[</span><span class="n">relation</span><span class="p">]</span> <span class="p">[</span><span class="n">tail</span><span class="p">]</span> <span class="p">[</span><span class="n">weight</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>All the files in knowledge graph evaluation tasks take the same triplet format.</p>

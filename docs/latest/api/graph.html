@@ -206,7 +206,7 @@
 <dt id="graphvite.graph.Graph.load">
 <code class="sig-name descname">load</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#graphvite.graph.Graph.load" title="Permalink to this definition">¶</a></dt>
 <dd><p>Load a graph from an edge-list file. Store the graph in an adjacency list.</p>
-<p>This function has 2 overloads</p>
+<p>This function has 3 overloads</p>
 <dl class="function">
 <dt>
 <code class="sig-name descname">load</code><span class="sig-paren">(</span><em class="sig-param">file_name</em>, <em class="sig-param">as_undirected=True</em>, <em class="sig-param">normalization=False</em>, <em class="sig-param">delimiters=' \t\r\n'</em>, <em class="sig-param">comment='#'</em><span class="sig-paren">)</span></dt>
@@ -217,11 +217,17 @@
 <code class="sig-name descname">load</code><span class="sig-paren">(</span><em class="sig-param">edge_list</em>, <em class="sig-param">as_undirected=True</em>, <em class="sig-param">normalization=False</em><span class="sig-paren">)</span></dt>
 <dd></dd></dl>
 
+<dl class="function">
+<dt>
+<code class="sig-name descname">load</code><span class="sig-paren">(</span><em class="sig-param">weighted_edge_list</em>, <em class="sig-param">as_undirected=True</em>, <em class="sig-param">normalization=False</em><span class="sig-paren">)</span></dt>
+<dd></dd></dl>
+
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>file_name</strong> (<em>str</em>) – file name</p></li>
-<li><p><strong>edge_list</strong> (<em>list of</em><em> (</em><em>str</em><em>, </em><em>str</em><em>, </em><em>float</em><em>)</em>) – edge list</p></li>
+<li><p><strong>edge_list</strong> (<em>list of</em><em> (</em><em>str</em><em>, </em><em>str</em><em>)</em>) – edge list</p></li>
+<li><p><strong>weighted_edge_list</strong> (<em>list of</em><em> (</em><em>str</em><em>, </em><em>str</em><em>, </em><em>float</em><em>)</em>) – weighted edge list</p></li>
 <li><p><strong>as_undirected</strong> (<em>bool</em><em>, </em><em>optional</em>) – symmetrize the graph or not</p></li>
 <li><p><strong>normalization</strong> (<em>bool</em><em>, </em><em>optional</em>) – normalize the adjacency matrix or not</p></li>
 <li><p><strong>delimiters</strong> (<em>str</em><em>, </em><em>optional</em>) – string of delimiter characters</p></li>
@@ -314,7 +320,7 @@
 <dt id="graphvite.graph.KnowledgeGraph.load">
 <code class="sig-name descname">load</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#graphvite.graph.KnowledgeGraph.load" title="Permalink to this definition">¶</a></dt>
 <dd><p>Load a knowledge graph from a triplet-list file. Store the graph in an adjacency list.</p>
-<p>This function has 2 overloads</p>
+<p>This function has 3 overloads</p>
 <dl class="function">
 <dt>
 <code class="sig-name descname">load</code><span class="sig-paren">(</span><em class="sig-param">file_name</em>, <em class="sig-param">normalization=False</em>, <em class="sig-param">delimiters=' \t\r\n'</em>, <em class="sig-param">comment='#'</em><span class="sig-paren">)</span></dt>
@@ -325,11 +331,17 @@
 <code class="sig-name descname">load</code><span class="sig-paren">(</span><em class="sig-param">triplet_list</em>, <em class="sig-param">normalization=False</em><span class="sig-paren">)</span></dt>
 <dd></dd></dl>
 
+<dl class="function">
+<dt>
+<code class="sig-name descname">load</code><span class="sig-paren">(</span><em class="sig-param">weighted_triplet_list</em>, <em class="sig-param">normalization=False</em><span class="sig-paren">)</span></dt>
+<dd></dd></dl>
+
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>file_name</strong> (<em>str</em>) – file name</p></li>
 <li><p><strong>triplet_list</strong> (<em>list of</em><em> (</em><em>str</em><em>, </em><em>str</em><em>, </em><em>str</em><em>)</em>) – triplet list</p></li>
+<li><p><strong>weighted_triplet_list</strong> (<em>list of</em><em> (</em><em>str</em><em>, </em><em>str</em><em>, </em><em>str</em><em>, </em><em>float</em><em>)</em>) – weighted triplet list</p></li>
 <li><p><strong>normalization</strong> (<em>bool</em><em>, </em><em>optional</em>) – normalize the adjacency matrix or not</p></li>
 <li><p><strong>delimiters</strong> (<em>str</em><em>, </em><em>optional</em>) – string of delimiter characters</p></li>
 <li><p><strong>comment</strong> (<em>str</em><em>, </em><em>optional</em>) – prefix of comment strings</p></li>
