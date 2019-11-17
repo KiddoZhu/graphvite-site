@@ -1,0 +1,318 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Pre-trained Models &mdash; GraphVite 0.2.1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Command Line" href="user/command_line.html" />
+    <link rel="prev" title="Benchmarks" href="benchmark.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> GraphVite
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Get Started</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Application Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="benchmark.html">Benchmarks</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Pre-trained Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">Wikidata5m</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#load-pre-trained-models">Load pre-trained models</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="user/command_line.html">Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user/configuration.html">Configuration Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user/format.html">Data Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user/python.html">Python Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user/auto.html">Magic of Auto</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="developer/framework.html">Understand the Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer/model.html">Customize Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer/routine.html">Customize Routine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer/solver.html">Customize Solvers</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Package Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/application.html">Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/graph.html">Graph</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/solver.html">Solver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/optimizer.html">Optimizer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/dataset.html">Dataset</a></li>
+</ul>
+<p class="caption"><span class="caption-text">FAQ</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">GraphVite</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Pre-trained Models</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/pretrained_model.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="pre-trained-models">
+<h1>Pre-trained Models<a class="headerlink" href="#pre-trained-models" title="Permalink to this headline">¶</a></h1>
+<p>To facilitate the usage of knowledge graph representations in semantic tasks, we
+provide a bunch of pre-trained embeddings for some common datasets.</p>
+<div class="section" id="id1">
+<h2>Wikidata5m<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://arxiv.org/pdf/1911.06136.pdf">Wikidata5m</a> is a large-scale knowledge graph dataset constructed from <a class="reference external" href="https://www.wikidata.org">Wikidata</a>
+and <a class="reference external" href="https://www.wikipedia.org">Wikipedia</a>. It contains plenty of entities in the general domain, such as
+celebrities, events, concepts and things.</p>
+<p>We trained 5 standard knowledge graph embedding models on <a class="reference external" href="https://arxiv.org/pdf/1911.06136.pdf">Wikidata5m</a>. The
+performance benchmark of these models can be found <a class="reference internal" href="benchmark.html#knowledge-graph-benchmark"><span class="std std-ref">here</span></a>.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 18%" />
+<col style="width: 15%" />
+<col style="width: 46%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Model</p></th>
+<th class="head"><p>Dimension</p></th>
+<th class="head"><p>Size</p></th>
+<th class="head"><p>Download link</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="http://papers.nips.cc/paper/5071-translating-embeddings-for-modeling-multi-relational-data.pdf">TransE</a></p></td>
+<td><p>512</p></td>
+<td><p>9.33 GB</p></td>
+<td><p><a class="reference external" href="https://udemontreal-my.sharepoint.com/:u:/g/personal/zhaocheng_zhu_umontreal_ca/EX4c1Ud8M61KlDUn2U_yz_sBP_bXNuFnudfhRnYzWUFA2A?download=1">transe_wikidata5m.pkl</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://arxiv.org/pdf/1412.6575.pdf">DistMult</a></p></td>
+<td><p>512</p></td>
+<td><p>9.33 GB</p></td>
+<td><p><a class="reference external" href="https://udemontreal-my.sharepoint.com/:u:/g/personal/zhaocheng_zhu_umontreal_ca/EQsXL8UmSJhHt2uBdB32muMBo4o4RUaMR6KDEQTcsz3jvg?download=1">distmult_wikidata5m.pkl</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="http://proceedings.mlr.press/v48/trouillon16.pdf">ComplEx</a></p></td>
+<td><p>512</p></td>
+<td><p>9.33 GB</p></td>
+<td><p><a class="reference external" href="https://udemontreal-my.sharepoint.com/:u:/g/personal/zhaocheng_zhu_umontreal_ca/ERAwwLdsvdRIlrkVujMetmEBV9RgizsFnW91pIpjkBjbTw?download=1">complex_wikidata5m.pkl</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://papers.nips.cc/paper/7682-simple-embedding-for-link-prediction-in-knowledge-graphs.pdf">SimplE</a></p></td>
+<td><p>512</p></td>
+<td><p>9.33 GB</p></td>
+<td><p><a class="reference external" href="https://udemontreal-my.sharepoint.com/:u:/g/personal/zhaocheng_zhu_umontreal_ca/EVcJpJAzkThPu1vjgJLohscBgwtPajhTZvCCd8nEg1GiwA?download=1">simple_wikidata5m.pkl</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://arxiv.org/pdf/1902.10197.pdf">RotatE</a></p></td>
+<td><p>512</p></td>
+<td><p>9.33 GB</p></td>
+<td><p><a class="reference external" href="https://udemontreal-my.sharepoint.com/:u:/g/personal/zhaocheng_zhu_umontreal_ca/EWvX5Z0rWZ9GvmdLaM3ONx4BtxzDFehXdc0gwE52YEiX2Q?download=1">rotate_wikidata5m.pkl</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="load-pre-trained-models">
+<h2>Load pre-trained models<a class="headerlink" href="#load-pre-trained-models" title="Permalink to this headline">¶</a></h2>
+<p>The pre-trained models can be loaded through <code class="docutils literal notranslate"><span class="pre">pickle</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pickle</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;transe_wikidata5m.pkl&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fin</span><span class="p">:</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">fin</span><span class="p">)</span>
+<span class="n">entity2id</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">entity2id</span>
+<span class="n">relation2id</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">relation2id</span>
+<span class="n">entity_embeddings</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">solver</span><span class="o">.</span><span class="n">entity_embeddings</span>
+<span class="n">relation_embeddings</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">solver</span><span class="o">.</span><span class="n">relation_embddings</span>
+</pre></div>
+</div>
+<p>Load the alias mapping from the dataset. Now we can access the embeddings by natural language index.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">graphvite</span> <span class="kn">as</span> <span class="nn">gv</span>
+<span class="n">alias2entity</span> <span class="o">=</span> <span class="n">gv</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">wikidata5m</span><span class="o">.</span><span class="n">alias2entity</span>
+<span class="n">alias2relation</span> <span class="o">=</span> <span class="n">gv</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">wikidata5m</span><span class="o">.</span><span class="n">alias2relation</span>
+<span class="k">print</span><span class="p">(</span><span class="n">entity_embeddings</span><span class="p">[</span><span class="n">entity2id</span><span class="p">[</span><span class="n">alias2entity</span><span class="p">[</span><span class="s2">&quot;machine learning&quot;</span><span class="p">]]])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">relation_embeddings</span><span class="p">[</span><span class="n">relation2id</span><span class="p">[</span><span class="n">alias2relation</span><span class="p">[</span><span class="s2">&quot;field of work&quot;</span><span class="p">]]])</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="user/command_line.html" class="btn btn-neutral float-right" title="Command Line" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="benchmark.html" class="btn btn-neutral float-left" title="Benchmarks" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, MilaGraph
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -50,6 +50,16 @@ interface:
     url: "/docs/latest/user/command_line"
     btn_class: "btn--primary"
     btn_label: "Learn more"
+pretrained:
+  - title: "Pre-trained Models"
+    image_path: "/assets/images/pretrained.png"
+    excerpt: >
+      Powerful pre-trained models are released to benefit a wide range of semantic tasks.
+      Serving as a large encyclopedia for intelligent systems, these models are ready to
+      enhance language understanding with factual knowledge of the world.
+    url: "/docs/latest/pretrained_model"
+    btn_class: "btn--primary"
+    btn_label: "Learn more"
 ---
 
 {% include feature_row id="features" %}
@@ -68,3 +78,4 @@ interface:
 
 {% include feature_row id="benchmark" type="left" %}
 {% include feature_row id="interface" type="right" %}
+{% include feature_row id="pretrained" type="left" %}

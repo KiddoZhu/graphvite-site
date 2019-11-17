@@ -91,6 +91,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../quick_start.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../overview.html">Application Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../benchmark.html">Benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pretrained_model.html">Pre-trained Models</a></li>
 </ul>
 <p class="caption"><span class="caption-text">User Guide</span></p>
 <ul>
@@ -949,6 +950,7 @@
         <span class="n">recalls</span> <span class="o">=</span> <span class="n">new_recalls</span>
 
         <span class="k">if</span> <span class="n">save_file</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;save entity predictions to `</span><span class="si">%s</span><span class="s2">`&quot;</span> <span class="o">%</span> <span class="n">save_file</span><span class="p">)</span>
             <span class="n">extension</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">save_file</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
             <span class="k">if</span> <span class="n">extension</span> <span class="o">==</span> <span class="s2">&quot;.txt&quot;</span><span class="p">:</span>
                 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">save_file</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fout</span><span class="p">:</span>

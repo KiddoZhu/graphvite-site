@@ -91,6 +91,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../quick_start.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../overview.html">Application Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../benchmark.html">Benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pretrained_model.html">Pre-trained Models</a></li>
 </ul>
 <p class="caption"><span class="caption-text">User Guide</span></p>
 <ul>
@@ -373,7 +374,7 @@
         <span class="n">preprocess</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preprocess_name</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">urls</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">preprocess</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span>
-                <span class="s2">&quot;There are non-trivial number of files,but function `</span><span class="si">%s</span><span class="s2">` is not found&quot;</span> <span class="o">%</span> <span class="n">preprocess_name</span><span class="p">)</span>
+                <span class="s2">&quot;There are non-trivial number of files, but function `</span><span class="si">%s</span><span class="s2">` is not found&quot;</span> <span class="o">%</span> <span class="n">preprocess_name</span><span class="p">)</span>
 
         <span class="n">extract_files</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">url</span><span class="p">,</span> <span class="n">member</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">urls</span><span class="p">,</span> <span class="n">members</span><span class="p">):</span>
@@ -877,7 +878,11 @@
             <span class="n">urls</span><span class="o">=</span><span class="p">{</span>
                 <span class="s2">&quot;train&quot;</span><span class="p">:</span> <span class="s2">&quot;https://www.dropbox.com/s/dty6ufe1gg6keuc/wikidata5m.txt.gz?dl=1&quot;</span><span class="p">,</span>
                 <span class="s2">&quot;valid&quot;</span><span class="p">:</span> <span class="s2">&quot;https://www.dropbox.com/s/dty6ufe1gg6keuc/wikidata5m.txt.gz?dl=1&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;test&quot;</span><span class="p">:</span> <span class="s2">&quot;https://www.dropbox.com/s/dty6ufe1gg6keuc/wikidata5m.txt.gz?dl=1&quot;</span>
+                <span class="s2">&quot;test&quot;</span><span class="p">:</span> <span class="s2">&quot;https://www.dropbox.com/s/dty6ufe1gg6keuc/wikidata5m.txt.gz?dl=1&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;entity&quot;</span><span class="p">:</span> <span class="s2">&quot;https://www.dropbox.com/s/bgmgvk8brjwpc9w/entity.txt.gz?dl=1&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;relation&quot;</span><span class="p">:</span> <span class="s2">&quot;https://www.dropbox.com/s/37jxki93gguv0pp/relation.txt.gz?dl=1&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;alias2entity&quot;</span><span class="p">:</span> <span class="p">[],</span> <span class="c1"># depends on `entity`</span>
+                <span class="s2">&quot;alias2relation&quot;</span><span class="p">:</span> <span class="p">[]</span> <span class="c1"># depends on `relation`</span>
             <span class="p">}</span>
         <span class="p">)</span>
 
@@ -894,7 +899,28 @@
     <span class="k">def</span> <span class="nf">test_preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">graph_file</span><span class="p">,</span> <span class="n">test_file</span><span class="p">):</span>
         <span class="n">train_file</span> <span class="o">=</span> <span class="n">test_file</span><span class="p">[:</span><span class="n">test_file</span><span class="o">.</span><span class="n">rfind</span><span class="p">(</span><span class="s2">&quot;valid.txt&quot;</span><span class="p">)]</span> <span class="o">+</span> <span class="s2">&quot;train.txt&quot;</span>
         <span class="n">valid_file</span> <span class="o">=</span> <span class="n">test_file</span><span class="p">[:</span><span class="n">test_file</span><span class="o">.</span><span class="n">rfind</span><span class="p">(</span><span class="s2">&quot;train.txt&quot;</span><span class="p">)]</span> <span class="o">+</span> <span class="s2">&quot;valid.txt&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">edge_split</span><span class="p">(</span><span class="n">graph_file</span><span class="p">,</span> <span class="p">[</span><span class="n">train_file</span><span class="p">,</span> <span class="n">valid_file</span><span class="p">,</span> <span class="n">test_file</span><span class="p">],</span> <span class="n">portions</span><span class="o">=</span><span class="p">[</span><span class="mi">4000</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">edge_split</span><span class="p">(</span><span class="n">graph_file</span><span class="p">,</span> <span class="p">[</span><span class="n">train_file</span><span class="p">,</span> <span class="n">valid_file</span><span class="p">,</span> <span class="n">test_file</span><span class="p">],</span> <span class="n">portions</span><span class="o">=</span><span class="p">[</span><span class="mi">4000</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+
+    <span class="k">def</span> <span class="nf">load_alias</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alias_file</span><span class="p">):</span>
+        <span class="n">alias2object</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">ambiguous</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">alias_file</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fin</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">fin</span><span class="p">:</span>
+                <span class="n">tokens</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="nb">object</span> <span class="o">=</span> <span class="n">tokens</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="k">for</span> <span class="n">alias</span> <span class="ow">in</span> <span class="n">tokens</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+                    <span class="k">if</span> <span class="n">alias</span> <span class="ow">in</span> <span class="n">alias2object</span> <span class="ow">and</span> <span class="n">alias2object</span><span class="p">[</span><span class="n">alias</span><span class="p">]</span> <span class="o">!=</span> <span class="nb">object</span><span class="p">:</span>
+                        <span class="n">ambiguous</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">alias</span><span class="p">)</span>
+                    <span class="n">alias2object</span><span class="p">[</span><span class="n">alias</span><span class="p">]</span> <span class="o">=</span> <span class="nb">object</span>
+            <span class="k">for</span> <span class="n">alias</span> <span class="ow">in</span> <span class="n">ambiguous</span><span class="p">:</span>
+                <span class="n">alias2object</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">alias</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">alias2object</span>
+
+    <span class="k">def</span> <span class="nf">alias2entity_preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_file</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">load_alias</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">entity</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">alias2relation_preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_file</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">load_alias</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">relation</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="Freebase"><a class="viewcode-back" href="../../api/dataset.html#graphvite.dataset.Freebase">[docs]</a><span class="k">class</span> <span class="nc">Freebase</span><span class="p">(</span><span class="n">Dataset</span><span class="p">):</span>
@@ -1003,19 +1029,19 @@
         <span class="n">batch_files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">raw_path</span><span class="p">,</span> <span class="s2">&quot;cifar-10-batches-bin/data_batch_*.bin&quot;</span><span class="p">))</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">load_labels</span><span class="p">(</span><span class="n">meta_file</span><span class="p">,</span> <span class="o">*</span><span class="n">batch_files</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">test_image_data_preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">raw_path</span><span class="p">,</span> <span class="n">save_path</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">test_image_data_preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">raw_path</span><span class="p">,</span> <span class="n">save_file</span><span class="p">):</span>
         <span class="n">batch_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">raw_path</span><span class="p">,</span> <span class="s2">&quot;cifar-10-batches-bin/test_batch.bin&quot;</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">load_images</span><span class="p">(</span><span class="n">batch_file</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">test_label_data_preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">raw_path</span><span class="p">,</span> <span class="n">save_path</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">test_label_data_preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">raw_path</span><span class="p">,</span> <span class="n">save_file</span><span class="p">):</span>
         <span class="n">meta_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">raw_path</span><span class="p">,</span> <span class="s2">&quot;cifar-10-batches-bin/batches.meta.txt&quot;</span><span class="p">)</span>
         <span class="n">batch_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">raw_path</span><span class="p">,</span> <span class="s2">&quot;cifar-10-batches-bin/test_batch.bin&quot;</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">load_labels</span><span class="p">(</span><span class="n">meta_file</span><span class="p">,</span> <span class="n">batch_file</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">image_data_preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_path</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">image_data_preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_file</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">train_image_data</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">test_image_data</span><span class="p">])</span>
 
-    <span class="k">def</span> <span class="nf">label_data_preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_path</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">label_data_preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_file</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">train_label_data</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">test_label_data</span><span class="p">])</span></div>
 
 
