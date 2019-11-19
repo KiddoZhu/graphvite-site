@@ -49,7 +49,7 @@ The pre-trained models can be loaded through ``pickle``.
     entity2id = model.graph.entity2id
     relation2id = model.graph.relation2id
     entity_embeddings = model.solver.entity_embeddings
-    relation_embeddings = model.solver.relation_embddings
+    relation_embeddings = model.solver.relation_embeddings
 
 Load the alias mapping from the dataset. Now we can access the embeddings by natural language index.
 
