@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>graphvite.solver &mdash; GraphVite 0.2.1 documentation</title>
+  <title>graphvite.solver &mdash; GraphVite 0.2.2 documentation</title>
   
 
   
@@ -23,10 +23,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -214,7 +214,7 @@
 </dl>
 <dl class="method">
 <dt id="graphvite.solver.GraphSolver.build">
-<code class="sig-name descname">build</code><span class="sig-paren">(</span><em class="sig-param">graph</em>, <em class="sig-param">optimizer=auto</em>, <em class="sig-param">num_partition=auto</em>, <em class="sig-param">num_negative=1</em>, <em class="sig-param">batch_size=1e5</em>, <em class="sig-param">episode_size=auto</em><span class="sig-paren">)</span><a class="headerlink" href="#graphvite.solver.GraphSolver.build" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">build</code><span class="sig-paren">(</span><em class="sig-param">graph</em>, <em class="sig-param">optimizer=auto</em>, <em class="sig-param">num_partition=auto</em>, <em class="sig-param">num_negative=1</em>, <em class="sig-param">batch_size=100000</em>, <em class="sig-param">episode_size=auto</em><span class="sig-paren">)</span><a class="headerlink" href="#graphvite.solver.GraphSolver.build" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determine and allocate all resources for the solver.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -312,7 +312,7 @@
 </dl>
 <dl class="method">
 <dt id="graphvite.solver.KnowledgeGraphSolver.build">
-<code class="sig-name descname">build</code><span class="sig-paren">(</span><em class="sig-param">graph</em>, <em class="sig-param">optimizer=auto</em>, <em class="sig-param">num_partition=auto</em>, <em class="sig-param">num_negative=64</em>, <em class="sig-param">batch_size=1e5</em>, <em class="sig-param">episode_size=auto</em><span class="sig-paren">)</span><a class="headerlink" href="#graphvite.solver.KnowledgeGraphSolver.build" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">build</code><span class="sig-paren">(</span><em class="sig-param">graph</em>, <em class="sig-param">optimizer=auto</em>, <em class="sig-param">num_partition=auto</em>, <em class="sig-param">num_negative=64</em>, <em class="sig-param">batch_size=100000</em>, <em class="sig-param">episode_size=auto</em><span class="sig-paren">)</span><a class="headerlink" href="#graphvite.solver.KnowledgeGraphSolver.build" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determine and allocate all resources for the solver.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -352,12 +352,12 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>model</strong> (<em>str</em><em>, </em><em>optional</em>) – ‘TransE’, ‘DistMult’, ‘ComplEx’, ‘SimplE’ or ‘RotatE’</p></li>
+<li><p><strong>model</strong> (<em>str</em><em>, </em><em>optional</em>) – ‘TransE’, ‘DistMult’, ‘ComplEx’, ‘SimplE’, ‘RotatE’ or ‘QuatE’</p></li>
 <li><p><strong>num_epoch</strong> (<em>int</em><em>, </em><em>optional</em>) – number of epochs, i.e. #positive edges / |E|</p></li>
 <li><p><strong>resume</strong> (<em>bool</em><em>, </em><em>optional</em>) – resume training from learned embeddings or not</p></li>
 <li><p><strong>relation_lr_multiplier</strong> (<em>float</em><em>, </em><em>optional</em>) – learning rate multiplier for relation embeddings</p></li>
 <li><p><strong>margin</strong> (<em>float</em><em>, </em><em>optional</em>) – logit margin (for TransE &amp; RotatE)</p></li>
-<li><p><strong>l3_regularization</strong> (<em>float</em><em>, </em><em>optional</em>) – L3 regularization (for DistMult, ComplEx &amp; SimplE)</p></li>
+<li><p><strong>l3_regularization</strong> (<em>float</em><em>, </em><em>optional</em>) – L3 regularization (for DistMult, ComplEx, SimplE &amp; QuatE)</p></li>
 <li><p><strong>sample_batch_size</strong> (<em>int</em><em>, </em><em>optional</em>) – batch size of samples in samplers</p></li>
 <li><p><strong>positive_reuse</strong> (<em>int</em><em>, </em><em>optional</em>) – times of reusing positive samples</p></li>
 <li><p><strong>adversarial_temperature</strong> (<em>float</em><em>, </em><em>optional</em>) – temperature of self-adversarial negative sampling,
@@ -408,7 +408,7 @@ disabled when set to non-positive value</p></li>
 </dl>
 <dl class="method">
 <dt id="graphvite.solver.VisualizationSolver.build">
-<code class="sig-name descname">build</code><span class="sig-paren">(</span><em class="sig-param">graph</em>, <em class="sig-param">optimizer=auto</em>, <em class="sig-param">num_partition=auto</em>, <em class="sig-param">num_negative=5</em>, <em class="sig-param">batch_size=1e5</em>, <em class="sig-param">episode_size=auto</em><span class="sig-paren">)</span><a class="headerlink" href="#graphvite.solver.VisualizationSolver.build" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">build</code><span class="sig-paren">(</span><em class="sig-param">graph</em>, <em class="sig-param">optimizer=auto</em>, <em class="sig-param">num_partition=auto</em>, <em class="sig-param">num_negative=5</em>, <em class="sig-param">batch_size=100000</em>, <em class="sig-param">episode_size=auto</em><span class="sig-paren">)</span><a class="headerlink" href="#graphvite.solver.VisualizationSolver.build" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determine and allocate all resources for the solver.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>

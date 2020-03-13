@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Pre-trained Models &mdash; GraphVite 0.2.1 documentation</title>
+  <title>Pre-trained Models &mdash; GraphVite 0.2.2 documentation</title>
   
 
   
@@ -23,10 +23,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -240,6 +240,11 @@ performance benchmark of these models can be found <a class="reference internal"
 <td><p>9.33 GB</p></td>
 <td><p><a class="reference external" href="https://udemontreal-my.sharepoint.com/:u:/g/personal/zhaocheng_zhu_umontreal_ca/EWvX5Z0rWZ9GvmdLaM3ONx4BtxzDFehXdc0gwE52YEiX2Q?download=1">rotate_wikidata5m.pkl</a></p></td>
 </tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://papers.nips.cc/paper/8541-quaternion-knowledge-graph-embeddings.pdf">QuatE</a></p></td>
+<td><p>512</p></td>
+<td><p>9.36 GB</p></td>
+<td><p><a class="reference external" href="https://udemontreal-my.sharepoint.com/:u:/g/personal/zhaocheng_zhu_umontreal_ca/EUGNHMB9tlJAokjxBouyG08ByfAb3-IYHCszTMmJnQSegg?download=1">quate_wikidata5m.pkl</a></p></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -256,11 +261,11 @@ performance benchmark of these models can be found <a class="reference internal"
 </pre></div>
 </div>
 <p>Load the alias mapping from the dataset. Now we can access the embeddings by natural language index.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">graphvite</span> <span class="kn">as</span> <span class="nn">gv</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">graphvite</span> <span class="k">as</span> <span class="nn">gv</span>
 <span class="n">alias2entity</span> <span class="o">=</span> <span class="n">gv</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">wikidata5m</span><span class="o">.</span><span class="n">alias2entity</span>
 <span class="n">alias2relation</span> <span class="o">=</span> <span class="n">gv</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">wikidata5m</span><span class="o">.</span><span class="n">alias2relation</span>
-<span class="k">print</span><span class="p">(</span><span class="n">entity_embeddings</span><span class="p">[</span><span class="n">entity2id</span><span class="p">[</span><span class="n">alias2entity</span><span class="p">[</span><span class="s2">&quot;machine learning&quot;</span><span class="p">]]])</span>
-<span class="k">print</span><span class="p">(</span><span class="n">relation_embeddings</span><span class="p">[</span><span class="n">relation2id</span><span class="p">[</span><span class="n">alias2relation</span><span class="p">[</span><span class="s2">&quot;field of work&quot;</span><span class="p">]]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">entity_embeddings</span><span class="p">[</span><span class="n">entity2id</span><span class="p">[</span><span class="n">alias2entity</span><span class="p">[</span><span class="s2">&quot;machine learning&quot;</span><span class="p">]]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">relation_embeddings</span><span class="p">[</span><span class="n">relation2id</span><span class="p">[</span><span class="n">alias2relation</span><span class="p">[</span><span class="s2">&quot;field of work&quot;</span><span class="p">]]])</span>
 </pre></div>
 </div>
 </div>

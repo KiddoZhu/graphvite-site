@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Install &mdash; GraphVite 0.2.1 documentation</title>
+  <title>Install &mdash; GraphVite 0.2.2 documentation</title>
   
 
   
@@ -23,10 +23,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -197,13 +197,13 @@ the library on <a class="reference external" href="https://colab.research.google
 <div class="section" id="install-from-conda">
 <h2>Install from conda<a class="headerlink" href="#install-from-conda" title="Permalink to this headline">¶</a></h2>
 <p>To install GraphVite from <code class="docutils literal notranslate"><span class="pre">conda</span></code>, you only need one line.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda install -c milagraph graphvite <span class="nv">cudatoolkit</span><span class="o">=</span><span class="k">$(</span>nvcc -V <span class="p">|</span> grep -Po <span class="s2">&quot;(?&lt;=V)\d+.\d+&quot;</span><span class="k">)</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda install -c milagraph -c conda-forge graphvite <span class="nv">cudatoolkit</span><span class="o">=</span><span class="k">$(</span>nvcc -V <span class="p">|</span> grep -Po <span class="s2">&quot;(?&lt;=V)\d+.\d+&quot;</span><span class="k">)</span>
 </pre></div>
 </div>
 <p>By default, this will install all dependencies, including <code class="docutils literal notranslate"><span class="pre">PyTorch</span></code> and
 <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>. If you only need embedding training without evaluation, there is an
 alternative with minimum dependencies.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda install -c milagraph graphvite-mini <span class="nv">cudatoolkit</span><span class="o">=</span><span class="k">$(</span>nvcc -V <span class="p">|</span> grep -Po <span class="s2">&quot;(?&lt;=V)\d+.\d+&quot;</span><span class="k">)</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda install -c milagraph -c conda-forge graphvite-mini <span class="nv">cudatoolkit</span><span class="o">=</span><span class="k">$(</span>nvcc -V <span class="p">|</span> grep -Po <span class="s2">&quot;(?&lt;=V)\d+.\d+&quot;</span><span class="k">)</span>
 </pre></div>
 </div>
 </div>

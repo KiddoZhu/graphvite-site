@@ -1,0 +1,496 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>graphvite.graph &mdash; GraphVite 0.2.1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="graphvite.solver" href="solver.html" />
+    <link rel="prev" title="graphvite.application" href="application.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> GraphVite
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Get Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Application Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmark.html">Benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pretrained_model.html">Pre-trained Models</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user/command_line.html">Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/configuration.html">Configuration Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/format.html">Data Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/python.html">Python Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/auto.html">Magic of Auto</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../developer/framework.html">Understand the Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/model.html">Customize Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/routine.html">Customize Routine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/solver.html">Customize Solvers</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Package Reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="application.html">Application</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Graph</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solver.html">Solver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="optimizer.html">Optimizer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dataset.html">Dataset</a></li>
+</ul>
+<p class="caption"><span class="caption-text">FAQ</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">GraphVite</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>graphvite.graph</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/graph.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-graphvite.graph">
+<span id="graphvite-graph"></span><h1>graphvite.graph<a class="headerlink" href="#module-graphvite.graph" title="Permalink to this headline">¶</a></h1>
+<p>Graph module of GraphVite</p>
+<dl class="class">
+<dt id="graphvite.graph.Graph">
+<em class="property">class </em><code class="sig-prename descclassname">graphvite.graph.</code><code class="sig-name descname">Graph</code><span class="sig-paren">(</span><em class="sig-param">index_type=dtype.uint32</em><span class="sig-paren">)</span><a class="headerlink" href="#graphvite.graph.Graph" title="Permalink to this definition">¶</a></dt>
+<dd><p>Normal graphs without attributes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>index_type</strong> (<em>dtype</em>) – type of node indexes</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Instantiations:</dt><dd><ul class="simple">
+<li><p><strong>index_type</strong>: dtype.uint32</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="graphvite.graph.Graph.load">
+<code class="sig-name descname">load</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#graphvite.graph.Graph.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load a graph from an edge-list file. Store the graph in an adjacency list.</p>
+<p>This function has 3 overloads</p>
+<dl class="function">
+<dt>
+<code class="sig-name descname">load</code><span class="sig-paren">(</span><em class="sig-param">file_name</em>, <em class="sig-param">as_undirected=True</em>, <em class="sig-param">normalization=False</em>, <em class="sig-param">delimiters=' \t\r\n'</em>, <em class="sig-param">comment='#'</em><span class="sig-paren">)</span></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt>
+<code class="sig-name descname">load</code><span class="sig-paren">(</span><em class="sig-param">edge_list</em>, <em class="sig-param">as_undirected=True</em>, <em class="sig-param">normalization=False</em><span class="sig-paren">)</span></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt>
+<code class="sig-name descname">load</code><span class="sig-paren">(</span><em class="sig-param">weighted_edge_list</em>, <em class="sig-param">as_undirected=True</em>, <em class="sig-param">normalization=False</em><span class="sig-paren">)</span></dt>
+<dd></dd></dl>
+
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file_name</strong> (<em>str</em>) – file name</p></li>
+<li><p><strong>edge_list</strong> (<em>list of</em><em> (</em><em>str</em><em>, </em><em>str</em><em>)</em>) – edge list</p></li>
+<li><p><strong>weighted_edge_list</strong> (<em>list of</em><em> (</em><em>str</em><em>, </em><em>str</em><em>, </em><em>float</em><em>)</em>) – weighted edge list</p></li>
+<li><p><strong>as_undirected</strong> (<em>bool</em><em>, </em><em>optional</em>) – symmetrize the graph or not</p></li>
+<li><p><strong>normalization</strong> (<em>bool</em><em>, </em><em>optional</em>) – normalize the adjacency matrix or not</p></li>
+<li><p><strong>delimiters</strong> (<em>str</em><em>, </em><em>optional</em>) – string of delimiter characters</p></li>
+<li><p><strong>comment</strong> (<em>str</em><em>, </em><em>optional</em>) – prefix of comment strings</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="graphvite.graph.Graph.save">
+<code class="sig-name descname">save</code><span class="sig-paren">(</span><em class="sig-param">file_name</em>, <em class="sig-param">weighted=True</em>, <em class="sig-param">anonymous=False</em><span class="sig-paren">)</span><a class="headerlink" href="#graphvite.graph.Graph.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save the graph in edge-list format.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file_name</strong> (<em>str</em>) – file name</p></li>
+<li><p><strong>weighted</strong> (<em>bool</em><em>, </em><em>optional</em>) – save edge weights or not</p></li>
+<li><p><strong>anonymous</strong> (<em>bool</em><em>, </em><em>optional</em>) – save node names or not</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="graphvite.graph.Graph.id2name">
+<em class="property">property </em><code class="sig-name descname">id2name</code><a class="headerlink" href="#graphvite.graph.Graph.id2name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Map of node index to name.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="graphvite.graph.Graph.name2id">
+<em class="property">property </em><code class="sig-name descname">name2id</code><a class="headerlink" href="#graphvite.graph.Graph.name2id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Map of node name to index.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="graphvite.graph.WordGraph">
+<em class="property">class </em><code class="sig-prename descclassname">graphvite.graph.</code><code class="sig-name descname">WordGraph</code><span class="sig-paren">(</span><em class="sig-param">index_type=dtype.uint32</em><span class="sig-paren">)</span><a class="headerlink" href="#graphvite.graph.WordGraph" title="Permalink to this definition">¶</a></dt>
+<dd><p>Normal graphs of word co-occurrences.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>index_type</strong> (<em>dtype</em>) – type of node indexes</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Instantiations:</dt><dd><ul class="simple">
+<li><p><strong>index_type</strong>: dtype.uint32</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="graphvite.graph.WordGraph.load">
+<code class="sig-name descname">load</code><span class="sig-paren">(</span><em class="sig-param">file_name</em>, <em class="sig-param">window=5</em>, <em class="sig-param">min_count=5</em>, <em class="sig-param">normalization=False</em>, <em class="sig-param">delimiters=' \t\r\n'</em>, <em class="sig-param">comment='#'</em><span class="sig-paren">)</span><a class="headerlink" href="#graphvite.graph.WordGraph.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load a word graph from a corpus file. Store the graph in an adjacency list.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file_name</strong> (<em>str</em>) – file name</p></li>
+<li><p><strong>window</strong> (<em>int</em><em>, </em><em>optional</em>) – word pairs with distance &lt;= window are counted as edges</p></li>
+<li><p><strong>min_count</strong> (<em>int</em><em>, </em><em>optional</em>) – words with occurrence &lt;= min_count are discarded</p></li>
+<li><p><strong>normalization</strong> (<em>bool</em><em>, </em><em>optional</em>) – normalize the adjacency matrix or not</p></li>
+<li><p><strong>delimiters</strong> (<em>str</em><em>, </em><em>optional</em>) – string of delimiter characters</p></li>
+<li><p><strong>comment</strong> (<em>str</em><em>, </em><em>optional</em>) – prefix of comment strings</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="graphvite.graph.KnowledgeGraph">
+<em class="property">class </em><code class="sig-prename descclassname">graphvite.graph.</code><code class="sig-name descname">KnowledgeGraph</code><span class="sig-paren">(</span><em class="sig-param">index_type=dtype.uint32</em><span class="sig-paren">)</span><a class="headerlink" href="#graphvite.graph.KnowledgeGraph" title="Permalink to this definition">¶</a></dt>
+<dd><p>Knowledge graphs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>index_type</strong> (<em>dtype</em>) – type of node indexes</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Instantiations:</dt><dd><ul class="simple">
+<li><p><strong>index_type</strong>: dtype.uint32</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="graphvite.graph.KnowledgeGraph.load">
+<code class="sig-name descname">load</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#graphvite.graph.KnowledgeGraph.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load a knowledge graph from a triplet-list file. Store the graph in an adjacency list.</p>
+<p>This function has 3 overloads</p>
+<dl class="function">
+<dt>
+<code class="sig-name descname">load</code><span class="sig-paren">(</span><em class="sig-param">file_name</em>, <em class="sig-param">normalization=False</em>, <em class="sig-param">delimiters=' \t\r\n'</em>, <em class="sig-param">comment='#'</em><span class="sig-paren">)</span></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt>
+<code class="sig-name descname">load</code><span class="sig-paren">(</span><em class="sig-param">triplet_list</em>, <em class="sig-param">normalization=False</em><span class="sig-paren">)</span></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt>
+<code class="sig-name descname">load</code><span class="sig-paren">(</span><em class="sig-param">weighted_triplet_list</em>, <em class="sig-param">normalization=False</em><span class="sig-paren">)</span></dt>
+<dd></dd></dl>
+
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file_name</strong> (<em>str</em>) – file name</p></li>
+<li><p><strong>triplet_list</strong> (<em>list of</em><em> (</em><em>str</em><em>, </em><em>str</em><em>, </em><em>str</em><em>)</em>) – triplet list</p></li>
+<li><p><strong>weighted_triplet_list</strong> (<em>list of</em><em> (</em><em>str</em><em>, </em><em>str</em><em>, </em><em>str</em><em>, </em><em>float</em><em>)</em>) – weighted triplet list</p></li>
+<li><p><strong>normalization</strong> (<em>bool</em><em>, </em><em>optional</em>) – normalize the adjacency matrix or not</p></li>
+<li><p><strong>delimiters</strong> (<em>str</em><em>, </em><em>optional</em>) – string of delimiter characters</p></li>
+<li><p><strong>comment</strong> (<em>str</em><em>, </em><em>optional</em>) – prefix of comment strings</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="graphvite.graph.KnowledgeGraph.save">
+<code class="sig-name descname">save</code><span class="sig-paren">(</span><em class="sig-param">file_name</em>, <em class="sig-param">anonymous=False</em><span class="sig-paren">)</span><a class="headerlink" href="#graphvite.graph.KnowledgeGraph.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save the graph in triplet-list format.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file_name</strong> (<em>str</em>) – file name</p></li>
+<li><p><strong>anonymous</strong> (<em>bool</em><em>, </em><em>optional</em>) – save entity / relation names or not</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="graphvite.graph.KnowledgeGraph.entity2id">
+<em class="property">property </em><code class="sig-name descname">entity2id</code><a class="headerlink" href="#graphvite.graph.KnowledgeGraph.entity2id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Map of entity name to index.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="graphvite.graph.KnowledgeGraph.id2entity">
+<em class="property">property </em><code class="sig-name descname">id2entity</code><a class="headerlink" href="#graphvite.graph.KnowledgeGraph.id2entity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Map of entity index to name.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="graphvite.graph.KnowledgeGraph.id2relation">
+<em class="property">property </em><code class="sig-name descname">id2relation</code><a class="headerlink" href="#graphvite.graph.KnowledgeGraph.id2relation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Map of relation index to name.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="graphvite.graph.KnowledgeGraph.relation2id">
+<em class="property">property </em><code class="sig-name descname">relation2id</code><a class="headerlink" href="#graphvite.graph.KnowledgeGraph.relation2id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Map of relation name to index.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="graphvite.graph.KNNGraph">
+<em class="property">class </em><code class="sig-prename descclassname">graphvite.graph.</code><code class="sig-name descname">KNNGraph</code><span class="sig-paren">(</span><em class="sig-param">index_type=dtype.uint32</em>, <em class="sig-param">device_ids=[]</em>, <em class="sig-param">num_thread_per_worker=auto</em><span class="sig-paren">)</span><a class="headerlink" href="#graphvite.graph.KNNGraph" title="Permalink to this definition">¶</a></dt>
+<dd><p>K-nearest neighbor graphs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>index_type</strong> (<em>dtype</em><em>, </em><em>optional</em>) – type of node indexes</p></li>
+<li><p><strong>device_ids</strong> (<em>list of int</em><em>, </em><em>optional</em>) – GPU ids, [] for auto</p></li>
+<li><p><strong>num_thread_per_worker</strong> (<em>int</em><em>, </em><em>optional</em>) – number of CPU thread per GPU</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Instantiations:</dt><dd><ul class="simple">
+<li><p><strong>index_type</strong>: dtype.uint32</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="graphvite.graph.KNNGraph.load">
+<code class="sig-name descname">load</code><span class="sig-paren">(</span><em class="sig-param">*arg</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#graphvite.graph.KNNGraph.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a KNN graph from a vector list. Store the graph in an adjacency list.</p>
+<p>This function has 2 overloads</p>
+<dl class="function">
+<dt>
+<code class="sig-name descname">load</code><span class="sig-paren">(</span><em class="sig-param">vector_file</em>, <em class="sig-param">num_neighbor=200</em>, <em class="sig-param">perplexity=30</em>, <em class="sig-param">vector_normalization=True</em>, <em class="sig-param">delimiters=' \t\r\n'</em>, <em class="sig-param">comment='#'</em><span class="sig-paren">)</span></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt>
+<code class="sig-name descname">load</code><span class="sig-paren">(</span><em class="sig-param">vectors</em>, <em class="sig-param">num_neighbor=200</em>, <em class="sig-param">perplexity=30</em>, <em class="sig-param">vector_normalization=True</em><span class="sig-paren">)</span></dt>
+<dd></dd></dl>
+
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file_name</strong> (<em>str</em>) – file name</p></li>
+<li><p><strong>vectors</strong> (<em>2D array_like</em>) – vector list</p></li>
+<li><p><strong>num_neighbor</strong> (<em>int</em><em>, </em><em>optional</em>) – number of neighbors for each node</p></li>
+<li><p><strong>perplexity</strong> (<em>int</em><em>, </em><em>optional</em>) – perplexity for the neighborhood of each node</p></li>
+<li><p><strong>vector_normalization</strong> (<em>bool</em><em>, </em><em>optional</em>) – normalize the input vectors or not</p></li>
+<li><p><strong>delimiters</strong> (<em>str</em><em>, </em><em>optional</em>) – string of delimiter characters</p></li>
+<li><p><strong>comment</strong> (<em>str</em><em>, </em><em>optional</em>) – prefix of comment strings</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="solver.html" class="btn btn-neutral float-right" title="graphvite.solver" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="application.html" class="btn btn-neutral float-left" title="graphvite.application" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, MilaGraph
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

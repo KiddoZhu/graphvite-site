@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>graphvite.dataset &mdash; GraphVite 0.2.1 documentation</title>
+  <title>graphvite.dataset &mdash; GraphVite 0.2.2 documentation</title>
   
 
   
@@ -23,10 +23,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -226,7 +226,7 @@
 <span class="sd">- :class:`CIFAR10`</span>
 <span class="sd">- :class:`ImageNet`</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span>
 
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">glob</span>
@@ -234,11 +234,11 @@
 <span class="kn">import</span> <span class="nn">logging</span>
 <span class="kn">import</span> <span class="nn">gzip</span><span class="o">,</span> <span class="nn">zipfile</span><span class="o">,</span> <span class="nn">tarfile</span>
 <span class="kn">import</span> <span class="nn">multiprocessing</span>
-<span class="kn">from</span> <span class="nn">collections</span> <span class="k">import</span> <span class="n">defaultdict</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="kn">from</span> <span class="nn">.</span> <span class="k">import</span> <span class="n">cfg</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">cfg</span>
 
 <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
@@ -289,7 +289,7 @@
 <span class="sd">        :func:`link_prediction_split`,</span>
 <span class="sd">        :func:`image_feature_data`</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">urls</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">members</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">urls</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">members</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">urls</span> <span class="o">=</span> <span class="n">urls</span> <span class="ow">or</span> <span class="p">{}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">members</span> <span class="o">=</span> <span class="n">members</span> <span class="ow">or</span> <span class="p">{}</span>
@@ -308,7 +308,7 @@
         <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">relpath</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">download</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">):</span>
-        <span class="kn">from</span> <span class="nn">six.moves.urllib.request</span> <span class="k">import</span> <span class="n">urlretrieve</span>
+        <span class="kn">from</span> <span class="nn">six.moves.urllib.request</span> <span class="kn">import</span> <span class="n">urlretrieve</span>
 
         <span class="n">save_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
         <span class="k">if</span> <span class="s2">&quot;?&quot;</span> <span class="ow">in</span> <span class="n">save_file</span><span class="p">:</span>
@@ -399,7 +399,7 @@
             <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
         <span class="k">return</span> <span class="nb">set</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;*&quot;</span><span class="p">)))</span>
 
-    <span class="k">def</span> <span class="nf">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
         <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">urls</span><span class="p">:</span>
@@ -556,7 +556,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="kn">import</span> <span class="nn">torch</span>
         <span class="kn">import</span> <span class="nn">torchvision</span>
-        <span class="kn">from</span> <span class="nn">torch</span> <span class="k">import</span> <span class="n">nn</span>
+        <span class="kn">from</span> <span class="nn">torch</span> <span class="kn">import</span> <span class="n">nn</span>
 
         <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;computing </span><span class="si">%s</span><span class="s2"> feature&quot;</span> <span class="o">%</span> <span class="n">model</span><span class="p">)</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
@@ -591,12 +591,12 @@
 <span class="sd">    Train and test splits are used for link prediction purpose.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">BlogCatalog</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
             <span class="s2">&quot;blogcatalog&quot;</span><span class="p">,</span>
             <span class="n">urls</span><span class="o">=</span><span class="p">{</span>
-                <span class="s2">&quot;graph&quot;</span><span class="p">:</span> <span class="s2">&quot;http://socialcomputing.asu.edu/uploads/1283153973/BlogCatalog-dataset.zip&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;http://socialcomputing.asu.edu/uploads/1283153973/BlogCatalog-dataset.zip&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;graph&quot;</span><span class="p">:</span> <span class="s2">&quot;https://www.dropbox.com/s/cf21ouuzd563cqx/BlogCatalog-dataset.zip?dl=1&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;https://www.dropbox.com/s/cf21ouuzd563cqx/BlogCatalog-dataset.zip?dl=1&quot;</span><span class="p">,</span>
                 <span class="s2">&quot;train&quot;</span><span class="p">:</span> <span class="p">[],</span> <span class="c1"># depends on `graph`</span>
                 <span class="s2">&quot;valid&quot;</span><span class="p">:</span> <span class="p">[],</span> <span class="c1"># depends on `graph`</span>
                 <span class="s2">&quot;test&quot;</span><span class="p">:</span> <span class="p">[]</span> <span class="c1"># depends on `graph`</span>
@@ -636,7 +636,7 @@
 <span class="sd">    Splits:</span>
 <span class="sd">        graph, label</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">Youtube</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
             <span class="s2">&quot;youtube&quot;</span><span class="p">,</span>
             <span class="n">urls</span><span class="o">=</span><span class="p">{</span>
@@ -656,7 +656,7 @@
 <span class="sd">    Splits:</span>
 <span class="sd">        graph, label</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">Flickr</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
             <span class="s2">&quot;flickr&quot;</span><span class="p">,</span>
             <span class="n">urls</span><span class="o">=</span><span class="p">{</span>
@@ -676,7 +676,7 @@
 <span class="sd">    Splits:</span>
 <span class="sd">        pld_train, pld_test</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">Hyperlink2012</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
             <span class="s2">&quot;hyperlink2012&quot;</span><span class="p">,</span>
             <span class="n">urls</span><span class="o">=</span><span class="p">{</span>
@@ -709,7 +709,7 @@
 <span class="sd">    Splits:</span>
 <span class="sd">        graph, small_graph, label</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">Friendster</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
             <span class="s2">&quot;friendster&quot;</span><span class="p">,</span>
             <span class="n">urls</span><span class="o">=</span><span class="p">{</span>
@@ -734,11 +734,11 @@
 <span class="sd">    Splits:</span>
 <span class="sd">        graph</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">Wikipedia</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
             <span class="s2">&quot;wikipedia&quot;</span><span class="p">,</span>
             <span class="n">urls</span><span class="o">=</span><span class="p">{</span>
-                <span class="s2">&quot;graph&quot;</span><span class="p">:</span> <span class="s2">&quot;https://www.dropbox.com/s/mwt4uu1qu9fflfk/enwiki-latest-pages-articles-sentences.txt.gz?dl=1&quot;</span>
+                <span class="s2">&quot;graph&quot;</span><span class="p">:</span> <span class="s2">&quot;https://www.dropbox.com/s/q6w950e5f7g7ax8/enwiki-latest-pages-articles-sentences.txt.gz?dl=1&quot;</span>
             <span class="p">}</span>
         <span class="p">)</span></div>
 
@@ -761,7 +761,7 @@
         <span class="p">(</span><span class="s2">&quot;%&quot;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">%</span> <span class="n">y</span><span class="p">)</span>
     <span class="p">]</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">Math</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
             <span class="s2">&quot;math&quot;</span><span class="p">,</span>
             <span class="n">urls</span><span class="o">=</span><span class="p">{</span>
@@ -800,7 +800,7 @@
 <span class="sd">    Splits:</span>
 <span class="sd">        train, valid, test</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">FB15k</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
             <span class="s2">&quot;fb15k&quot;</span><span class="p">,</span>
             <span class="n">urls</span><span class="o">=</span><span class="p">{</span>
@@ -818,7 +818,7 @@
 <span class="sd">    Splits:</span>
 <span class="sd">        train, valid, test</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">FB15k237</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
             <span class="s2">&quot;fb15k-237&quot;</span><span class="p">,</span>
             <span class="n">urls</span><span class="o">=</span><span class="p">{</span>
@@ -836,7 +836,7 @@
 <span class="sd">    Splits:</span>
 <span class="sd">        train, valid, test</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">WN18</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
             <span class="s2">&quot;wn18&quot;</span><span class="p">,</span>
             <span class="n">urls</span><span class="o">=</span><span class="p">{</span>
@@ -854,7 +854,7 @@
 <span class="sd">    Splits:</span>
 <span class="sd">        train, valid, test</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">WN18RR</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
             <span class="s2">&quot;wn18rr&quot;</span><span class="p">,</span>
             <span class="n">urls</span><span class="o">=</span><span class="p">{</span>
@@ -872,7 +872,7 @@
 <span class="sd">    Splits:</span>
 <span class="sd">        train, valid, test</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">Wikidata5m</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
             <span class="s2">&quot;wikidata5m&quot;</span><span class="p">,</span>
             <span class="n">urls</span><span class="o">=</span><span class="p">{</span>
@@ -930,7 +930,7 @@
 <span class="sd">    Splits:</span>
 <span class="sd">        train</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">Freebase</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
             <span class="s2">&quot;freebase&quot;</span><span class="p">,</span>
             <span class="n">urls</span><span class="o">=</span><span class="p">{</span>
@@ -946,7 +946,7 @@
 <span class="sd">    Splits:</span>
 <span class="sd">        train_image_data, train_label_data, test_image_data, test_label_data, image_data, label_data</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">MNIST</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
             <span class="s2">&quot;mnist&quot;</span><span class="p">,</span>
             <span class="n">urls</span><span class="o">=</span><span class="p">{</span>
@@ -984,7 +984,7 @@
 <span class="sd">    Splits:</span>
 <span class="sd">        train_image_data, train_label_data, test_image_data, test_label_data, image_data, label_data</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">CIFAR10</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
             <span class="s2">&quot;cifar10&quot;</span><span class="p">,</span>
             <span class="n">urls</span><span class="o">=</span><span class="p">{</span>
@@ -1054,7 +1054,7 @@
 <span class="sd">        valid_image, valid_feature_data, valid_label, valid_hierarchical_label</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">ImageNet</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
             <span class="s2">&quot;imagenet&quot;</span><span class="p">,</span>
             <span class="n">urls</span><span class="o">=</span><span class="p">{</span>
@@ -1080,7 +1080,7 @@
             <span class="n">nltk</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;corpora/wordnet&quot;</span><span class="p">)</span>
         <span class="k">except</span> <span class="ne">LookupError</span><span class="p">:</span>
             <span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s2">&quot;wordnet&quot;</span><span class="p">)</span>
-        <span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="k">import</span> <span class="n">wordnet</span>
+        <span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">wordnet</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="n">wordnet</span><span class="o">.</span><span class="n">synset_from_pos_and_offset</span>
         <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
@@ -1128,7 +1128,7 @@
     <span class="k">def</span> <span class="nf">image_feature_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image_path</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;&quot;&quot;&quot;</span>
         <span class="kn">import</span> <span class="nn">torchvision</span>
-        <span class="kn">from</span> <span class="nn">torchvision</span> <span class="k">import</span> <span class="n">transforms</span>
+        <span class="kn">from</span> <span class="nn">torchvision</span> <span class="kn">import</span> <span class="n">transforms</span>
 
         <span class="n">augmentation</span> <span class="o">=</span> <span class="n">transforms</span><span class="o">.</span><span class="n">Compose</span><span class="p">([</span>
             <span class="n">transforms</span><span class="o">.</span><span class="n">Resize</span><span class="p">(</span><span class="mi">256</span><span class="p">),</span>
@@ -1175,7 +1175,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">readable_label</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">save_file</span><span class="p">,</span> <span class="n">hierarchy</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">valid_image_preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image_path</span><span class="p">,</span> <span class="n">meta_path</span><span class="p">,</span> <span class="n">save_file</span><span class="p">):</span>
-        <span class="kn">from</span> <span class="nn">scipy.io</span> <span class="k">import</span> <span class="n">loadmat</span>
+        <span class="kn">from</span> <span class="nn">scipy.io</span> <span class="kn">import</span> <span class="n">loadmat</span>
 
         <span class="n">image_files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">image_path</span><span class="p">,</span> <span class="s2">&quot;*.JPEG&quot;</span><span class="p">))</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">image_files</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
@@ -1207,7 +1207,7 @@
         <span class="k">return</span> <span class="n">features</span>
 
     <span class="k">def</span> <span class="nf">valid_label_preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">meta_path</span><span class="p">,</span> <span class="n">save_file</span><span class="p">):</span>
-        <span class="kn">from</span> <span class="nn">scipy.io</span> <span class="k">import</span> <span class="n">loadmat</span>
+        <span class="kn">from</span> <span class="nn">scipy.io</span> <span class="kn">import</span> <span class="n">loadmat</span>
 
         <span class="n">meta_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">meta_path</span><span class="p">,</span> <span class="s2">&quot;ILSVRC2012_devkit_t12/data/meta.mat&quot;</span><span class="p">)</span>
         <span class="n">id_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">meta_path</span><span class="p">,</span> <span class="s2">&quot;ILSVRC2012_devkit_t12/data/ILSVRC2012_validation_ground_truth.txt&quot;</span><span class="p">)</span>
@@ -1221,7 +1221,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">readable_label</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">save_file</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">valid_hierarchical_label_preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">meta_path</span><span class="p">,</span> <span class="n">save_file</span><span class="p">):</span>
-        <span class="kn">from</span> <span class="nn">scipy.io</span> <span class="k">import</span> <span class="n">loadmat</span>
+        <span class="kn">from</span> <span class="nn">scipy.io</span> <span class="kn">import</span> <span class="n">loadmat</span>
 
         <span class="n">meta_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">meta_path</span><span class="p">,</span> <span class="s2">&quot;ILSVRC2012_devkit_t12/data/meta.mat&quot;</span><span class="p">)</span>
         <span class="n">id_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">meta_path</span><span class="p">,</span> <span class="s2">&quot;ILSVRC2012_devkit_t12/data/ILSVRC2012_validation_ground_truth.txt&quot;</span><span class="p">)</span>

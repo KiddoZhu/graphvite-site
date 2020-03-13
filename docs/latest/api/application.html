@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>graphvite.application &mdash; GraphVite 0.2.1 documentation</title>
+  <title>graphvite.application &mdash; GraphVite 0.2.2 documentation</title>
   
 
   
@@ -23,10 +23,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -487,6 +487,7 @@ The likelihood of edges can be predicted by computing the score function over em
 <li><p>ComplEx (<a class="reference external" href="http://proceedings.mlr.press/v48/trouillon16.pdf">Complex Embeddings for Simple Link Prediction</a>)</p></li>
 <li><p>SimplE (<a class="reference external" href="https://papers.nips.cc/paper/7682-simple-embedding-for-link-prediction-in-knowledge-graphs.pdf">SimplE Embedding for Link Prediction in Knowledge Graphs</a>)</p></li>
 <li><p>RotatE (<a class="reference external" href="https://arxiv.org/pdf/1902.10197.pdf">RotatE: Knowledge Graph Embedding by Relational Rotation in Complex Space</a>)</p></li>
+<li><p>QuatE (<cite>Quaternion Knowledge Graph Embeddings</cite>)</p></li>
 </ul>
 </dd>
 </dl>
@@ -503,7 +504,8 @@ The likelihood of edges can be predicted by computing the score function over em
 </dl>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The implementation of TransE, DistMult and ComplEx, SimplE are slightly different from their original papers.
+<p>The implementation of TransE, DistMult, ComplEx, SimplE and QuatE are slightly different from their original
+papers.
 The loss function and the regularization term generally follow <a class="reference external" href="https://github.com/DeepGraphLearning/KnowledgeGraphEmbedding">this repo</a>.
 Self-adversarial negative sampling is also adopted in these models like RotatE.</p>
 </div>

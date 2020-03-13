@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Python Interface &mdash; GraphVite 0.2.1 documentation</title>
+  <title>Python Interface &mdash; GraphVite 0.2.2 documentation</title>
   
 
   
@@ -23,10 +23,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -194,7 +194,7 @@
 <h1>Python Interface<a class="headerlink" href="#python-interface" title="Permalink to this headline">¶</a></h1>
 <p>GraphVite provides Python interface for convenient integration with other software.
 To use GraphVite in Python, import these two modules in our script.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">graphvite</span> <span class="k">as</span> <span class="nn">gv</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">graphvite</span> <span class="k">as</span> <span class="nn">gv</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">graphvite.application</span> <span class="k">as</span> <span class="nn">gap</span>
 </pre></div>
 </div>
@@ -204,7 +204,7 @@ wrappers of applications, along with their evaluation routines.</p>
 <div class="section" id="applications">
 <h2>Applications<a class="headerlink" href="#applications" title="Permalink to this headline">¶</a></h2>
 <p>We can invoke a node embedding application with the following lines.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">app</span> <span class="o">=</span> <span class="n">gap</span><span class="o">.</span><span class="n">GraphApplication</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">128</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">app</span> <span class="o">=</span> <span class="n">gap</span><span class="o">.</span><span class="n">GraphApplication</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">128</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">app</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file_name</span><span class="o">=</span><span class="n">gv</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">blogcatalog</span><span class="o">.</span><span class="n">train</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">app</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">app</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
@@ -223,27 +223,27 @@ wrappers of applications, along with their evaluation routines.</p>
 <p>The basic classes are very helpful if we need fine-grained manipulation of the
 pipeline. For example, we may train an ensemble of node embedding models on the
 same graph. First, create a graph and two node embedding solvers.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">graph</span> <span class="o">=</span> <span class="n">gv</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">graph</span> <span class="o">=</span> <span class="n">gv</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">graph</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">gv</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">blogcatalog</span><span class="o">.</span><span class="n">train</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">solvers</span> <span class="o">=</span> <span class="p">[</span><span class="n">gv</span><span class="o">.</span><span class="n">solver</span><span class="o">.</span><span class="n">GraphSolver</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">device_ids</span><span class="o">=</span><span class="p">[</span><span class="n">gpu</span><span class="p">],</span> <span class="n">num_sampler_per_worker</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 <span class="gp">... </span>           <span class="k">for</span> <span class="n">gpu</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">)]</span>
 </pre></div>
 </div>
 <p>Then, build the solvers on that graph. This step determines all memory allocation.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">solver</span> <span class="ow">in</span> <span class="n">solvers</span><span class="p">:</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">solver</span> <span class="ow">in</span> <span class="n">solvers</span><span class="p">:</span>
 <span class="gp">&gt;&gt;&gt; </span>    <span class="n">solver</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">graph</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Now we can train the solver. The training stage of solvers can be fully paralleled
 with multiple threads, since GraphVite never holds Python GIL inside basic classes.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">multiprocessing.pool</span> <span class="k">import</span> <span class="n">ThreadPool</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">multiprocessing.pool</span> <span class="kn">import</span> <span class="n">ThreadPool</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">pool</span> <span class="o">=</span> <span class="n">ThreadPool</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">models</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;DeepWalk&quot;</span><span class="p">,</span> <span class="s2">&quot;LINE&quot;</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">pool</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="nb">zip</span><span class="p">(</span><span class="n">solvers</span><span class="p">,</span> <span class="n">models</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>Finally, obtain the ensembled embeddings.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">vertex_embeddings</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">s</span><span class="o">.</span><span class="n">vertex_embeddings</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">solvers</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">context_embeddings</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">s</span><span class="o">.</span><span class="n">context_embeddings</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">solvers</span><span class="p">])</span>
 </pre></div>
@@ -251,7 +251,7 @@ with multiple threads, since GraphVite never holds Python GIL inside basic class
 <p>Note the embeddings are stored in an internal order. To get an index of a specific
 node, use the <code class="docutils literal notranslate"><span class="pre">name2id</span></code> property of the graph. For example, the following line
 prints the vertex embedding of node “1024”.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">vertex_embeddings</span><span class="p">[</span><span class="n">graph</span><span class="o">.</span><span class="n">name2id</span><span class="p">[</span><span class="s2">&quot;1024&quot;</span><span class="p">]])</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">vertex_embeddings</span><span class="p">[</span><span class="n">graph</span><span class="o">.</span><span class="n">name2id</span><span class="p">[</span><span class="s2">&quot;1024&quot;</span><span class="p">]])</span>
 </pre></div>
 </div>
 <div class="admonition seealso">
@@ -266,7 +266,7 @@ prints the vertex embedding of node “1024”.</p>
 logging level to dismiss unimportant logs.</p>
 <p>The following lines suppress most logs except hyperparameters and evaluation results.
 The verbose mode additionally prints time tags and thread IDs each log.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">logging</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">logging</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">gv</span><span class="o">.</span><span class="n">init_logging</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">WARNING</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>

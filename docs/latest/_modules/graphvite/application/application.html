@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>graphvite.application.application &mdash; GraphVite 0.2.1 documentation</title>
+  <title>graphvite.application.application &mdash; GraphVite 0.2.2 documentation</title>
   
 
   
@@ -23,10 +23,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
@@ -199,22 +199,22 @@
 <span class="c1"># Author: Zhaocheng Zhu</span>
 
 <span class="sd">&quot;&quot;&quot;Implementation of applications&quot;&quot;&quot;</span>
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">print_function</span><span class="p">,</span> <span class="n">absolute_import</span><span class="p">,</span> <span class="n">unicode_literals</span><span class="p">,</span> <span class="n">division</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span><span class="p">,</span> <span class="n">absolute_import</span><span class="p">,</span> <span class="n">unicode_literals</span><span class="p">,</span> <span class="n">division</span>
 
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">re</span>
 <span class="kn">import</span> <span class="nn">pickle</span>
 <span class="kn">import</span> <span class="nn">logging</span>
 <span class="kn">import</span> <span class="nn">multiprocessing</span>
-<span class="kn">from</span> <span class="nn">collections</span> <span class="k">import</span> <span class="n">defaultdict</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
 
-<span class="kn">from</span> <span class="nn">future.builtins</span> <span class="k">import</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">map</span><span class="p">,</span> <span class="nb">range</span>
-<span class="kn">from</span> <span class="nn">easydict</span> <span class="k">import</span> <span class="n">EasyDict</span>
+<span class="kn">from</span> <span class="nn">future.builtins</span> <span class="kn">import</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">map</span><span class="p">,</span> <span class="nb">range</span>
+<span class="kn">from</span> <span class="nn">easydict</span> <span class="kn">import</span> <span class="n">EasyDict</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="kn">from</span> <span class="nn">..</span> <span class="k">import</span> <span class="n">lib</span><span class="p">,</span> <span class="n">cfg</span><span class="p">,</span> <span class="n">auto</span>
-<span class="kn">from</span> <span class="nn">..</span> <span class="k">import</span> <span class="n">graph</span><span class="p">,</span> <span class="n">solver</span>
-<span class="kn">from</span> <span class="nn">..util</span> <span class="k">import</span> <span class="n">assert_in</span><span class="p">,</span> <span class="n">monitor</span><span class="p">,</span> <span class="n">SharedNDArray</span>
+<span class="kn">from</span> <span class="nn">..</span> <span class="kn">import</span> <span class="n">lib</span><span class="p">,</span> <span class="n">cfg</span><span class="p">,</span> <span class="n">auto</span>
+<span class="kn">from</span> <span class="nn">..</span> <span class="kn">import</span> <span class="n">graph</span><span class="p">,</span> <span class="n">solver</span>
+<span class="kn">from</span> <span class="nn">..util</span> <span class="kn">import</span> <span class="n">assert_in</span><span class="p">,</span> <span class="n">monitor</span><span class="p">,</span> <span class="n">SharedNDArray</span>
 
 <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
@@ -231,7 +231,7 @@
 <span class="sd">        float_type (dtype, optional): type of parameters</span>
 <span class="sd">        index_type (dtype, optional): type of graph indexes</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dim</span><span class="p">,</span> <span class="n">gpus</span><span class="o">=</span><span class="p">[],</span> <span class="n">cpu_per_gpu</span><span class="o">=</span><span class="n">auto</span><span class="p">,</span> <span class="n">gpu_memory_limit</span><span class="o">=</span><span class="n">auto</span><span class="p">,</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dim</span><span class="p">,</span> <span class="n">gpus</span><span class="o">=</span><span class="p">[],</span> <span class="n">cpu_per_gpu</span><span class="o">=</span><span class="n">auto</span><span class="p">,</span> <span class="n">gpu_memory_limit</span><span class="o">=</span><span class="n">auto</span><span class="p">,</span>
                  <span class="n">float_type</span><span class="o">=</span><span class="n">cfg</span><span class="o">.</span><span class="n">float_type</span><span class="p">,</span> <span class="n">index_type</span><span class="o">=</span><span class="n">cfg</span><span class="o">.</span><span class="n">index_type</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">=</span> <span class="n">dim</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">gpus</span> <span class="o">=</span> <span class="n">gpus</span>
@@ -552,7 +552,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="kn">import</span> <span class="nn">torch</span>
 
-        <span class="kn">from</span> <span class="nn">.network</span> <span class="k">import</span> <span class="n">LinkPredictor</span>
+        <span class="kn">from</span> <span class="nn">.network</span> <span class="kn">import</span> <span class="n">LinkPredictor</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">solver</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
 
@@ -639,9 +639,9 @@
 
 <span class="k">def</span> <span class="nf">linear_classification</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
     <span class="kn">import</span> <span class="nn">torch</span>
-    <span class="kn">from</span> <span class="nn">torch</span> <span class="k">import</span> <span class="n">optim</span>
-    <span class="kn">from</span> <span class="nn">torch.nn</span> <span class="k">import</span> <span class="n">functional</span> <span class="k">as</span> <span class="n">F</span>
-    <span class="kn">from</span> <span class="nn">.network</span> <span class="k">import</span> <span class="n">NodeClassifier</span>
+    <span class="kn">from</span> <span class="nn">torch</span> <span class="kn">import</span> <span class="n">optim</span>
+    <span class="kn">from</span> <span class="nn">torch.nn</span> <span class="kn">import</span> <span class="n">functional</span> <span class="k">as</span> <span class="n">F</span>
+    <span class="kn">from</span> <span class="nn">.network</span> <span class="kn">import</span> <span class="n">NodeClassifier</span>
 
     <span class="k">def</span> <span class="nf">generate_one_vs_rest</span><span class="p">(</span><span class="n">indexes</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
         <span class="n">new_indexes</span> <span class="o">=</span> <span class="p">[]</span>
@@ -656,7 +656,6 @@
         <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">as_tensor</span><span class="p">(</span><span class="n">new_indexes</span><span class="p">),</span> <span class="n">torch</span><span class="o">.</span><span class="n">as_tensor</span><span class="p">(</span><span class="n">new_labels</span><span class="p">)</span>
 
     <span class="n">embeddings</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">portion</span><span class="p">,</span> <span class="n">normalization</span><span class="p">,</span> <span class="n">times</span><span class="p">,</span> <span class="n">patience</span><span class="p">,</span> <span class="n">gpu</span> <span class="o">=</span> <span class="n">args</span>
-    <span class="n">embeddings</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">embeddings</span><span class="p">)</span>
     <span class="n">num_sample</span><span class="p">,</span> <span class="n">num_class</span> <span class="o">=</span> <span class="n">labels</span><span class="o">.</span><span class="n">shape</span>
     <span class="n">num_train</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">num_sample</span> <span class="o">*</span> <span class="n">portion</span><span class="p">)</span>
 
@@ -773,6 +772,7 @@
 <span class="sd">        - ComplEx (`Complex Embeddings for Simple Link Prediction`_)</span>
 <span class="sd">        - SimplE (`SimplE Embedding for Link Prediction in Knowledge Graphs`_)</span>
 <span class="sd">        - RotatE (`RotatE: Knowledge Graph Embedding by Relational Rotation in Complex Space`_)</span>
+<span class="sd">        - QuatE (`Quaternion Knowledge Graph Embeddings`)</span>
 
 <span class="sd">    .. _Translating Embeddings for Modeling Multi-relational Data:</span>
 <span class="sd">        http://papers.nips.cc/paper/5071-translating-embeddings-for-modeling-multi-relational-data.pdf</span>
@@ -784,6 +784,8 @@
 <span class="sd">        https://papers.nips.cc/paper/7682-simple-embedding-for-link-prediction-in-knowledge-graphs.pdf</span>
 <span class="sd">    .. _RotatE\: Knowledge Graph Embedding by Relational Rotation in Complex Space:</span>
 <span class="sd">        https://arxiv.org/pdf/1902.10197.pdf</span>
+<span class="sd">    .. _Quaternion Knowledge Graph Embeddings:</span>
+<span class="sd">        https://papers.nips.cc/paper/8541-quaternion-knowledge-graph-embeddings.pdf</span>
 
 <span class="sd">    Parameters:</span>
 <span class="sd">        dim (int): dimension of embeddings</span>
@@ -793,7 +795,8 @@
 <span class="sd">        index_type (dtype, optional): type of graph indexes</span>
 
 <span class="sd">    Note:</span>
-<span class="sd">        The implementation of TransE, DistMult and ComplEx, SimplE are slightly different from their original papers.</span>
+<span class="sd">        The implementation of TransE, DistMult, ComplEx, SimplE and QuatE are slightly different from their original</span>
+<span class="sd">        papers.</span>
 <span class="sd">        The loss function and the regularization term generally follow `this repo`_.</span>
 <span class="sd">        Self-adversarial negative sampling is also adopted in these models like RotatE.</span>
 
@@ -1179,13 +1182,11 @@
 
 <span class="k">def</span> <span class="nf">triplet_prediction</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
     <span class="kn">import</span> <span class="nn">torch</span>
-    <span class="kn">from</span> <span class="nn">.network</span> <span class="k">import</span> <span class="n">LinkPredictor</span>
+    <span class="kn">from</span> <span class="nn">.network</span> <span class="kn">import</span> <span class="n">LinkPredictor</span>
     <span class="n">torch</span><span class="o">.</span><span class="n">set_grad_enabled</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
 
     <span class="n">entity_embeddings</span><span class="p">,</span> <span class="n">relation_embeddings</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> \
     <span class="n">exclude_H</span><span class="p">,</span> <span class="n">exclude_T</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">score_function</span><span class="p">,</span> <span class="n">margin</span><span class="p">,</span> <span class="n">device</span> <span class="o">=</span> <span class="n">args</span>
-    <span class="n">entity_embeddings</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">entity_embeddings</span><span class="p">)</span>
-    <span class="n">relation_embeddings</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">relation_embeddings</span><span class="p">)</span>
     <span class="n">num_entity</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">entity_embeddings</span><span class="p">)</span>
     <span class="n">score_function</span> <span class="o">=</span> <span class="n">LinkPredictor</span><span class="p">(</span><span class="n">score_function</span><span class="p">,</span> <span class="n">entity_embeddings</span><span class="p">,</span> <span class="n">relation_embeddings</span><span class="p">,</span> <span class="n">entity_embeddings</span><span class="p">,</span>
                                    <span class="n">margin</span><span class="o">=</span><span class="n">margin</span><span class="p">)</span>
@@ -1312,7 +1313,7 @@
 <span class="sd">            figure_size (int, optional): size of figure</span>
 <span class="sd">            scale (int, optional): size of points</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="k">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+        <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">switch_backend</span><span class="p">(</span><span class="s2">&quot;agg&quot;</span><span class="p">)</span> <span class="c1"># for compatibility</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">solver</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
@@ -1350,7 +1351,7 @@
         <span class="k">if</span> <span class="n">dim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
             <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
         <span class="k">elif</span> <span class="n">dim</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
-            <span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="k">import</span> <span class="n">Axes3D</span>
+            <span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
             <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">gca</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s2">&quot;3d&quot;</span><span class="p">)</span>
         <span class="k">for</span> <span class="bp">cls</span> <span class="ow">in</span> <span class="n">classes</span><span class="p">:</span>
             <span class="n">indexes</span><span class="p">,</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">Y</span> <span class="o">==</span> <span class="bp">cls</span><span class="p">)</span>
@@ -1383,7 +1384,7 @@
 <span class="sd">            duration (float, optional): duration of each frame in seconds</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="kn">import</span> <span class="nn">imageio</span>
-        <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="k">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+        <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">switch_backend</span><span class="p">(</span><span class="s2">&quot;agg&quot;</span><span class="p">)</span> <span class="c1"># for compatibility</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">solver</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
@@ -1451,8 +1452,8 @@
 <span class="sd">            num_frame (int, optional): number of frames</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="kn">import</span> <span class="nn">imageio</span>
-        <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="k">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span><span class="p">,</span> <span class="n">animation</span>
-        <span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="k">import</span> <span class="n">Axes3D</span>
+        <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span><span class="p">,</span> <span class="n">animation</span>
+        <span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">switch_backend</span><span class="p">(</span><span class="s2">&quot;agg&quot;</span><span class="p">)</span> <span class="c1"># for compatibility</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">solver</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
@@ -1498,7 +1499,7 @@
 
 
 <span class="k">def</span> <span class="nf">render_hierarchy</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
-    <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="k">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+    <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">switch_backend</span><span class="p">(</span><span class="s2">&quot;agg&quot;</span><span class="p">)</span>
 
     <span class="n">coordinates</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">sample</span><span class="p">,</span> <span class="n">figure_size</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">depth</span> <span class="o">=</span> <span class="n">args</span>
@@ -1527,8 +1528,8 @@
 
 
 <span class="k">def</span> <span class="nf">render_animation</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
-    <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="k">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-    <span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="k">import</span> <span class="n">Axes3D</span>
+    <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+    <span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">switch_backend</span><span class="p">(</span><span class="s2">&quot;agg&quot;</span><span class="p">)</span>
 
     <span class="n">coordinates</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">degree</span><span class="p">,</span> <span class="n">figure_size</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">elevation</span> <span class="o">=</span> <span class="n">args</span>
@@ -1568,7 +1569,7 @@
         <span class="s2">&quot;visualization&quot;</span><span class="p">:</span> <span class="n">VisualizationApplication</span>
     <span class="p">}</span>
 
-    <span class="k">def</span> <span class="nf">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="k">if</span> <span class="nb">type</span> <span class="ow">in</span> <span class="bp">cls</span><span class="o">.</span><span class="n">application</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">application</span><span class="p">[</span><span class="nb">type</span><span class="p">](</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>

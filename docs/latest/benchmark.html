@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Benchmarks &mdash; GraphVite 0.2.1 documentation</title>
+  <title>Benchmarks &mdash; GraphVite 0.2.2 documentation</title>
   
 
   
@@ -23,10 +23,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -350,9 +350,9 @@ different percentages of training data.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p>Configuration files:
-<a class="reference download internal" download="" href="_downloads/36165b522bd0477e3183fcf67c873cfb/deepwalk_youtube.yaml"><code class="xref download docutils literal notranslate"><span class="pre">deepwalk_youtube.yaml</span></code></a>
-<a class="reference download internal" download="" href="_downloads/2e9b321ac9a691a1fba6593793da2c9c/line_youtube.yaml"><code class="xref download docutils literal notranslate"><span class="pre">line_youtube.yaml</span></code></a>
-<a class="reference download internal" download="" href="_downloads/dd9da3f0682e21ac453a894656b3a0e5/node2vec_youtube.yaml"><code class="xref download docutils literal notranslate"><span class="pre">node2vec_youtube.yaml</span></code></a></p>
+<a class="reference download internal" download="" href="_downloads/b110b5cf01b6b5d73a4c50d3ad12616d/deepwalk_youtube.yaml"><code class="xref download docutils literal notranslate"><span class="pre">deepwalk_youtube.yaml</span></code></a>
+<a class="reference download internal" download="" href="_downloads/314004325907a41496884f07f1f1ee93/line_youtube.yaml"><code class="xref download docutils literal notranslate"><span class="pre">line_youtube.yaml</span></code></a>
+<a class="reference download internal" download="" href="_downloads/2b3070371cb2d2648878d77093300639/node2vec_youtube.yaml"><code class="xref download docutils literal notranslate"><span class="pre">node2vec_youtube.yaml</span></code></a></p>
 </div>
 <p>For larger datasets, <a class="reference external" href="https://www.kdd.org/kdd2016/papers/files/rfp0218-groverA.pdf">node2vec</a> fails with out-of-memory error, as it requires more
 than 200 GiB memory to build alias tables for the 2nd order random walks.</p>
@@ -442,8 +442,8 @@ than 200 GiB memory to build alias tables for the 2nd order random walks.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p>Configuration files:
-<a class="reference download internal" download="" href="_downloads/c08750a4123b90006773aa6af4f8b2c7/deepwalk_flickr.yaml"><code class="xref download docutils literal notranslate"><span class="pre">deepwalk_flickr.yaml</span></code></a>
-<a class="reference download internal" download="" href="_downloads/89c2e146a8c3509fc442cd14c31d5f03/line_flickr.yaml"><code class="xref download docutils literal notranslate"><span class="pre">line_flickr.yaml</span></code></a></p>
+<a class="reference download internal" download="" href="_downloads/7483b28780d81beacb76c44c6c1227a8/deepwalk_flickr.yaml"><code class="xref download docutils literal notranslate"><span class="pre">deepwalk_flickr.yaml</span></code></a>
+<a class="reference download internal" download="" href="_downloads/390c004f158d4495188b1a9078d363ed/line_flickr.yaml"><code class="xref download docutils literal notranslate"><span class="pre">line_flickr.yaml</span></code></a></p>
 </div>
 <table class="docutils align-default">
 <colgroup>
@@ -537,14 +537,14 @@ than 200 GiB memory to build alias tables for the 2nd order random walks.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p>Configuration files:
-<a class="reference download internal" download="" href="_downloads/f1dcbf3f31f2501c6f26c00a2a041ddf/deepwalk_friendster-small.yaml"><code class="xref download docutils literal notranslate"><span class="pre">deepwalk_friendster-small.yaml</span></code></a>
-<a class="reference download internal" download="" href="_downloads/f441162cf80d7c1e3d5343bd093de235/line_friendster-small.yaml"><code class="xref download docutils literal notranslate"><span class="pre">line_friendster-small.yaml</span></code></a></p>
+<a class="reference download internal" download="" href="_downloads/1861e5b09634f1b95042508155a8f9e7/deepwalk_friendster-small.yaml"><code class="xref download docutils literal notranslate"><span class="pre">deepwalk_friendster-small.yaml</span></code></a>
+<a class="reference download internal" download="" href="_downloads/d8a17e7746e5aea500da3cef59cf817b/line_friendster-small.yaml"><code class="xref download docutils literal notranslate"><span class="pre">line_friendster-small.yaml</span></code></a></p>
 </div>
 </div>
 <div class="section" id="knowledge-graph-embedding">
 <span id="knowledge-graph-benchmark"></span><h2>Knowledge Graph Embedding<a class="headerlink" href="#knowledge-graph-embedding" title="Permalink to this headline">¶</a></h2>
-<p>For knowledge graph embedding, we benchmark <a class="reference external" href="http://papers.nips.cc/paper/5071-translating-embeddings-for-modeling-multi-relational-data.pdf">TransE</a>, <a class="reference external" href="https://arxiv.org/pdf/1412.6575.pdf">DistMult</a>, <a class="reference external" href="http://proceedings.mlr.press/v48/trouillon16.pdf">ComplEx</a> and
-<a class="reference external" href="https://arxiv.org/pdf/1902.10197.pdf">RotatE</a> on 5 standard datasets. The training time, evaluation time and resource of
+<p>For knowledge graph embedding, we benchmark <a class="reference external" href="http://papers.nips.cc/paper/5071-translating-embeddings-for-modeling-multi-relational-data.pdf">TransE</a>, <a class="reference external" href="https://arxiv.org/pdf/1412.6575.pdf">DistMult</a>, <a class="reference external" href="http://proceedings.mlr.press/v48/trouillon16.pdf">ComplEx</a>, <a class="reference external" href="https://papers.nips.cc/paper/7682-simple-embedding-for-link-prediction-in-knowledge-graphs.pdf">SimplE</a>,
+<a class="reference external" href="https://arxiv.org/pdf/1902.10197.pdf">RotatE</a> and <a class="reference external" href="https://papers.nips.cc/paper/8541-quaternion-knowledge-graph-embeddings.pdf">QuatE</a> on 5 standard datasets. The training time, evaluation time and resource of
 <a class="reference external" href="https://arxiv.org/pdf/1902.10197.pdf">RotatE</a> on these datasets are given in the following table.</p>
 <table class="docutils align-default">
 <colgroup>
@@ -659,16 +659,24 @@ are computed based on filtered results.</p>
 <td><p>0.830</p></td>
 <td><p>0.891</p></td>
 </tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://papers.nips.cc/paper/8541-quaternion-knowledge-graph-embeddings.pdf">QuatE</a></p></td>
+<td><p>48</p></td>
+<td><p>0.777</p></td>
+<td><p>0.716</p></td>
+<td><p>0.818</p></td>
+<td><p>0.880</p></td>
+</tr>
 </tbody>
 </table>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p>Configuration files:
-<a class="reference download internal" download="" href="_downloads/3d74d9cb16289bdf0f61dc209db1f371/transe_fb15k.yaml"><code class="xref download docutils literal notranslate"><span class="pre">transe_fb15k.yaml</span></code></a>
-<a class="reference download internal" download="" href="_downloads/9c409bd8324ab2b709a4d53f42560ab8/distmult_fb15k.yaml"><code class="xref download docutils literal notranslate"><span class="pre">distmult_fb15k.yaml</span></code></a>
-<a class="reference download internal" download="" href="_downloads/8e0a43bdd960d1f951358ccf62de070a/complex_fb15k.yaml"><code class="xref download docutils literal notranslate"><span class="pre">complex_fb15k.yaml</span></code></a>
-<a class="reference download internal" download="" href="_downloads/367f03a56eb378a3ab1d0e19d304933f/simple_fb15k.yaml"><code class="xref download docutils literal notranslate"><span class="pre">simple_fb15k.yaml</span></code></a>
-<a class="reference download internal" download="" href="_downloads/81be60fba5801207e36d4e477baf39b1/rotate_fb15k.yaml"><code class="xref download docutils literal notranslate"><span class="pre">rotate_fb15k.yaml</span></code></a></p>
+<a class="reference download internal" download="" href="_downloads/fdbc93e2069f3857febec92c79c22d66/transe_fb15k.yaml"><code class="xref download docutils literal notranslate"><span class="pre">transe_fb15k.yaml</span></code></a>
+<a class="reference download internal" download="" href="_downloads/b3bd8e112aa1bee5ae8ee4a3415241b4/distmult_fb15k.yaml"><code class="xref download docutils literal notranslate"><span class="pre">distmult_fb15k.yaml</span></code></a>
+<a class="reference download internal" download="" href="_downloads/c9c304c77437b8cdcdf07bf2d9f54e15/complex_fb15k.yaml"><code class="xref download docutils literal notranslate"><span class="pre">complex_fb15k.yaml</span></code></a>
+<a class="reference download internal" download="" href="_downloads/68166f13ca17fe069438d102e3cfbd06/simple_fb15k.yaml"><code class="xref download docutils literal notranslate"><span class="pre">simple_fb15k.yaml</span></code></a>
+<a class="reference download internal" download="" href="_downloads/06a455454a686e01271d1468df8980e4/rotate_fb15k.yaml"><code class="xref download docutils literal notranslate"><span class="pre">rotate_fb15k.yaml</span></code></a>
+<a class="reference download internal" download="" href="_downloads/541b3dfa04bbce01793c55a415f1a175/quate_fb15k.yaml"><code class="xref download docutils literal notranslate"><span class="pre">quate_fb15k.yaml</span></code></a></p>
 </div>
 <table class="docutils align-default">
 <colgroup>
@@ -724,16 +732,24 @@ are computed based on filtered results.</p>
 <td><p>0.348</p></td>
 <td><p>0.506</p></td>
 </tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://papers.nips.cc/paper/8541-quaternion-knowledge-graph-embeddings.pdf">QuatE</a></p></td>
+<td><p>182</p></td>
+<td><p>0.304</p></td>
+<td><p>0.208</p></td>
+<td><p>0.339</p></td>
+<td><p>0.500</p></td>
+</tr>
 </tbody>
 </table>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p>Configuration files:
-<a class="reference download internal" download="" href="_downloads/35f72d4cc4296ab00bb1a48794ee2b8c/transe_fb15k-237.yaml"><code class="xref download docutils literal notranslate"><span class="pre">transe_fb15k-237.yaml</span></code></a>
-<a class="reference download internal" download="" href="_downloads/1a97e05ecd75e77fcac8eba7d6717cdb/distmult_fb15k-237.yaml"><code class="xref download docutils literal notranslate"><span class="pre">distmult_fb15k-237.yaml</span></code></a>
-<a class="reference download internal" download="" href="_downloads/2a398a77a4248cb7a40589d78faa67cc/complex_fb15k-237.yaml"><code class="xref download docutils literal notranslate"><span class="pre">complex_fb15k-237.yaml</span></code></a>
-<a class="reference download internal" download="" href="_downloads/b87bfd98228de5304d32c98fe7dc232b/simple_fb15k-237.yaml"><code class="xref download docutils literal notranslate"><span class="pre">simple_fb15k-237.yaml</span></code></a>
-<a class="reference download internal" download="" href="_downloads/b4eef22e8dcd4072135f44b9f4f83cef/rotate_fb15k-237.yaml"><code class="xref download docutils literal notranslate"><span class="pre">rotate_fb15k-237.yaml</span></code></a></p>
+<a class="reference download internal" download="" href="_downloads/93c6508256c2925f3df7a5daaeb1987e/transe_fb15k-237.yaml"><code class="xref download docutils literal notranslate"><span class="pre">transe_fb15k-237.yaml</span></code></a>
+<a class="reference download internal" download="" href="_downloads/998f20c4aa5b9294cda6070508a3baf7/distmult_fb15k-237.yaml"><code class="xref download docutils literal notranslate"><span class="pre">distmult_fb15k-237.yaml</span></code></a>
+<a class="reference download internal" download="" href="_downloads/22b8bd50b79e4b790f7ac332bdad74dd/complex_fb15k-237.yaml"><code class="xref download docutils literal notranslate"><span class="pre">complex_fb15k-237.yaml</span></code></a>
+<a class="reference download internal" download="" href="_downloads/db4dc304a05a6e96e00be3b239e1b438/simple_fb15k-237.yaml"><code class="xref download docutils literal notranslate"><span class="pre">simple_fb15k-237.yaml</span></code></a>
+<a class="reference download internal" download="" href="_downloads/f0e4f2d43c75860ed4f9ec81518fee74/rotate_fb15k-237.yaml"><code class="xref download docutils literal notranslate"><span class="pre">rotate_fb15k-237.yaml</span></code></a>
+<a class="reference download internal" download="" href="_downloads/64d7e0ce469c17fa9bb88618e021079a/quate_fb15k-237.yaml"><code class="xref download docutils literal notranslate"><span class="pre">quate_fb15k-237.yaml</span></code></a></p>
 </div>
 <table class="docutils align-default">
 <colgroup>
@@ -789,16 +805,24 @@ are computed based on filtered results.</p>
 <td><p>0.950</p></td>
 <td><p>0.957</p></td>
 </tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://papers.nips.cc/paper/8541-quaternion-knowledge-graph-embeddings.pdf">QuatE</a></p></td>
+<td><p>544</p></td>
+<td><p>0.947</p></td>
+<td><p>0.943</p></td>
+<td><p>0.950</p></td>
+<td><p>0.954</p></td>
+</tr>
 </tbody>
 </table>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p>Configuration files:
-<a class="reference download internal" download="" href="_downloads/a9c577e58e132a71d00211d506a6f1d7/transe_wn18.yaml"><code class="xref download docutils literal notranslate"><span class="pre">transe_wn18.yaml</span></code></a>
-<a class="reference download internal" download="" href="_downloads/f4058fdf504caf7f7ee9e7f734682459/distmult_wn18.yaml"><code class="xref download docutils literal notranslate"><span class="pre">distmult_wn18.yaml</span></code></a>
-<a class="reference download internal" download="" href="_downloads/7410b578d72c5f05cdd995bc62ce54a9/complex_wn18.yaml"><code class="xref download docutils literal notranslate"><span class="pre">complex_wn18.yaml</span></code></a>
-<a class="reference download internal" download="" href="_downloads/fe83842c920cfa1c1e2fcd066173b5e9/simple_wn18.yaml"><code class="xref download docutils literal notranslate"><span class="pre">simple_wn18.yaml</span></code></a>
-<a class="reference download internal" download="" href="_downloads/c11ef1e9b392991727deeae7e18fdb95/rotate_wn18.yaml"><code class="xref download docutils literal notranslate"><span class="pre">rotate_wn18.yaml</span></code></a></p>
+<a class="reference download internal" download="" href="_downloads/01be64f82eb4af9aaac0a4d612cc368a/transe_wn18.yaml"><code class="xref download docutils literal notranslate"><span class="pre">transe_wn18.yaml</span></code></a>
+<a class="reference download internal" download="" href="_downloads/bb3296ec5918e1c51bfc65ae8e320df6/distmult_wn18.yaml"><code class="xref download docutils literal notranslate"><span class="pre">distmult_wn18.yaml</span></code></a>
+<a class="reference download internal" download="" href="_downloads/846207344864a2ae9d525dee986fe3a3/complex_wn18.yaml"><code class="xref download docutils literal notranslate"><span class="pre">complex_wn18.yaml</span></code></a>
+<a class="reference download internal" download="" href="_downloads/79b9eadef3c4fca89bdb041cd24e3516/simple_wn18.yaml"><code class="xref download docutils literal notranslate"><span class="pre">simple_wn18.yaml</span></code></a>
+<a class="reference download internal" download="" href="_downloads/515e5d30d0c2abdbd5d0fab3edf8907d/rotate_wn18.yaml"><code class="xref download docutils literal notranslate"><span class="pre">rotate_wn18.yaml</span></code></a>
+<a class="reference download internal" download="" href="_downloads/1e2129496b9313e688bec46a0c20aedc/quate_wn18.yaml"><code class="xref download docutils literal notranslate"><span class="pre">quate_wn18.yaml</span></code></a></p>
 </div>
 <table class="docutils align-default">
 <colgroup>
@@ -854,16 +878,24 @@ are computed based on filtered results.</p>
 <td><p>0.518</p></td>
 <td><p>0.589</p></td>
 </tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://papers.nips.cc/paper/8541-quaternion-knowledge-graph-embeddings.pdf">QuatE</a></p></td>
+<td><p>5775</p></td>
+<td><p>0.477</p></td>
+<td><p>0.448</p></td>
+<td><p>0.491</p></td>
+<td><p>0.532</p></td>
+</tr>
 </tbody>
 </table>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p>Configuration files:
-<a class="reference download internal" download="" href="_downloads/68988f47a5ee74d4c41b43f06e4a25be/transe_wn18rr.yaml"><code class="xref download docutils literal notranslate"><span class="pre">transe_wn18rr.yaml</span></code></a>
-<a class="reference download internal" download="" href="_downloads/204ceef6a6309229d16ebdcf7ffb4ee5/distmult_wn18rr.yaml"><code class="xref download docutils literal notranslate"><span class="pre">distmult_wn18rr.yaml</span></code></a>
-<a class="reference download internal" download="" href="_downloads/fa679b533e53550c0eb579d4702a0c34/complex_wn18rr.yaml"><code class="xref download docutils literal notranslate"><span class="pre">complex_wn18rr.yaml</span></code></a>
-<a class="reference download internal" download="" href="_downloads/6b0e26f8b6c1f5cb491ffd4b6d67be63/simple_wn18rr.yaml"><code class="xref download docutils literal notranslate"><span class="pre">simple_wn18rr.yaml</span></code></a>
-<a class="reference download internal" download="" href="_downloads/6ae863ce38d25d862f1bcc7d71c5647d/rotate_wn18rr.yaml"><code class="xref download docutils literal notranslate"><span class="pre">rotate_wn18rr.yaml</span></code></a></p>
+<a class="reference download internal" download="" href="_downloads/9b93afb1bdade87c3a588ae9cccbeccc/transe_wn18rr.yaml"><code class="xref download docutils literal notranslate"><span class="pre">transe_wn18rr.yaml</span></code></a>
+<a class="reference download internal" download="" href="_downloads/551f41e0fd59797ce69691336d82105b/distmult_wn18rr.yaml"><code class="xref download docutils literal notranslate"><span class="pre">distmult_wn18rr.yaml</span></code></a>
+<a class="reference download internal" download="" href="_downloads/3d6f6af3ec39819874a7c614ffb2436c/complex_wn18rr.yaml"><code class="xref download docutils literal notranslate"><span class="pre">complex_wn18rr.yaml</span></code></a>
+<a class="reference download internal" download="" href="_downloads/520a5eb4e7ea7989906b6062443940e0/simple_wn18rr.yaml"><code class="xref download docutils literal notranslate"><span class="pre">simple_wn18rr.yaml</span></code></a>
+<a class="reference download internal" download="" href="_downloads/db5904a6ae1032bc1f640b1d52a0a229/rotate_wn18rr.yaml"><code class="xref download docutils literal notranslate"><span class="pre">rotate_wn18rr.yaml</span></code></a>
+<a class="reference download internal" download="" href="_downloads/f467bb5f32e11046180f53745ff30989/quate_wn18rr.yaml"><code class="xref download docutils literal notranslate"><span class="pre">quate_wn18rr.yaml</span></code></a></p>
 </div>
 <table class="docutils align-default">
 <colgroup>
@@ -919,16 +951,24 @@ are computed based on filtered results.</p>
 <td><p>0.322</p></td>
 <td><p>0.390</p></td>
 </tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://papers.nips.cc/paper/8541-quaternion-knowledge-graph-embeddings.pdf">QuatE</a></p></td>
+<td><p>97372</p></td>
+<td><p>0.276</p></td>
+<td><p>0.227</p></td>
+<td><p>0.301</p></td>
+<td><p>0.359</p></td>
+</tr>
 </tbody>
 </table>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p>Configuration files:
-<a class="reference download internal" download="" href="_downloads/5312130afdd3cf6d817f0c37b170d535/transe_wikidata5m.yaml"><code class="xref download docutils literal notranslate"><span class="pre">transe_wikidata5m.yaml</span></code></a>
-<a class="reference download internal" download="" href="_downloads/4ae28368e060f26731c4a915e2589214/distmult_wikidata5m.yaml"><code class="xref download docutils literal notranslate"><span class="pre">distmult_wikidata5m.yaml</span></code></a>
-<a class="reference download internal" download="" href="_downloads/c24537fbf131d33950a94084d441ba1c/complex_wikidata5m.yaml"><code class="xref download docutils literal notranslate"><span class="pre">complex_wikidata5m.yaml</span></code></a>
-<a class="reference download internal" download="" href="_downloads/5b9a2fd8bd336d2e52e1689fc1100567/simple_wikidata5m.yaml"><code class="xref download docutils literal notranslate"><span class="pre">simple_wikidata5m.yaml</span></code></a>
-<a class="reference download internal" download="" href="_downloads/d86d91f69cdc0bdcdd521a92b6294306/rotate_wikidata5m.yaml"><code class="xref download docutils literal notranslate"><span class="pre">rotate_wikidata5m.yaml</span></code></a></p>
+<a class="reference download internal" download="" href="_downloads/631a7f62b29e24653bf5f95f7f502587/transe_wikidata5m.yaml"><code class="xref download docutils literal notranslate"><span class="pre">transe_wikidata5m.yaml</span></code></a>
+<a class="reference download internal" download="" href="_downloads/e2f979bf8ce99c06bcd0a95d6408f80f/distmult_wikidata5m.yaml"><code class="xref download docutils literal notranslate"><span class="pre">distmult_wikidata5m.yaml</span></code></a>
+<a class="reference download internal" download="" href="_downloads/316471cce6271b5d1473d6de3ee84c05/complex_wikidata5m.yaml"><code class="xref download docutils literal notranslate"><span class="pre">complex_wikidata5m.yaml</span></code></a>
+<a class="reference download internal" download="" href="_downloads/eca76ca16e63e0e50bf806605f93c993/simple_wikidata5m.yaml"><code class="xref download docutils literal notranslate"><span class="pre">simple_wikidata5m.yaml</span></code></a>
+<a class="reference download internal" download="" href="_downloads/ef3a96c4d00be1cd6eb3cff81396fe27/rotate_wikidata5m.yaml"><code class="xref download docutils literal notranslate"><span class="pre">rotate_wikidata5m.yaml</span></code></a>
+<a class="reference download internal" download="" href="_downloads/24f66804882cbea13b302a780b88010f/quate_wikidata5m.yaml"><code class="xref download docutils literal notranslate"><span class="pre">quate_wikidata5m.yaml</span></code></a></p>
 </div>
 </div>
 <div class="section" id="graph-high-dimensional-data-visualization">
@@ -975,8 +1015,8 @@ can be traded off with speed if necessary.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p>Configuration files:
-<a class="reference download internal" download="" href="_downloads/1316b2a43d6f849d14cd43f6968f97b4/largevis_mnist_2d.yaml"><code class="xref download docutils literal notranslate"><span class="pre">largevis_mnist_2d.yaml</span></code></a>
-<a class="reference download internal" download="" href="_downloads/a463df39990affb5eca9dfcfc4cbf45a/largevis_imagenet.yaml"><code class="xref download docutils literal notranslate"><span class="pre">largevis_imagenet.yaml</span></code></a></p>
+<a class="reference download internal" download="" href="_downloads/8b3b6e5180c56286edf352f82542cc4a/largevis_mnist_2d.yaml"><code class="xref download docutils literal notranslate"><span class="pre">largevis_mnist_2d.yaml</span></code></a>
+<a class="reference download internal" download="" href="_downloads/336d12e7b3e0334f2143b356e728a63e/largevis_imagenet.yaml"><code class="xref download docutils literal notranslate"><span class="pre">largevis_imagenet.yaml</span></code></a></p>
 </div>
 <p>Here is a 3D visualization result of <a class="reference external" href="http://yann.lecun.com/exdb/publis/pdf/lecun-01a.pdf">MNIST</a>.</p>
 <img alt="_images/mnist_3d.gif" src="_images/mnist_3d.gif" />
