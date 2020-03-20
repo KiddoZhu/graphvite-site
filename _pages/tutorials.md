@@ -1,5 +1,5 @@
 ---
-title: "Welcome to GraphVite tutorials"
+title: "Welcome to GraphVite Tutorials"
 layout: splash
 classes: extend-left
 permalink: /tutorials

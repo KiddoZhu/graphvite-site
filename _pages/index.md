@@ -57,7 +57,7 @@ pretrained:
       Powerful pre-trained models are released to benefit a wide range of semantic tasks.
       Serving as a large encyclopedia for intelligent systems, these models are ready to
       enhance language understanding with factual knowledge of the world.
-    url: "/docs/latest/pretrained_model"
+    url: "/pretrained_models"
     btn_class: "btn--primary"
     btn_label: "Learn more"
 ---

@@ -1,0 +1,48 @@
+{% if include.id %}
+  {% assign id = include.id %}
+  {% assign map = page[id] %}
+{% else %}
+  {% assign id = "map" %}
+  {% assign map = page.map %}
+{% endif %}
+
+<head>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>
+</head>
+
+<div class="map" id="{{ id }}"></div>
+<script>
+  var layers = {};
+  
+  {% for layer in map.layers %}
+  {% assign key = layer[0] %}
+  {% assign value = layer[1] %}
+  var layer = L.tileLayer("{{ value.path | absolute_url }}/{z}_{x}_{y}.png", {
+    minZoom: {% if map.zoom[0] %}{{ map.zoom[0] }}{% else %}0{% endif %},
+    maxZoom: {% if map.zoom[1] %}{{ map.zoom[1] }}{% else %}1{% endif %},
+    attribution: "{{ value.title }}",
+    tileSize: 512,
+    zoomOffset: 0
+  });
+  layers["{{ key }}"] = layer;
+  {% endfor %}
+  
+  var map = L.map("{{ id }}", {crs: L.CRS.Simple, zoomSnap: 0, layers: [layers["{{ map.init.layer }}"]]}).setView([-256, 256], {{ map.init.scale }});
+  {% if map.layers.size > 1 %}
+  L.control.layers(layers).addTo(map);
+  {% endif %}
+  
+  {{% if map.legend %}}
+    var legend = L.control({position: "bottomright"});
+    legend.onAdd = function (map) {
+      var div = L.DomUtil.create("div", "info legend");
+      var colors = [{% for color in map.legend.colors %}"{{ color }}", {% endfor %}];
+      var labels = [{% for label in map.legend.labels %}"{{ label }}", {% endfor %}];
+      for (var i = 0; i < colors.length; i++)
+          div.innerHTML += `<div><i style='background:${colors[i]}'></i>${labels[i]}</div>`;
+      return div;
+    }
+  legend.addTo(map);
+  {{% endif %}}
+</script>

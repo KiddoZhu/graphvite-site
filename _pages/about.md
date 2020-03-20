@@ -1,6 +1,6 @@
 ---
-layout: splash
 title: "About"
+layout: splash
 permalink: /about.html
 header:
   overlay_filter: rgba(28, 150, 207, 0.9)
